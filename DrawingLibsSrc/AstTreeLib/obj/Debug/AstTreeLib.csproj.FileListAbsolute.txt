@@ -1,0 +1,6 @@
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\bin\Debug\AstTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\bin\Debug\AstTreeLib.pdb
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\bin\Debug\Antlr3.Runtime.dll
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\bin\Debug\Antlr3.Runtime.pdb
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\obj\Debug\AstTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\AstTreeLib\obj\Debug\AstTreeLib.pdb

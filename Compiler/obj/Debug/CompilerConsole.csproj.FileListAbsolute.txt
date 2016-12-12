@@ -1,0 +1,8 @@
+D:\Repos\Compiler\Compiler\bin\Debug\CompilerConsole.exe
+D:\Repos\Compiler\Compiler\bin\Debug\CompilerConsole.pdb
+D:\Repos\Compiler\Compiler\bin\Debug\Antlr3.Runtime.dll
+D:\Repos\Compiler\Compiler\bin\Debug\AstTreeLib.dll
+D:\Repos\Compiler\Compiler\bin\Debug\DrawingTreeLib.dll
+D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.exe
+D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.pdb
+D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.csprojResolveAssemblyReference.cache

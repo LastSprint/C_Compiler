@@ -1,0 +1,12 @@
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\WFTree.exe
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\WFTree.pdb
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\Antlr3.Runtime.dll
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\AstTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\AstTreeLib.pdb
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\bin\Debug\Antlr3.Runtime.pdb
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.csprojResolveAssemblyReference.cache
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.Form1.resources
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.Properties.Resources.resources
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.csproj.GenerateResource.Cache
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.exe
+D:\Repos\Compiler\DrawingLibsSrc\WFTree\obj\Debug\WFTree.pdb

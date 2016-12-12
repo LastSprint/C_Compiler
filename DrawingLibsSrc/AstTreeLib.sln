@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstTreeLib", "AstTreeLib\AstTreeLib.csproj", "{3D018E24-BAA8-4C85-B22B-81D9DC328FA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WFTree", "WFTree\WFTree.csproj", "{084CBD89-FCA7-4129-9561-D2DA2B0B6C1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingTreeLib", "DrawingTreeLib\DrawingTreeLib.csproj", "{8FF588EC-BEDF-492B-8CB8-91B136DCFDDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "astTree", "..\astTree\astTree\astTree.csproj", "{A06F2321-AA7C-4207-83DB-01FB5A0D0928}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D018E24-BAA8-4C85-B22B-81D9DC328FA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D018E24-BAA8-4C85-B22B-81D9DC328FA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D018E24-BAA8-4C85-B22B-81D9DC328FA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D018E24-BAA8-4C85-B22B-81D9DC328FA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{084CBD89-FCA7-4129-9561-D2DA2B0B6C1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{084CBD89-FCA7-4129-9561-D2DA2B0B6C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{084CBD89-FCA7-4129-9561-D2DA2B0B6C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{084CBD89-FCA7-4129-9561-D2DA2B0B6C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF588EC-BEDF-492B-8CB8-91B136DCFDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF588EC-BEDF-492B-8CB8-91B136DCFDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF588EC-BEDF-492B-8CB8-91B136DCFDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF588EC-BEDF-492B-8CB8-91B136DCFDDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A06F2321-AA7C-4207-83DB-01FB5A0D0928}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A06F2321-AA7C-4207-83DB-01FB5A0D0928}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A06F2321-AA7C-4207-83DB-01FB5A0D0928}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A06F2321-AA7C-4207-83DB-01FB5A0D0928}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

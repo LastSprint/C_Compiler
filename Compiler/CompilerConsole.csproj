@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9FE46525-827D-4512-9FC8-3A1454EEB86B}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CompilerConsole</RootNamespace>
+    <AssemblyName>CompilerConsole</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AstTreeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\AstTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DrawingTreeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\DrawingTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Parser\DeclareNodeParser.cs" />
+    <Compile Include="Parser\Exceptions\InvalidTypeException.cs" />
+    <Compile Include="Parser\Nodes\ArrCallNode.cs" />
+    <Compile Include="Parser\Nodes\MethodCallNode.cs" />
+    <Compile Include="Parser\Parsers\CallParser.cs" />
+    <Compile Include="Parser\Parsers\Expression\ExpressionParseMethods.cs" />
+    <Compile Include="Parser\Parsers\Expression\ExpressionsParser.cs" />
+    <Compile Include="Parser\Interfaces\IStructNode.cs" />
+    <Compile Include="Parser\Nodes\Expression.cs" />
+    <Compile Include="Parser\Nodes\HeapVariableNode.cs" />
+    <Compile Include="Parser\Nodes\StructNode.cs" />
+    <Compile Include="Parser\Nodes\AbstractNodes\VariableNode.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\Utils\BodyTable.cs" />
+    <Compile Include="Parser\Nodes\ArrayNode.cs" />
+    <Compile Include="Parser\Nodes\BodyNode.cs" />
+    <Compile Include="Parser\Nodes\ClassNode.cs" />
+    <Compile Include="Parser\Nodes\AbstractNodes\HeapNode.cs" />
+    <Compile Include="Parser\Nodes\MethodNode.cs" />
+    <Compile Include="Parser\Nodes\AbstractNodes\Node.cs" />
+    <Compile Include="Parser\Nodes\AbstractNodes\StackNode.cs" />
+    <Compile Include="Parser\Nodes\StackVariableNode.cs" />
+    <Compile Include="Parser\Utils\Utils.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\Exceptions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Input.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <AntlrGrammarFile Include="Lang2.g" />
+  </ItemGroup>
+  <PropertyGroup>
+    <AntlrLexerFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename)Lexer.cs')</AntlrLexerFile>
+    <AntlrParserFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename)Parser.cs')</AntlrParserFile>
+    <AntlrTokensFile>@(AntlrGrammarFile->'%(RelativeDir)%(Filename).tokens')</AntlrTokensFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(AntlrLexerFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Compile>
+    <Compile Include="$(AntlrParserFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(AntlrTokensFile)">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>@(AntlrGrammarFile)</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <JavaHome>C:\Program Files (x86)\Java\jdk1.7.0_55</JavaHome>
+  </PropertyGroup>
+  <Target Name="GenerateAntlrCode" Inputs="@(AntlrGrammarFile)" Outputs="$(AntlrLexerFile);$(AntlrParserFile)">
+    <Exec Command="&quot;$(JavaHome)\bin\java&quot; -classpath antlr\java\antlr-3.3-complete.jar org.antlr.Tool -message-format vs2005 @(AntlrGrammarFile)" />
+  </Target>
+  <Target Name="CleanAntlrCode">
+    <Delete Files="$(AntlrLexerFile);$(AntlrParserFile)" />
+  </Target>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <BuildDependsOn>GenerateAntlrCode;$(BuildDependsOn)</BuildDependsOn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RebuildDependsOn>CleanAntlrCode;$(RebuildDependsOn)</RebuildDependsOn>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

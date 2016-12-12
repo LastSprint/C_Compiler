@@ -1,0 +1,11 @@
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\DrawingTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\DrawingTreeLib.pdb
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\Antlr3.Runtime.dll
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\AstTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\AstTreeLib.pdb
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\Antlr3.Runtime.pdb
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.csprojResolveAssemblyReference.cache
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.Views.DrawingTreeLib.resources
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.csproj.GenerateResource.Cache
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.dll
+D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.pdb
