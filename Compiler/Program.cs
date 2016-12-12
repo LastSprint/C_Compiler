@@ -31,7 +31,7 @@ namespace CompilerConsole {
                 ITree tree = t as ITree;
                 DrawingTreeLib.Views.DrawingTreeLib.Initialize(tree);
                 Parser.Parser pars = new Parser.Parser(tree);
-                pars.Parse();
+                pars.Pars();
                 pars.Serialize();
             }
             catch (Exception e) {

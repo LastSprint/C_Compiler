@@ -1,32 +1,25 @@
 ﻿using System;
-using CompilerConsole.Parser.Nodes.AbstractNodes;
-using CompilerConsole.Parser.Utils;
+using System.Collections.Generic;
+using System.Text;
+using System.Xml;
 
-namespace CompilerConsole.Parser.Nodes {
-    /// <summary>
-    /// Узел, содержащий тело
-    /// </summary>
-    [Serializable]
-    public abstract class BodyNode : Node {
-        /// <summary>
-        /// Тело узла
-        /// </summary>
-        public BodyTable Body { get; }
+namespace CompilerConsole.Parser.Nodes
+{
+    public abstract class BodyNode:Node
+    {
+        public Body Body { get; set; }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="name">Имя узла</param>
-        /// <param name="dataType">Тип данных узла</param>
-        /// <param name="body">Тело узла</param>
-        /// <param name="wrapBody">Тело, включающее этот узел</param>
-        public BodyNode(string name, string dataType, BodyTable body, BodyTable wrapBody) : base(name, dataType, wrapBody) {
+        protected BodyNode(string name, Type type, Body body) : base(name, type) {
             this.Body = body;
         }
 
-        public BodyNode() {
+        protected BodyNode() {
             
         }
 
+        public override void WriteXml(XmlWriter writer) {
+            base.WriteXml(writer);
+            this.Body.WriteXml(writer);
+        }
     }
 }

@@ -48,35 +48,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Parser\DeclareNodeParser.cs" />
-    <Compile Include="Parser\Exceptions\InvalidTypeException.cs" />
-    <Compile Include="Parser\Nodes\ArrCallNode.cs" />
-    <Compile Include="Parser\Nodes\MethodCallNode.cs" />
-    <Compile Include="Parser\Parsers\CallParser.cs" />
-    <Compile Include="Parser\Parsers\Expression\ExpressionParseMethods.cs" />
-    <Compile Include="Parser\Parsers\Expression\ExpressionsParser.cs" />
-    <Compile Include="Parser\Interfaces\IStructNode.cs" />
-    <Compile Include="Parser\Nodes\Expression.cs" />
-    <Compile Include="Parser\Nodes\HeapVariableNode.cs" />
-    <Compile Include="Parser\Nodes\StructNode.cs" />
-    <Compile Include="Parser\Nodes\AbstractNodes\VariableNode.cs" />
-    <Compile Include="Parser\Parser.cs" />
-    <Compile Include="Parser\Utils\BodyTable.cs" />
-    <Compile Include="Parser\Nodes\ArrayNode.cs" />
+    <Compile Include="Parser\Body.cs" />
+    <Compile Include="Parser\Exceptions\NodeAlreadyDeclaredException.cs" />
+    <Compile Include="Parser\Exceptions\UndefinedTokenException.cs" />
+    <Compile Include="Parser\Exceptions\UndefinedTypeException.cs" />
+    <Compile Include="Parser\Exceptions\UsedKeyWorldExceptioncs.cs" />
+    <Compile Include="Parser\Nodes\ArrNode.cs" />
     <Compile Include="Parser\Nodes\BodyNode.cs" />
-    <Compile Include="Parser\Nodes\ClassNode.cs" />
-    <Compile Include="Parser\Nodes\AbstractNodes\HeapNode.cs" />
+    <Compile Include="Parser\Nodes\Expressions.cs" />
     <Compile Include="Parser\Nodes\MethodNode.cs" />
-    <Compile Include="Parser\Nodes\AbstractNodes\Node.cs" />
-    <Compile Include="Parser\Nodes\AbstractNodes\StackNode.cs" />
-    <Compile Include="Parser\Nodes\StackVariableNode.cs" />
-    <Compile Include="Parser\Utils\Utils.cs" />
+    <Compile Include="Parser\Nodes\Node.cs" />
+    <Compile Include="Parser\Nodes\VariableNode.cs" />
+    <Compile Include="Parser\Parser.cs" />
+    <Compile Include="Parser\ParserMethods.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utils\Exceptions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input.txt" />
+    <Content Include="Tests\Test1.c" />
+    <Content Include="Tests\Test2.c" />
+    <Content Include="Tests\Test3.c" />
+    <Content Include="Tests\Test4.c" />
   </ItemGroup>
   <ItemGroup>
     <AntlrGrammarFile Include="Lang2.g" />

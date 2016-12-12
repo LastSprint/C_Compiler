@@ -6,3 +6,11 @@ D:\Repos\Compiler\Compiler\bin\Debug\DrawingTreeLib.dll
 D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.exe
 D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.pdb
 D:\Repos\Compiler\Compiler\obj\Debug\CompilerConsole.csprojResolveAssemblyReference.cache
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\CompilerConsole.exe
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\CompilerConsole.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\Antlr3.Runtime.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\AstTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\DrawingTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.csprojResolveAssemblyReference.cache
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.exe
+C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.pdb

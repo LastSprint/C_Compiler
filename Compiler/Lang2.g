@@ -11,9 +11,6 @@ tokens{
 	VAR_DECL;
 	METH_CALL;
 	CALL_ARGS;
-	NEW = 'new';
-	NEW_CLASS;
-	NEW_ARR;
 	ARR_DECL;
 	ARR_CALL;
 	IF = 'if';
@@ -23,14 +20,18 @@ tokens{
 	DO='do';
 	INC;
 	DEC;
-	CLASS = 'class';
-	STRUCT = 'struct';
 	METH_DECL;
 	DECL_ARGS;
-	TO = '->';
 	RET_TYPE_SINGLE;
 	RET_TYPE_ARR;
 	RETURN = 'return';
+
+	TINT= 'int';
+	TFLOAT = 'float';
+	TSTRING = 'string';
+	TCHAR = 'char';
+	TBOOL = 'bool';
+	TVOID = 'void';
 }
 
 @header{
@@ -57,6 +58,7 @@ WS:
     $channel=Hidden;
   }
 ;
+
 
 //--------------------------Operator tokens----------------------------------//
 ADD	:	'+'
@@ -88,37 +90,27 @@ IS_EQUALLY	:	'=='
 INVERT	:	'\!'
 	;
 
+IS_LESS_OR_EQUAL	:	'<='
+					;
+
+IS_MORE_OR_EQUAL	:	'>='
+					;
+
 ID	:	('a'..'z'|'A'..'Z'|'_')+
 	;
-//--------------------Class AND STRUCT--------------------------//
-classDecl	:	CLASS ID '{'bodyCExprW'}' -> ^(CLASS ID bodyCExprW)
-			;
 
-structDecl	:	STRUCT ID '{'bodySExprW'}' -> ^(STRUCT ID bodySExprW)
-			;
 
-bodyCExpr	:	varDecl
-				|arrDecl
-				|structDecl
-				|classDecl
-				|methDecl
-			;
-bodyCExprW	:	bodyCExpr+	-> ^(BODY bodyCExpr+)
-			;
-bodySExpr	:	varDecl
-				|arrDecl
-				|methDecl
-			;
-bodySExprW	:	bodySExpr+	-> ^(BODY bodySExpr+)
-			;			
-toObjExpr	:	ID TO^ 
-				(ID
-				|methCall
-				|arrCall)
-			;
+type :	TINT
+		| TFLOAT
+		| TSTRING
+		| TCHAR
+		| TBOOL
+		| TVOID
+	;
+
 //--------------------Arrays-------------------------//
 
-arrDecl		:	ID ID'['']' assW? OP_END-> ^(ARR_DECL ID ID assW?)
+arrDecl		:	type ID'['mathExpr']' OP_END -> ^(ARR_DECL type ID mathExpr)
 			;
 
 arrCall		:	ID'['mathExpr']' -> ^(ARR_CALL ID mathExpr)
@@ -136,7 +128,6 @@ bodyFExpr	:	varDecl
 				|whileLoop
 				|doLoop
 				|arrCall ASS^ mathExpr OP_END!
-				|toObjExpr OP_END!
 				|RETURN^ mathExpr? OP_END!
 				;
 //-------------------IF AND LOOPS---------------------------//
@@ -155,9 +146,6 @@ whileLoop	:	WHILE '('mathExpr')' '{'bodyExpr'}' -> ^(WHILE mathExpr bodyExpr)
 doLoop		:	DO '{'bodyExpr'}' '('mathExpr')' OP_END -> ^(DO bodyExpr mathExpr)
 			;
 //----------------------------Math-----------------------//
-newOp		:	NEW ID '('methArgs?')' -> ^(NEW_CLASS ID methArgs?)
-				|NEW ID '[' mathExpr']' ->^(NEW_ARR ID mathExpr)
-			;
 literals	:	INT|STRING|CHAR|DOUBLE
 			;
 incSug	:	ID ADD ADD -> ^(INC ID)
@@ -168,11 +156,9 @@ mathGroup	:	'('! mathExpr ')'!
 				|ID
 				|methCall
 				|literals
-				|newOp
 				|incSug
 				|decSug
 				|arrCall
-				|toObjExpr
 			;
 mathNeg		:	(INVERT^ mathGroup)
 				|(mathGroup)
@@ -181,7 +167,7 @@ mathConj	:	mathNeg(CONJ^ mathNeg)*
 			;
 mathDisj	:	mathConj(DISJ^ mathConj)*
 			;
-mathEq		:	mathDisj((IS_MORE|IS_LESS|IS_EQUALLY)^	mathDisj)*
+mathEq		:	mathDisj((IS_MORE|IS_LESS|IS_EQUALLY|IS_MORE_OR_EQUAL|IS_LESS_OR_EQUAL)^	mathDisj)*
 			;
 mathMult	:	mathEq((MULT|DIV)^mathEq)*
 			;
@@ -196,8 +182,8 @@ methArgs	:	mathExpr (',' mathExpr)*	->	^(CALL_ARGS mathExpr mathExpr* )
 			;
 methCall	:	ID'('methArgs?')' -> ^(METH_CALL ID methArgs?)
 			;
-methArgODecl	:	ID ID -> ^(VAR_DECL ID ID)
-					|ID'['']' ID -> ^(ARR_DECL ID ID)
+methArgODecl	:	type ID -> ^(VAR_DECL type ID)
+					|type'['']' ID -> ^(ARR_DECL type ID)
 				;
 
 methDeclArgs	:	methArgODecl(','!methArgODecl)*
@@ -205,8 +191,8 @@ methDeclArgs	:	methArgODecl(','!methArgODecl)*
 methDeclArgsW	:	methDeclArgs? -> ^(DECL_ARGS methDeclArgs?)
 				;
 
-methRetType	:	ID	->^(RET_TYPE_SINGLE ID)
-				|ID'['']' -> ^(RET_TYPE_ARR ID)
+methRetType	:	type	->^(RET_TYPE_SINGLE type)
+				|type'['']' -> ^(RET_TYPE_ARR type)
 			;
 methDecl	:	methRetType ID '('methDeclArgsW')' '{'bodyExpr'}'  -> ^(METH_DECL methRetType ID methDeclArgsW bodyExpr)
 			;
@@ -215,13 +201,17 @@ moreVarDecl	:	ID(','! ID)+
 			;
 assW	:	ASS^ mathExpr ->^(ASS mathExpr)
 		;
-varDecl	:	ID ID assW? OP_END -> ^(VAR_DECL ID ID assW?)
-			| ID moreVarDecl OP_END -> ^(VAR_DECL ID moreVarDecl)
+varDecl	:	type ID assW? OP_END -> ^(VAR_DECL type ID assW?)
+			| type moreVarDecl OP_END -> ^(VAR_DECL type moreVarDecl)
 		;
 
 bodyExpr	:	bodyFExpr+ -> ^(BODY bodyFExpr+)
-			;	
-program		:	classDecl+ ->^(BODY classDecl+)
+			;
+
+mainBody	:	methDecl|arrDecl|varDecl
+			;
+
+program		:	mainBody+ ->^(BODY mainBody+)
 			;
 result: program EOF -> ^(PROGRAM program);
 public execute:  result;

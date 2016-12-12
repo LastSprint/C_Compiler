@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<Body>
+  <Body>
+    <VariableNode Name="a" DataType="ArrInt" />
+  </Body>
+</Body>

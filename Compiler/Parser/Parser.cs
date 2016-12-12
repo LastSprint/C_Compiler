@@ -1,126 +1,210 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.IO;
+using System.Text;
 using System.Xml.Serialization;
 using Antlr.Runtime.Tree;
+using CompilerConsole.Parser.Exceptions;
 using CompilerConsole.Parser.Nodes;
-using CompilerConsole.Parser.Nodes.AbstractNodes;
-using CompilerConsole.Parser.Parsers;
-using CompilerConsole.Parser.Utils;
+using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.Parser {
-    /// <summary>
-    /// Принцип работы парсера:
-    /// На входе имеет root дерева токенов.
-    /// Запускаем парсер:
-    /// 1) Смотрим на токен
-    ///     -------------------------------------Запись в таблицу-----------------------------------------------
-    ///     ->  Class - считываем тип данных классса, создаем таблицу узлов, вызываем делаем шаг в глубину для поддерева
-    ///     ->  MethodDeclare - считываем тип возвращаемого значения, имя, записываем принимаемые параметры, делаем шаг в глубину для поддерева
-    ///     ->  VariableDeclare - считываем тип переменной, имя и значение, если оно было присвоено. Делаем шаг вверх.
-    ///     ->  ArrayDeclare - считываем тип массива, название и инициализацию. Делаем шаг вверх;
-    ///     
-    ///     ------------------------------------Чтеие из талицы------------------------------------------------
-    ///     ->  ArrayCall - 
-    ///     ->  MethodCall - 
-    ///     ->  VariableCall
-    ///     ->  ObjectCall
-    ///
-    /// </summary>
+    enum Token {
+        VAR_DECL,
+        METH_CALL,
+        ARR_DECL,
+        ARR_CALL,
+        IF,
+        BODY,
+        FOR,
+        WHILE,
+        DO,
+        INC,
+        DEC,
+        METH_DECL,
+        RETURN,
+    }
 
+    public partial class Parser {
+        #region Base
 
-    [Serializable]
-    public class Parser {
+        public Body MainBody { get; set; }
+        public ITree Root { get; set; }
 
-        private static Parser _instantience;
+        private Dictionary<string, Token> _tokensDictionary;
 
-        public static Parser Instance {
-            get { return _instantience; }
+        public Parser(ITree root) {
+            this.MainBody = new Body();
+            this.Root = root;
+            this.InitDictionary();
         }
 
+        private void InitDictionary() {
+            this._tokensDictionary = new Dictionary<string, Token>();
 
-        public Parser() {
+            this._tokensDictionary.Add("VAR_DECL", Token.VAR_DECL);
+            this._tokensDictionary.Add("METH_CALL", Token.METH_CALL);
+            this._tokensDictionary.Add("ARR_DECL", Token.ARR_DECL);
+            this._tokensDictionary.Add("ARR_CALL", Token.ARR_CALL);
+            this._tokensDictionary.Add("IF", Token.IF);
+            this._tokensDictionary.Add("BODY", Token.BODY);
 
+            this._tokensDictionary.Add("FOR", Token.FOR);
+            this._tokensDictionary.Add("WHILE", Token.WHILE);
+            this._tokensDictionary.Add("DO", Token.DO);
+            this._tokensDictionary.Add("INC", Token.INC);
+            this._tokensDictionary.Add("DEC", Token.DEC);
+            this._tokensDictionary.Add("METH_DECL", Token.METH_DECL);
+            this._tokensDictionary.Add("RETURN", Token.RETURN);
         }
 
-        private BodyTable _mainBodyTable;
-
-        [NonSerialized]
-        private ITree _tree;
-
-        public Parser(ITree tree) {
-            this._tree = tree;
-            this._mainBodyTable = new BodyTable(new List<Node>(), null);
-            _instantience = this;
-        }
-
-        public void Parse() {
-            this.ToParse(this._tree.GetChild(0),this._mainBodyTable);
-        }
-
-        public void ToParse(ITree tree, BodyTable activeTable) {
-            if (tree.IsNil || tree == null) {
-                return;
-            }
-            if (CallParser.Instanience.IsCall(tree)) {
-                CallParser.Instanience.ParseCall(tree, activeTable);
-                return;
-            }
-
-            DeclareToken declareToken;
-            if (!Utils.Utils.Instantience.DeclareTokensDict.TryGetValue(tree.Text, out declareToken)) {
-                throw new DataException($"Ошибка парсинга токена DeclareToken на узла с именем {tree.Text}");
-            }
-            this.MakeDeclareAction(declareToken, activeTable, tree);
-        }
-
-        /// <summary>
-        /// Заплняет таблицу в зависимости от типа поступившего токена
-        /// </summary>
-        /// <param name="tokem"></param>
-        private void MakeDeclareAction(DeclareToken tokem, BodyTable activeTable, ITree tree) {
-            switch (tokem) {
-                case DeclareToken.Body: {
-                    for (int i = 0; i < tree.ChildCount; i++) {
-                        this.ToParse(tree.GetChild(i), activeTable);
-
-                    }
-                    return;
+        private bool IsType(string text) {
+            switch (text) {
+                case "int":
+                    return true;
+                case "char": {
+                    return true;
                 }
-                case DeclareToken.ClassDecl: {
-                    var classNode = DeclareNodeParser.ParseClassDeclare(tree, activeTable);
-                    this.ToParse(tree.GetChild(1), classNode.Body);
-                    return;
+                case "float": {
+                    return true;
                 }
-                case DeclareToken.MethDecl: {
-                    var methNode = DeclareNodeParser.ParseMethodDeclare(tree, activeTable);
-                    this.ToParse(tree.GetChild(3), methNode.Body);
-                    return;
+                case "string": {
+                    return true;
                 }
-                case DeclareToken.VarDecl: {
-                    DeclareNodeParser.ParseVariableNodeDeclare(tree, activeTable);
-                    return;
-                }
-                case DeclareToken.ArrDecl: {
-                    DeclareNodeParser.ParseVariableNodeDeclare(tree, activeTable);
-                    return;
-                }
-                case DeclareToken.StructDecl: {
-                    StructNode structNode =  DeclareNodeParser.ParseStructDeclare(tree, activeTable);
-                    this.ToParse(tree.GetChild(1),structNode.Body);
-                    return;
+                case "bool": {
+                    return true;
                 }
                 default: {
-                    return;
+                    return false;
                 }
             }
         }
 
+        private Type GetVarType(string type) {
+            switch (type) {
+                case "int":
+                    return Type.VarInt;
+                case "char": {
+                    return Type.VarChar;
+                }
+                case "float": {
+                    return Type.VarFloat;
+                }
+                case "string": {
+                    return Type.VarString;
+                }
+                case "bool": {
+                    return Type.VarBool;
+                }
+                default: {
+                    throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                }
+            }
+        }
+
+        private Type GetArrType(string type)
+        {
+            switch (type)
+            {
+                case "int":
+                    return Type.ArrInt;
+                case "char":
+                    {
+                        return Type.ArrChar;
+                    }
+                case "float":
+                    {
+                        return Type.ArrFloat;
+                    }
+                case "string":
+                    {
+                        return Type.ArrString;
+                    }
+                case "bool":
+                    {
+                        return Type.ArrBool;
+                    }
+                default:
+                    {
+                        throw new ArgumentOutOfRangeException(nameof(type), type, null);
+                    }
+            }
+        }
+
+        #endregion
+
+        public void Pars() {
+            this.RecPars(this.Root.GetChild(0), this.MainBody);
+        }
+
+        private void RecPars(ITree tree, Body body) {
+            Token token;
+
+            if (!this._tokensDictionary.TryGetValue(tree.Text, out token)) {
+                throw new UndefinedTokenException($"Для узла {tree.Text} не существует токена");
+            }
+            this.Action(token, tree, body);
+        }
+
+        private void Action(Token token, ITree treeNode, Body body) {
+            switch (token) {
+                case Token.VAR_DECL: {
+                    var vars = this.ParseVarDecl(treeNode, body);
+
+                    foreach (var variable in vars) {
+                        body.Nodes.Add(variable);
+                    }
+
+                    break;
+                }
+                case Token.METH_CALL:
+                    break;
+                case Token.ARR_DECL: {
+                    var arr = this.PareArrDecl(treeNode, body);
+                    body.Nodes.Add(arr);
+                    break;
+                }
+                case Token.ARR_CALL:
+                    break;
+                case Token.IF:
+                    break;
+                case Token.BODY: {
+                    //Подразумевается, что таблица создана зранее
+                    for (int i = 0; i < treeNode.ChildCount; i++) {
+                        this.RecPars(treeNode.GetChild(i), body);
+                    }
+                    break;
+                }
+                case Token.FOR:
+                    break;
+                case Token.WHILE:
+                    break;
+                case Token.DO:
+                    break;
+                case Token.INC:
+                    break;
+                case Token.DEC:
+                    break;
+                case Token.METH_DECL: {
+                    var meth = this.ParseMethodDeclare(treeNode, body);
+                    this.MainBody.Nodes.Add(meth);
+                    meth.Body.WrapBody = body;
+                    this.RecPars(treeNode.GetChild(3), meth.Body);
+                    break;
+                }
+                case Token.RETURN:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(token), token, null);
+            }
+        }
+
+
+
         public void Serialize() {
-            XmlSerializer xml = new XmlSerializer(typeof(ClassNode));
             using (FileStream fs = new FileStream("code.xml", FileMode.Create)) {
-                xml.Serialize(fs, this._mainBodyTable.BodyNodes[0]);
+                XmlSerializer serializer = new XmlSerializer(typeof(Body));
+                serializer.Serialize(fs, this.MainBody);
             }
         }
     }
