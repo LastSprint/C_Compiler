@@ -29,19 +29,12 @@ int[] sort(int[] a, int n) {
 			}
 		}
 	}
-	return a;
-}
-int[] test(int[] a, int b) {
-	int a;
 }
 
+//Ошибка при парсинге декларации переменных
 void main() {
-	int count = 10;
-	int a[count];
-	a[count] = 10;
-
-	count = a[10] - 10;
-	a = test(a, 10);
+	int a[10];
+	a = sort(a, 10);
 }
 
 int a;
