@@ -100,6 +100,25 @@ namespace CompilerConsole.Parser {
             }
         }
 
+        private bool IsExpr(string text) {
+            ExprToken token;
+
+            if (this._exprTokensDictionary.TryGetValue(text, out token)) {
+                return true;
+            }
+            return false;
+        }
+
+        private ExprToken GetExpr(string expr) {
+            ExprToken token;
+
+            if (this._exprTokensDictionary.TryGetValue(expr, out token))
+            {
+                return token;
+            }
+            return ExprToken.Error;
+        }
+
         private Type GetVarType(string type) {
             switch (type) {
                 case "int":
@@ -159,6 +178,10 @@ namespace CompilerConsole.Parser {
 
         private void RecPars(ITree tree, Body body) {
             Token token;
+            if (this.IsExpr(tree.Text)) {
+                body.Nodes.Add(this.ParsExpr(tree, body));
+                return;
+            }
 
             if (!this._tokensDictionary.TryGetValue(tree.Text, out token)) {
                 throw new UndefinedTokenException($"Для узла {tree.Text} не существует токена");
@@ -178,14 +201,13 @@ namespace CompilerConsole.Parser {
                     break;
                 }
                 case Token.METH_CALL:
+                    body.Nodes.Add(this.ParseMethCall(treeNode, body));
                     break;
                 case Token.ARR_DECL: {
                     var arr = this.PareArrDecl(treeNode, body);
                     body.Nodes.Add(arr);
                     break;
                 }
-                case Token.ARR_CALL:
-                    break;
                 case Token.IF:
                     break;
                 case Token.BODY: {
@@ -218,8 +240,6 @@ namespace CompilerConsole.Parser {
                     throw new ArgumentOutOfRangeException(nameof(token), token, null);
             }
         }
-
-
 
         public void Serialize() {
             using (FileStream fs = new FileStream("code.xml", FileMode.Create)) {

@@ -9,3 +9,12 @@ D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.Views.D
 D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.csproj.GenerateResource.Cache
 D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.dll
 D:\Repos\Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\DrawingTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\DrawingTreeLib.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\AstTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\bin\Debug\AstTreeLib.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.csprojResolveAssemblyReference.cache
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.Views.DrawingTreeLib.resources
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.csproj.GenerateResource.Cache
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\DrawingLibsSrc\DrawingTreeLib\obj\Debug\DrawingTreeLib.pdb

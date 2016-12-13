@@ -1,4 +1,8 @@
-﻿namespace CompilerConsole.Parser.Nodes {
+﻿using System;
+using System.Xml;
+
+namespace CompilerConsole.Parser.Nodes {
+    [Serializable]
     public enum ExprToken {
         IsEqual,
         IsLess,
@@ -12,10 +16,11 @@
         Conj,
         Dij,
         Neg,
-        Ass
-    }
+        Ass,
 
-    class Expression : Node {
+        Error
+    }
+    public class Expression : Node {
         public Node LeftNode { get; set; }
         public Node RightNode { get; set; }
 
@@ -31,6 +36,10 @@
             this.ExprToken = exprToken;
             this.Name = "expr";
             this.ChecValidExpr();
+        }
+
+        public Expression() {
+            
         }
 
         public void ChecValidExpr() {
@@ -148,6 +157,22 @@
                     break;
                 }
             }
+        }
+
+        public override void WriteXml(XmlWriter writer) {
+            writer.WriteStartElement("Expression");
+            base.WriteXml(writer);
+            writer.WriteStartElement("LeftNode");
+            this.LeftNode.WriteXml(writer);
+            writer.WriteEndElement();
+
+            writer.WriteStartElement("RightNode");
+            this.RightNode.WriteXml(writer);
+            writer.WriteEndElement();
+
+           // writer.WriteAttributeString("ExprToken", this.ExprToken.ToString());
+           // writer.WriteAttributeString("IsValid", this.IsValid.ToString());
+            writer.WriteEndElement();
         }
     }
 }

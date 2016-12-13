@@ -31,31 +31,28 @@ int[] sort(int[] a, int n) {
 	}
 	return a;
 }
+int[] test(int[] a, int b) {
+	int a;
+}
 
 void main() {
 	int count = 10;
 	int a[count];
+	a[count] = 10;
 
-	for (int i = 0; i < count; i++) {
-		a[i] = count - i;
-	}
-
-	a = sort(a, count);
-
-	print(a);
+	count = a[10] - 10;
+	a = test(a, 10);
 }
 
 int a;
 
-int[] test(int[] a, int b) {
-	int a;
-}
+
 
 void testt() {
 	int h;
 }
 
 string testtt(string f) {
-	char h;
+	a(a,b,c,d,f);
 }
 

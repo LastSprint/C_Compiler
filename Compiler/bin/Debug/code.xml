@@ -1,6 +1,98 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <ArrayNode Name="a" DataType="ArrInt" Length="0" />
+    <MethodNode Name="test" DataType="ArrInt">
+      <Body>
+        <VariableNode Name="a" DataType="VarInt" />
+      </Body>
+      <Args>
+        <VariableNode Name="a" DataType="ArrInt" />
+        <VariableNode Name="b" DataType="VarInt" />
+      </Args>
+    </MethodNode>
+    <MethodNode Name="main" DataType="Void">
+      <Body>
+        <VariableNode Name="count" DataType="VarInt" />
+        <VariableNode Name="=" DataType="VarInt" />
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length>
+            <VariableNode Name="count" DataType="VarInt" />
+          </Length>
+        </ArrayNode>
+        <ArrCallNode DataType="VarInt" Arr="a">
+          <Index>
+            <VariableNode Name="count" DataType="VarInt" />
+          </Index>
+        </ArrCallNode>
+        <Expression Name="expr" DataType="VarInt">
+          <LeftNode>
+            <ArrCallNode DataType="VarInt" Arr="a">
+              <Index>
+                <VariableNode Name="count" DataType="VarInt" />
+              </Index>
+            </ArrCallNode>
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
+          </RightNode>
+        </Expression>
+        <ArrCallNode DataType="VarInt" Arr="a">
+          <Index>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
+          </Index>
+        </ArrCallNode>
+        <Expression Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode Name="count" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Expression Name="expr" DataType="VarInt">
+              <LeftNode>
+                <ArrCallNode DataType="VarInt" Arr="a">
+                  <Index>
+                    <Literal Name="lit" DataType="VarInt" Value="10" />
+                  </Index>
+                </ArrCallNode>
+              </LeftNode>
+              <RightNode>
+                <Literal Name="lit" DataType="VarInt" Value="10" />
+              </RightNode>
+            </Expression>
+          </RightNode>
+        </Expression>
+        <MethCallNode DataType="ArrInt" Method="test">
+          <SendArgs>
+            <ArrayNode Name="a" DataType="ArrInt">
+              <Length>
+                <VariableNode Name="count" DataType="VarInt" />
+              </Length>
+            </ArrayNode>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
+          </SendArgs>
+        </MethCallNode>
+        <Expression Name="expr" DataType="ArrInt">
+          <LeftNode>
+            <ArrayNode Name="a" DataType="ArrInt">
+              <Length>
+                <VariableNode Name="count" DataType="VarInt" />
+              </Length>
+            </ArrayNode>
+          </LeftNode>
+          <RightNode>
+            <MethCallNode DataType="ArrInt" Method="test">
+              <SendArgs>
+                <ArrayNode Name="a" DataType="ArrInt">
+                  <Length>
+                    <VariableNode Name="count" DataType="VarInt" />
+                  </Length>
+                </ArrayNode>
+                <Literal Name="lit" DataType="VarInt" Value="10" />
+              </SendArgs>
+            </MethCallNode>
+          </RightNode>
+        </Expression>
+      </Body>
+      <Args />
+    </MethodNode>
   </Body>
 </Body>

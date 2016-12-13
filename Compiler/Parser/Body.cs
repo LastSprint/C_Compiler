@@ -54,7 +54,7 @@ namespace CompilerConsole.Parser {
             }
 
             foreach (var node in body.Nodes) {
-                if (node.Name == name) {
+                if (node.Name == name && node is T) {
                     return (T) node;
                 }
             }

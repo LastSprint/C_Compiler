@@ -14,8 +14,9 @@ namespace DrawingTreeLib.Models
     {
         public const int EllipseRadious = 25;
 
-        private RectangleF _rect;
+        public RectangleF Rect { get; set; }
         private Bitmap _nodeImg;
+    
 
         private int _nodeLevel = -1;
 
@@ -32,7 +33,7 @@ namespace DrawingTreeLib.Models
             }
         }
 
-        public float RectWidth => this._rect.Width;
+        public float RectWidth => this.Rect.Width;
 
         public DrawingNode Parent
         {
@@ -53,7 +54,7 @@ namespace DrawingTreeLib.Models
                 {
                     rectWidth = minWidth;
                 }
-                this._rect = new Rectangle(0, 0, rectWidth, EllipseRadious);
+                this.Rect = new Rectangle(0, 0, rectWidth, EllipseRadious);
                 this._nodeImg = new Bitmap(rectWidth + 5, EllipseRadious + 5);
                 this.FillImg();
                 if (this._nodeImg != null)
@@ -73,7 +74,7 @@ namespace DrawingTreeLib.Models
         public DrawingNode(string value, Node parent) : base(value, parent)
         {
             float rectWidth = value.Length/2;
-            this._rect = new RectangleF(0, 0, rectWidth, EllipseRadious);
+            this.Rect = new RectangleF(0, 0, rectWidth, EllipseRadious);
             this._nodeImg = new Bitmap((int)rectWidth, EllipseRadious);
             this.FillImg();
         }
@@ -82,8 +83,8 @@ namespace DrawingTreeLib.Models
         {
             using (Graphics g = Graphics.FromImage(this._nodeImg))
             {
-                g.FillRectangle(Brushes.Yellow, this._rect);
-                g.DrawRectangle(Pens.Red,this._rect.X, this._rect.Y, this._rect.Width, this._rect.Height);
+                g.FillRectangle(Brushes.Yellow, this.Rect);
+                g.DrawRectangle(Pens.Red,this.Rect.X, this.Rect.Y, this.Rect.Width, this.Rect.Height);
                 Font t = SystemFonts.DefaultFont;
                 t = new Font(t.FontFamily,8);
                 g.DrawString(this.Value, t, Brushes.Black, 5, 5);
@@ -97,14 +98,42 @@ namespace DrawingTreeLib.Models
         }
     }
 
+    class DrawingEdge {
+        public DrawingNode Node1 { get; set; }
+        public DrawingNode Node2 { get; set; }
+
+        public DrawingEdge(DrawingNode node1, DrawingNode node2) {
+            this.Node1 = node1;
+            this.Node2 = node2;
+        }
+
+        public void Draw(Graphics g) {
+            float posX1 = this.Node1.Position.X + this.Node1.Rect.Width/2f;
+            float posY1 = this.Node1.Position.Y;
+
+            float posX2 = this.Node2.Position.X + this.Node2.Rect.Width / 2f;
+            float posY2 = this.Node2.Position.Y;
+
+            g.DrawLine(Pens.Black, posX1, posY1, posX2, posY2);
+        }
+    }
+
     class ModelTree
     {
         private Tree<DrawingNode> _tree;
         private const int WhiteSpace = DrawingNode.EllipseRadious;
+        public List<DrawingNode> Nodes { get; set; }
+        public List<DrawingEdge> Edges { get; set; }
 
         public ModelTree(ITree ASTTree)
         {
             this._tree = new Tree<DrawingNode>(ASTTree);
+            this.Nodes = new List<DrawingNode>();
+            this.Edges = new List<DrawingEdge>();
+            this._tree.DeepWalking(node => {
+                this.Nodes.Add(node);
+            });
+            this.CreateEdge(this._tree.Root);
         }
 
         public void DrawTree(float frameWidth, float frameHeight, Graphics g)
@@ -206,6 +235,14 @@ namespace DrawingTreeLib.Models
                         tempNode = node;
                     }
                 }
+            }
+        }
+
+
+        private void CreateEdge(DrawingNode node) {
+            foreach (var nod in node.NextNodes) {
+                this.Edges.Add(new DrawingEdge(node, (DrawingNode)nod));
+                this.CreateEdge((DrawingNode) nod);
             }
         }
     }

@@ -49,16 +49,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Parser\Body.cs" />
+    <Compile Include="Parser\Exceptions\BadExpressionExceptions.cs" />
     <Compile Include="Parser\Exceptions\NodeAlreadyDeclaredException.cs" />
+    <Compile Include="Parser\Exceptions\NodeNotfoundException.cs" />
     <Compile Include="Parser\Exceptions\UndefinedTokenException.cs" />
     <Compile Include="Parser\Exceptions\UndefinedTypeException.cs" />
     <Compile Include="Parser\Exceptions\UsedKeyWorldExceptioncs.cs" />
+    <Compile Include="Parser\Nodes\ArrCall.cs" />
     <Compile Include="Parser\Nodes\ArrNode.cs" />
     <Compile Include="Parser\Nodes\BodyNode.cs" />
     <Compile Include="Parser\Nodes\Expressions.cs" />
     <Compile Include="Parser\Nodes\Literals.cs" />
     <Compile Include="Parser\Nodes\MethodNode.cs" />
     <Compile Include="Parser\Nodes\Node.cs" />
+    <Compile Include="Parser\Nodes\MethCall.cs" />
     <Compile Include="Parser\Nodes\VariableNode.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="Parser\ParserMethods.cs" />

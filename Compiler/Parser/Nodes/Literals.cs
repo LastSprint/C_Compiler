@@ -3,11 +3,15 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes
 {
-    class Literals : Node {
+    public class Literals : Node {
         public object Value { get; set; }
 
-        public Literals(string name, Type type, object value) : base(name, type) {
+        public Literals(Type type, object value, string name = "lit") : base(name, type) {
             this.Value = value;
+        }
+
+        public Literals() {
+            
         }
 
         public string GetString() {

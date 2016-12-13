@@ -3,7 +3,6 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes
 {
-    [Serializable]
     public class VariableNode:Node
     {
         public VariableNode(string name, Type type) : base(name, type) {
