@@ -59,6 +59,7 @@
     <Compile Include="Parser\Nodes\ArrNode.cs" />
     <Compile Include="Parser\Nodes\BodyNode.cs" />
     <Compile Include="Parser\Nodes\Expressions.cs" />
+    <Compile Include="Parser\Nodes\IfNode.cs" />
     <Compile Include="Parser\Nodes\Literals.cs" />
     <Compile Include="Parser\Nodes\MethodNode.cs" />
     <Compile Include="Parser\Nodes\Node.cs" />

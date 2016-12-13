@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes
 {
-    public class ArrNode : VariableNode
+    public class ArrNode : Node
     {
         public Node Length { get; set; }
 

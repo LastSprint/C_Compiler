@@ -49,7 +49,10 @@ int a;
 
 
 void testt() {
-	int h;
+	int a;
+	if (a == 0) {
+		int b;
+	}
 }
 
 string testtt(string f) {

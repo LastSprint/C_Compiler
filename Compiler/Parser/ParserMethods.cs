@@ -36,7 +36,7 @@ namespace CompilerConsole.Parser {
                         $"Для имени переменной было использовано ключевое слово {tree.GetChild(0).Text}");
                 }
 
-                if (body.FindNodeByName<VariableNode>(tree.GetChild(i).Text) != null) {
+                if (Body.FindNodeByName<VariableNode>(tree.GetChild(i).Text, body) != null) {
                     throw new NodeAlreadyExistException($"Переменная с именем {tree.GetChild(i).Text} объявлена ранее");
                 }
 
@@ -90,7 +90,7 @@ namespace CompilerConsole.Parser {
 
             Type typeToken = this.GetArrType(type.Text);
 
-            if (body.FindNodeByName<VariableNode>(name.Text) != null) {
+            if (Body.FindNodeByName<VariableNode>(name.Text,body) != null) {
                 throw new NodeAlreadyExistException($"Переменная с именем {name.Text} объявлена ранее");
             }
 
@@ -250,17 +250,17 @@ namespace CompilerConsole.Parser {
             switch (token) {
                 case Token.ARR_CALL:
                     var t1 =  this.ParseArrCall(treeNode, body);
-                    body.Nodes.Add(t1);
                     return t1;
                 case Token.METH_CALL:
                     var t2 =  this.ParseMethCall(treeNode, body);
-                    body.Nodes.Add(t2);
                     return t2;
                 case Token.INC:
-                    break;
+                    var t3 = this.ParseIncDec(treeNode, body, ExprToken.Add);
+                    return t3;
                 case Token.DEC:
-                    break;
-                   
+                    var t4 = this.ParseIncDec(treeNode, body, ExprToken.Sub);
+                    return t4;
+
             }
             throw new UndefinedTokenException($"При разборе выражения использовался токен {treeNode.Text}");
         }
@@ -303,6 +303,35 @@ namespace CompilerConsole.Parser {
             return null;
         }
 
+
+        private Node ParseIncDec(ITree tree, Body body, ExprToken token) {
+            var variable = Body.FindNodeByName<VariableNode>(tree.GetChild(0).Text, body);
+            if (variable == null) {
+                throw new NodeNotfoundException($"переменной с именем {tree.GetChild(0).Text} не существует");
+            }
+            Expression fe = new Expression(variable, new Literals(variable.DataType, 1),token);
+            Expression re = new Expression(variable, fe, ExprToken.Ass);
+            return re;
+        }
+
+
+        private Node ParseIf(ITree tree, Body body) {
+            ITree cond = tree.GetChild(0);
+            ITree ifBody = tree.GetChild(1);
+
+            Node expr = this.ParsExpr(cond, body);
+            if (expr.DataType != Type.VarBool) {
+                throw new UndefinedTypeException($"Выражение внутри if должно иметь тип bool, а не {expr.DataType}");
+            }
+
+            Body tempBody = new Body();
+            tempBody.WrapBody = body;
+            this.RecPars(ifBody, tempBody);
+            var ifNode = new IfNode(tempBody);
+            ifNode.Condition = expr;
+            return ifNode;
+
+        }
 
     }
 }

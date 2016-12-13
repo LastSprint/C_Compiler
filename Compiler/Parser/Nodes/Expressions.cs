@@ -60,6 +60,7 @@ namespace CompilerConsole.Parser.Nodes {
                     if (!type) {
                         this.DataType = Type.Error;
                     }
+                    this.DataType = Type.VarBool;
                     break;
                 }
                 case ExprToken.IsLess: {

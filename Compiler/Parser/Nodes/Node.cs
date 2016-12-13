@@ -20,7 +20,8 @@ namespace CompilerConsole.Parser.Nodes {
 
         Void,
 
-        Error
+        Error,
+        NotAType
     }
 
     public abstract class Node : IXmlSerializable {

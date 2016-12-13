@@ -48,16 +48,16 @@ namespace CompilerConsole.Parser {
             this._tokensDictionary.Add("METH_CALL", Token.METH_CALL);
             this._tokensDictionary.Add("ARR_DECL", Token.ARR_DECL);
             this._tokensDictionary.Add("ARR_CALL", Token.ARR_CALL);
-            this._tokensDictionary.Add("IF", Token.IF);
+            this._tokensDictionary.Add("if", Token.IF);
             this._tokensDictionary.Add("BODY", Token.BODY);
 
-            this._tokensDictionary.Add("FOR", Token.FOR);
-            this._tokensDictionary.Add("WHILE", Token.WHILE);
-            this._tokensDictionary.Add("DO", Token.DO);
+            this._tokensDictionary.Add("for", Token.FOR);
+            this._tokensDictionary.Add("while", Token.WHILE);
+            this._tokensDictionary.Add("do", Token.DO);
             this._tokensDictionary.Add("INC", Token.INC);
             this._tokensDictionary.Add("DEC", Token.DEC);
             this._tokensDictionary.Add("METH_DECL", Token.METH_DECL);
-            this._tokensDictionary.Add("RETURN", Token.RETURN);
+            this._tokensDictionary.Add("return", Token.RETURN);
             #endregion
 
             #region exprTokensDictionary initialize
@@ -209,6 +209,8 @@ namespace CompilerConsole.Parser {
                     break;
                 }
                 case Token.IF:
+                    var ifN = this.ParseIf(treeNode, body);
+                    body.Nodes.Add(ifN);
                     break;
                 case Token.BODY: {
                     //Подразумевается, что таблица создана зранее
@@ -224,8 +226,13 @@ namespace CompilerConsole.Parser {
                 case Token.DO:
                     break;
                 case Token.INC:
+                    var t3 = this.ParseIncDec(treeNode, body, ExprToken.Add);
+                    body.Nodes.Add(t3);
                     break;
+                    
                 case Token.DEC:
+                    var t4 = this.ParseIncDec(treeNode, body, ExprToken.Sub);
+                    body.Nodes.Add(t4);
                     break;
                 case Token.METH_DECL: {
                     var meth = this.ParseMethodDeclare(treeNode, body);

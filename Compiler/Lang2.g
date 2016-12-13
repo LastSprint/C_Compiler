@@ -143,7 +143,7 @@ forLoop	:	FOR '(' varFor ';' mathExpr ';' iterFor ')' '{'bodyExpr'}' -> ^(FOR va
 		;
 whileLoop	:	WHILE '('mathExpr')' '{'bodyExpr'}' -> ^(WHILE mathExpr bodyExpr)
 			;
-doLoop		:	DO '{'bodyExpr'}' '('mathExpr')' OP_END -> ^(DO bodyExpr mathExpr)
+doLoop		:	DO '{'bodyExpr'}' WHILE '('mathExpr')' OP_END -> ^(DO bodyExpr mathExpr)
 			;
 //----------------------------Math-----------------------//
 literals	:	INT|STRING|CHAR|DOUBLE
