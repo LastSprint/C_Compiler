@@ -49,9 +49,21 @@ int a;
 
 
 void testt() {
-	int a;
-	if (a == 0) {
-		int b;
+	int j;
+	while (j == 0) {
+		int a;
+	}
+
+	do {
+		int a;
+	} while (j == 0);
+
+	for (int i = 0; i < 10; i++) {
+		int a;
+	}
+
+	if (j == 0) {
+		int a;
 	}
 }
 

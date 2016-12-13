@@ -220,10 +220,16 @@ namespace CompilerConsole.Parser {
                     break;
                 }
                 case Token.FOR:
+                    var tF = this.ParseForLoop(treeNode, body);
+                    body.Nodes.Add(tF);
                     break;
                 case Token.WHILE:
+                    var tW = this.ParseWhileLoop(treeNode, body);
+                    body.Nodes.Add(tW);
                     break;
                 case Token.DO:
+                    var tD = this.ParseDoLoop(treeNode, body);
+                    body.Nodes.Add(tD);
                     break;
                 case Token.INC:
                     var t3 = this.ParseIncDec(treeNode, body, ExprToken.Add);

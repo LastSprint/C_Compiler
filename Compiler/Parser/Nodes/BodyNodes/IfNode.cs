@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace CompilerConsole.Parser.Nodes
+namespace CompilerConsole.Parser.Nodes.BodyNodes
 {
     public class IfNode:BodyNode
     {

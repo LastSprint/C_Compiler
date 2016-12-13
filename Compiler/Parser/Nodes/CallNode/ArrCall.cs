@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
+﻿using System.Xml;
 
-namespace CompilerConsole.Parser.Nodes
+namespace CompilerConsole.Parser.Nodes.CallNode
 {
     public class ArrCall:Node
     {

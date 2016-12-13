@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Xml;
 
-namespace CompilerConsole.Parser.Nodes
+namespace CompilerConsole.Parser.Nodes.BodyNodes
 {
     public class MethodNode:BodyNode
     {

@@ -70,6 +70,7 @@ namespace CompilerConsole.Parser.Nodes {
                     if (!type) {
                         this.DataType = Type.Error;
                     }
+                    this.DataType = Type.VarBool;
                     break;
                 }
                 case ExprToken.IsMore: {
@@ -79,7 +80,8 @@ namespace CompilerConsole.Parser.Nodes {
                     if (!type) {
                         this.DataType = Type.Error;
                     }
-                    break;
+                        this.DataType = Type.VarBool;
+                        break;
                 }
                 case ExprToken.IsLessOrEqual: {
                     bool type = this.DataType == Type.VarChar;
@@ -88,7 +90,8 @@ namespace CompilerConsole.Parser.Nodes {
                     if (!type) {
                         this.DataType = Type.Error;
                     }
-                    break;
+                        this.DataType = Type.VarBool;
+                        break;
                 }
                 case ExprToken.IsMoreOrEqual: {
                     bool type = this.DataType == Type.VarChar;
@@ -97,7 +100,8 @@ namespace CompilerConsole.Parser.Nodes {
                     if (!type) {
                         this.DataType = Type.Error;
                     }
-                    break;
+                        this.DataType = Type.VarBool;
+                        break;
                 }
                 case ExprToken.Add: {
                     bool type = this.DataType == Type.VarChar;

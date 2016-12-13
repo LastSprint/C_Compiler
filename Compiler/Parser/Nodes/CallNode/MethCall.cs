@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml;
+using CompilerConsole.Parser.Nodes.BodyNodes;
 
-namespace CompilerConsole.Parser.Nodes
+namespace CompilerConsole.Parser.Nodes.CallNode
 {
     public class MethCall:Node
     {

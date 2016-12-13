@@ -5,6 +5,8 @@ using System.Text.RegularExpressions;
 using Antlr.Runtime.Tree;
 using CompilerConsole.Parser.Exceptions;
 using CompilerConsole.Parser.Nodes;
+using CompilerConsole.Parser.Nodes.BodyNodes;
+using CompilerConsole.Parser.Nodes.CallNode;
 using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.Parser {
@@ -315,7 +317,7 @@ namespace CompilerConsole.Parser {
         }
 
 
-        private Node ParseIf(ITree tree, Body body) {
+        private IfNode ParseIf(ITree tree, Body body) {
             ITree cond = tree.GetChild(0);
             ITree ifBody = tree.GetChild(1);
 
@@ -331,6 +333,84 @@ namespace CompilerConsole.Parser {
             ifNode.Condition = expr;
             return ifNode;
 
+        }
+
+        private ForLoop ParseForLoop(ITree tree, Body body) {
+            ITree varE = tree.GetChild(0);
+            ITree condT = tree.GetChild(1);
+            ITree imp = tree.GetChild(2);
+            ITree bodyL = tree.GetChild(3);
+
+            Node varNode;
+
+            if (varE.Text == "VAR_DECL") {
+                varNode = this.ParseVarDecl(varE, body)[0];
+            }
+            else {
+                varNode = this.ParsExpr(tree, body);
+            }
+
+            Body loopBody = new Body();
+            loopBody.Nodes.Add(varNode);
+            loopBody.WrapBody = body;
+            Node cond = this.ParsExpr(condT, loopBody);
+
+            if (cond.DataType != Type.VarBool) {
+                throw new UndefinedTypeException($"логическое условие для for должно иметь тип bool а не {cond.DataType}");
+            }
+
+            Node loop = this.ParsExpr(imp, loopBody);
+
+            var fl = new ForLoop(loopBody);
+            fl.VarNode = varNode;
+            fl.CondNode = cond;
+            fl.Incremental = loop;
+            this.RecPars(bodyL, loopBody);
+            return fl;
+        }
+
+        private WhileLoop ParseWhileLoop(ITree tree, Body body)
+        {
+            ITree condT = tree.GetChild(0);
+            ITree bodyL = tree.GetChild(1);
+
+            Body loopBody = new Body();
+            loopBody.WrapBody = body;
+            Node cond = this.ParsExpr(condT, loopBody);
+
+            if (cond.DataType != Type.VarBool)
+            {
+                throw new UndefinedTypeException($"логическое условие для While должно иметь тип bool а не {cond.DataType}");
+            }
+
+            var fl = new WhileLoop(loopBody);
+            fl.Condition = cond;
+
+            this.RecPars(bodyL, loopBody);
+
+            return fl;
+        }
+
+        private DoLoop ParseDoLoop(ITree tree, Body body)
+        {
+            ITree condT = tree.GetChild(1);
+            ITree bodyL = tree.GetChild(0);
+
+            Body loopBody = new Body();
+            loopBody.WrapBody = body;
+            Node cond = this.ParsExpr(condT, loopBody);
+
+            if (cond.DataType != Type.VarBool)
+            {
+                throw new UndefinedTypeException($"логическое условие для Do_While должно иметь тип bool а не {cond.DataType}");
+            }
+
+            var fl = new DoLoop(loopBody);
+            fl.Condition = cond;
+
+            this.RecPars(bodyL, loopBody);
+
+            return fl;
         }
 
     }
