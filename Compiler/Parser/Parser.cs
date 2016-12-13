@@ -32,6 +32,7 @@ namespace CompilerConsole.Parser {
         public ITree Root { get; set; }
 
         private Dictionary<string, Token> _tokensDictionary;
+        private Dictionary<string, ExprToken> _exprTokensDictionary;
 
         public Parser(ITree root) {
             this.MainBody = new Body();
@@ -40,8 +41,9 @@ namespace CompilerConsole.Parser {
         }
 
         private void InitDictionary() {
-            this._tokensDictionary = new Dictionary<string, Token>();
 
+            #region _tokensDictionary initialize
+            this._tokensDictionary = new Dictionary<string, Token>();
             this._tokensDictionary.Add("VAR_DECL", Token.VAR_DECL);
             this._tokensDictionary.Add("METH_CALL", Token.METH_CALL);
             this._tokensDictionary.Add("ARR_DECL", Token.ARR_DECL);
@@ -56,6 +58,24 @@ namespace CompilerConsole.Parser {
             this._tokensDictionary.Add("DEC", Token.DEC);
             this._tokensDictionary.Add("METH_DECL", Token.METH_DECL);
             this._tokensDictionary.Add("RETURN", Token.RETURN);
+            #endregion
+
+            #region exprTokensDictionary initialize
+            this._exprTokensDictionary = new Dictionary<string, ExprToken>();
+            this._exprTokensDictionary.Add("+", ExprToken.Add);
+            this._exprTokensDictionary.Add("-", ExprToken.Sub);
+            this._exprTokensDictionary.Add("*", ExprToken.Mult);
+            this._exprTokensDictionary.Add("/", ExprToken.Div);
+            this._exprTokensDictionary.Add("=", ExprToken.Ass);
+            this._exprTokensDictionary.Add("==", ExprToken.IsEqual);
+            this._exprTokensDictionary.Add("<", ExprToken.IsLess);
+            this._exprTokensDictionary.Add(">", ExprToken.IsMore);
+            this._exprTokensDictionary.Add("<=", ExprToken.IsLessOrEqual);
+            this._exprTokensDictionary.Add(">=", ExprToken.IsMoreOrEqual);
+            this._exprTokensDictionary.Add("&&", ExprToken.Conj);
+            this._exprTokensDictionary.Add("||", ExprToken.Dij);
+            this._exprTokensDictionary.Add("!", ExprToken.Neg);
+            #endregion
         }
 
         private bool IsType(string text) {

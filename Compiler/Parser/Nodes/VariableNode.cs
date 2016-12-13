@@ -13,10 +13,14 @@ namespace CompilerConsole.Parser.Nodes
             
         }
 
+        public Node Assign { get; set; }
+
         public override void WriteXml(XmlWriter writer) {
             writer.WriteStartElement("VariableNode");
             base.WriteXml(writer);
             writer.WriteEndElement();
         }
+
+
     }
 }

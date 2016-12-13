@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace CompilerConsole.Parser.Nodes {
-    enum ExprToken {
+﻿namespace CompilerConsole.Parser.Nodes {
+    public enum ExprToken {
         IsEqual,
         IsLess,
         IsMore,
@@ -25,6 +21,8 @@ namespace CompilerConsole.Parser.Nodes {
 
         public ExprToken ExprToken { get; set; }
 
+        public object Result { get; set; }
+
         public bool IsValid => this.DataType != Type.Error;
 
         public Expression(Node leftNode, Node rightNode, ExprToken exprToken) {
@@ -32,7 +30,7 @@ namespace CompilerConsole.Parser.Nodes {
             this.RightNode = rightNode;
             this.ExprToken = exprToken;
             this.Name = "expr";
-            this.DataType = leftNode.DataType == rightNode.DataType ? leftNode.DataType : Type.Error;
+            this.ChecValidExpr();
         }
 
         public void ChecValidExpr() {

@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Antlr.Runtime.Tree;
 using CompilerConsole.Parser.Exceptions;
 using CompilerConsole.Parser.Nodes;
+using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.Parser {
     public partial class Parser {
@@ -97,5 +99,39 @@ namespace CompilerConsole.Parser {
             return new ArrNode(name.Text, typeToken, 0);
         }
 
+
+        public Node ParseExpression(ITree tree, Body body, ExprToken exprToken) {
+            switch (exprToken) {
+                case ExprToken.IsEqual:
+                    break;
+                case ExprToken.IsLess:
+                    break;
+                case ExprToken.IsMore:
+                    break;
+                case ExprToken.IsLessOrEqual:
+                    break;
+                case ExprToken.IsMoreOrEqual:
+                    break;
+                case ExprToken.Add:
+                    break;
+                case ExprToken.Sub:
+                    break;
+                case ExprToken.Mult:
+                    break;
+                case ExprToken.Div:
+                    break;
+                case ExprToken.Conj:
+                    break;
+                case ExprToken.Dij:
+                    break;
+                case ExprToken.Neg:
+                    break;
+                case ExprToken.Ass:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(exprToken), exprToken, null);
+            }
+            return null;
+        }
     }
 }
