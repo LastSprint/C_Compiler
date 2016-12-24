@@ -1,0 +1,178 @@
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 3.5.30729.1
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+
+// Metadata version: v2.0.50727
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 2:0:0:0
+}
+.assembly '02.operators'
+{
+
+  // --- The following custom attribute is added automatically, do not uncomment -------
+  //  .custom instance void [mscorlib]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 07 01 00 00 00 00 ) 
+
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                             63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module '02.operators.exe'
+// MVID: {0BA7F0DF-2F7A-4607-AB8D-3A8FC335A2DD}
+.imagebase 0x00400000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x02F80000
+
+
+// =============== CLASS MEMBERS DECLARATION ===================
+
+.class public auto ansi beforefieldinit FL_Program
+       extends [mscorlib]System.Object
+{
+  .field public int32 A
+  .field public int32 B
+  .field public int32 C
+  .method public hidebysig instance void 
+          FL_Main() cil managed
+  {
+    // Code size       251 (0xfb)
+    .maxstack  3
+    IL_0000:  nop
+    IL_0001:  ldarg.0
+    IL_0002:  ldc.i4.1
+    IL_0003:  stfld      int32 FL_Program::A
+    IL_0008:  ldarg.0
+    IL_0009:  ldc.i4.2
+    IL_000a:  stfld      int32 FL_Program::B
+    IL_000f:  ldarg.0
+    IL_0010:  ldarg.0
+    IL_0011:  ldfld      int32 FL_Program::A
+    IL_0016:  ldarg.0
+    IL_0017:  ldfld      int32 FL_Program::B
+    IL_001c:  add
+    IL_001d:  stfld      int32 FL_Program::C
+    IL_0022:  ldarg.0
+    IL_0023:  ldarg.0
+    IL_0024:  ldfld      int32 FL_Program::A
+    IL_0029:  ldarg.0
+    IL_002a:  ldfld      int32 FL_Program::B
+    IL_002f:  sub
+    IL_0030:  stfld      int32 FL_Program::C
+    IL_0035:  ldarg.0
+    IL_0036:  ldarg.0
+    IL_0037:  ldfld      int32 FL_Program::A
+    IL_003c:  ldarg.0
+    IL_003d:  ldfld      int32 FL_Program::B
+    IL_0042:  mul
+    IL_0043:  stfld      int32 FL_Program::C
+    IL_0048:  ldarg.0
+    IL_0049:  ldarg.0
+    IL_004a:  ldfld      int32 FL_Program::A
+    IL_004f:  ldarg.0
+    IL_0050:  ldfld      int32 FL_Program::B
+    IL_0055:  div
+    IL_0056:  stfld      int32 FL_Program::C
+    IL_005b:  ldarg.0
+    IL_005c:  ldarg.0
+    IL_005d:  ldfld      int32 FL_Program::A
+    IL_0062:  ldarg.0
+    IL_0063:  ldfld      int32 FL_Program::B
+    IL_0068:  ceq
+    IL_006a:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_006f:  stfld      int32 FL_Program::C
+    IL_0074:  ldarg.0
+    IL_0075:  ldarg.0
+    IL_0076:  ldfld      int32 FL_Program::A
+    IL_007b:  ldarg.0
+    IL_007c:  ldfld      int32 FL_Program::B
+    IL_0081:  ceq
+    IL_0083:  ldc.i4.0
+    IL_0084:  ceq
+    IL_0086:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_008b:  stfld      int32 FL_Program::C
+    IL_0090:  ldarg.0
+    IL_0091:  ldarg.0
+    IL_0092:  ldfld      int32 FL_Program::A
+    IL_0097:  ldarg.0
+    IL_0098:  ldfld      int32 FL_Program::B
+    IL_009d:  cgt
+    IL_009f:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_00a4:  stfld      int32 FL_Program::C
+    IL_00a9:  ldarg.0
+    IL_00aa:  ldarg.0
+    IL_00ab:  ldfld      int32 FL_Program::A
+    IL_00b0:  ldarg.0
+    IL_00b1:  ldfld      int32 FL_Program::B
+    IL_00b6:  clt
+    IL_00b8:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_00bd:  stfld      int32 FL_Program::C
+    IL_00c2:  ldarg.0
+    IL_00c3:  ldarg.0
+    IL_00c4:  ldfld      int32 FL_Program::A
+    IL_00c9:  ldarg.0
+    IL_00ca:  ldfld      int32 FL_Program::B
+    IL_00cf:  clt
+    IL_00d1:  ldc.i4.0
+    IL_00d2:  ceq
+    IL_00d4:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_00d9:  stfld      int32 FL_Program::C
+    IL_00de:  ldarg.0
+    IL_00df:  ldarg.0
+    IL_00e0:  ldfld      int32 FL_Program::A
+    IL_00e5:  ldarg.0
+    IL_00e6:  ldfld      int32 FL_Program::B
+    IL_00eb:  cgt
+    IL_00ed:  ldc.i4.0
+    IL_00ee:  ceq
+    IL_00f0:  call       int32 [mscorlib]System.Convert::ToInt32(bool)
+    IL_00f5:  stfld      int32 FL_Program::C
+    IL_00fa:  ret
+  } // end of method FL_Program::FL_Main
+
+  .method public hidebysig static void  Main(string[] args) cil managed
+  {
+    .entrypoint
+    // Code size       13 (0xd)
+    .maxstack  8
+    IL_0000:  nop
+    IL_0001:  newobj     instance void FL_Program::.ctor()
+    IL_0006:  call       instance void FL_Program::FL_Main()
+    IL_000b:  nop
+    IL_000c:  ret
+  } // end of method FL_Program::Main
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       29 (0x1d)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  ldc.i4.0
+    IL_0002:  stfld      int32 FL_Program::A
+    IL_0007:  ldarg.0
+    IL_0008:  ldc.i4.0
+    IL_0009:  stfld      int32 FL_Program::B
+    IL_000e:  ldarg.0
+    IL_000f:  ldc.i4.0
+    IL_0010:  stfld      int32 FL_Program::C
+    IL_0015:  ldarg.0
+    IL_0016:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_001b:  nop
+    IL_001c:  ret
+  } // end of method FL_Program::.ctor
+
+} // end of class FL_Program
+
+
+// =============================================================
+
+// *********** DISASSEMBLY COMPLETE ***********************
+// WARNING: Created Win32 resource file 02.operators.res

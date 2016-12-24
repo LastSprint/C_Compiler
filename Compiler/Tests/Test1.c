@@ -22,19 +22,30 @@ void main() {
 int[] sort(int[] a, int n) {
 	int c = 0;
 	for (int i = 0; i < n - 1; i++) {
+		int b;
+	}
+}
+
+
+
+int[] sort(int[] a, int n) {
+	int c = 0;
+	for (int i = 0; i < n - 1; i++) {
 		for (int j = n - 2; j >= i; j--) {
 			if (a[j] > a[j + 1]) {
-				c = a[j]; a[j] = a[j + 1];
-				a[j + 1] = c;
+				c = a[j]; 
 			}
 		}
 	}
 }
 
-//Ошибка при парсинге декларации переменных
 void main() {
 	int a[10];
 	a = sort(a, 10);
+}
+
+void main() {
+	int c = 0;
 }
 
 int a;

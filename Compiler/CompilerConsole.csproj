@@ -67,6 +67,7 @@
     <Compile Include="Parser\Nodes\BodyNodes\MethodNode.cs" />
     <Compile Include="Parser\Nodes\Node.cs" />
     <Compile Include="Parser\Nodes\CallNode\MethCall.cs" />
+    <Compile Include="Parser\Nodes\Variable.cs" />
     <Compile Include="Parser\Nodes\VariableNode.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="Parser\ParserMethods.cs" />
@@ -75,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input.txt" />
+    <Content Include="Templates\StartProgramTempate.txt" />
     <Content Include="Tests\Test1.c" />
     <Content Include="Tests\Test2.c" />
     <Content Include="Tests\Test3.c" />

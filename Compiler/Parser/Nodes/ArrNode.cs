@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes
 {
-    public class ArrNode : Node
+    public class ArrNode : VariableNode
     {
         public Node Length { get; set; }
 
@@ -22,7 +22,7 @@ namespace CompilerConsole.Parser.Nodes
             writer.WriteAttributeString("Name", this.Name);
             writer.WriteAttributeString("DataType", this.DataType.ToString());
             writer.WriteStartElement("Length");
-            this.Length.WriteXml(writer);
+            this.Length?.WriteXml(writer);
             writer.WriteEndElement();
             writer.WriteEndElement();
         }

@@ -25,7 +25,8 @@ namespace CompilerConsole.Parser {
             List<VariableNode> variables = new List<VariableNode>();
             Type varType;
             if (tree.Text == "ARR_DECL") {
-                varType = this.GetArrType(type.Text);
+                variables.Add(this.PareArrDecl(tree, body));
+                return variables;
             }
             else {
                 varType = this.GetVarType(type.Text);
@@ -33,6 +34,12 @@ namespace CompilerConsole.Parser {
 
 
             for (int i = 1; i < tree.ChildCount; i++) {
+
+                if (tree.GetChild(i).Text == "=") {
+                    variables[0].Assign = this.ParsExpr(tree.GetChild(i).GetChild(0), body);
+                    break;
+                }
+
                 if (this.IsType(tree.GetChild(i).Text)) {
                     throw new UsedKeyWorldExceptioncs(
                         $"Для имени переменной было использовано ключевое слово {tree.GetChild(0).Text}");
@@ -42,7 +49,7 @@ namespace CompilerConsole.Parser {
                     throw new NodeAlreadyExistException($"Переменная с именем {tree.GetChild(i).Text} объявлена ранее");
                 }
 
-                variables.Add(new VariableNode(tree.GetChild(i).Text, varType));
+                variables.Add(new StructVariableNode(tree.GetChild(i).Text, varType));
             }
 
             return variables;
@@ -82,6 +89,11 @@ namespace CompilerConsole.Parser {
                 args.Add(varNode);
             }
             var methodNode = new MethodNode(methodName, returnType, bodyTable, args);
+
+            foreach (var variable in methodNode.ArgList) {
+                methodNode.Body.Nodes.Add(variable);
+            }
+
             return methodNode;
         }
 
@@ -92,10 +104,12 @@ namespace CompilerConsole.Parser {
 
             Type typeToken = this.GetArrType(type.Text);
 
-            if (Body.FindNodeByName<VariableNode>(name.Text,body) != null) {
+            if (Body.FindNodeByName<StructVariableNode>(name.Text,body) != null) {
                 throw new NodeAlreadyExistException($"Переменная с именем {name.Text} объявлена ранее");
             }
-
+            if (length == null) {
+                return new ArrNode(name.Text, typeToken, null);
+            }
             Node arrLength = this.ParsExpr(length, body);
             if (arrLength.DataType != Type.VarInt) {
                 throw new BadExpressionException($"При создании массива ошибка с типом разерности. Нужен VarInt а был {arrLength.DataType} при создании массива {name.Text} ");
@@ -305,9 +319,8 @@ namespace CompilerConsole.Parser {
             return null;
         }
 
-
         private Node ParseIncDec(ITree tree, Body body, ExprToken token) {
-            var variable = Body.FindNodeByName<VariableNode>(tree.GetChild(0).Text, body);
+            var variable = Body.FindNodeByName<StructVariableNode>(tree.GetChild(0).Text, body);
             if (variable == null) {
                 throw new NodeNotfoundException($"переменной с именем {tree.GetChild(0).Text} не существует");
             }
@@ -315,7 +328,6 @@ namespace CompilerConsole.Parser {
             Expression re = new Expression(variable, fe, ExprToken.Ass);
             return re;
         }
-
 
         private IfNode ParseIf(ITree tree, Body body) {
             ITree cond = tree.GetChild(0);

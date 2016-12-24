@@ -1,0 +1,35 @@
+declare
+  A int;
+  B int;
+  C int;
+
+  procedure Sort2(A in out int, B in out int)
+  is
+    Temp int;
+  begin
+    if A>B then
+      Temp:=A;
+      A:=B;
+      B:=Temp;
+    end if;
+  end;
+
+  procedure Sort3(A in out int, B in out int, C in out int)
+  is
+  begin
+    Sort2(A, B);
+    Sort2(B, C);
+    Sort2(A, B);
+  end;
+    
+begin
+  A:=3;
+  B:=4;
+  C:=5;
+
+  if A+B>C then
+    print 1;
+  else
+    print 0;
+  end if;
+end;

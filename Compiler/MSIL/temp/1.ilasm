@@ -1,0 +1,36 @@
+.assembly program
+{
+}
+
+.class public Program
+{
+  .method public static void Main() cil managed
+  {
+    .entrypoint
+    .locals init (
+      [0] int32,
+      [1] int32,
+      [2] int32
+    )
+
+    IL_0000: ldc.i4.s 7
+    IL_0001: stloc.s 0
+    IL_0002: ldc.i4.s 10
+    IL_0003: stloc.s 1
+    IL_0004: ldc.i4.s 67
+    IL_0005: ldloc.s 0
+    IL_0006: mul
+    IL_0007: ldloc.s 1
+    IL_0008: add
+    IL_0009: stloc.s 2
+    IL_000A: ldloc.s 2
+    IL_000B: call void [mscorlib]System.Console::WriteLine(int32)
+    IL_000C: ldloc.s 0
+    IL_000D: ldloc.s 1
+    IL_000E: mul
+    IL_000F: ldc.i4.s 5
+    IL_0010: sub
+    IL_0011: call void [mscorlib]System.Console::WriteLine(int32)
+    IL_0012: ret
+  }
+}

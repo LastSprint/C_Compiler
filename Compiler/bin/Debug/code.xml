@@ -1,43 +1,13 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <MethodNode Name="testt" DataType="Void">
+    <MethodNode Name="sort" DataType="ArrInt">
       <Body>
-        <VariableNode Name="j" DataType="VarInt" />
-        <WhileLoop>
-          <Condition>
-            <Expression Name="expr" DataType="VarBool">
-              <LeftNode>
-                <VariableNode Name="j" DataType="VarInt" />
-              </LeftNode>
-              <RightNode>
-                <Literal Name="lit" DataType="VarInt" Value="0" />
-              </RightNode>
-            </Expression>
-          </Condition>
-          <Body>
-            <Body>
-              <VariableNode Name="a" DataType="VarInt" />
-            </Body>
-          </Body>
-        </WhileLoop>
-        <DoLoop>
-          <Condition>
-            <Expression Name="expr" DataType="VarBool">
-              <LeftNode>
-                <VariableNode Name="j" DataType="VarInt" />
-              </LeftNode>
-              <RightNode>
-                <Literal Name="lit" DataType="VarInt" Value="0" />
-              </RightNode>
-            </Expression>
-          </Condition>
-          <Body>
-            <Body>
-              <VariableNode Name="a" DataType="VarInt" />
-            </Body>
-          </Body>
-        </DoLoop>
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length />
+        </ArrayNode>
+        <VariableNode Name="n" DataType="VarInt" />
+        <VariableNode Name="c" DataType="VarInt" />
         <ForLoop>
           <VarNode>
             <VariableNode Name="i" DataType="VarInt" />
@@ -48,7 +18,14 @@
                 <VariableNode Name="i" DataType="VarInt" />
               </LeftNode>
               <RightNode>
-                <Literal Name="lit" DataType="VarInt" Value="10" />
+                <Expression Name="expr" DataType="VarInt">
+                  <LeftNode>
+                    <VariableNode Name="n" DataType="VarInt" />
+                  </LeftNode>
+                  <RightNode>
+                    <Literal Name="lit" DataType="VarInt" Value="1" />
+                  </RightNode>
+                </Expression>
               </RightNode>
             </Expression>
           </CondNode>
@@ -72,27 +49,125 @@
           <Body>
             <Body>
               <VariableNode Name="i" DataType="VarInt" />
-              <VariableNode Name="a" DataType="VarInt" />
+              <ForLoop>
+                <VarNode>
+                  <VariableNode Name="j" DataType="VarInt" />
+                </VarNode>
+                <CondNode>
+                  <Expression Name="expr" DataType="VarBool">
+                    <LeftNode>
+                      <VariableNode Name="j" DataType="VarInt" />
+                    </LeftNode>
+                    <RightNode>
+                      <VariableNode Name="i" DataType="VarInt" />
+                    </RightNode>
+                  </Expression>
+                </CondNode>
+                <Increment>
+                  <Expression Name="expr" DataType="VarInt">
+                    <LeftNode>
+                      <VariableNode Name="j" DataType="VarInt" />
+                    </LeftNode>
+                    <RightNode>
+                      <Expression Name="expr" DataType="VarInt">
+                        <LeftNode>
+                          <VariableNode Name="j" DataType="VarInt" />
+                        </LeftNode>
+                        <RightNode>
+                          <Literal Name="lit" DataType="VarInt" Value="1" />
+                        </RightNode>
+                      </Expression>
+                    </RightNode>
+                  </Expression>
+                </Increment>
+                <Body>
+                  <Body>
+                    <VariableNode Name="j" DataType="VarInt" />
+                    <IfNode>
+                      <Condition>
+                        <Expression Name="expr" DataType="VarBool">
+                          <LeftNode>
+                            <ArrCallNode DataType="VarInt" Arr="a">
+                              <Index>
+                                <VariableNode Name="j" DataType="VarInt" />
+                              </Index>
+                            </ArrCallNode>
+                          </LeftNode>
+                          <RightNode>
+                            <ArrCallNode DataType="VarInt" Arr="a">
+                              <Index>
+                                <Expression Name="expr" DataType="VarInt">
+                                  <LeftNode>
+                                    <VariableNode Name="j" DataType="VarInt" />
+                                  </LeftNode>
+                                  <RightNode>
+                                    <Literal Name="lit" DataType="VarInt" Value="1" />
+                                  </RightNode>
+                                </Expression>
+                              </Index>
+                            </ArrCallNode>
+                          </RightNode>
+                        </Expression>
+                      </Condition>
+                      <Body>
+                        <Body>
+                          <Expression Name="expr" DataType="VarInt">
+                            <LeftNode>
+                              <VariableNode Name="c" DataType="VarInt" />
+                            </LeftNode>
+                            <RightNode>
+                              <ArrCallNode DataType="VarInt" Arr="a">
+                                <Index>
+                                  <VariableNode Name="j" DataType="VarInt" />
+                                </Index>
+                              </ArrCallNode>
+                            </RightNode>
+                          </Expression>
+                        </Body>
+                      </Body>
+                    </IfNode>
+                  </Body>
+                </Body>
+              </ForLoop>
             </Body>
           </Body>
         </ForLoop>
-        <IfNode>
-          <Condition>
-            <Expression Name="expr" DataType="VarBool">
-              <LeftNode>
-                <VariableNode Name="j" DataType="VarInt" />
-              </LeftNode>
-              <RightNode>
-                <Literal Name="lit" DataType="VarInt" Value="0" />
-              </RightNode>
-            </Expression>
-          </Condition>
-          <Body>
-            <Body>
-              <VariableNode Name="a" DataType="VarInt" />
-            </Body>
-          </Body>
-        </IfNode>
+      </Body>
+      <Args>
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length />
+        </ArrayNode>
+        <VariableNode Name="n" DataType="VarInt" />
+      </Args>
+    </MethodNode>
+    <MethodNode Name="main" DataType="Void">
+      <Body>
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
+          </Length>
+        </ArrayNode>
+        <Expression Name="expr" DataType="ArrInt">
+          <LeftNode>
+            <ArrayNode Name="a" DataType="ArrInt">
+              <Length>
+                <Literal Name="lit" DataType="VarInt" Value="10" />
+              </Length>
+            </ArrayNode>
+          </LeftNode>
+          <RightNode>
+            <MethCallNode DataType="ArrInt" Method="sort">
+              <SendArgs>
+                <ArrayNode Name="a" DataType="ArrInt">
+                  <Length>
+                    <Literal Name="lit" DataType="VarInt" Value="10" />
+                  </Length>
+                </ArrayNode>
+                <Literal Name="lit" DataType="VarInt" Value="10" />
+              </SendArgs>
+            </MethCallNode>
+          </RightNode>
+        </Expression>
       </Body>
       <Args />
     </MethodNode>

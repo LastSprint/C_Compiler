@@ -1,0 +1,198 @@
+<HTML>
+<HEAD>
+<TITLE> 02.operators.exe - IL DASM</TITLE>
+</HEAD>
+<BODY>
+<FONT SIZE=3 FACE="Arial">
+<PRE>
+
+<FONT SIZE=4><B>
+<I><FONT COLOR=GREEN>//  Microsoft (R) .NET Framework IL Disassembler.  Version 3.5.30729.1</FONT></I>
+<I><FONT COLOR=GREEN></FONT></I>
+</B></FONT>
+
+<I><FONT COLOR=GREEN>
+</FONT></I>
+// Metadata version: v2.0.50727
+<B><FONT COLOR=NAVY>.assembly extern</FONT></B> <A NAME=A23000001>mscorlib</A>
+{
+  <B><FONT COLOR=NAVY>.publickeytoken</FONT></B> = (B7 7A 5C 56 19 34 E0 89 )                         <I><FONT COLOR=GREEN>// .z\V.4..</FONT></I>
+  <B><FONT COLOR=NAVY>.ver</FONT></B> 2:0:0:0
+}
+<B><FONT COLOR=NAVY>.assembly</FONT></B> <A NAME=A20000001>'02.operators'</A>
+{
+<I><FONT COLOR=GREEN>
+  // --- Следующий настраиваемый атрибут добавлен автоматически, не следует отменять преобразование в комментарий -------
+  //  <B><FONT COLOR=NAVY>.custom</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Diagnostics.DebuggableAttribute::.ctor(<B><FONT COLOR=NAVY>valuetype </FONT></B>[<A HREF=#A23000001>mscorlib</A>]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 03 00 00 00 00 00 ) 
+</FONT></I>
+  <B><FONT COLOR=NAVY>.custom</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(<B><FONT COLOR=NAVY>int32</FONT></B>) = ( 01 00 08 00 00 00 00 00 ) 
+  <B><FONT COLOR=NAVY>.custom</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78 <I><FONT COLOR=GREEN>  // ....T..WrapNonEx</FONT></I>
+                                                                                                                                                                                                                                                                63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       <I><FONT COLOR=GREEN>// ceptionThrows.</FONT></I>
+  <B><FONT COLOR=NAVY>.hash algorithm</FONT></B> 0x00008004
+  <B><FONT COLOR=NAVY>.ver</FONT></B> 0:0:0:0
+}
+<B><FONT COLOR=NAVY>.module</FONT></B> '02.operators.exe'
+<I><FONT COLOR=GREEN>// MVID: {F6D89B28-24CE-4B49-9DD3-1194BECE3954}</FONT></I>
+<B><FONT COLOR=NAVY>.imagebase</FONT></B> 0x00400000
+<B><FONT COLOR=NAVY>.file alignment</FONT></B> 0x00000200
+<B><FONT COLOR=NAVY>.stackreserve</FONT></B> 0x00100000
+<B><FONT COLOR=NAVY>.subsystem</FONT></B> 0x0003       <I><FONT COLOR=GREEN>// WINDOWS_CUI</FONT></I>
+<B><FONT COLOR=NAVY>.corflags</FONT></B> 0x00000001<I><FONT COLOR=GREEN>    //  ILONLY</FONT></I>
+<I><FONT COLOR=GREEN>// Image base: 0x001F0000</FONT></I>
+
+
+<I><FONT COLOR=GREEN>// =============== CLASS MEMBERS DECLARATION ===================</FONT></I>
+
+<B><FONT COLOR=NAVY>.class</FONT></B> <B><FONT COLOR=NAVY>public auto ansi beforefieldinit </FONT></B><A NAME=A02000002>FL_Program</A>
+       <B><FONT COLOR=NAVY>extends</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Object
+{
+  <A NAME=A04000001><B><FONT COLOR=NAVY>.field</FONT></B></A> <B><FONT COLOR=NAVY>public </FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> A
+  <A NAME=A04000002><B><FONT COLOR=NAVY>.field</FONT></B></A> <B><FONT COLOR=NAVY>public </FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> B
+  <A NAME=A04000003><B><FONT COLOR=NAVY>.field</FONT></B></A> <B><FONT COLOR=NAVY>public </FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> C
+  <A NAME=A06000001><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig </FONT></B><B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B>  FL_Main()<B><FONT COLOR=NAVY> cil managed</FONT></B>
+  {
+    // Размер кода:       250 (0xfa)
+    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  3
+    <B><FONT COLOR=NAVY>.language</FONT></B> '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
+<I><FONT COLOR=GREEN>// Source File 'l:\Лекции\3 Курс\Теория компиляторов\Samples\MSIL\copy2\02.operators.cs' </FONT></I>
+<I><FONT COLOR=GREEN>//000039:     A=1;</FONT></I>
+    IL_0000:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0001:  <B><FONT COLOR=NAVY>ldc.i4.1</FONT></B>
+    IL_0002:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+<I><FONT COLOR=GREEN>//000040:     B=2;</FONT></I>
+    IL_0007:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0008:  <B><FONT COLOR=NAVY>ldc.i4.2</FONT></B>
+    IL_0009:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+<I><FONT COLOR=GREEN>//000041: </FONT></I>
+<I><FONT COLOR=GREEN>//000042:     C=A+B;</FONT></I>
+    IL_000e:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_000f:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0010:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_0015:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0016:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_001b:  <B><FONT COLOR=NAVY>add</FONT></B>
+    IL_001c:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000043:     C=A-B;</FONT></I>
+    IL_0021:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0022:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0023:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_0028:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0029:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_002e:  <B><FONT COLOR=NAVY>sub</FONT></B>
+    IL_002f:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000044:     C=A*B;</FONT></I>
+    IL_0034:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0035:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0036:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_003b:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_003c:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_0041:  <B><FONT COLOR=NAVY>mul</FONT></B>
+    IL_0042:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000045:     C=A/B;</FONT></I>
+    IL_0047:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0048:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0049:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_004e:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_004f:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_0054:  <B><FONT COLOR=NAVY>div</FONT></B>
+    IL_0055:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000046: </FONT></I>
+<I><FONT COLOR=GREEN>//000047:     C=Convert.ToInt32(A==B);</FONT></I>
+    IL_005a:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_005b:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_005c:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_0061:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0062:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_0067:  <B><FONT COLOR=NAVY>ceq</FONT></B>
+    IL_0069:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_006e:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000048:     C=Convert.ToInt32(A!=B);</FONT></I>
+    IL_0073:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0074:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0075:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_007a:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_007b:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_0080:  <B><FONT COLOR=NAVY>ceq</FONT></B>
+    IL_0082:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
+    IL_0083:  <B><FONT COLOR=NAVY>ceq</FONT></B>
+    IL_0085:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_008a:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000049:     C=Convert.ToInt32(A>B);</FONT></I>
+    IL_008f:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0090:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0091:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_0096:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0097:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_009c:  <B><FONT COLOR=NAVY>cgt</FONT></B>
+    IL_009e:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_00a3:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000050:     C=Convert.ToInt32(A<B);</FONT></I>
+    IL_00a8:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00a9:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00aa:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_00af:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00b0:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_00b5:  <B><FONT COLOR=NAVY>clt</FONT></B>
+    IL_00b7:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_00bc:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000051:     C=Convert.ToInt32(A>=B);</FONT></I>
+    IL_00c1:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00c2:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00c3:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_00c8:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00c9:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_00ce:  <B><FONT COLOR=NAVY>clt</FONT></B>
+    IL_00d0:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
+    IL_00d1:  <B><FONT COLOR=NAVY>ceq</FONT></B>
+    IL_00d3:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_00d8:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000052:     C=Convert.ToInt32(A<=B);</FONT></I>
+    IL_00dd:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00de:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00df:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000001>A</A>
+    IL_00e4:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_00e5:  <B><FONT COLOR=NAVY>ldfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000002>B</A>
+    IL_00ea:  <B><FONT COLOR=NAVY>cgt</FONT></B>
+    IL_00ec:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
+    IL_00ed:  <B><FONT COLOR=NAVY>ceq</FONT></B>
+    IL_00ef:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Convert::ToInt32(<B><FONT COLOR=NAVY>bool</FONT></B>)
+    IL_00f4:  <B><FONT COLOR=NAVY>stfld</FONT></B> <B><FONT COLOR=NAVY>int32</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A04000003>C</A>
+<I><FONT COLOR=GREEN>//000053:   }</FONT></I>
+    IL_00f9:  <B><FONT COLOR=NAVY>ret</FONT></B>
+  } <I><FONT COLOR=GREEN>// end of method FL_Program::</FONT></I><I><FONT COLOR=GREEN>FL_Main</FONT></I>
+
+  <A NAME=A06000002><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig static </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B>  Main(<B><FONT COLOR=NAVY>string</FONT></B>[] args)<B><FONT COLOR=NAVY> cil managed</FONT></B>
+  {
+    <B><FONT COLOR=NAVY>.entrypoint</FONT></B>
+    // Размер кода:       11 (0xb)
+    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  8
+<I><FONT COLOR=GREEN>//000054: </FONT></I>
+<I><FONT COLOR=GREEN>//000055: </FONT></I>
+<I><FONT COLOR=GREEN>//000056:   public static void Main(string[] args) {</FONT></I>
+<I><FONT COLOR=GREEN>//000057:     (new FL_Program()).FL_Main();</FONT></I>
+    IL_0000:  <B><FONT COLOR=NAVY>newobj</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A06000003>.ctor</A>()
+    IL_0005:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> <A HREF=#A02000002>FL_Program</A>::<A HREF=#A06000001>FL_Main</A>()
+<I><FONT COLOR=GREEN>//000058:   }</FONT></I>
+    IL_000a:  <B><FONT COLOR=NAVY>ret</FONT></B>
+  } <I><FONT COLOR=GREEN>// end of method FL_Program::</FONT></I><I><FONT COLOR=GREEN>Main</FONT></I>
+
+  <A NAME=A06000003><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig specialname rtspecialname </FONT></B><B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> 
+          .ctor()<B><FONT COLOR=NAVY> cil managed</FONT></B>
+  {
+    // Размер кода:       7 (0x7)
+    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  8
+    IL_0000:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0001:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Object::.ctor()
+    IL_0006:  <B><FONT COLOR=NAVY>ret</FONT></B>
+  } <I><FONT COLOR=GREEN>// end of method FL_Program::</FONT></I><I><FONT COLOR=GREEN>.ctor</FONT></I>
+
+} <I><FONT COLOR=GREEN>// end of class FL_Program</FONT></I>
+
+
+<I><FONT COLOR=GREEN>// =============================================================</FONT></I>
+
+<I><FONT COLOR=GREEN>// *********** ДИЗАССЕМБЛИРОВАНИЕ ЗАВЕРШЕНО ***********************</FONT></I>
+<I><FONT COLOR=GREEN>// ВНИМАНИЕ: создан файл ресурсов Win32 02.operators.ilasm.res</FONT></I>
+</PRE>
+</BODY>
+</HTML>

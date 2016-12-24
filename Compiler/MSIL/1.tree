@@ -1,0 +1,93 @@
+program
+Ã declare
+³ Ã var
+³ ³ Ã ?A
+³ ³ À ?int
+³ Ã var
+³ ³ Ã ?B
+³ ³ À ?int
+³ Ã var
+³ ³ Ã ?C
+³ ³ À ?int
+³ Ã procedure
+³ ³ Ã ?Sort2
+³ ³ Ã params
+³ ³ ³ Ã ?A
+³ ³ ³ ³ Ã ?int
+³ ³ ³ ³ À inout
+³ ³ ³ À ?B
+³ ³ ³   Ã ?int
+³ ³ ³   À inout
+³ ³ Ã declare
+³ ³ ³ À var
+³ ³ ³   Ã ?Temp
+³ ³ ³   À ?int
+³ ³ À ..
+³ ³   À if
+³ ³     À ifthen
+³ ³       Ã >
+³ ³       ³ Ã ?A
+³ ³       ³ À ?B
+³ ³       À ..
+³ ³         Ã :=
+³ ³         ³ Ã ?Temp
+³ ³         ³ À ?A
+³ ³         Ã :=
+³ ³         ³ Ã ?A
+³ ³         ³ À ?B
+³ ³         À :=
+³ ³           Ã ?B
+³ ³           À ?Temp
+³ À procedure
+³   Ã ?Sort3
+³   Ã params
+³   ³ Ã ?A
+³   ³ ³ Ã ?int
+³   ³ ³ À inout
+³   ³ Ã ?B
+³   ³ ³ Ã ?int
+³   ³ ³ À inout
+³   ³ À ?C
+³   ³   Ã ?int
+³   ³   À inout
+³   Ã declare
+³   À ..
+³     Ã call
+³     ³ Ã ?Sort2
+³     ³ À params
+³     ³   Ã ?A
+³     ³   À ?B
+³     Ã call
+³     ³ Ã ?Sort2
+³     ³ À params
+³     ³   Ã ?B
+³     ³   À ?C
+³     À call
+³       Ã ?Sort2
+³       À params
+³         Ã ?A
+³         À ?B
+À ..
+  Ã :=
+  ³ Ã ?A
+  ³ À 3
+  Ã :=
+  ³ Ã ?B
+  ³ À 4
+  Ã :=
+  ³ Ã ?C
+  ³ À 5
+  À if
+    Ã ifthen
+    ³ Ã >
+    ³ ³ Ã +
+    ³ ³ ³ Ã ?A
+    ³ ³ ³ À ?B
+    ³ ³ À ?C
+    ³ À ..
+    ³   À print
+    ³     À 1
+    À else
+      À ..
+        À print
+          À 0

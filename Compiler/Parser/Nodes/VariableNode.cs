@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes
 {
-    public class VariableNode:Node
+    public abstract class VariableNode:Node
     {
         public VariableNode(string name, Type type) : base(name, type) {
         }
@@ -12,14 +12,10 @@ namespace CompilerConsole.Parser.Nodes
             
         }
 
-        public Node Assign { get; set; }
+        public virtual Node Assign { get; set; }
 
         public override void WriteXml(XmlWriter writer) {
-            writer.WriteStartElement("VariableNode");
             base.WriteXml(writer);
-            writer.WriteEndElement();
         }
-
-
     }
 }

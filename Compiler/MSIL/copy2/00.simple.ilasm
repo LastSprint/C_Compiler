@@ -1,0 +1,102 @@
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 3.5.30729.1
+
+
+
+
+// Metadata version: v2.0.50727
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 2:0:0:0
+}
+.assembly '00.simple'
+{
+
+  // --- Следующий настраиваемый атрибут добавлен автоматически, не следует отменять преобразование в комментарий -------
+  //  .custom instance void [mscorlib]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 03 00 00 00 00 00 ) 
+
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                             63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module '00.simple.exe'
+// MVID: {8AFF1F6C-9AF0-4A87-80B0-02692526568F}
+.imagebase 0x00400000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x00340000
+
+
+// =============== CLASS MEMBERS DECLARATION ===================
+
+.class public auto ansi beforefieldinit Simple
+       extends [mscorlib]System.Object
+{
+  .method public hidebysig static int32  Sum(int32 a,
+                                             int32 b) cil managed
+  {
+    // Размер кода:       6 (0x6)
+    .maxstack  2
+    .locals init ([0] int32 c)
+    IL_0000:  ldarg.0
+    IL_0001:  ldarg.1
+    IL_0002:  add
+    IL_0003:  stloc.0
+    IL_0004:  ldloc.0
+    IL_0005:  ret
+  } // end of method Simple::Sum
+
+  .method public hidebysig instance int32 
+          Test(int32 a) cil managed
+  {
+    // Размер кода:       2 (0x2)
+    .maxstack  8
+    IL_0000:  ldarg.1
+    IL_0001:  ret
+  } // end of method Simple::Test
+
+  .method public hidebysig static void  Main() cil managed
+  {
+    .entrypoint
+    // Размер кода:       29 (0x1d)
+    .maxstack  2
+    .locals init ([0] int32 result,
+             [1] class Simple s)
+    IL_0000:  ldc.i4.3
+    IL_0001:  ldc.i4.5
+    IL_0002:  call       int32 Simple::Sum(int32,
+                                           int32)
+    IL_0007:  stloc.0
+    IL_0008:  ldloc.0
+    IL_0009:  call       void [mscorlib]System.Console::WriteLine(int32)
+    IL_000e:  newobj     instance void Simple::.ctor()
+    IL_0013:  stloc.1
+    IL_0014:  ldloc.1
+    IL_0015:  ldc.i4.5
+    IL_0016:  callvirt   instance int32 Simple::Test(int32)
+    IL_001b:  pop
+    IL_001c:  ret
+  } // end of method Simple::Main
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Размер кода:       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method Simple::.ctor
+
+} // end of class Simple
+
+
+// =============================================================
+
+// *********** ДИЗАССЕМБЛИРОВАНИЕ ЗАВЕРШЕНО ***********************
+// ВНИМАНИЕ: создан файл ресурсов Win32 00.simple.res

@@ -160,21 +160,28 @@ mathGroup	:	'('! mathExpr ')'!
 				|decSug
 				|arrCall
 			;
-mathNeg		:	(INVERT^ mathGroup)
-				|(mathGroup)
-			;
-mathConj	:	mathNeg(CONJ^ mathNeg)*
-			;
-mathDisj	:	mathConj(DISJ^ mathConj)*
-			;
-mathEq		:	mathDisj((IS_MORE|IS_LESS|IS_EQUALLY|IS_MORE_OR_EQUAL|IS_LESS_OR_EQUAL)^	mathDisj)*
-			;
-mathMult	:	mathEq((MULT|DIV)^mathEq)*
+			
+mathMult	:	mathGroup((MULT|DIV)^mathGroup)*
 			;
 mathAdd		:	mathMult((ADD|SUB)^ mathMult)*
 			;
-mathExpr	:	mathAdd
+
+mathConj	:	mathAdd(CONJ^ mathAdd)*
 			;
+
+mathDisj	:	mathConj(DISJ^ mathConj)*
+			;
+
+mathEq		:	mathDisj((IS_MORE|IS_LESS|IS_EQUALLY|IS_MORE_OR_EQUAL|IS_LESS_OR_EQUAL)^	mathDisj)*
+			;
+
+mathNeg		:	(INVERT^ mathEq)
+				|(mathEq)
+			;
+
+mathExpr	:	mathNeg
+			;
+
 //--------------------------Bool----------------------//
 
 //-------------------------Methods---------------------//

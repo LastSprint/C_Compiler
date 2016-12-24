@@ -1,0 +1,249 @@
+
+//  Microsoft (R) .NET Framework IL Disassembler.  Version 3.5.30729.1
+//  Copyright (c) Microsoft Corporation.  All rights reserved.
+
+
+
+// Metadata version: v2.0.50727
+.assembly extern mscorlib
+{
+  .publickeytoken = (B7 7A 5C 56 19 34 E0 89 )                         // .z\V.4..
+  .ver 2:0:0:0
+}
+.assembly '09.blocks'
+{
+
+  // --- The following custom attribute is added automatically, do not uncomment -------
+  //  .custom instance void [mscorlib]System.Diagnostics.DebuggableAttribute::.ctor(valuetype [mscorlib]System.Diagnostics.DebuggableAttribute/DebuggingModes) = ( 01 00 07 01 00 00 00 00 ) 
+
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilationRelaxationsAttribute::.ctor(int32) = ( 01 00 08 00 00 00 00 00 ) 
+  .custom instance void [mscorlib]System.Runtime.CompilerServices.RuntimeCompatibilityAttribute::.ctor() = ( 01 00 01 00 54 02 16 57 72 61 70 4E 6F 6E 45 78   // ....T..WrapNonEx
+                                                                                                             63 65 70 74 69 6F 6E 54 68 72 6F 77 73 01 )       // ceptionThrows.
+  .hash algorithm 0x00008004
+  .ver 0:0:0:0
+}
+.module '09.blocks.exe'
+// MVID: {43A1CA42-C129-407C-81D8-EF713DDA907F}
+.imagebase 0x00400000
+.file alignment 0x00000200
+.stackreserve 0x00100000
+.subsystem 0x0003       // WINDOWS_CUI
+.corflags 0x00000001    //  ILONLY
+// Image base: 0x02F80000
+
+
+// =============== CLASS MEMBERS DECLARATION ===================
+
+.class public auto ansi beforefieldinit Program
+       extends [mscorlib]System.Object
+{
+  .class auto ansi nested private beforefieldinit Inner
+         extends [mscorlib]System.Object
+  {
+    .class auto ansi nested private beforefieldinit f_B
+           extends [mscorlib]System.Object
+    {
+      .class auto ansi nested private beforefieldinit p_C
+             extends [mscorlib]System.Object
+      {
+        .field private class Program/Inner/f_B outer
+        .field private int32 v_C
+        .method public hidebysig specialname rtspecialname 
+                instance void  .ctor(class Program/Inner/f_B outer) cil managed
+        {
+          // Code size       24 (0x18)
+          .maxstack  8
+          IL_0000:  ldarg.0
+          IL_0001:  ldc.i4.0
+          IL_0002:  stfld      int32 Program/Inner/f_B/p_C::v_C
+          IL_0007:  ldarg.0
+          IL_0008:  call       instance void [mscorlib]System.Object::.ctor()
+          IL_000d:  nop
+          IL_000e:  nop
+          IL_000f:  ldarg.0
+          IL_0010:  ldarg.1
+          IL_0011:  stfld      class Program/Inner/f_B Program/Inner/f_B/p_C::outer
+          IL_0016:  nop
+          IL_0017:  ret
+        } // end of method p_C::.ctor
+
+        .method public hidebysig instance void 
+                Execute() cil managed
+        {
+          // Code size       55 (0x37)
+          .maxstack  8
+          IL_0000:  nop
+          IL_0001:  ldarg.0
+          IL_0002:  ldfld      class Program/Inner/f_B Program/Inner/f_B/p_C::outer
+          IL_0007:  ldfld      class Program/Inner Program/Inner/f_B::outer
+          IL_000c:  ldc.i4.1
+          IL_000d:  stfld      int32 Program/Inner::v_A
+          IL_0012:  ldarg.0
+          IL_0013:  ldc.i4.1
+          IL_0014:  stfld      int32 Program/Inner/f_B/p_C::v_C
+          IL_0019:  ldarg.0
+          IL_001a:  ldfld      class Program/Inner/f_B Program/Inner/f_B/p_C::outer
+          IL_001f:  ldarg.0
+          IL_0020:  ldfld      class Program/Inner/f_B Program/Inner/f_B/p_C::outer
+          IL_0025:  ldfld      int32 Program/Inner/f_B::p_B
+          IL_002a:  ldarg.0
+          IL_002b:  ldfld      int32 Program/Inner/f_B/p_C::v_C
+          IL_0030:  add
+          IL_0031:  stfld      int32 Program/Inner/f_B::v_B
+          IL_0036:  ret
+        } // end of method p_C::Execute
+
+      } // end of class p_C
+
+      .field private class Program/Inner outer
+      .field private int32 p_B
+      .field private int32 v_B
+      .method public hidebysig specialname rtspecialname 
+              instance void  .ctor(class Program/Inner outer) cil managed
+      {
+        // Code size       24 (0x18)
+        .maxstack  8
+        IL_0000:  ldarg.0
+        IL_0001:  ldc.i4.0
+        IL_0002:  stfld      int32 Program/Inner/f_B::v_B
+        IL_0007:  ldarg.0
+        IL_0008:  call       instance void [mscorlib]System.Object::.ctor()
+        IL_000d:  nop
+        IL_000e:  nop
+        IL_000f:  ldarg.0
+        IL_0010:  ldarg.1
+        IL_0011:  stfld      class Program/Inner Program/Inner/f_B::outer
+        IL_0016:  nop
+        IL_0017:  ret
+      } // end of method f_B::.ctor
+
+      .method public hidebysig instance int32 
+              Execute(int32 p_B) cil managed
+      {
+        // Code size       59 (0x3b)
+        .maxstack  3
+        .locals init ([0] class Program/Inner/f_B/p_C p_C,
+                 [1] int32 CS$1$0000)
+        IL_0000:  nop
+        IL_0001:  ldarg.0
+        IL_0002:  ldarg.1
+        IL_0003:  stfld      int32 Program/Inner/f_B::p_B
+        IL_0008:  ldarg.0
+        IL_0009:  newobj     instance void Program/Inner/f_B/p_C::.ctor(class Program/Inner/f_B)
+        IL_000e:  stloc.0
+        IL_000f:  ldloc.0
+        IL_0010:  callvirt   instance void Program/Inner/f_B/p_C::Execute()
+        IL_0015:  nop
+        IL_0016:  ldarg.0
+        IL_0017:  ldfld      class Program/Inner Program/Inner/f_B::outer
+        IL_001c:  ldarg.0
+        IL_001d:  ldfld      class Program/Inner Program/Inner/f_B::outer
+        IL_0022:  ldfld      int32 Program/Inner::v_A
+        IL_0027:  ldc.i4.3
+        IL_0028:  add
+        IL_0029:  stfld      int32 Program/Inner::v_A
+        IL_002e:  ldarg.0
+        IL_002f:  ldfld      int32 Program/Inner/f_B::v_B
+        IL_0034:  ldc.i4.2
+        IL_0035:  mul
+        IL_0036:  stloc.1
+        IL_0037:  br.s       IL_0039
+
+        IL_0039:  ldloc.1
+        IL_003a:  ret
+      } // end of method f_B::Execute
+
+    } // end of class f_B
+
+    .field private int32 v_A
+    .field private int32 v_A2
+    .method public hidebysig instance void 
+            Execute() cil managed
+    {
+      // Code size       69 (0x45)
+      .maxstack  2
+      .locals init ([0] class Program/Inner/f_B f_B,
+               [1] bool CS$4$0000)
+      IL_0000:  nop
+      IL_0001:  ldarg.0
+      IL_0002:  newobj     instance void Program/Inner/f_B::.ctor(class Program/Inner)
+      IL_0007:  stloc.0
+      IL_0008:  ldarg.0
+      IL_0009:  call       string [mscorlib]System.Console::ReadLine()
+      IL_000e:  call       int32 [mscorlib]System.Int32::Parse(string)
+      IL_0013:  stfld      int32 Program/Inner::v_A2
+      IL_0018:  ldloc.0
+      IL_0019:  ldc.i4.3
+      IL_001a:  callvirt   instance int32 Program/Inner/f_B::Execute(int32)
+      IL_001f:  ldarg.0
+      IL_0020:  ldfld      int32 Program/Inner::v_A2
+      IL_0025:  cgt
+      IL_0027:  ldc.i4.0
+      IL_0028:  ceq
+      IL_002a:  stloc.1
+      IL_002b:  ldloc.1
+      IL_002c:  brtrue.s   IL_0038
+
+      IL_002e:  ldc.i4.s   100
+      IL_0030:  call       void [mscorlib]System.Console::WriteLine(int32)
+      IL_0035:  nop
+      IL_0036:  br.s       IL_0044
+
+      IL_0038:  ldarg.0
+      IL_0039:  ldfld      int32 Program/Inner::v_A
+      IL_003e:  call       void [mscorlib]System.Console::WriteLine(int32)
+      IL_0043:  nop
+      IL_0044:  ret
+    } // end of method Inner::Execute
+
+    .method public hidebysig specialname rtspecialname 
+            instance void  .ctor() cil managed
+    {
+      // Code size       22 (0x16)
+      .maxstack  8
+      IL_0000:  ldarg.0
+      IL_0001:  ldc.i4.0
+      IL_0002:  stfld      int32 Program/Inner::v_A
+      IL_0007:  ldarg.0
+      IL_0008:  ldc.i4.0
+      IL_0009:  stfld      int32 Program/Inner::v_A2
+      IL_000e:  ldarg.0
+      IL_000f:  call       instance void [mscorlib]System.Object::.ctor()
+      IL_0014:  nop
+      IL_0015:  ret
+    } // end of method Inner::.ctor
+
+  } // end of class Inner
+
+  .method public hidebysig static void  Main(string[] agrs) cil managed
+  {
+    .entrypoint
+    // Code size       15 (0xf)
+    .maxstack  1
+    .locals init ([0] class Program/Inner Inner)
+    IL_0000:  nop
+    IL_0001:  newobj     instance void Program/Inner::.ctor()
+    IL_0006:  stloc.0
+    IL_0007:  ldloc.0
+    IL_0008:  callvirt   instance void Program/Inner::Execute()
+    IL_000d:  nop
+    IL_000e:  ret
+  } // end of method Program::Main
+
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor() cil managed
+  {
+    // Code size       7 (0x7)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ret
+  } // end of method Program::.ctor
+
+} // end of class Program
+
+
+// =============================================================
+
+// *********** DISASSEMBLY COMPLETE ***********************
+// WARNING: Created Win32 resource file 09.blocks.res
