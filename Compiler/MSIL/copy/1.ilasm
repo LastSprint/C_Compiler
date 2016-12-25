@@ -23,13 +23,13 @@
   .ver 0:0:0:0
 }
 .module '1.exe'
-// MVID: {FA2EB12D-6EB8-496A-8ED5-78730BD1360D}
+// MVID: {B49F6BE0-3E7C-4268-A72E-BE61D161D005}
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x00840000
+// Image base: 0x00A90000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -45,17 +45,12 @@
     IL_0000:  ret
   } // end of method Program::Main
 
-  .method public hidebysig static void  Test() cil managed
+  .method public hidebysig static void  Test(string a) cil managed
   {
     // Размер кода:       7 (0x7)
-    .maxstack  2
-    .locals init ([0] int32 h)
-    IL_0000:  ldc.i4.0
-    IL_0001:  stloc.0
-    IL_0002:  ldloc.0
-    IL_0003:  ldc.i4.1
-    IL_0004:  add
-    IL_0005:  stloc.0
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       void [mscorlib]System.Console::WriteLine(string)
     IL_0006:  ret
   } // end of method Program::Test
 

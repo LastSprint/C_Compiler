@@ -39,9 +39,14 @@ int[] sort(int[] a, int n) {
 	}
 }
 
-void main() {
-	int a[10];
-	a = sort(a, 10);
+int a;
+int b;
+int c;
+
+void mait(int a, int b) {
+	int f;
+	int j;
+	int l[5];
 }
 
 void main() {

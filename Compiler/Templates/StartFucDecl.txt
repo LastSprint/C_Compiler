@@ -1,0 +1,3 @@
+  .method public hidebysig static void  {name}({args}) cil managed
+  {
+    .maxstack  8

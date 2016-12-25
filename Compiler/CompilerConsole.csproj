@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CILGenerator\Generator.cs" />
+    <Compile Include="CILGenerator\GeneratorMethods.cs" />
     <Compile Include="Parser\Body.cs" />
     <Compile Include="Parser\Exceptions\BadExpressionExceptions.cs" />
     <Compile Include="Parser\Exceptions\NodeAlreadyDeclaredException.cs" />
@@ -76,6 +78,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input.txt" />
+    <Content Include="Templates\ClassDeclTemplate.txt" />
+    <Content Include="Templates\DeclFuncFinish.txt" />
+    <Content Include="Templates\DeclMainFuncStart.txt" />
+    <Content Include="Templates\LocalvariableDeclaration.txt" />
+    <Content Include="Templates\StartFucDecl.txt" />
     <Content Include="Templates\StartProgramTempate.txt" />
     <Content Include="Tests\Test1.c" />
     <Content Include="Tests\Test2.c" />

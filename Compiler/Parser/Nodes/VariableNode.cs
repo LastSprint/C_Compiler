@@ -5,6 +5,8 @@ namespace CompilerConsole.Parser.Nodes
 {
     public abstract class VariableNode:Node
     {
+        public virtual int Number { get; set; }
+
         public VariableNode(string name, Type type) : base(name, type) {
         }
 

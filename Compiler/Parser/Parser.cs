@@ -6,6 +6,7 @@ using System.Xml.Serialization;
 using Antlr.Runtime.Tree;
 using CompilerConsole.Parser.Exceptions;
 using CompilerConsole.Parser.Nodes;
+using CompilerConsole.Parser.Nodes.BodyNodes;
 using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.Parser {
@@ -258,6 +259,30 @@ namespace CompilerConsole.Parser {
             using (FileStream fs = new FileStream("code.xml", FileMode.Create)) {
                 XmlSerializer serializer = new XmlSerializer(typeof(Body));
                 serializer.Serialize(fs, this.MainBody);
+            }
+        }
+
+        public void NumerateVariable() {
+            this.Numerate(this.MainBody);
+        }
+
+        private void Numerate(Body body) {
+            int i = 0;
+            foreach (var node in body.Nodes) {
+                if (node is VariableNode) {
+                    (node as VariableNode).Number = i++;
+                }
+
+                if (node is MethodNode) {
+                    this.Numerate((node as MethodNode).Body);
+
+                    foreach (var node1 in (node as MethodNode).Body.Nodes) {
+                        if (node1 is VariableNode) {
+                            (node1 as VariableNode).Number -= (node as MethodNode).ArgList.Count;
+                        }
+                    }
+                }
+
             }
         }
     }

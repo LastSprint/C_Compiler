@@ -25,5 +25,22 @@ namespace CompilerConsole.Parser.Nodes.BodyNodes
             writer.WriteEndElement();
             writer.WriteEndElement();
         }
+
+        /// <summary>
+        /// Проверяет, является ли данная переменная яргументом данного метода
+        /// Сравнение выполняется с помощью Equals
+        /// </summary>
+        /// <param name="variableNode">Переменная, которую необходимо проверить на принадлежность к аргументам данного метода</param>
+        /// <returns>Возвращает true если переменная принадлежит к аргументам метода</returns>
+        public bool IsArg(VariableNode variableNode) {
+
+            foreach (var node in this.ArgList) {
+                if (node.Equals(variableNode)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 }
