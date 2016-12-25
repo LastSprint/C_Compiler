@@ -1,12 +1,43 @@
-﻿using System;
-using System.Runtime.CompilerServices;
-using System.Text;
+﻿using System.Text;
 using CompilerConsole.Parser.Nodes;
 using CompilerConsole.Parser.Nodes.BodyNodes;
 using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.CILGenerator
 {
+    public enum CILOperation {
+        /// <summary>
+        /// CIL синтаксис: ldc.i4 someLiterals(hex)
+        /// Для чисел [0 ; 8] есть специальная запись в виде  ldc.i4.0, ldc.i4.1, ldc.i4.2 .... ldc.i4.8
+        /// </summary>
+        PositiveIntConstLoad,
+        /// <summary>
+        /// CIL синтаксис: ldc.i4.s someLiterals(hex)
+        /// Для -1 есть специальная запись в виде ldc.i4.m1
+        /// </summary>
+        NegativeIntConstLoad,
+        /// <summary>
+        /// CIL синтаксис:  ldloc.{variableNumber}
+        /// </summary>
+        ReadLocalVariable,
+        /// <summary>
+        /// CIL синтаксис:  stloc.{variableNumber}
+        /// </summary>
+        WriteLocalVariable,
+        /// <summary>
+        /// CIL синтаксис:  ldarg.{variableNumber}
+        /// </summary>
+        ReadMethodArg,
+        /// <summary>
+        /// CIL синтаксис:  ldloc.{variableNumber}
+        /// </summary>
+        WriteMethodarg,
+        Add,
+        Sub,
+        Div
+
+    }
+
     public partial class Generator
     {
         private string GenerateCILMethod(MethodNode method) {

@@ -16,6 +16,11 @@ namespace CompilerConsole.Parser.Nodes.BodyNodes
         }
 
         public override void WriteXml(XmlWriter writer) {
+
+            if (this.Body == null) {
+                return;
+            }
+
             writer.WriteStartElement("MethodNode");
             base.WriteXml(writer);
             writer.WriteStartElement("Args");

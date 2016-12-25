@@ -50,7 +50,8 @@ void mait(int a, int b) {
 }
 
 void main() {
-	int c = 0;
+	int a[10];
+	print(5);
 }
 
 int a;

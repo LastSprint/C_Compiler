@@ -39,6 +39,7 @@ namespace CompilerConsole.Parser {
             this.MainBody = new Body();
             this.Root = root;
             this.InitDictionary();
+            this.InitBaseFunction();
         }
 
         private void InitDictionary() {
@@ -77,6 +78,14 @@ namespace CompilerConsole.Parser {
             this._exprTokensDictionary.Add("||", ExprToken.Dij);
             this._exprTokensDictionary.Add("!", ExprToken.Neg);
             #endregion
+        }
+
+        private void InitBaseFunction() {
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}));
         }
 
         private bool IsType(string text) {
@@ -267,7 +276,11 @@ namespace CompilerConsole.Parser {
         }
 
         private void Numerate(Body body) {
-            int i = 0;
+            if (body == null) {
+                return;
+            }
+
+            var i = 0;
             foreach (var node in body.Nodes) {
                 if (node is VariableNode) {
                     (node as VariableNode).Number = i++;
@@ -275,6 +288,10 @@ namespace CompilerConsole.Parser {
 
                 if (node is MethodNode) {
                     this.Numerate((node as MethodNode).Body);
+
+                    if ((node as MethodNode).Body == null) {
+                        return;
+                    }
 
                     foreach (var node1 in (node as MethodNode).Body.Nodes) {
                         if (node1 is VariableNode) {
