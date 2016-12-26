@@ -425,5 +425,28 @@ namespace CompilerConsole.Parser {
             return fl;
         }
 
+        private ReturnNode ParseReturn(ITree tree, Body body) {
+            if (_currentMethod == null) {
+                throw new Exception("оператор return использован вне контекста метода");
+            }
+
+            Type returnedValueType;
+            Node returnedValue = null;
+            if (tree.ChildCount == 0) {
+                returnedValueType = Type.Void;
+            }
+            else {
+                returnedValue = this.ParsExpr(tree.GetChild(0), body);
+                returnedValueType = returnedValue.DataType;
+            }
+
+            if (returnedValueType != _currentMethod.DataType)
+            {
+                throw new InvalidCastException($"Метод возвращает тип {_currentMethod.DataType} а ретерн возвращет {returnedValueType} - неувязочка");
+            }
+
+            return new ReturnNode(returnedValueType, returnedValue);
+        }
+
     }
 }

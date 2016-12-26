@@ -69,6 +69,7 @@
     <Compile Include="Parser\Nodes\BodyNodes\MethodNode.cs" />
     <Compile Include="Parser\Nodes\Node.cs" />
     <Compile Include="Parser\Nodes\CallNode\MethCall.cs" />
+    <Compile Include="Parser\Nodes\ReturnNode.cs" />
     <Compile Include="Parser\Nodes\Variable.cs" />
     <Compile Include="Parser\Nodes\VariableNode.cs" />
     <Compile Include="Parser\Parser.cs" />

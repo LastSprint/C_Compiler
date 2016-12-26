@@ -182,6 +182,8 @@ namespace CompilerConsole.Parser {
 
         #endregion
 
+        private static MethodNode _currentMethod;
+
         public void Pars() {
             this.RecPars(this.Root.GetChild(0), this.MainBody);
         }
@@ -245,7 +247,7 @@ namespace CompilerConsole.Parser {
                     var t3 = this.ParseIncDec(treeNode, body, ExprToken.Add);
                     body.Nodes.Add(t3);
                     break;
-                    
+
                 case Token.DEC:
                     var t4 = this.ParseIncDec(treeNode, body, ExprToken.Sub);
                     body.Nodes.Add(t4);
@@ -254,11 +256,17 @@ namespace CompilerConsole.Parser {
                     var meth = this.ParseMethodDeclare(treeNode, body);
                     this.MainBody.Nodes.Add(meth);
                     meth.Body.WrapBody = body;
+                    _currentMethod = meth;
                     this.RecPars(treeNode.GetChild(3), meth.Body);
+                    _currentMethod = null;
                     break;
                 }
-                case Token.RETURN:
+                case Token.RETURN: {
+                    var ret = this.ParseReturn(treeNode, body);
+                    body.Nodes.Add(ret);
                     break;
+                }
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(token), token, null);
             }

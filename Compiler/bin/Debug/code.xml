@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Body>
+  <Body>
+    <MethodNode Name="mait" DataType="VarInt">
+      <Body>
+        <VariableNode Name="a" DataType="VarInt" />
+        <VariableNode Name="b" DataType="VarInt" />
+        <VariableNode Name="f" DataType="VarInt" />
+        <VariableNode Name="j" DataType="VarInt" />
+        <ReturnNode Name="return" DataType="VarInt">
+          <ReturnedValue>
+            <Literal Name="lit" DataType="VarInt" Value="0" />
+          </ReturnedValue>
+        </ReturnNode>
+      </Body>
+      <Args>
+        <VariableNode Name="a" DataType="VarInt" />
+        <VariableNode Name="b" DataType="VarInt" />
+      </Args>
+    </MethodNode>
+  </Body>
+</Body>

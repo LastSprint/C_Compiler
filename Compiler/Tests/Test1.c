@@ -43,10 +43,10 @@ int a;
 int b;
 int c;
 
-void mait(int a, int b) {
+int mait(int a, int b) {
 	int f;
 	int j;
-	int l[5];
+	return 0;
 }
 
 void main() {
@@ -75,6 +75,10 @@ void testt() {
 	if (j == 0) {
 		int a;
 	}
+}
+
+void t() {
+	return 5;
 }
 
 string testtt(string f) {
