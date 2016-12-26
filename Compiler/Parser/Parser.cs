@@ -298,6 +298,10 @@ namespace CompilerConsole.Parser {
                             (node1 as VariableNode).Number -= (node as MethodNode).ArgList.Count;
                         }
                     }
+                    int j = 0;
+                    foreach (var variableNode in (node as MethodNode).ArgList) {
+                        variableNode.Number = j++;
+                    }
                 }
 
             }
