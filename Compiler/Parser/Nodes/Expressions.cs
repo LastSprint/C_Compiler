@@ -2,7 +2,7 @@
 using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes {
-    [Serializable]
+
     public enum ExprToken {
         IsEqual,
         IsLess,
@@ -166,6 +166,7 @@ namespace CompilerConsole.Parser.Nodes {
 
         public override void WriteXml(XmlWriter writer) {
             writer.WriteStartElement("Expression");
+            writer.WriteAttributeString("Expr", this.ExprToken.ToString());
             base.WriteXml(writer);
             writer.WriteStartElement("LeftNode");
             this.LeftNode.WriteXml(writer);

@@ -81,11 +81,11 @@ namespace CompilerConsole.Parser {
         }
 
         private void InitBaseFunction() {
-            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}));
-            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}));
-            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}));
-            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}));
-            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,null,new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void,new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
         }
 
         private bool IsType(string text) {

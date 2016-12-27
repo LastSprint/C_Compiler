@@ -5,41 +5,16 @@ using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.CILGenerator
 {
-    public enum CILOperation {
-        /// <summary>
-        /// CIL синтаксис: ldc.i4 someLiterals(hex)
-        /// Для чисел [0 ; 8] есть специальная запись в виде  ldc.i4.0, ldc.i4.1, ldc.i4.2 .... ldc.i4.8
-        /// </summary>
-        PositiveIntConstLoad,
-        /// <summary>
-        /// CIL синтаксис: ldc.i4.s someLiterals(hex)
-        /// Для -1 есть специальная запись в виде ldc.i4.m1
-        /// </summary>
-        NegativeIntConstLoad,
-        /// <summary>
-        /// CIL синтаксис:  ldloc.{variableNumber}
-        /// </summary>
-        ReadLocalVariable,
-        /// <summary>
-        /// CIL синтаксис:  stloc.{variableNumber}
-        /// </summary>
-        WriteLocalVariable,
-        /// <summary>
-        /// CIL синтаксис:  ldarg.{variableNumber}
-        /// </summary>
-        ReadMethodArg,
-        /// <summary>
-        /// CIL синтаксис:  ldloc.{variableNumber}
-        /// </summary>
-        WriteMethodarg,
-        Add,
-        Sub,
-        Div
 
-    }
-
-    public partial class Generator
-    {
+    public partial class Generator {
+        /// <summary>
+        /// IL_
+        /// </summary>
+        public static string PreLineNumber = "IL_";
+        /// <summary>
+        /// Это 4 пробела
+        /// </summary>
+        public static string Offset = "    ";
         private string GenerateCILMethod(MethodNode method) {
             StringBuilder methodCIL = new StringBuilder();
             string startMethodCIL;
@@ -80,8 +55,17 @@ namespace CompilerConsole.CILGenerator
 
             string localVardeclTemplate = this.Reader(Template.LocalvariableDeclaration);
             methodCIL.AppendLine(localVardeclTemplate.Replace(this.cilReplacedToken[CILReplacedToken.Variables],localVariables.ToString()));
-            string methodEnd = this.Reader(Template.DeclFuncFinich);
+            StringBuilder expressions = new StringBuilder();
+            //Начинаем парсить выражения
+            foreach (Node node in method.Body.Nodes) {
+                if (node is Expression) {
+                    expressions.Append(Utils.ActionAxprToIL(node as Expression));
+                }
+            }
 
+            methodCIL.AppendLine(expressions.ToString());
+
+            string methodEnd = this.Reader(Template.DeclFuncFinich);
             methodCIL.AppendLine(methodEnd);
             return methodCIL.ToString();
         }

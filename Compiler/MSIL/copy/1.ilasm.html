@@ -32,13 +32,13 @@
   <B><FONT COLOR=NAVY>.ver</FONT></B> 0:0:0:0
 }
 <B><FONT COLOR=NAVY>.module</FONT></B> '1.exe'
-<I><FONT COLOR=GREEN>// MVID: {DF356C34-71D7-48E3-A10C-C5FE88892552}</FONT></I>
+<I><FONT COLOR=GREEN>// MVID: {8E00EAC8-392D-46F3-B943-9070682D64A7}</FONT></I>
 <B><FONT COLOR=NAVY>.imagebase</FONT></B> 0x00400000
 <B><FONT COLOR=NAVY>.file alignment</FONT></B> 0x00000200
 <B><FONT COLOR=NAVY>.stackreserve</FONT></B> 0x00100000
 <B><FONT COLOR=NAVY>.subsystem</FONT></B> 0x0003       <I><FONT COLOR=GREEN>// WINDOWS_CUI</FONT></I>
 <B><FONT COLOR=NAVY>.corflags</FONT></B> 0x00000001<I><FONT COLOR=GREEN>    //  ILONLY</FONT></I>
-<I><FONT COLOR=GREEN>// Image base: 0x02C80000</FONT></I>
+<I><FONT COLOR=GREEN>// Image base: 0x016C0000</FONT></I>
 
 
 <I><FONT COLOR=GREEN>// =============== CLASS MEMBERS DECLARATION ===================</FONT></I>
@@ -57,98 +57,21 @@
     IL_0000:  <B><FONT COLOR=NAVY>ret</FONT></B>
   } <I><FONT COLOR=GREEN>// end of method Program::</FONT></I><I><FONT COLOR=GREEN>Main</FONT></I>
 
-  <A NAME=A06000002><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig static </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B>  Test(<B><FONT COLOR=NAVY>int32</FONT></B> c)<B><FONT COLOR=NAVY> cil managed</FONT></B>
+  <A NAME=A06000002><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig static </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>int32</FONT></B>  Test(<B><FONT COLOR=NAVY>int32</FONT></B> c)<B><FONT COLOR=NAVY> cil managed</FONT></B>
   {
-    // Размер кода:       108 (0x6c)
-    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  3
-    <B><FONT COLOR=NAVY>.locals </FONT></B><B><FONT COLOR=NAVY>init </FONT></B>([0] <B><FONT COLOR=NAVY>int32</FONT></B> a,
-             [1] <B><FONT COLOR=NAVY>int32</FONT></B> b,
-             [2] <B><FONT COLOR=NAVY>string</FONT></B> j)
+    // Размер кода:       6 (0x6)
+    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  2
+    <B><FONT COLOR=NAVY>.locals </FONT></B><B><FONT COLOR=NAVY>init </FONT></B>([0] <B><FONT COLOR=NAVY>int32</FONT></B> a)
 <I><FONT COLOR=GREEN>//000007: </FONT></I>
-<I><FONT COLOR=GREEN>//000008:     public static void Test(int c){</FONT></I>
-<I><FONT COLOR=GREEN>//000009:        int a=71642361;</FONT></I>
-    IL_0000:  <B><FONT COLOR=NAVY>ldc.i4</FONT></B> 0x4452cf9
-    IL_0005:  <B><FONT COLOR=NAVY>stloc.0</FONT></B>
-<I><FONT COLOR=GREEN>//000010:        c = 5;</FONT></I>
-    IL_0006:  <B><FONT COLOR=NAVY>ldc.i4.5</FONT></B>
-    IL_0007:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000011:        c = 6;</FONT></I>
-    IL_0009:  <B><FONT COLOR=NAVY>ldc.i4.6</FONT></B>
-    IL_000a:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000012:        c = 7;</FONT></I>
-    IL_000c:  <B><FONT COLOR=NAVY>ldc.i4.7</FONT></B>
-    IL_000d:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000013:        c = 8;</FONT></I>
-    IL_000f:  <B><FONT COLOR=NAVY>ldc.i4.8</FONT></B>
-    IL_0010:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000014:        c = 9;</FONT></I>
-    IL_0012:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 9
-    IL_0014:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000015:        c = 10;</FONT></I>
-    IL_0016:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 10
-    IL_0018:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000016:        c = 11;</FONT></I>
-    IL_001a:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 11
-    IL_001c:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000017:        c = -1;</FONT></I>
-    IL_001e:  <B><FONT COLOR=NAVY>ldc.i4.m1</FONT></B>
-    IL_001f:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000018:        c = -2;</FONT></I>
-    IL_0021:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -2
-    IL_0023:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000019:        c = -3;</FONT></I>
-    IL_0025:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -3
-    IL_0027:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000020:        c = -4;</FONT></I>
-    IL_0029:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -4
-    IL_002b:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000021:        c = -5;</FONT></I>
-    IL_002d:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -5
-    IL_002f:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000022:        c = -6;</FONT></I>
-    IL_0031:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -6
-    IL_0033:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000023:        c = -7;</FONT></I>
-    IL_0035:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -7
-    IL_0037:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000024:        c = -8;</FONT></I>
-    IL_0039:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -8
-    IL_003b:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000025:        c = -9;</FONT></I>
-    IL_003d:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -9
-    IL_003f:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000026:        c = -10;</FONT></I>
-    IL_0041:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -10
-    IL_0043:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000027:        c = -11;</FONT></I>
-    IL_0045:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> -11
-    IL_0047:  <B><FONT COLOR=NAVY>starg.s</FONT></B> c
-<I><FONT COLOR=GREEN>//000028:       int b = a +1 -34 +a -34/c;</FONT></I>
-    IL_0049:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
-    IL_004a:  <B><FONT COLOR=NAVY>ldc.i4.1</FONT></B>
-    IL_004b:  <B><FONT COLOR=NAVY>add</FONT></B>
-    IL_004c:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 34
-    IL_004e:  <B><FONT COLOR=NAVY>sub</FONT></B>
-    IL_004f:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
-    IL_0050:  <B><FONT COLOR=NAVY>add</FONT></B>
-    IL_0051:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 34
-    IL_0053:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
-    IL_0054:  <B><FONT COLOR=NAVY>div</FONT></B>
-    IL_0055:  <B><FONT COLOR=NAVY>sub</FONT></B>
-    IL_0056:  <B><FONT COLOR=NAVY>stloc.1</FONT></B>
-<I><FONT COLOR=GREEN>//000029:       string j = "123";</FONT></I>
-    IL_0057:  <B><FONT COLOR=NAVY>ldstr</FONT></B> "123"
-    IL_005c:  <B><FONT COLOR=NAVY>stloc.2</FONT></B>
-<I><FONT COLOR=GREEN>//000030:       Console.WriteLine(a+b);</FONT></I>
-    IL_005d:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
-    IL_005e:  <B><FONT COLOR=NAVY>ldloc.1</FONT></B>
-    IL_005f:  <B><FONT COLOR=NAVY>add</FONT></B>
-    IL_0060:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Console::WriteLine(<B><FONT COLOR=NAVY>int32</FONT></B>)
-<I><FONT COLOR=GREEN>//000031:       Console.WriteLine(j);</FONT></I>
-    IL_0065:  <B><FONT COLOR=NAVY>ldloc.2</FONT></B>
-    IL_0066:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Console::WriteLine(<B><FONT COLOR=NAVY>string</FONT></B>)
-<I><FONT COLOR=GREEN>//000032:     }</FONT></I>
-    IL_006b:  <B><FONT COLOR=NAVY>ret</FONT></B>
+<I><FONT COLOR=GREEN>//000008:     public static int Test(int c){</FONT></I>
+<I><FONT COLOR=GREEN>//000009:       int a = 0;</FONT></I>
+    IL_0000:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
+    IL_0001:  <B><FONT COLOR=NAVY>stloc.0</FONT></B>
+<I><FONT COLOR=GREEN>//000010:       return a +c;</FONT></I>
+    IL_0002:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
+    IL_0003:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
+    IL_0004:  <B><FONT COLOR=NAVY>add</FONT></B>
+    IL_0005:  <B><FONT COLOR=NAVY>ret</FONT></B>
   } <I><FONT COLOR=GREEN>// end of method Program::</FONT></I><I><FONT COLOR=GREEN>Test</FONT></I>
 
   <A NAME=A06000003><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig specialname rtspecialname </FONT></B><B><FONT COLOR=NAVY>instance </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> 

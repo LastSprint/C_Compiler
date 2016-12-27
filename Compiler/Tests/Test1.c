@@ -43,9 +43,10 @@ int a;
 int b;
 int c;
 
-int mait(int a, int b) {
-	int f;
-	int j;
+int mait() {
+	int a = 0;
+	int b;
+	b = 1;
 	return 0;
 }
 

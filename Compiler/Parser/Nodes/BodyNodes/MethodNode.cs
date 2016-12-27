@@ -3,12 +3,20 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes.BodyNodes
 {
+    public enum MethodType {
+        Libr,
+        Cust
+    }
+
     public class MethodNode:BodyNode
     {
         public List<VariableNode> ArgList { get; set; }
+        public MethodType MethodType { get; set; }
 
-        public MethodNode(string name, Type returnType, Body body, List<VariableNode> args) : base(name, returnType, body) {
+
+        public MethodNode(string name, Type returnType, Body body, List<VariableNode> args, MethodType methodType = MethodType.Cust) : base(name, returnType, body) {
             this.ArgList = args;
+            this.MethodType = methodType;
         }
 
         public MethodNode() {
@@ -17,11 +25,12 @@ namespace CompilerConsole.Parser.Nodes.BodyNodes
 
         public override void WriteXml(XmlWriter writer) {
 
-            if (this.Body == null) {
+            if (this.Body == null || this.MethodType == MethodType.Libr) {
                 return;
             }
 
             writer.WriteStartElement("MethodNode");
+            writer.WriteAttributeString("MethodType", this.MethodType.ToString());
             base.WriteXml(writer);
             writer.WriteStartElement("Args");
             foreach (var node in this.ArgList) {

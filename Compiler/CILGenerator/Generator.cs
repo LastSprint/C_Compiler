@@ -35,7 +35,6 @@ namespace CompilerConsole.CILGenerator
 
         private Dictionary<Template, string> templatesDictionary;
         private Dictionary<CILReplacedToken, string> cilReplacedToken;
-        private Dictionary<CILOperation, string> cilOperationDictionary;
 
         private StringBuilder cilCode { get; set; }
 
@@ -57,7 +56,7 @@ namespace CompilerConsole.CILGenerator
         private string ParseClass(Body classBody) {
             string body = "";
             foreach (var node in classBody.Nodes) {
-                if (node is MethodNode) {
+                if (node is MethodNode && (node as MethodNode).MethodType == MethodType.Cust) {
                     body += this.GenerateCILMethod(node as MethodNode);
                 }
             }
@@ -83,15 +82,6 @@ namespace CompilerConsole.CILGenerator
                 {CILReplacedToken.MethodArgs, "{args}"},
                 { CILReplacedToken.Variables, "{variables}"},
                 { CILReplacedToken.ClassBody, "{classBody}"}
-            };
-
-            this.cilOperationDictionary = new Dictionary<CILOperation, string>() {
-                {CILOperation.PositiveIntConstLoad, "ldc.i4"},
-                {CILOperation.ReadLocalVariable, "ldloc."},
-                {CILOperation.WriteLocalVariable, "stloc."},
-                {CILOperation.Add, "add"},
-                {CILOperation.Sub, "sub"},
-                {CILOperation.Div, "div"}
             };
 
         }

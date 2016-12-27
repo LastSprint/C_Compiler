@@ -1,22 +1,33 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <MethodNode Name="mait" DataType="VarInt">
+    <MethodNode MethodType="Cust" Name="mait" DataType="VarInt">
       <Body>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode Name="a" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="0" />
+          </RightNode>
+        </Expression>
         <VariableNode Name="a" DataType="VarInt" />
         <VariableNode Name="b" DataType="VarInt" />
-        <VariableNode Name="f" DataType="VarInt" />
-        <VariableNode Name="j" DataType="VarInt" />
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode Name="b" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="1" />
+          </RightNode>
+        </Expression>
         <ReturnNode Name="return" DataType="VarInt">
           <ReturnedValue>
             <Literal Name="lit" DataType="VarInt" Value="0" />
           </ReturnedValue>
         </ReturnNode>
       </Body>
-      <Args>
-        <VariableNode Name="a" DataType="VarInt" />
-        <VariableNode Name="b" DataType="VarInt" />
-      </Args>
+      <Args />
     </MethodNode>
   </Body>
 </Body>

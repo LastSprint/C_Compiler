@@ -37,6 +37,7 @@ namespace CompilerConsole.Parser {
 
                 if (tree.GetChild(i).Text == "=") {
                     variables[0].Assign = this.ParsExpr(tree.GetChild(i).GetChild(0), body);
+                    body.Nodes.Add(new Expression(variables[0], variables[0].Assign, ExprToken.Ass));
                     break;
                 }
 
