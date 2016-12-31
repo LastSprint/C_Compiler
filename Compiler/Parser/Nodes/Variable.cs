@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace CompilerConsole.Parser.Nodes {
     public class StructVariableNode : VariableNode {
-        public StructVariableNode(string name, Type type) : base(name, type) {
+        public StructVariableNode(string name, Type type, bool isMethArg = false) : base(name, type, isMethArg) {
         }
 
         public StructVariableNode() : base() {

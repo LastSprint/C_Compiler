@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.Generic;
+using System.Text;
 using CompilerConsole.Parser.Nodes;
 using CompilerConsole.Parser.Nodes.BodyNodes;
 using Type = CompilerConsole.Parser.Nodes.Type;
@@ -14,7 +15,7 @@ namespace CompilerConsole.CILGenerator
         /// <summary>
         /// Это 4 пробела
         /// </summary>
-        public static string Offset = "    ";
+        public static string Offset = "\t";
         private string GenerateCILMethod(MethodNode method) {
             StringBuilder methodCIL = new StringBuilder();
             string startMethodCIL;
@@ -41,16 +42,21 @@ namespace CompilerConsole.CILGenerator
             
             //Пока будем парсить только делкарацию локальных переменных в методе (CIL код понятнее чем то говно, которое у меня в XML генерится)
             StringBuilder localVariables = new StringBuilder();
-            for (int i = 0; i < method.Body.Nodes.Count; i++) {
-                var node = method.Body.Nodes[i];
 
-                if (node is VariableNode && !method.IsArg(node as VariableNode)) {
-                    localVariables.Append(this.GenerateCILVarDecl(node as VariableNode));
-                    if (method.Body.Nodes.Count > 1 && i!=method.Body.Nodes.Count-1) {
-                        localVariables.Append(",");
-                    }
-                    localVariables.AppendLine();
+            List<VariableNode> variables = new List<VariableNode>();
+            //Сначала выбираем все объявления переменных
+            foreach (var bodyNode in method.Body.Nodes) {
+                if (bodyNode is VariableNode && !(bodyNode as VariableNode).IsMethodArg) {
+                    variables.Add(bodyNode as VariableNode);
                 }
+            }
+            //теперь заносим их в IL
+            for (int i = 0; i < variables.Count; i++) {
+                localVariables.Append(this.GenerateCILVarDecl(variables[i]));
+                if (variables.Count > 1 && i < variables.Count-1) {
+                    localVariables.Append(",");
+                }
+                localVariables.AppendLine();
             }
 
             string localVardeclTemplate = this.Reader(Template.LocalvariableDeclaration);

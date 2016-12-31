@@ -5,9 +5,14 @@ namespace CompilerConsole.Parser.Nodes
 {
     public abstract class VariableNode:Node
     {
-        public virtual int Number { get; set; }
+        /// <summary>
+        /// Указывает на то, является ли переменная аргументом функции
+        /// </summary>
+        public bool IsMethodArg { get; set; }
+        public int Number { get; set; }
 
-        public VariableNode(string name, Type type) : base(name, type) {
+        public VariableNode(string name, Type type, bool isMethodArg) : base(name, type) {
+            this.IsMethodArg = isMethodArg;
         }
 
         public VariableNode():base() {
@@ -17,6 +22,7 @@ namespace CompilerConsole.Parser.Nodes
         public virtual Node Assign { get; set; }
 
         public override void WriteXml(XmlWriter writer) {
+            writer.WriteAttributeString("IsMethodArg", this.IsMethodArg.ToString());
             base.WriteXml(writer);
         }
     }

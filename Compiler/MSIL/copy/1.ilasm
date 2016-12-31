@@ -23,13 +23,13 @@
   .ver 0:0:0:0
 }
 .module '1.exe'
-// MVID: {8E00EAC8-392D-46F3-B943-9070682D64A7}
+// MVID: {007DD69E-42A9-4E1A-A7FD-465F8D8CDAEA}
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x00B00000
+// Image base: 0x01040000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -45,17 +45,13 @@
     IL_0000:  ret
   } // end of method Program::Main
 
-  .method public hidebysig static int32  Test(int32 c) cil managed
+  .method public hidebysig static void  Test(int32 c) cil managed
   {
-    // Размер кода:       6 (0x6)
-    .maxstack  2
-    .locals init ([0] int32 a)
-    IL_0000:  ldc.i4.0
-    IL_0001:  stloc.0
-    IL_0002:  ldloc.0
-    IL_0003:  ldarg.0
-    IL_0004:  add
-    IL_0005:  ret
+    // Размер кода:       5 (0x5)
+    .maxstack  8
+    IL_0000:  ldc.i4.s   10
+    IL_0002:  starg.s    c
+    IL_0004:  ret
   } // end of method Program::Test
 
   .method public hidebysig specialname rtspecialname 

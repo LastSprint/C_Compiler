@@ -43,10 +43,15 @@ int a;
 int b;
 int c;
 
-int mait() {
+void main() {
+	int a;
+}
+
+int mait(int c) {
 	int a = 0;
 	int b;
 	b = 1;
+	c = 10;
 	return 0;
 }
 

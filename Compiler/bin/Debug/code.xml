@@ -1,24 +1,39 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
+    <MethodNode MethodType="Cust" Name="main" DataType="Void">
+      <Body>
+        <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
+      </Body>
+      <Args />
+    </MethodNode>
     <MethodNode MethodType="Cust" Name="mait" DataType="VarInt">
       <Body>
+        <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <VariableNode Name="a" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
           </LeftNode>
           <RightNode>
             <Literal Name="lit" DataType="VarInt" Value="0" />
           </RightNode>
         </Expression>
-        <VariableNode Name="a" DataType="VarInt" />
-        <VariableNode Name="b" DataType="VarInt" />
+        <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
+        <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <VariableNode Name="b" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
           </LeftNode>
           <RightNode>
             <Literal Name="lit" DataType="VarInt" Value="1" />
+          </RightNode>
+        </Expression>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
           </RightNode>
         </Expression>
         <ReturnNode Name="return" DataType="VarInt">
@@ -27,7 +42,9 @@
           </ReturnedValue>
         </ReturnNode>
       </Body>
-      <Args />
+      <Args>
+        <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
+      </Args>
     </MethodNode>
   </Body>
 </Body>

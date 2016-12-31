@@ -27,12 +27,21 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
+  .method public hidebysig static void  main() cil managed
+  {
+    .maxstack  8
+.locals init (	 [0] int32 a
+)
+
+
+    IL_0000:  ret
+  }
   .method public hidebysig static void  mait(	int32 c
 ) cil managed
   {
     .maxstack  8
 .locals init (	 [0] int32 a,
-	 [1] int32 b,
+	 [1] int32 b
 )
 
 ldc.i4	0

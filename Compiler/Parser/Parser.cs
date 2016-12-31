@@ -309,6 +309,7 @@ namespace CompilerConsole.Parser {
                     int j = 0;
                     foreach (var variableNode in (node as MethodNode).ArgList) {
                         variableNode.Number = j++;
+                        variableNode.IsMethodArg = true;
                     }
                 }
 
