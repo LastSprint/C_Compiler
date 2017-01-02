@@ -27,9 +27,12 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
-  .method public hidebysig static void  main() cil managed
+  .method public hidebysig static void  Main() cil managed
   {
+    .entrypoint
     .maxstack  8
+    .language '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
+
 .locals init (	 [0] int32 a
 )
 

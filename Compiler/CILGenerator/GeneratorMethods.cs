@@ -19,7 +19,7 @@ namespace CompilerConsole.CILGenerator
         private string GenerateCILMethod(MethodNode method) {
             StringBuilder methodCIL = new StringBuilder();
             string startMethodCIL;
-            if (method.Name == "Main") {
+            if (method.Name == "main") {
                 startMethodCIL = this.Reader(Template.DeclMainFunc);
             }
             else {
