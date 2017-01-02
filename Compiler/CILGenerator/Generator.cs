@@ -97,8 +97,10 @@ namespace CompilerConsole.CILGenerator
         /// </summary>
         WriteMethodArg,
         StringConstLoad,
-        WriteArrElement,
-        ReadArrElement,
+        WriteArrStructElement,
+        ReadArrStructElement,
+        ReadArrRefElement,
+        WriteArrRefElement,
         Add,
         Sub,
         Div,
@@ -182,8 +184,10 @@ namespace CompilerConsole.CILGenerator
                 {ILOperation.Div, "div"},
                 { ILOperation.Mul, "mul"},
                 { ILOperation.Call, "call"},
-                {ILOperation.ReadArrElement, "ldelem.i4" },
-                { ILOperation.WriteArrElement, "stelem.i4" }
+                { ILOperation.ReadArrStructElement, "ldelem.i4" },
+                { ILOperation.WriteArrStructElement, "stelem.i4" },
+                { ILOperation.ReadArrRefElement, "ldelem.ref" },
+                { ILOperation.WriteArrRefElement, "stelem.ref" }
             };
         }
 

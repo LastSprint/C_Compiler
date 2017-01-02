@@ -45,7 +45,8 @@ int c;
 
 void mait() {
 	c = 125;
-	print(c);
+	c = c + 40 - 10;
+	printi(c);
 }
 
 void main() {
@@ -57,9 +58,9 @@ void main() {
 }
 
 void main() {
-	int a[10];
-	a[1] = 1;
-	printi(a[1]);
+	string a[10];
+	a[1] = "hello world form arr";
+	prints(a[1]);
 	read();
 }
 

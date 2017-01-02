@@ -50,7 +50,6 @@
   <ItemGroup>
     <Compile Include="CILGenerator\Generator.cs" />
     <Compile Include="CILGenerator\GeneratorMethods.cs" />
-    <Compile Include="CILGenerator\Utils.cs" />
     <Compile Include="Parser\Body.cs" />
     <Compile Include="Parser\Exceptions\BadExpressionExceptions.cs" />
     <Compile Include="Parser\Exceptions\NodeAlreadyDeclaredException.cs" />

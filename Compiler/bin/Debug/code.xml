@@ -1,36 +1,43 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <MethodNode MethodType="Cust" Name="main" DataType="Void">
+    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+    <MethodNode MethodType="Cust" Name="mait" DataType="Void">
       <Body>
-        <ArrayNode Name="a" DataType="ArrInt">
-          <Length>
-            <Literal Name="lit" DataType="VarInt" Value="10" />
-          </Length>
-        </ArrayNode>
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <ArrCallNode DataType="VarInt" Arr="a">
-              <Index>
-                <Literal Name="lit" DataType="VarInt" Value="1" />
-              </Index>
-            </ArrCallNode>
+            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
           </LeftNode>
           <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="1" />
+            <Literal Name="lit" DataType="VarInt" Value="125" />
+          </RightNode>
+        </Expression>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Expression Expr="Sub" Name="expr" DataType="VarInt">
+              <LeftNode>
+                <Expression Expr="Add" Name="expr" DataType="VarInt">
+                  <LeftNode>
+                    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+                  </LeftNode>
+                  <RightNode>
+                    <Literal Name="lit" DataType="VarInt" Value="40" />
+                  </RightNode>
+                </Expression>
+              </LeftNode>
+              <RightNode>
+                <Literal Name="lit" DataType="VarInt" Value="10" />
+              </RightNode>
+            </Expression>
           </RightNode>
         </Expression>
         <MethCallNode DataType="Void" Method="printi">
           <SendArgs>
-            <ArrCallNode DataType="VarInt" Arr="a">
-              <Index>
-                <Literal Name="lit" DataType="VarInt" Value="1" />
-              </Index>
-            </ArrCallNode>
+            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
           </SendArgs>
-        </MethCallNode>
-        <MethCallNode DataType="VarString" Method="read">
-          <SendArgs />
         </MethCallNode>
       </Body>
       <Args />

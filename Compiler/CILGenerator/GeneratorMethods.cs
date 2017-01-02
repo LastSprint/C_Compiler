@@ -131,7 +131,7 @@ namespace CompilerConsole.CILGenerator
                 string result = this.ExpressionToIL(node);
 
                 if (!String.IsNullOrEmpty(result)) {
-                    expressions.Append(this.ExpressionToIL(node));
+                    expressions.AppendLine(result);
                 }
             }
             return expressions.ToString();
@@ -247,11 +247,11 @@ namespace CompilerConsole.CILGenerator
 
             }
 
-            if (methCallNode.Method.Name.Contains(Parser.Parser.WriteMethodName))
-            {
-                methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset + this.Reader(Template.ConsoleWriteLine)
+            if (methCallNode.Method.Name.Contains(Parser.Parser.WriteMethodName)) {
+                string t = this.Reader(Template.ConsoleWriteLine);
+                methodCall.Append(this._operationDictionary[ILOperation.Call] + Generator.Offset + this.Reader(Template.ConsoleWriteLine)
                     .Replace("{type}", this.ToCILVariableType(methCallNode.SendArgs[0].DataType)));
-
+                t = methodCall.ToString();
             }
             else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName)
             {
@@ -314,7 +314,15 @@ namespace CompilerConsole.CILGenerator
                               arr.Arr.Number + Environment.NewLine;
                 }
                 string index = this.ExpressionToIL(arr.Index) + Environment.NewLine;
-                string load = this._operationDictionary[ILOperation.ReadArrElement];
+                string load;
+                if (arr.Arr.DataType == Type.ArrString) {
+                    load = this._operationDictionary[ILOperation.ReadArrRefElement];
+                }
+                else {
+                    load = this._operationDictionary[ILOperation.ReadArrStructElement];
+                }
+
+                
                 return arrCall + index + load;
             }
 
@@ -337,8 +345,9 @@ namespace CompilerConsole.CILGenerator
                 string arrDecl = this.Reader(Template.ArrDecl);
                 string t = this.ToCILVariableType(arr.DataType);
                 t = t.Replace("[]", "");
+                char fc = t[0];
                 t = t.Remove(0, 1);
-                t = t.Insert(0, "I");
+                t = t.Insert(0, char.ToUpper(fc).ToString());
                 arrDecl = arrDecl.Replace("{type}", t) + Environment.NewLine;
                 string writeArr = "";
                 if (arr.IsGlobal) {
@@ -412,7 +421,14 @@ namespace CompilerConsole.CILGenerator
                 }
                 string index = this.ExpressionToIL(arr.Index) + Environment.NewLine;
                 string righte = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
-                string write = this._operationDictionary[ILOperation.WriteArrElement] + Environment.NewLine;
+                string write;
+                if (arr.Arr.DataType == Type.ArrString) {
+                    write = this._operationDictionary[ILOperation.WriteArrRefElement] + Environment.NewLine;
+                }
+                else {
+                    write = this._operationDictionary[ILOperation.WriteArrStructElement] + Environment.NewLine;
+                }
+                
                 return arrCall + index + righte + write;
 
             }
@@ -436,35 +452,35 @@ namespace CompilerConsole.CILGenerator
                 writeOpertion += Generator.Offset + (node.LeftNode as VariableNode).Number;
             }
 
-            string writeAssignString = writeOpertion +  Environment.NewLine;
+            string writeAssignString = writeOpertion;
             return assignString + writeAssignString;
         }
 
         private string GenerateAddExpr(Expression node) {
             var left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
             string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
-            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Add];
+            return left + right +  this._operationDictionary[ILOperation.Add];
         }
 
         private string GenerateSubExpr(Expression node)
         {
             string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
             string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
-            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Sub];
+            return left + right +  this._operationDictionary[ILOperation.Sub];
         }
 
         private string GenerateMultExpr(Expression node)
         {
             string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
             string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
-            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Mul];
+            return left + right + this._operationDictionary[ILOperation.Mul];
         }
 
         private string GenerateDivExpr(Expression node)
         {
             string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
             string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
-            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Div];
+            return left + right + this._operationDictionary[ILOperation.Div];
         }
 
         private string GenerateConstIL(Literals literal)
@@ -479,9 +495,9 @@ namespace CompilerConsole.CILGenerator
                 case Type.VarFloat:
                     break;
                 case Type.VarString:
-                    return Environment.NewLine + this._operationDictionary[ILOperation.StringConstLoad] + Generator.Offset + literal.Value.ToString();
+                    return  this._operationDictionary[ILOperation.StringConstLoad] + Generator.Offset + literal.Value.ToString();
                 case Type.VarChar:
-                    return Environment.NewLine + this._operationDictionary[ILOperation.IntConstLoad] + Generator.Offset +
+                    return  this._operationDictionary[ILOperation.IntConstLoad] + Generator.Offset +
                            ((int) ((char) literal.Value)).ToString();
                 case Type.VarBool:
                     string boolRes = literal.Value.ToString() == "False" ? "0" : "1";
