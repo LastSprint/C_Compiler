@@ -354,7 +354,7 @@ namespace CompilerConsole.CILGenerator
                     writeArr = this._operationDictionary[ILOperation.WriteField] + Generator.Offset + arr.Name + Environment.NewLine;
                 }
                 else {
-                    writeArr = this._operationDictionary[ILOperation.WriteLocalVariable] + Generator.Offset + arr.Number + Environment.NewLine;
+                    writeArr = this._operationDictionary[ILOperation.WriteLocalVariable] + Generator.Offset + arr.Number;
                 }
                 return Environment.NewLine +  arrSize + arrDecl + writeArr;
             }
@@ -423,10 +423,10 @@ namespace CompilerConsole.CILGenerator
                 string righte = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
                 string write;
                 if (arr.Arr.DataType == Type.ArrString) {
-                    write = this._operationDictionary[ILOperation.WriteArrRefElement] + Environment.NewLine;
+                    write = this._operationDictionary[ILOperation.WriteArrRefElement];
                 }
                 else {
-                    write = this._operationDictionary[ILOperation.WriteArrStructElement] + Environment.NewLine;
+                    write = this._operationDictionary[ILOperation.WriteArrStructElement];
                 }
                 
                 return arrCall + index + righte + write;
