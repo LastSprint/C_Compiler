@@ -13,7 +13,11 @@ namespace CompilerConsole.CILGenerator
         DeclMainFunc,
         StartFuncDecl,
         StartProgram,
-        LocalvariableDeclaration
+        LocalvariableDeclaration,
+        /// <summary>
+        /// Содержит триггер {type} - тип данных, который нужно вывести
+        /// </summary>
+        ConsoleWriteLine
     }
 
     public enum CILToken
@@ -74,7 +78,8 @@ namespace CompilerConsole.CILGenerator
                 { Template.DeclMainFunc, "DeclMainFuncStart.txt"},
                 { Template.StartFuncDecl, "StartFucDecl.txt"},
                 { Template.StartProgram, "StartProgramTempate.txt" },
-                { Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt" }
+                { Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt" },
+                { Template.ConsoleWriteLine, "WriteLineTemplate.txt" }
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {

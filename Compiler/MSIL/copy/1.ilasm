@@ -23,13 +23,13 @@
   .ver 0:0:0:0
 }
 .module '1.exe'
-// MVID: {007DD69E-42A9-4E1A-A7FD-465F8D8CDAEA}
+// MVID: {CDB10E68-2E08-4064-819B-EAFE6580E7E3}
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x01040000
+// Image base: 0x01580000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -40,18 +40,32 @@
   .method public hidebysig static void  Main() cil managed
   {
     .entrypoint
-    // Размер кода:       1 (0x1)
+    // Размер кода:       7 (0x7)
     .maxstack  8
-    IL_0000:  ret
+    IL_0000:  ldc.i4.0
+    IL_0001:  call       void Program.Program::Test(int32)
+    IL_0006:  ret
   } // end of method Program::Main
 
   .method public hidebysig static void  Test(int32 c) cil managed
   {
-    // Размер кода:       5 (0x5)
-    .maxstack  8
-    IL_0000:  ldc.i4.s   10
-    IL_0002:  starg.s    c
-    IL_0004:  ret
+    // Размер кода:       27 (0x1b)
+    .maxstack  2
+    .locals init ([0] int32 b,
+             [1] string a)
+    IL_0000:  ldc.i4.1
+    IL_0001:  stloc.0
+    IL_0002:  ldc.i4.s   10
+    IL_0004:  starg.s    c
+    IL_0006:  ldarg.0
+    IL_0007:  ldloc.0
+    IL_0008:  add
+    IL_0009:  call       void [mscorlib]System.Console::WriteLine(int32)
+    IL_000e:  call       string [mscorlib]System.Console::ReadLine()
+    IL_0013:  stloc.1
+    IL_0014:  ldloc.1
+    IL_0015:  call       void [mscorlib]System.Console::WriteLine(string)
+    IL_001a:  ret
   } // end of method Program::Test
 
   .method public hidebysig specialname rtspecialname 

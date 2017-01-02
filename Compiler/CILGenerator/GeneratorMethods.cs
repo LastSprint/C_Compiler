@@ -27,7 +27,7 @@ namespace CompilerConsole.CILGenerator
             }
           
             startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodName], method.Name);
-
+            //Парсим аргументы
             StringBuilder args = new StringBuilder();
             for (int i = 0; i < method.ArgList.Count; i++) {
                 var variableNode = method.ArgList[i];
@@ -39,28 +39,8 @@ namespace CompilerConsole.CILGenerator
             }
             startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodArgs], args.ToString());
             methodCIL.AppendLine(startMethodCIL);
-            
-            //Пока будем парсить только делкарацию локальных переменных в методе (CIL код понятнее чем то говно, которое у меня в XML генерится)
-            StringBuilder localVariables = new StringBuilder();
-
-            List<VariableNode> variables = new List<VariableNode>();
-            //Сначала выбираем все объявления переменных
-            foreach (var bodyNode in method.Body.Nodes) {
-                if (bodyNode is VariableNode && !(bodyNode as VariableNode).IsMethodArg) {
-                    variables.Add(bodyNode as VariableNode);
-                }
-            }
-            //теперь заносим их в IL
-            for (int i = 0; i < variables.Count; i++) {
-                localVariables.Append(this.GenerateCILVarDecl(variables[i]));
-                if (variables.Count > 1 && i < variables.Count-1) {
-                    localVariables.Append(",");
-                }
-                localVariables.AppendLine();
-            }
-
-            string localVardeclTemplate = this.Reader(Template.LocalvariableDeclaration);
-            methodCIL.AppendLine(localVardeclTemplate.Replace(this.cilReplacedToken[CILReplacedToken.Variables],localVariables.ToString()));
+            //Генерация декларации локальных переменных
+            methodCIL.AppendLine(this.GenerateLocalVariableDeclaration(method));
             StringBuilder expressions = new StringBuilder();
             //Начинаем парсить выражения
             foreach (Node node in method.Body.Nodes) {
@@ -74,6 +54,39 @@ namespace CompilerConsole.CILGenerator
             string methodEnd = this.Reader(Template.DeclFuncFinich);
             methodCIL.AppendLine(methodEnd);
             return methodCIL.ToString();
+        }
+
+        /// <summary>
+        /// Гененрирует IL код, отвечающий за объявление локальныхп еременных в функции
+        /// </summary>
+        /// <param name="method">Метод, для которого нужно сгенерировать IL</param>
+        /// <returns>Сгенерированный IL код</returns>
+        private string GenerateLocalVariableDeclaration(MethodNode method) {
+            //Пока будем парсить только делкарацию локальных переменных в методе (CIL код понятнее чем то говно, которое у меня в XML генерится)
+            StringBuilder localVariables = new StringBuilder();
+
+            List<VariableNode> variables = new List<VariableNode>();
+            //Сначала выбираем все объявления переменных
+            foreach (var bodyNode in method.Body.Nodes)
+            {
+                if (bodyNode is VariableNode && !(bodyNode as VariableNode).IsMethodArg)
+                {
+                    variables.Add(bodyNode as VariableNode);
+                }
+            }
+            //теперь заносим их в IL
+            for (int i = 0; i < variables.Count; i++)
+            {
+                localVariables.Append(this.GenerateCILVarDecl(variables[i]));
+                if (variables.Count > 1 && i < variables.Count - 1)
+                {
+                    localVariables.Append(",");
+                }
+                localVariables.AppendLine();
+            }
+
+            string localVardeclTemplate = this.Reader(Template.LocalvariableDeclaration);
+            return localVardeclTemplate.Replace(this.cilReplacedToken[CILReplacedToken.Variables], localVariables.ToString());
         }
 
         private string GenerateCILFuncArg(VariableNode variable) {

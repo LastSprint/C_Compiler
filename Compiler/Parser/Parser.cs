@@ -86,6 +86,7 @@ namespace CompilerConsole.Parser {
             this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode("print",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode("read", Type.VarString, new Body(),new List<VariableNode>(), MethodType.Libr));
         }
 
         private bool IsType(string text) {
@@ -272,6 +273,7 @@ namespace CompilerConsole.Parser {
             }
         }
 
+        #region After parsing methods
         public void Serialize() {
             using (FileStream fs = new FileStream("code.xml", FileMode.Create)) {
                 XmlSerializer serializer = new XmlSerializer(typeof(Body));
@@ -315,5 +317,6 @@ namespace CompilerConsole.Parser {
 
             }
         }
+#endregion
     }
 }
