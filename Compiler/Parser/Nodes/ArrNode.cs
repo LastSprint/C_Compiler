@@ -9,7 +9,7 @@ namespace CompilerConsole.Parser.Nodes
     {
         public Node Length { get; set; }
 
-        public ArrNode(string name, Type type, Node length) : base(name, type) {
+        public ArrNode(string name, Type type, Node length, bool isMethArg = false) : base(name, type,isMethArg) {
             this.Length = length;
         }
 

@@ -98,7 +98,7 @@ namespace CompilerConsole.CILGenerator
         }
 
         private void Writer(string cilCode) {
-            FileStream file = new FileStream("cil.txt", FileMode.Create);
+            FileStream file = new FileStream("cil.il", FileMode.Create);
             StreamWriter reader = new StreamWriter(file);
             reader.Write(cilCode);
             reader.Close();

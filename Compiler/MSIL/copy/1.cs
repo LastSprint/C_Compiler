@@ -1,14 +1,16 @@
 using System;
 namespace Program {
   public class Program{
-    public static void Main(){
-     
-    }
+      public static void Main() {
+          
+      }
 
-    public static int Test(int c){
-      int a = 0;
-      return a +c;
-    }
-  
+      public static void Test(int c) {
+            int a = 0;
+            int b;
+            b = 1;
+            c = 10;
+        }
+
   }
 }

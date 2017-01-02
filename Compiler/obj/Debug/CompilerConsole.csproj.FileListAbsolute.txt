@@ -14,3 +14,11 @@ C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\bin\Debug\DrawingTreeLib.dll
 C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.csprojResolveAssemblyReference.cache
 C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.exe
 C:\Users\ianoo\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.pdb
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.exe
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.pdb
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\bin\Debug\CompilerConsole.exe
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\bin\Debug\CompilerConsole.pdb
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\bin\Debug\AstTreeLib.dll
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\bin\Debug\DrawingTreeLib.dll
+C:\Users\Александр\Source\Repos\C_Compiler\Compiler\obj\Debug\CompilerConsole.csprojResolveAssemblyReference.cache

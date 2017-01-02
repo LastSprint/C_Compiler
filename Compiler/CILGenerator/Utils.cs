@@ -27,14 +27,14 @@ namespace CompilerConsole.CILGenerator {
         WriteLocalVariable,
 
         /// <summary>
-        /// CIL синтаксис:  ldarg.{variableNumber}
+        /// CIL синтаксис:  ldarg {variableNumber}
         /// </summary>
         ReadMethodArg,
 
         /// <summary>
         /// CIL синтаксис:  ldloc.{variableNumber}
         /// </summary>
-        WriteMethodarg,
+        WriteMethodArg,
         Add,
         Sub,
         Div
@@ -49,6 +49,8 @@ namespace CompilerConsole.CILGenerator {
                 {ILOperation.IntConstLoad, "ldc.i4"},
                 {ILOperation.ReadLocalVariable, "ldloc"},
                 {ILOperation.WriteLocalVariable, "stloc"},
+                {ILOperation.WriteMethodArg, "starg" },
+                 {ILOperation.ReadMethodArg, "ldarg" },
                 {ILOperation.Add, "add"},
                 {ILOperation.Sub, "sub"},
                 {ILOperation.Div, "div"}
@@ -83,7 +85,6 @@ namespace CompilerConsole.CILGenerator {
                     break;
                 case ExprToken.Ass:
                     return AssignExprToIL(node);
-                    break;
                 case ExprToken.Error:
                     break;
                 default:
@@ -95,7 +96,15 @@ namespace CompilerConsole.CILGenerator {
 
         public static string AssignExprToIL(Expression node) {
             string assignString = ExpressionToIL(node.RightNode) + Environment.NewLine;
-            string writeAssignString = _operationDictionary[ILOperation.WriteLocalVariable] + Generator.Offset + (node.LeftNode as VariableNode).Number + Environment.NewLine;
+            string writeOpertion = "";
+            if ((node.LeftNode as VariableNode).IsMethodArg) {
+                writeOpertion = _operationDictionary[ILOperation.WriteMethodArg];
+            }
+            else {
+                writeOpertion = _operationDictionary[ILOperation.WriteLocalVariable];
+            }
+
+            string writeAssignString = writeOpertion + Generator.Offset + (node.LeftNode as VariableNode).Number + Environment.NewLine;
             return assignString + writeAssignString;
         }
 
