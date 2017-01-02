@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Text;
 using CompilerConsole.Parser.Nodes;
 using CompilerConsole.Parser.Nodes.BodyNodes;
+using CompilerConsole.Parser.Nodes.CallNode;
+using Lang2;
 using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.CILGenerator
@@ -58,7 +62,7 @@ namespace CompilerConsole.CILGenerator
             return methodCIL.ToString();
         }
 
-
+        #region Method body decomposition
         /// <summary>
         /// Генерирует IL код, для аргументов метода
         /// </summary>
@@ -122,15 +126,48 @@ namespace CompilerConsole.CILGenerator
         private string GenerateExpression(MethodNode method) {
             StringBuilder expressions = new StringBuilder();
             //Начинаем парсить выражения
-            foreach (Node node in method.Body.Nodes)
-            {
-                if (node is Expression)
-                {
-                    expressions.Append(Utils.ActionAxprToIL(node as Expression));
+            foreach (Node node in method.Body.Nodes) {
+                string result = this.ExpressionToIL(node);
+
+                if (!String.IsNullOrEmpty(result)) {
+                    expressions.Append(this.ExpressionToIL(node));
                 }
             }
             return expressions.ToString();
         }
+#endregion
+
+       /* private string GenerateExpresseionFromNode(Node node) {
+            if (node is Expression)
+            {
+                return this.ActionExprToIL(node as Expression);
+            }
+            else if (node is MethCall) {
+                var methCallNode = node as MethCall;
+                StringBuilder methodCall = new StringBuilder();
+                foreach (var sendArg in methCallNode.SendArgs) {
+                    methodCall.AppendLine(this.ExpressionToIL(sendArg));
+                }
+
+                if (methCallNode.Method.Name == Parser.Parser.WriteMethodName) {
+                    methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset +  this.Reader(Template.ConsoleWriteLine)
+                        .Replace("{type}", this.ToCILVariableType(methCallNode.SendArgs[0].DataType)));
+
+                }
+                else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName) {
+                    //Если вызываем ввод из консоли
+                    throw new NotImplementedException(@"Сори, но ввода в консоль пока нету (:");
+                }
+                else {
+                    throw new NotImplementedException(@"Сорян, но вызывать свой метод не получтся пока (:");
+                    //Костомный метод
+                }
+                return methodCall.ToString();
+            }
+
+            return null;
+        }
+        */
 
         private string GenerateFuncArg(VariableNode variable) {
             if (variable is StructVariableNode) {
@@ -178,5 +215,149 @@ namespace CompilerConsole.CILGenerator
             }
             return null;
         }
+
+        private string MethodCallToIl(MethCall methCallNode) {
+            StringBuilder methodCall = new StringBuilder();
+            foreach (var sendArg in methCallNode.SendArgs)
+            {
+                methodCall.AppendLine(this.ExpressionToIL(sendArg));
+            }
+
+            if (methCallNode.Method.Name == Parser.Parser.WriteMethodName)
+            {
+                methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset + this.Reader(Template.ConsoleWriteLine)
+                    .Replace("{type}", this.ToCILVariableType(methCallNode.SendArgs[0].DataType)));
+
+            }
+            else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName)
+            {
+                //Если вызываем ввод из консоли
+                throw new NotImplementedException(@"Сори, но ввода в консоль пока нету (:");
+            }
+            else
+            {
+                throw new NotImplementedException(@"Сорян, но вызывать свой метод не получтся пока (:");
+                //Костомный метод
+            }
+            return methodCall.ToString();
+        }
+
+#region Utils
+        public string ExpressionToIL(Node node)
+        {
+            if (node is StructVariableNode && ((StructVariableNode)node).IsMethodArg)
+            {
+                var varNode = (VariableNode) node;
+
+                var operation = varNode.IsMethodArg ? this._operationDictionary[ILOperation.ReadMethodArg] : this._operationDictionary[ILOperation.ReadLocalVariable];
+
+                return operation + Generator.Offset + varNode.Number;
+            }
+
+            if (node is ArrCall)
+            {
+                throw new NotImplementedException(@"Парсинг обращения к массиву в IL пока не реализован");
+            }
+
+            if (node is MethCall) {
+                return this.MethodCallToIl((MethCall) node);
+            }
+
+            if (node is Expression)
+            {
+                return this.ActionExprToIL((Expression) node);
+            }
+
+            if (node is Literals)
+            {
+                return this.GenerateConstIL((Literals) node);
+            }
+
+            return null;
+                //throw new SyntaxErrorException(@"Случилась какая-то неведомая хуйня при парсинге выражения в IL");
+        }
+
+        public string ActionExprToIL(Expression node)
+        {
+            switch (node.ExprToken)
+            {
+                case ExprToken.IsEqual:
+                    break;
+                case ExprToken.IsLess:
+                    break;
+                case ExprToken.IsMore:
+                    break;
+                case ExprToken.IsLessOrEqual:
+                    break;
+                case ExprToken.IsMoreOrEqual:
+                    break;
+                case ExprToken.Add:
+                    break;
+                case ExprToken.Sub:
+                    break;
+                case ExprToken.Mult:
+                    break;
+                case ExprToken.Div:
+                    break;
+                case ExprToken.Conj:
+                    break;
+                case ExprToken.Dij:
+                    break;
+                case ExprToken.Neg:
+                    break;
+                case ExprToken.Ass:
+                    return this.AssignExprToIL(node);
+                case ExprToken.Error:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return null;
+
+        }
+
+        public string AssignExprToIL(Expression node)
+        {
+            string assignString = ExpressionToIL(node.RightNode) + Environment.NewLine;
+            string writeOpertion = "";
+            if ((node.LeftNode as VariableNode).IsMethodArg)
+            {
+                writeOpertion = this._operationDictionary[ILOperation.WriteMethodArg];
+            }
+            else
+            {
+                writeOpertion = this._operationDictionary[ILOperation.WriteLocalVariable];
+            }
+
+            string writeAssignString = writeOpertion + Generator.Offset + (node.LeftNode as VariableNode).Number + Environment.NewLine;
+            return assignString + writeAssignString;
+        }
+
+        private string GenerateConstIL(Literals literal)
+        {
+            string result = "";
+
+            switch (literal.DataType)
+            {
+                case Type.VarInt:
+                    result = this._operationDictionary[ILOperation.IntConstLoad] + Generator.Offset + literal.Value.ToString();
+                    break;
+                case Type.VarFloat:
+                    break;
+                case Type.VarString:
+                    break;
+                case Type.VarChar:
+                    break;
+                case Type.VarBool:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"GenerateConstIL странный тип {literal.DataType}");
+            }
+
+
+            return result;
+        }
+
+        #endregion
     }
 }

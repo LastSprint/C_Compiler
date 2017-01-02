@@ -8,7 +8,7 @@ namespace Program {
             int b;
             b = 1;
             c = 10;
-            Console.WriteLine(c+b);
+            Console.WriteLine(c);
             string a = Console.ReadLine();
             Console.WriteLine(a);
         }

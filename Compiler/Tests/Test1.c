@@ -43,20 +43,20 @@ int a;
 int b;
 int c;
 
-void main() {
-	int a;
-}
-
 int mait(int c) {
 	int a = 0;
 	int b;
 	b = 1;
 	c = 10;
+	print(c);
 	return 0;
 }
 
 void main() {
-	int a[10];
+	int a;
+}
+
+void main() {
 	print(5);
 }
 

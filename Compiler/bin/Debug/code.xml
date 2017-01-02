@@ -3,48 +3,13 @@
   <Body>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
-        <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
+        <MethCallNode DataType="Void" Method="print">
+          <SendArgs>
+            <Literal Name="lit" DataType="VarInt" Value="5" />
+          </SendArgs>
+        </MethCallNode>
       </Body>
       <Args />
-    </MethodNode>
-    <MethodNode MethodType="Cust" Name="mait" DataType="VarInt">
-      <Body>
-        <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="0" />
-          </RightNode>
-        </Expression>
-        <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
-        <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="1" />
-          </RightNode>
-        </Expression>
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="10" />
-          </RightNode>
-        </Expression>
-        <ReturnNode Name="return" DataType="VarInt">
-          <ReturnedValue>
-            <Literal Name="lit" DataType="VarInt" Value="0" />
-          </ReturnedValue>
-        </ReturnNode>
-      </Body>
-      <Args>
-        <VariableNode IsMethodArg="True" Name="c" DataType="VarInt" />
-      </Args>
     </MethodNode>
   </Body>
 </Body>

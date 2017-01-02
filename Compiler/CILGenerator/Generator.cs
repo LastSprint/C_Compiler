@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using CompilerConsole.Parser;
+using CompilerConsole.Parser.Nodes;
 using CompilerConsole.Parser.Nodes.BodyNodes;
+using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.CILGenerator
 {
+    #region Enums
     enum Template {
         ClassDecl,
         DeclFuncFinich,
@@ -34,9 +37,42 @@ namespace CompilerConsole.CILGenerator
         ClassBody
     }
 
+    public enum ILOperation
+    {
+        /// <summary>
+        /// CIL синтаксис: ldc.i4 someLiterals(hex)
+        /// </summary>
+        IntConstLoad,
+
+        /// <summary>
+        /// CIL синтаксис:  ldloc.{variableNumber}
+        /// </summary>
+        ReadLocalVariable,
+
+        /// <summary>
+        /// CIL синтаксис:  stloc.{variableNumber}
+        /// </summary>
+        WriteLocalVariable,
+
+        /// <summary>
+        /// CIL синтаксис:  ldarg {variableNumber}
+        /// </summary>
+        ReadMethodArg,
+
+        /// <summary>
+        /// CIL синтаксис:  ldloc.{variableNumber}
+        /// </summary>
+        WriteMethodArg,
+        Add,
+        Sub,
+        Div,
+        Call
+
+    }
+#endregion
 
     public partial class Generator {
-
+        private  Dictionary<ILOperation, string> _operationDictionary;
         private Dictionary<Template, string> templatesDictionary;
         private Dictionary<CILReplacedToken, string> cilReplacedToken;
 
@@ -89,6 +125,17 @@ namespace CompilerConsole.CILGenerator
                 { CILReplacedToken.ClassBody, "{classBody}"}
             };
 
+            this._operationDictionary = new Dictionary<ILOperation, string>() {
+                {ILOperation.IntConstLoad, "ldc.i4"},
+                {ILOperation.ReadLocalVariable, "ldloc"},
+                {ILOperation.WriteLocalVariable, "stloc"},
+                {ILOperation.WriteMethodArg, "starg" },
+                 {ILOperation.ReadMethodArg, "ldarg" },
+                {ILOperation.Add, "add"},
+                {ILOperation.Sub, "sub"},
+                {ILOperation.Div, "div"},
+                { ILOperation.Call, "call"}
+            };
         }
 
         private string Reader(Template template) {
@@ -111,6 +158,5 @@ namespace CompilerConsole.CILGenerator
         }
 
         #endregion
-
     }
 }
