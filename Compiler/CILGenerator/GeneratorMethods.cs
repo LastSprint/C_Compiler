@@ -8,17 +8,27 @@ namespace CompilerConsole.CILGenerator
 {
 
     public partial class Generator {
+
         /// <summary>
         /// IL_
         /// </summary>
         public static string PreLineNumber = "IL_";
         /// <summary>
-        /// Это 4 пробела
+        /// Это символ табуляции
         /// </summary>
         public static string Offset = "\t";
+
+        /// <summary>
+        /// Генерирует IL код для методы
+        /// </summary>
+        /// <param name="method">Метод, для которого нужно сгенерировать IL код</param>
+        /// <returns></returns>
         private string GenerateCILMethod(MethodNode method) {
+
             StringBuilder methodCIL = new StringBuilder();
             string startMethodCIL;
+
+            #region Method start
             if (method.Name == "main") {
                 startMethodCIL = this.Reader(Template.DeclMainFunc);
             }
@@ -27,26 +37,47 @@ namespace CompilerConsole.CILGenerator
             }
           
             startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodName], method.Name);
-            //Парсим аргументы
-            StringBuilder args = new StringBuilder();
-            for (int i = 0; i < method.ArgList.Count; i++) {
-                var variableNode = method.ArgList[i];
-                args.Append("\t" + this.GenerateFuncArg(variableNode));
-                if (method.ArgList.Count > 1 && i != method.ArgList.Count-1) {
-                    args.Append(",");
-                }
-                args.AppendLine();
-            }
-            startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodArgs], args.ToString());
+            //Генерирем аргументы и включаем их в шаблон
+            startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodArgs], this.GenerateArgs(method));
+#endregion
+
+            #region Methpd body
             methodCIL.AppendLine(startMethodCIL);
             //Генерация декларации локальных переменных
             methodCIL.AppendLine(this.GenerateLocalVariableDeclaration(method));
             //Генерация IL кода для выражений
             methodCIL.AppendLine(this.GenerateExpression(method));
+            #endregion
+
+            #region Method end
             //Генерация IL кода для окончания декларации метода
             string methodEnd = this.Reader(Template.DeclFuncFinich);
             methodCIL.AppendLine(methodEnd);
+            #endregion
+
             return methodCIL.ToString();
+        }
+
+
+        /// <summary>
+        /// Генерирует IL код, для аргументов метода
+        /// </summary>
+        /// <param name="method">Метод, для которого нужно сгенерировать аргументы</param>
+        /// <returns>Сгенерированный IL код</returns>
+        private string GenerateArgs(MethodNode method) {
+            StringBuilder args = new StringBuilder();
+            for (int i = 0; i < method.ArgList.Count; i++)
+            {
+                var variableNode = method.ArgList[i];
+                args.Append(Generator.Offset + this.GenerateFuncArg(variableNode));
+                if (method.ArgList.Count > 1 && i != method.ArgList.Count - 1)
+                {
+                    args.Append(",");
+                }
+                args.AppendLine();
+            }
+
+            return args.ToString();
         }
 
         /// <summary>
@@ -113,7 +144,7 @@ namespace CompilerConsole.CILGenerator
         }
 
         private string GenerateVarDecl(VariableNode node) {
-            return $"\t [{node.Number}] {this.ToCILVariableType(node.DataType)} {node.Name}";
+            return $"{Generator.Offset} [{node.Number}] {this.ToCILVariableType(node.DataType)} {node.Name}";
         }
 
         /// <summary>
