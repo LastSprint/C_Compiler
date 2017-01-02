@@ -23,13 +23,13 @@
   .ver 0:0:0:0
 }
 .module '1.exe'
-// MVID: {17DFDF44-ADD0-448B-83DE-E9BFECEA71E4}
+// MVID: {CA90A4B6-0132-4D22-B7A1-9D243D29E570}
 .imagebase 0x00400000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x01770000
+// Image base: 0x01860000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -37,30 +37,25 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
+  .field private static int32 q
   .method public hidebysig static void  Main() cil managed
   {
     .entrypoint
-    // Размер кода:       7 (0x7)
+    // Размер кода:       6 (0x6)
     .maxstack  8
-    IL_0000:  ldc.i4.0
-    IL_0001:  call       void Program.Program::Test(int32)
-    IL_0006:  ret
+    IL_0000:  call       void Program.Program::Test()
+    IL_0005:  ret
   } // end of method Program::Main
 
-  .method public hidebysig static void  Test(int32 c) cil managed
+  .method public hidebysig static void  Test() cil managed
   {
-    // Размер кода:       23 (0x17)
-    .maxstack  1
-    .locals init ([0] string a)
+    // Размер кода:       18 (0x12)
+    .maxstack  8
     IL_0000:  ldc.i4.s   10
-    IL_0002:  starg.s    c
-    IL_0004:  ldarg.0
-    IL_0005:  call       void [mscorlib]System.Console::WriteLine(int32)
-    IL_000a:  call       string [mscorlib]System.Console::ReadLine()
-    IL_000f:  stloc.0
-    IL_0010:  ldloc.0
-    IL_0011:  call       void [mscorlib]System.Console::WriteLine(string)
-    IL_0016:  ret
+    IL_0002:  stsfld     int32 Program.Program::q
+    IL_0007:  ldsfld     int32 Program.Program::q
+    IL_000c:  call       void [mscorlib]System.Console::WriteLine(int32)
+    IL_0011:  ret
   } // end of method Program::Test
 
   .method public hidebysig specialname rtspecialname 

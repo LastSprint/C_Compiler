@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Text;
+using CompilerConsole.Parser;
 using CompilerConsole.Parser.Nodes;
 using CompilerConsole.Parser.Nodes.BodyNodes;
 using CompilerConsole.Parser.Nodes.CallNode;
@@ -169,6 +170,26 @@ namespace CompilerConsole.CILGenerator
         }
         */
 
+        /// <summary>
+        /// Генерирует IL код для объявления глобальных переменных
+        /// </summary>
+        /// <param name="body">Тело, из которого нужно извлечь объявление глобальных переменных и сгененрировать для них IL код</param>
+        /// <returns>Сгенерированный IL код</returns>
+        private string GenerateGlobalVar(Body body) {
+            StringBuilder fields = new StringBuilder();
+            foreach (var node in body.Nodes) {
+                if (node is VariableNode) {
+                    if ((node as VariableNode).IsGlobal) {
+                        string decl = this.Reader(Template.FieldDecl);
+                        decl = decl.Replace("{name}", node.Name);
+                        decl = decl.Replace("{type}", this.ToCILVariableType(node.DataType));
+                        fields.AppendLine(decl);
+                    }
+                }
+            }
+            return fields.ToString();
+        }
+
         private string GenerateFuncArg(VariableNode variable) {
             if (variable is StructVariableNode) {
                 var structVariable = variable as StructVariableNode;
@@ -212,6 +233,8 @@ namespace CompilerConsole.CILGenerator
                     return "char[]";
                 case Type.ArrBool:
                     return "bool[]";
+                case Type.Void:
+                    return "void";
             }
             return null;
         }
@@ -233,13 +256,25 @@ namespace CompilerConsole.CILGenerator
             else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName)
             {
                 //Если вызываем ввод из консоли
-                return this._operationDictionary[ILOperation.Call] + Generator.Offset +
-                       this.Reader(Template.ConsoleReadLine);
+                methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset +
+                                      this.Reader(Template.ConsoleReadLine));
             }
-            else
-            {
-                throw new NotImplementedException(@"Сорян, но вызывать свой метод не получтся пока (:");
-                //Костомный метод
+            else {
+                string method = this.Reader(Template.CallMethod);
+                method = method.Replace("{type}", this.ToCILVariableType(methCallNode.Method.DataType));
+                method = method.Replace("{name}", methCallNode.Method.Name);
+
+                string args = "";
+
+                for (int i = 0; i < methCallNode.SendArgs.Count; i++) {
+                    var sendArg = methCallNode.SendArgs[i];
+                    args += this.ToCILVariableType(sendArg.DataType);
+                    if (methCallNode.SendArgs.Count > 1 && i != methCallNode.SendArgs.Count-1) {
+                        args += ", ";
+                    }
+                }
+                method = method.Replace("{args}", args);
+                methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset + method);
             }
             return methodCall.ToString();
         }
@@ -250,7 +285,12 @@ namespace CompilerConsole.CILGenerator
             if (node is StructVariableNode)
             {
                 var varNode = (VariableNode) node;
-
+                if (varNode.IsGlobal) {
+                    string field = this.Reader(Template.CallField);
+                    field = field.Replace("{type}", this.ToCILVariableType(varNode.DataType));
+                    field = field.Replace("{name}", varNode.Name);
+                    return this._operationDictionary[ILOperation.ReadField] + Generator.Offset + field;
+                }
                 var operation = varNode.IsMethodArg ? this._operationDictionary[ILOperation.ReadMethodArg] : this._operationDictionary[ILOperation.ReadLocalVariable];
 
                 return operation + Generator.Offset + varNode.Number;
@@ -320,18 +360,28 @@ namespace CompilerConsole.CILGenerator
 
         public string AssignExprToIL(Expression node)
         {
-            string assignString = ExpressionToIL(node.RightNode) + Environment.NewLine;
+            string assignString = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
             string writeOpertion = "";
-            if ((node.LeftNode as VariableNode).IsMethodArg)
-            {
-                writeOpertion = this._operationDictionary[ILOperation.WriteMethodArg];
+
+            if ((node.LeftNode as VariableNode).IsGlobal) {
+                string field = this.Reader(Template.CallField);
+                field = field.Replace("{type}", this.ToCILVariableType((node.LeftNode as VariableNode).DataType));
+                field = field.Replace("{name}", (node.LeftNode as VariableNode).Name);
+                writeOpertion = this._operationDictionary[ILOperation.WriteField] + Generator.Offset + field;
             }
-            else
-            {
-                writeOpertion = this._operationDictionary[ILOperation.WriteLocalVariable];
+            else {
+                if ((node.LeftNode as VariableNode).IsMethodArg)
+                {
+                    writeOpertion = this._operationDictionary[ILOperation.WriteMethodArg];
+                }
+                else
+                {
+                    writeOpertion = this._operationDictionary[ILOperation.WriteLocalVariable];
+                }
+                writeOpertion += Generator.Offset + (node.LeftNode as VariableNode).Number;
             }
 
-            string writeAssignString = writeOpertion + Generator.Offset + (node.LeftNode as VariableNode).Number + Environment.NewLine;
+            string writeAssignString = writeOpertion +  Environment.NewLine;
             return assignString + writeAssignString;
         }
 

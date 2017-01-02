@@ -21,7 +21,25 @@ namespace CompilerConsole.CILGenerator
         /// Содержит триггер {type} - тип данных, который нужно вывести
         /// </summary>
         ConsoleWriteLine,
-        ConsoleReadLine
+        ConsoleReadLine,
+        /// <summary>
+        /// Вызов собственного метода имеет триггеры {type} - тип который возвращает метод
+        /// {name}  - имя метода 
+        /// {args} - типы, принимаемые методом
+        /// </summary>
+        CallMethod,
+        /// <summary>
+        /// Декларация глобальной переменной. Иммет триггеры:
+        /// {type} - тип переменной
+        /// {name} - имя переменной
+        /// </summary>
+        FieldDecl,
+        /// <summary>
+        /// Обращение к глобальной переменной. Имеет триггеры:
+        /// {type} - тип переменной
+        /// {name} - имя переменной
+        /// </summary>
+        CallField
     }
 
     public enum CILToken
@@ -59,7 +77,16 @@ namespace CompilerConsole.CILGenerator
         /// CIL синтаксис:  ldarg {variableNumber}
         /// </summary>
         ReadMethodArg,
-
+        /// <summary>
+        /// IL синтаксис: stfld {type} {variable reference}
+        /// <example>stfld int32 Program.Program::q</example>
+        /// </summary>
+        WriteField,
+        /// <summary>
+        /// IL синтаксис: ldfld {type} {variable reference}
+        /// <example>ldfld int32 Program.Program::q</example>
+        /// </summary>
+        ReadField,
         /// <summary>
         /// CIL синтаксис:  ldloc.{variableNumber}
         /// </summary>
@@ -95,7 +122,8 @@ namespace CompilerConsole.CILGenerator
         }
 
         private string ParseClass(Body classBody) {
-            string body = "";
+            string body = this.GenerateGlobalVar(classBody);
+
             foreach (var node in classBody.Nodes) {
                 if (node is MethodNode && (node as MethodNode).MethodType == MethodType.Cust) {
                     body += this.GenerateCILMethod(node as MethodNode);
@@ -117,14 +145,17 @@ namespace CompilerConsole.CILGenerator
                 { Template.StartProgram, "StartProgramTempate.txt" },
                 { Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt" },
                 { Template.ConsoleWriteLine, "WriteLineTemplate.txt" },
-                { Template.ConsoleReadLine, "ReadLineTemplate.txt"}
+                { Template.ConsoleReadLine, "ReadLineTemplate.txt"},
+                { Template.CallMethod, "CallMethod.txt"},
+                { Template.FieldDecl, "FieldDeclTemplate.txt"},
+                { Template.CallField, "CallField.txt"}
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {
                 {CILReplacedToken.MethodName, "{name}"},
                 {CILReplacedToken.MethodArgs, "{args}"},
                 { CILReplacedToken.Variables, "{variables}"},
-                { CILReplacedToken.ClassBody, "{classBody}"}
+                { CILReplacedToken.ClassBody, "{classBody}"},
             };
 
             this._operationDictionary = new Dictionary<ILOperation, string>() {
@@ -132,7 +163,9 @@ namespace CompilerConsole.CILGenerator
                 {ILOperation.ReadLocalVariable, "ldloc"},
                 {ILOperation.WriteLocalVariable, "stloc"},
                 {ILOperation.WriteMethodArg, "starg" },
-                 {ILOperation.ReadMethodArg, "ldarg" },
+                {ILOperation.ReadMethodArg, "ldarg" },
+                {ILOperation.WriteField, "stsfld" },
+                {ILOperation.ReadField, "ldsfld" },
                 {ILOperation.Add, "add"},
                 {ILOperation.Sub, "sub"},
                 {ILOperation.Div, "div"},

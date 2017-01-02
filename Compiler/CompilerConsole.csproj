@@ -82,9 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input.txt" />
+    <Content Include="Templates\CallField.txt" />
+    <Content Include="Templates\CallMethod.txt" />
     <Content Include="Templates\ClassDeclTemplate.txt" />
     <Content Include="Templates\DeclFuncFinish.txt" />
     <Content Include="Templates\DeclMainFuncStart.txt" />
+    <Content Include="Templates\FieldDeclTemplate.txt" />
     <Content Include="Templates\LocalvariableDeclaration.txt" />
     <Content Include="Templates\ReadLineTemplate.txt" />
     <Content Include="Templates\StartFucDecl.txt" />

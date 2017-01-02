@@ -43,17 +43,14 @@ int a;
 int b;
 int c;
 
-int mait(int c) {
-	int a = 0;
-	int b;
-	b = 1;
-	c = 10;
+void mait() {
+	c = 125;
 	print(c);
-	return 0;
 }
 
 void main() {
-	int a;
+	mait();
+	read();
 }
 
 void main() {

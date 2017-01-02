@@ -324,6 +324,14 @@ namespace CompilerConsole.Parser {
 
             }
         }
+
+        public void MakeGlobalFields() {
+            foreach (var node in this.MainBody.Nodes) {
+                if (node is VariableNode) {
+                    (node as VariableNode).IsGlobal = true;
+                }
+            }
+        }
 #endregion
     }
 }

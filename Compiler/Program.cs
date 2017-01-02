@@ -37,6 +37,7 @@ namespace CompilerConsole {
                 Parser.Parser pars = new Parser.Parser(tree);
                 pars.Pars();
                 pars.NumerateVariable();
+                pars.MakeGlobalFields();
                 pars.Serialize();
                 Generator generator = new Generator();
                 generator.Generate(pars);

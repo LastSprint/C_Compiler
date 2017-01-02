@@ -1,16 +1,13 @@
 using System;
 namespace Program {
   public class Program{
+      static int q;
       public static void Main() {
-          Test(0);
+          Test();
       }
-      public static void Test(int c) {
-            int b;
-            b = 1;
-            c = 10;
-            Console.WriteLine(c);
-            string a = Console.ReadLine();
-            Console.WriteLine(a);
+      public static void Test() {
+            q = 10;
+            Console.WriteLine(q);
         }
   }
 }

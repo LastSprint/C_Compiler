@@ -1,21 +1,31 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <MethodNode MethodType="Cust" Name="main" DataType="Void">
+    <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
+    <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
+    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+    <MethodNode MethodType="Cust" Name="mait" DataType="Void">
       <Body>
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <VariableNode IsMethodArg="False" Name="g" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
           </LeftNode>
           <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="15" />
+            <Literal Name="lit" DataType="VarInt" Value="125" />
           </RightNode>
         </Expression>
-        <VariableNode IsMethodArg="False" Name="g" DataType="VarInt" />
         <MethCallNode DataType="Void" Method="print">
           <SendArgs>
-            <VariableNode IsMethodArg="False" Name="g" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
           </SendArgs>
+        </MethCallNode>
+      </Body>
+      <Args />
+    </MethodNode>
+    <MethodNode MethodType="Cust" Name="main" DataType="Void">
+      <Body>
+        <MethCallNode DataType="Void" Method="mait">
+          <SendArgs />
         </MethCallNode>
         <MethCallNode DataType="VarString" Method="read">
           <SendArgs />
