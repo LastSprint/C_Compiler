@@ -1,13 +1,10 @@
 using System;
 namespace Program {
   public class Program{
-      static int q;
       public static void Main() {
-          Test();
+          string[] a = new string[10];
+          a[0] = "asd";
+          Console.WriteLine(a[0]);
       }
-      public static void Test() {
-            q = 10;
-            Console.WriteLine(q);
-        }
   }
 }

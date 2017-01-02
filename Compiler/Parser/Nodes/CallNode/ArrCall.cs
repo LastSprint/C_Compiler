@@ -8,6 +8,8 @@ namespace CompilerConsole.Parser.Nodes.CallNode
 
         public Node Index { get; set; }
 
+        public Node Assign { get; set; }
+
         public ArrCall(ArrNode arr) : base("ArrCall"+arr.Name, Node.ArrTypeToVarType(arr.DataType)) {
             this.Arr = arr;
         }

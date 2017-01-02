@@ -199,6 +199,11 @@ namespace CompilerConsole.Parser {
                 ITree rightNode = tree.GetChild(1);
                 Node left = this.ParsExpr(leftNode, body);
                 Node right = this.ParsExpr(rightNode, body);
+
+                if (left is ArrCall) {
+                    (left as ArrCall).Assign = right;
+                }
+
                 ExprToken t = this.GetExpr(tree.Text);
                 var expr = new Expression(left, right, t);
 
@@ -289,6 +294,22 @@ namespace CompilerConsole.Parser {
             throw new UndefinedTokenException($"При разборе выражения использовался токен {treeNode.Text}");
         }
 
+        private char ExecuteChar(string text) {
+            return text[1];
+        }
+
+        private string ExecuteString(string text) {
+            string result = "";
+
+            foreach (var ch in text) {
+                if (ch != '\"') {
+                    result += ch;
+                }
+            }
+
+            return result;
+        }
+
         private Literals GetLiterals(string text)
         {
             if (String.CompareOrdinal(text, "false") == 0 || String.CompareOrdinal(text, "true") == 0)
@@ -296,7 +317,7 @@ namespace CompilerConsole.Parser {
                 return new Literals(Type.VarBool, bool.Parse(text));
             }
 
-            Regex regEx = new Regex("^\"[aA-zZ]+\"$");
+            Regex regEx = new Regex("^\".*\"$");
             if (regEx.IsMatch(text))
             {
                 //Строка
@@ -307,7 +328,7 @@ namespace CompilerConsole.Parser {
             if (regEx.IsMatch(text))
             {
                 //Символ
-                return new Literals(Type.VarChar, char.Parse(text));
+                return new Literals(Type.VarChar, this.ExecuteChar(text));
             }
 
             regEx = new Regex("^[0-9]+$");

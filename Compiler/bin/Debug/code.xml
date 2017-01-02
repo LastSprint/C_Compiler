@@ -1,31 +1,33 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
-    <VariableNode IsMethodArg="False" Name="b" DataType="VarInt" />
-    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-    <MethodNode MethodType="Cust" Name="mait" DataType="Void">
-      <Body>
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="125" />
-          </RightNode>
-        </Expression>
-        <MethCallNode DataType="Void" Method="print">
-          <SendArgs>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-          </SendArgs>
-        </MethCallNode>
-      </Body>
-      <Args />
-    </MethodNode>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
-        <MethCallNode DataType="Void" Method="mait">
-          <SendArgs />
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length>
+            <Literal Name="lit" DataType="VarInt" Value="10" />
+          </Length>
+        </ArrayNode>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <ArrCallNode DataType="VarInt" Arr="a">
+              <Index>
+                <Literal Name="lit" DataType="VarInt" Value="1" />
+              </Index>
+            </ArrCallNode>
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="1" />
+          </RightNode>
+        </Expression>
+        <MethCallNode DataType="Void" Method="printi">
+          <SendArgs>
+            <ArrCallNode DataType="VarInt" Arr="a">
+              <Index>
+                <Literal Name="lit" DataType="VarInt" Value="1" />
+              </Index>
+            </ArrCallNode>
+          </SendArgs>
         </MethCallNode>
         <MethCallNode DataType="VarString" Method="read">
           <SendArgs />

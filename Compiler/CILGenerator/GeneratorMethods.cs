@@ -247,7 +247,7 @@ namespace CompilerConsole.CILGenerator
 
             }
 
-            if (methCallNode.Method.Name == Parser.Parser.WriteMethodName)
+            if (methCallNode.Method.Name.Contains(Parser.Parser.WriteMethodName))
             {
                 methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset + this.Reader(Template.ConsoleWriteLine)
                     .Replace("{type}", this.ToCILVariableType(methCallNode.SendArgs[0].DataType)));
@@ -298,7 +298,24 @@ namespace CompilerConsole.CILGenerator
 
             if (node is ArrCall)
             {
-                throw new NotImplementedException(@"Парсинг обращения к массиву в IL пока не реализован");
+                /* 
+                 *         ldloc.0   - Загружаем массив
+                 IL_0009:  ldc.i4.0  - Индекс по которому обращаемся
+                 IL_000c:  stelem.i4    - записываем 
+                */
+                var arr = (ArrCall) node;
+                string arrCall;
+                if (arr.Arr.IsGlobal) {
+                    arrCall = this._operationDictionary[ILOperation.ReadField] + Generator.Offset + arr.Name +
+                              Environment.NewLine;
+                }
+                else {
+                    arrCall = this._operationDictionary[ILOperation.ReadLocalVariable] + Generator.Offset +
+                              arr.Arr.Number + Environment.NewLine;
+                }
+                string index = this.ExpressionToIL(arr.Index) + Environment.NewLine;
+                string load = this._operationDictionary[ILOperation.ReadArrElement];
+                return arrCall + index + load;
             }
 
             if (node is MethCall) {
@@ -314,9 +331,25 @@ namespace CompilerConsole.CILGenerator
             {
                 return this.GenerateConstIL((Literals) node);
             }
-
+            if (node is ArrNode) {
+                var arr = (ArrNode) node;
+                string arrSize = this.ExpressionToIL(arr.Length) + Environment.NewLine;
+                string arrDecl = this.Reader(Template.ArrDecl);
+                string t = this.ToCILVariableType(arr.DataType);
+                t = t.Replace("[]", "");
+                t = t.Remove(0, 1);
+                t = t.Insert(0, "I");
+                arrDecl = arrDecl.Replace("{type}", t) + Environment.NewLine;
+                string writeArr = "";
+                if (arr.IsGlobal) {
+                    writeArr = this._operationDictionary[ILOperation.WriteField] + Generator.Offset + arr.Name + Environment.NewLine;
+                }
+                else {
+                    writeArr = this._operationDictionary[ILOperation.WriteLocalVariable] + Generator.Offset + arr.Number + Environment.NewLine;
+                }
+                return Environment.NewLine +  arrSize + arrDecl + writeArr;
+            }
             return null;
-                //throw new SyntaxErrorException(@"Случилась какая-то неведомая хуйня при парсинге выражения в IL");
         }
 
         public string ActionExprToIL(Expression node)
@@ -334,13 +367,13 @@ namespace CompilerConsole.CILGenerator
                 case ExprToken.IsMoreOrEqual:
                     break;
                 case ExprToken.Add:
-                    break;
+                    return this.GenerateAddExpr(node);
                 case ExprToken.Sub:
-                    break;
+                    return this.GenerateSubExpr(node);
                 case ExprToken.Mult:
-                    break;
+                    return this.GenerateMultExpr(node);
                 case ExprToken.Div:
-                    break;
+                    return this.GenerateDivExpr(node);
                 case ExprToken.Conj:
                     break;
                 case ExprToken.Dij:
@@ -362,6 +395,28 @@ namespace CompilerConsole.CILGenerator
         {
             string assignString = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
             string writeOpertion = "";
+
+            if (node.LeftNode is ArrCall)
+            {
+                var arr = (ArrCall)node.LeftNode;
+                string arrCall;
+                if (arr.Arr.IsGlobal)
+                {
+                    arrCall = this._operationDictionary[ILOperation.ReadField] + Generator.Offset + arr.Name +
+                              Environment.NewLine;
+                }
+                else
+                {
+                    arrCall = this._operationDictionary[ILOperation.ReadLocalVariable] + Generator.Offset +
+                              arr.Arr.Number + Environment.NewLine;
+                }
+                string index = this.ExpressionToIL(arr.Index) + Environment.NewLine;
+                string righte = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+                string write = this._operationDictionary[ILOperation.WriteArrElement] + Environment.NewLine;
+                return arrCall + index + righte + write;
+
+            }
+
 
             if ((node.LeftNode as VariableNode).IsGlobal) {
                 string field = this.Reader(Template.CallField);
@@ -385,6 +440,33 @@ namespace CompilerConsole.CILGenerator
             return assignString + writeAssignString;
         }
 
+        private string GenerateAddExpr(Expression node) {
+            var left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
+            string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Add];
+        }
+
+        private string GenerateSubExpr(Expression node)
+        {
+            string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
+            string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Sub];
+        }
+
+        private string GenerateMultExpr(Expression node)
+        {
+            string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
+            string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Mul];
+        }
+
+        private string GenerateDivExpr(Expression node)
+        {
+            string left = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
+            string right = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+            return left + right + Environment.NewLine + this._operationDictionary[ILOperation.Div];
+        }
+
         private string GenerateConstIL(Literals literal)
         {
             string result = "";
@@ -397,11 +479,13 @@ namespace CompilerConsole.CILGenerator
                 case Type.VarFloat:
                     break;
                 case Type.VarString:
-                    break;
+                    return Environment.NewLine + this._operationDictionary[ILOperation.StringConstLoad] + Generator.Offset + literal.Value.ToString();
                 case Type.VarChar:
-                    break;
+                    return Environment.NewLine + this._operationDictionary[ILOperation.IntConstLoad] + Generator.Offset +
+                           ((int) ((char) literal.Value)).ToString();
                 case Type.VarBool:
-                    break;
+                    string boolRes = literal.Value.ToString() == "False" ? "0" : "1";
+                    return this._operationDictionary[ILOperation.IntConstLoad] + Generator.Offset + boolRes;
                 default:
                     throw new ArgumentOutOfRangeException($"GenerateConstIL странный тип {literal.DataType}");
             }

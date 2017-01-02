@@ -88,11 +88,11 @@ namespace CompilerConsole.Parser {
         }
 
         private void InitBaseFunction() {
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void,new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName,Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "i", Type.Void,new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "c", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "b", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "f",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "s", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode(ReadMethodName, Type.VarString, new Body(),new List<VariableNode>(), MethodType.Libr));
         }
 

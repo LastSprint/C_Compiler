@@ -49,13 +49,17 @@ void mait() {
 }
 
 void main() {
-	mait();
+	string a = "hello world";
+	char b = 'b';
+	prints(a);
+	printc(b);
 	read();
 }
 
 void main() {
-	int g = 15;
-	print(g);
+	int a[10];
+	a[1] = 1;
+	printi(a[1]);
 	read();
 }
 

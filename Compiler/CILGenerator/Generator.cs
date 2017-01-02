@@ -39,7 +39,12 @@ namespace CompilerConsole.CILGenerator
         /// {type} - тип переменной
         /// {name} - имя переменной
         /// </summary>
-        CallField
+        CallField,
+        /// <summary>
+        /// Создание массива:
+        /// {type} - тип массива
+        /// </summary>
+        ArrDecl
     }
 
     public enum CILToken
@@ -91,9 +96,13 @@ namespace CompilerConsole.CILGenerator
         /// CIL синтаксис:  ldloc.{variableNumber}
         /// </summary>
         WriteMethodArg,
+        StringConstLoad,
+        WriteArrElement,
+        ReadArrElement,
         Add,
         Sub,
         Div,
+        Mul,
         Call
 
     }
@@ -148,7 +157,8 @@ namespace CompilerConsole.CILGenerator
                 { Template.ConsoleReadLine, "ReadLineTemplate.txt"},
                 { Template.CallMethod, "CallMethod.txt"},
                 { Template.FieldDecl, "FieldDeclTemplate.txt"},
-                { Template.CallField, "CallField.txt"}
+                { Template.CallField, "CallField.txt"},
+                { Template.ArrDecl, "ArrDecl.txt" }
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {
@@ -166,10 +176,14 @@ namespace CompilerConsole.CILGenerator
                 {ILOperation.ReadMethodArg, "ldarg" },
                 {ILOperation.WriteField, "stsfld" },
                 {ILOperation.ReadField, "ldsfld" },
+                {ILOperation.StringConstLoad, "ldstr"},
                 {ILOperation.Add, "add"},
                 {ILOperation.Sub, "sub"},
                 {ILOperation.Div, "div"},
-                { ILOperation.Call, "call"}
+                { ILOperation.Mul, "mul"},
+                { ILOperation.Call, "call"},
+                {ILOperation.ReadArrElement, "ldelem.i4" },
+                { ILOperation.WriteArrElement, "stelem.i4" }
             };
         }
 
