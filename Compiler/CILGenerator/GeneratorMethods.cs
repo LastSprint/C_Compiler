@@ -31,7 +31,7 @@ namespace CompilerConsole.CILGenerator
             StringBuilder args = new StringBuilder();
             for (int i = 0; i < method.ArgList.Count; i++) {
                 var variableNode = method.ArgList[i];
-                args.Append("\t" + this.GenerateCILFuncArg(variableNode));
+                args.Append("\t" + this.GenerateFuncArg(variableNode));
                 if (method.ArgList.Count > 1 && i != method.ArgList.Count-1) {
                     args.Append(",");
                 }
@@ -41,16 +41,9 @@ namespace CompilerConsole.CILGenerator
             methodCIL.AppendLine(startMethodCIL);
             //Генерация декларации локальных переменных
             methodCIL.AppendLine(this.GenerateLocalVariableDeclaration(method));
-            StringBuilder expressions = new StringBuilder();
-            //Начинаем парсить выражения
-            foreach (Node node in method.Body.Nodes) {
-                if (node is Expression) {
-                    expressions.Append(Utils.ActionAxprToIL(node as Expression));
-                }
-            }
-
-            methodCIL.AppendLine(expressions.ToString());
-
+            //Генерация IL кода для выражений
+            methodCIL.AppendLine(this.GenerateExpression(method));
+            //Генерация IL кода для окончания декларации метода
             string methodEnd = this.Reader(Template.DeclFuncFinich);
             methodCIL.AppendLine(methodEnd);
             return methodCIL.ToString();
@@ -77,7 +70,7 @@ namespace CompilerConsole.CILGenerator
             //теперь заносим их в IL
             for (int i = 0; i < variables.Count; i++)
             {
-                localVariables.Append(this.GenerateCILVarDecl(variables[i]));
+                localVariables.Append(this.GenerateVarDecl(variables[i]));
                 if (variables.Count > 1 && i < variables.Count - 1)
                 {
                     localVariables.Append(",");
@@ -89,7 +82,26 @@ namespace CompilerConsole.CILGenerator
             return localVardeclTemplate.Replace(this.cilReplacedToken[CILReplacedToken.Variables], localVariables.ToString());
         }
 
-        private string GenerateCILFuncArg(VariableNode variable) {
+        /// <summary>
+        /// Генерирует IL код соответствующи различным операциям
+        /// </summary>
+        /// <param name="method">Метод, выражения в теле которого необходимо сгенерировать в виде IL кода</param>
+        /// <remarks>ЕСТЬ ГЕНЕРАЦИЯ ТОЛЬКО ДЛЯ ПРИСВАИВАНИЯ</remarks>
+        /// <returns>IL кода</returns>
+        private string GenerateExpression(MethodNode method) {
+            StringBuilder expressions = new StringBuilder();
+            //Начинаем парсить выражения
+            foreach (Node node in method.Body.Nodes)
+            {
+                if (node is Expression)
+                {
+                    expressions.Append(Utils.ActionAxprToIL(node as Expression));
+                }
+            }
+            return expressions.ToString();
+        }
+
+        private string GenerateFuncArg(VariableNode variable) {
             if (variable is StructVariableNode) {
                 var structVariable = variable as StructVariableNode;
                 return $"{this.ToCILVariableType(variable.DataType)} {variable.Name}";
@@ -100,7 +112,7 @@ namespace CompilerConsole.CILGenerator
             }
         }
 
-        private string GenerateCILVarDecl(VariableNode node) {
+        private string GenerateVarDecl(VariableNode node) {
             return $"\t [{node.Number}] {this.ToCILVariableType(node.DataType)} {node.Name}";
         }
 
