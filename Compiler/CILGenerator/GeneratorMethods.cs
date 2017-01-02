@@ -221,6 +221,7 @@ namespace CompilerConsole.CILGenerator
             foreach (var sendArg in methCallNode.SendArgs)
             {
                 methodCall.AppendLine(this.ExpressionToIL(sendArg));
+
             }
 
             if (methCallNode.Method.Name == Parser.Parser.WriteMethodName)
@@ -232,7 +233,8 @@ namespace CompilerConsole.CILGenerator
             else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName)
             {
                 //Если вызываем ввод из консоли
-                throw new NotImplementedException(@"Сори, но ввода в консоль пока нету (:");
+                return this._operationDictionary[ILOperation.Call] + Generator.Offset +
+                       this.Reader(Template.ConsoleReadLine);
             }
             else
             {
@@ -245,7 +247,7 @@ namespace CompilerConsole.CILGenerator
 #region Utils
         public string ExpressionToIL(Node node)
         {
-            if (node is StructVariableNode && ((StructVariableNode)node).IsMethodArg)
+            if (node is StructVariableNode)
             {
                 var varNode = (VariableNode) node;
 

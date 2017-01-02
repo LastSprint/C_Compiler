@@ -57,7 +57,9 @@ void main() {
 }
 
 void main() {
-	print(5);
+	int g = 15;
+	print(g);
+	read();
 }
 
 int a;

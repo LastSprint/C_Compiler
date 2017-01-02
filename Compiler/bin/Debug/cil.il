@@ -30,14 +30,16 @@
   .method public hidebysig static void  Main() cil managed
   {
     .entrypoint
-    .maxstack  8
     .language '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
 
-.locals init ()
+.locals init (	 [0] int32 g
+)
 
-ldc.i4	5
+ldc.i4	15
+stloc	0
+ldloc	0ldloc	0
 call	void [mscorlib]System.Console::WriteLine(int32)
-
+call	string [mscorlib]System.Console::ReadLine()
     IL_0000:  ret
   }
 

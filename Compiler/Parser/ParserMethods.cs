@@ -238,17 +238,24 @@ namespace CompilerConsole.Parser {
                 throw new NodeNotfoundException($"Метод с именем {methName.Text} не найден в текущем контексте");
             }
             List<Node> argList = new List<Node>();
-            for (int i = 0; i < args.ChildCount; i++) {
-                argList.Add(this.ParsExpr(args.GetChild(i), body));
-            }
 
-            if (argList.Count != method.ArgList.Count) {
-                throw new NodeNotfoundException($"Метод с именем {method.Name} содержит другое кол-во вргументов ");
-            }
+            if (args != null) {
+                for (int i = 0; i < args.ChildCount; i++)
+                {
+                    argList.Add(this.ParsExpr(args.GetChild(i), body));
+                }
 
-            for (int i = 0; i < argList.Count; i++) {
-                if (argList[i].DataType != method.ArgList[i].DataType) {
-                    throw new NodeNotfoundException($"Метод с именем {method.Name} не содержит аргументы с такими типами ");
+                if (argList.Count != method.ArgList.Count)
+                {
+                    throw new NodeNotfoundException($"Метод с именем {method.Name} содержит другое кол-во вргументов ");
+                }
+
+                for (int i = 0; i < argList.Count; i++)
+                {
+                    if (argList[i].DataType != method.ArgList[i].DataType)
+                    {
+                        throw new NodeNotfoundException($"Метод с именем {method.Name} не содержит аргументы с такими типами ");
+                    }
                 }
             }
 
