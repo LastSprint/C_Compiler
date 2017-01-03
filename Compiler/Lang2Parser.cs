@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 Lang2.g 2016-12-27 23:15:19
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 Lang2.g 2017-01-03 20:55:00
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -26,16 +26,16 @@ namespace Lang2
 public partial class Lang2Parser : Antlr.Runtime.Parser
 {
 	internal static readonly string[] tokenNames = new string[] {
-		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAM", "VAR_DECL", "METH_CALL", "CALL_ARGS", "ARR_DECL", "ARR_CALL", "IF", "BODY", "FOR", "WHILE", "DO", "INC", "DEC", "METH_DECL", "DECL_ARGS", "RET_TYPE_SINGLE", "RET_TYPE_ARR", "RETURN", "TINT", "TFLOAT", "TSTRING", "TCHAR", "TBOOL", "TVOID", "OP_END", "INT", "DOUBLE", "CHAR", "STRING", "WS", "ADD", "SUB", "MULT", "DIV", "ASS", "DISJ", "CONJ", "IS_MORE", "IS_LESS", "IS_EQUALLY", "INVERT", "IS_LESS_OR_EQUAL", "IS_MORE_OR_EQUAL", "ID", "'['", "']'", "'('", "')'", "'{'", "'}'", "','"
+		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "PROGRAM", "VAR_DECL", "METH_CALL", "CALL_ARGS", "ARR_DECL", "ARR_CALL", "IF", "BODY", "FOR", "WHILE", "DO", "INC", "DEC", "METH_DECL", "DECL_ARGS", "RET_TYPE_SINGLE", "RET_TYPE_ARR", "RETURN", "TINT", "TFLOAT", "TSTRING", "TCHAR", "TBOOL", "TVOID", "ELSE", "OP_END", "INT", "DOUBLE", "CHAR", "STRING", "WS", "ADD", "SUB", "MULT", "DIV", "ASS", "DISJ", "CONJ", "IS_MORE", "IS_LESS", "IS_EQUALLY", "INVERT", "IS_LESS_OR_EQUAL", "IS_MORE_OR_EQUAL", "ID", "'['", "']'", "'{'", "'}'", "'('", "')'", "','"
 	};
 	public const int EOF=-1;
-	public const int T__48=48;
 	public const int T__49=49;
 	public const int T__50=50;
 	public const int T__51=51;
 	public const int T__52=52;
 	public const int T__53=53;
 	public const int T__54=54;
+	public const int T__55=55;
 	public const int PROGRAM=4;
 	public const int VAR_DECL=5;
 	public const int METH_CALL=6;
@@ -60,26 +60,27 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	public const int TCHAR=25;
 	public const int TBOOL=26;
 	public const int TVOID=27;
-	public const int OP_END=28;
-	public const int INT=29;
-	public const int DOUBLE=30;
-	public const int CHAR=31;
-	public const int STRING=32;
-	public const int WS=33;
-	public const int ADD=34;
-	public const int SUB=35;
-	public const int MULT=36;
-	public const int DIV=37;
-	public const int ASS=38;
-	public const int DISJ=39;
-	public const int CONJ=40;
-	public const int IS_MORE=41;
-	public const int IS_LESS=42;
-	public const int IS_EQUALLY=43;
-	public const int INVERT=44;
-	public const int IS_LESS_OR_EQUAL=45;
-	public const int IS_MORE_OR_EQUAL=46;
-	public const int ID=47;
+	public const int ELSE=28;
+	public const int OP_END=29;
+	public const int INT=30;
+	public const int DOUBLE=31;
+	public const int CHAR=32;
+	public const int STRING=33;
+	public const int WS=34;
+	public const int ADD=35;
+	public const int SUB=36;
+	public const int MULT=37;
+	public const int DIV=38;
+	public const int ASS=39;
+	public const int DISJ=40;
+	public const int CONJ=41;
+	public const int IS_MORE=42;
+	public const int IS_LESS=43;
+	public const int IS_EQUALLY=44;
+	public const int INVERT=45;
+	public const int IS_LESS_OR_EQUAL=46;
+	public const int IS_MORE_OR_EQUAL=47;
+	public const int ID=48;
 
 	// delegates
 	// delegators
@@ -91,7 +92,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				false, // invalid decision
 				false, false, false, false, false, false, false, false, false, false, 
 				false, false, false, false, false, false, false, false, false, false, 
-				false, false, false
+				false, false, false, false
 			};
 	#else
 		private static readonly bool[] decisionCanBacktrack = new bool[0];
@@ -146,7 +147,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_type();
 
 	// $ANTLR start "type"
-	// Lang2.g:103:1: type : ( TINT | TFLOAT | TSTRING | TCHAR | TBOOL | TVOID );
+	// Lang2.g:104:1: type : ( TINT | TFLOAT | TSTRING | TCHAR | TBOOL | TVOID );
 	[GrammarRule("type")]
 	private Lang2Parser.type_return type()
 	{
@@ -163,16 +164,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		object set1_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "type");
-		DebugLocation(103, 1);
+		DebugLocation(104, 1);
 		try
 		{
-			// Lang2.g:103:6: ( TINT | TFLOAT | TSTRING | TCHAR | TBOOL | TVOID )
+			// Lang2.g:104:6: ( TINT | TFLOAT | TSTRING | TCHAR | TBOOL | TVOID )
 			DebugEnterAlt(1);
 			// Lang2.g:
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(103, 6);
+			DebugLocation(104, 6);
 			set1=(IToken)input.LT(1);
 			if ((input.LA(1)>=TINT && input.LA(1)<=TVOID))
 			{
@@ -209,7 +210,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			LeaveRule("type", 1);
 			Leave_type();
 		}
-		DebugLocation(109, 1);
+		DebugLocation(110, 1);
 		} finally { DebugExitRule(GrammarFileName, "type"); }
 		return retval;
 
@@ -226,7 +227,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_arrDecl();
 
 	// $ANTLR start "arrDecl"
-	// Lang2.g:113:1: arrDecl : type ID '[' mathExpr ']' OP_END -> ^( ARR_DECL type ID mathExpr ) ;
+	// Lang2.g:114:1: arrDecl : type ID '[' mathExpr ']' OP_END -> ^( ARR_DECL type ID mathExpr ) ;
 	[GrammarRule("arrDecl")]
 	private Lang2Parser.arrDecl_return arrDecl()
 	{
@@ -250,45 +251,45 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		object char_literal6_tree=null;
 		object OP_END7_tree=null;
 		RewriteRuleITokenStream stream_49=new RewriteRuleITokenStream(adaptor,"token 49");
-		RewriteRuleITokenStream stream_48=new RewriteRuleITokenStream(adaptor,"token 48");
 		RewriteRuleITokenStream stream_OP_END=new RewriteRuleITokenStream(adaptor,"token OP_END");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
+		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
 		try { DebugEnterRule(GrammarFileName, "arrDecl");
-		DebugLocation(113, 3);
+		DebugLocation(114, 3);
 		try
 		{
-			// Lang2.g:113:10: ( type ID '[' mathExpr ']' OP_END -> ^( ARR_DECL type ID mathExpr ) )
+			// Lang2.g:114:10: ( type ID '[' mathExpr ']' OP_END -> ^( ARR_DECL type ID mathExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:113:12: type ID '[' mathExpr ']' OP_END
+			// Lang2.g:114:12: type ID '[' mathExpr ']' OP_END
 			{
-			DebugLocation(113, 12);
-			PushFollow(Follow._type_in_arrDecl531);
+			DebugLocation(114, 12);
+			PushFollow(Follow._type_in_arrDecl539);
 			type2=type();
 			PopFollow();
 
 			stream_type.Add(type2.Tree);
-			DebugLocation(113, 17);
-			ID3=(IToken)Match(input,ID,Follow._ID_in_arrDecl533);  
+			DebugLocation(114, 17);
+			ID3=(IToken)Match(input,ID,Follow._ID_in_arrDecl541);  
 			stream_ID.Add(ID3);
 
-			DebugLocation(113, 19);
-			char_literal4=(IToken)Match(input,48,Follow._48_in_arrDecl534);  
-			stream_48.Add(char_literal4);
+			DebugLocation(114, 19);
+			char_literal4=(IToken)Match(input,49,Follow._49_in_arrDecl542);  
+			stream_49.Add(char_literal4);
 
-			DebugLocation(113, 22);
-			PushFollow(Follow._mathExpr_in_arrDecl535);
+			DebugLocation(114, 22);
+			PushFollow(Follow._mathExpr_in_arrDecl543);
 			mathExpr5=mathExpr();
 			PopFollow();
 
 			stream_mathExpr.Add(mathExpr5.Tree);
-			DebugLocation(113, 30);
-			char_literal6=(IToken)Match(input,49,Follow._49_in_arrDecl536);  
-			stream_49.Add(char_literal6);
+			DebugLocation(114, 30);
+			char_literal6=(IToken)Match(input,50,Follow._50_in_arrDecl544);  
+			stream_50.Add(char_literal6);
 
-			DebugLocation(113, 34);
-			OP_END7=(IToken)Match(input,OP_END,Follow._OP_END_in_arrDecl538);  
+			DebugLocation(114, 34);
+			OP_END7=(IToken)Match(input,OP_END,Follow._OP_END_in_arrDecl546);  
 			stream_OP_END.Add(OP_END7);
 
 
@@ -305,20 +306,20 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 113:41: -> ^( ARR_DECL type ID mathExpr )
+			// 114:41: -> ^( ARR_DECL type ID mathExpr )
 			{
-				DebugLocation(113, 44);
-				// Lang2.g:113:44: ^( ARR_DECL type ID mathExpr )
+				DebugLocation(114, 44);
+				// Lang2.g:114:44: ^( ARR_DECL type ID mathExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(113, 46);
+				DebugLocation(114, 46);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(ARR_DECL, "ARR_DECL"), root_1);
 
-				DebugLocation(113, 55);
+				DebugLocation(114, 55);
 				adaptor.AddChild(root_1, stream_type.NextTree());
-				DebugLocation(113, 60);
+				DebugLocation(114, 60);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
-				DebugLocation(113, 63);
+				DebugLocation(114, 63);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -350,7 +351,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			LeaveRule("arrDecl", 2);
 			Leave_arrDecl();
 		}
-		DebugLocation(114, 3);
+		DebugLocation(115, 3);
 		} finally { DebugExitRule(GrammarFileName, "arrDecl"); }
 		return retval;
 
@@ -367,7 +368,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_arrCall();
 
 	// $ANTLR start "arrCall"
-	// Lang2.g:116:1: arrCall : ID '[' mathExpr ']' -> ^( ARR_CALL ID mathExpr ) ;
+	// Lang2.g:117:1: arrCall : ID '[' mathExpr ']' -> ^( ARR_CALL ID mathExpr ) ;
 	[GrammarRule("arrCall")]
 	private Lang2Parser.arrCall_return arrCall()
 	{
@@ -388,34 +389,34 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		object char_literal9_tree=null;
 		object char_literal11_tree=null;
 		RewriteRuleITokenStream stream_49=new RewriteRuleITokenStream(adaptor,"token 49");
-		RewriteRuleITokenStream stream_48=new RewriteRuleITokenStream(adaptor,"token 48");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
+		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		try { DebugEnterRule(GrammarFileName, "arrCall");
-		DebugLocation(116, 3);
+		DebugLocation(117, 3);
 		try
 		{
-			// Lang2.g:116:10: ( ID '[' mathExpr ']' -> ^( ARR_CALL ID mathExpr ) )
+			// Lang2.g:117:10: ( ID '[' mathExpr ']' -> ^( ARR_CALL ID mathExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:116:12: ID '[' mathExpr ']'
+			// Lang2.g:117:12: ID '[' mathExpr ']'
 			{
-			DebugLocation(116, 12);
-			ID8=(IToken)Match(input,ID,Follow._ID_in_arrCall563);  
+			DebugLocation(117, 12);
+			ID8=(IToken)Match(input,ID,Follow._ID_in_arrCall571);  
 			stream_ID.Add(ID8);
 
-			DebugLocation(116, 14);
-			char_literal9=(IToken)Match(input,48,Follow._48_in_arrCall564);  
-			stream_48.Add(char_literal9);
+			DebugLocation(117, 14);
+			char_literal9=(IToken)Match(input,49,Follow._49_in_arrCall572);  
+			stream_49.Add(char_literal9);
 
-			DebugLocation(116, 17);
-			PushFollow(Follow._mathExpr_in_arrCall565);
+			DebugLocation(117, 17);
+			PushFollow(Follow._mathExpr_in_arrCall573);
 			mathExpr10=mathExpr();
 			PopFollow();
 
 			stream_mathExpr.Add(mathExpr10.Tree);
-			DebugLocation(116, 25);
-			char_literal11=(IToken)Match(input,49,Follow._49_in_arrCall566);  
-			stream_49.Add(char_literal11);
+			DebugLocation(117, 25);
+			char_literal11=(IToken)Match(input,50,Follow._50_in_arrCall574);  
+			stream_50.Add(char_literal11);
 
 
 
@@ -431,18 +432,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 116:29: -> ^( ARR_CALL ID mathExpr )
+			// 117:29: -> ^( ARR_CALL ID mathExpr )
 			{
-				DebugLocation(116, 32);
-				// Lang2.g:116:32: ^( ARR_CALL ID mathExpr )
+				DebugLocation(117, 32);
+				// Lang2.g:117:32: ^( ARR_CALL ID mathExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(116, 34);
+				DebugLocation(117, 34);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(ARR_CALL, "ARR_CALL"), root_1);
 
-				DebugLocation(116, 43);
+				DebugLocation(117, 43);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
-				DebugLocation(116, 46);
+				DebugLocation(117, 46);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -474,7 +475,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			LeaveRule("arrCall", 3);
 			Leave_arrCall();
 		}
-		DebugLocation(117, 3);
+		DebugLocation(118, 3);
 		} finally { DebugExitRule(GrammarFileName, "arrCall"); }
 		return retval;
 
@@ -491,7 +492,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_bodyFExpr();
 
 	// $ANTLR start "bodyFExpr"
-	// Lang2.g:120:1: bodyFExpr : ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END );
+	// Lang2.g:121:1: bodyFExpr : ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END );
 	[GrammarRule("bodyFExpr")]
 	private Lang2Parser.bodyFExpr_return bodyFExpr()
 	{
@@ -539,10 +540,10 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		object OP_END34_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "bodyFExpr");
-		DebugLocation(120, 4);
+		DebugLocation(121, 4);
 		try
 		{
-			// Lang2.g:120:11: ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END )
+			// Lang2.g:121:11: ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END )
 			int alt2=12;
 			try { DebugEnterDecision(2, decisionCanBacktrack[2]);
 			try
@@ -559,12 +560,12 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:120:13: varDecl
+				// Lang2.g:121:13: varDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(120, 13);
-				PushFollow(Follow._varDecl_in_bodyFExpr589);
+				DebugLocation(121, 13);
+				PushFollow(Follow._varDecl_in_bodyFExpr597);
 				varDecl12=varDecl();
 				PopFollow();
 
@@ -574,56 +575,56 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:121:6: ID ASS mathExpr OP_END
+				// Lang2.g:122:6: ID ASS mathExpr OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(121, 6);
-				ID13=(IToken)Match(input,ID,Follow._ID_in_bodyFExpr596); 
+				DebugLocation(122, 6);
+				ID13=(IToken)Match(input,ID,Follow._ID_in_bodyFExpr604); 
 				ID13_tree = (object)adaptor.Create(ID13);
 				adaptor.AddChild(root_0, ID13_tree);
 
-				DebugLocation(121, 12);
-				ASS14=(IToken)Match(input,ASS,Follow._ASS_in_bodyFExpr598); 
+				DebugLocation(122, 12);
+				ASS14=(IToken)Match(input,ASS,Follow._ASS_in_bodyFExpr606); 
 				ASS14_tree = (object)adaptor.Create(ASS14);
 				root_0 = (object)adaptor.BecomeRoot(ASS14_tree, root_0);
 
-				DebugLocation(121, 14);
-				PushFollow(Follow._mathExpr_in_bodyFExpr601);
+				DebugLocation(122, 14);
+				PushFollow(Follow._mathExpr_in_bodyFExpr609);
 				mathExpr15=mathExpr();
 				PopFollow();
 
 				adaptor.AddChild(root_0, mathExpr15.Tree);
-				DebugLocation(121, 29);
-				OP_END16=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr603); 
+				DebugLocation(122, 29);
+				OP_END16=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr611); 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Lang2.g:122:6: methCall OP_END
+				// Lang2.g:123:6: methCall OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(122, 6);
-				PushFollow(Follow._methCall_in_bodyFExpr611);
+				DebugLocation(123, 6);
+				PushFollow(Follow._methCall_in_bodyFExpr619);
 				methCall17=methCall();
 				PopFollow();
 
 				adaptor.AddChild(root_0, methCall17.Tree);
-				DebugLocation(122, 21);
-				OP_END18=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr613); 
+				DebugLocation(123, 21);
+				OP_END18=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr621); 
 
 				}
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Lang2.g:123:6: arrDecl
+				// Lang2.g:124:6: arrDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(123, 6);
-				PushFollow(Follow._arrDecl_in_bodyFExpr621);
+				DebugLocation(124, 6);
+				PushFollow(Follow._arrDecl_in_bodyFExpr629);
 				arrDecl19=arrDecl();
 				PopFollow();
 
@@ -633,12 +634,12 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// Lang2.g:124:6: ifExpr
+				// Lang2.g:125:6: ifExpr
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(124, 6);
-				PushFollow(Follow._ifExpr_in_bodyFExpr628);
+				DebugLocation(125, 6);
+				PushFollow(Follow._ifExpr_in_bodyFExpr636);
 				ifExpr20=ifExpr();
 				PopFollow();
 
@@ -648,12 +649,12 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// Lang2.g:125:6: forLoop
+				// Lang2.g:126:6: forLoop
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(125, 6);
-				PushFollow(Follow._forLoop_in_bodyFExpr635);
+				DebugLocation(126, 6);
+				PushFollow(Follow._forLoop_in_bodyFExpr643);
 				forLoop21=forLoop();
 				PopFollow();
 
@@ -663,46 +664,46 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// Lang2.g:126:6: incSug OP_END
+				// Lang2.g:127:6: incSug OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(126, 6);
-				PushFollow(Follow._incSug_in_bodyFExpr642);
+				DebugLocation(127, 6);
+				PushFollow(Follow._incSug_in_bodyFExpr650);
 				incSug22=incSug();
 				PopFollow();
 
 				adaptor.AddChild(root_0, incSug22.Tree);
-				DebugLocation(126, 19);
-				OP_END23=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr644); 
+				DebugLocation(127, 19);
+				OP_END23=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr652); 
 
 				}
 				break;
 			case 8:
 				DebugEnterAlt(8);
-				// Lang2.g:127:6: decSug OP_END
+				// Lang2.g:128:6: decSug OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(127, 6);
-				PushFollow(Follow._decSug_in_bodyFExpr652);
+				DebugLocation(128, 6);
+				PushFollow(Follow._decSug_in_bodyFExpr660);
 				decSug24=decSug();
 				PopFollow();
 
 				adaptor.AddChild(root_0, decSug24.Tree);
-				DebugLocation(127, 19);
-				OP_END25=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr654); 
+				DebugLocation(128, 19);
+				OP_END25=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr662); 
 
 				}
 				break;
 			case 9:
 				DebugEnterAlt(9);
-				// Lang2.g:128:6: whileLoop
+				// Lang2.g:129:6: whileLoop
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(128, 6);
-				PushFollow(Follow._whileLoop_in_bodyFExpr662);
+				DebugLocation(129, 6);
+				PushFollow(Follow._whileLoop_in_bodyFExpr670);
 				whileLoop26=whileLoop();
 				PopFollow();
 
@@ -712,12 +713,12 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 10:
 				DebugEnterAlt(10);
-				// Lang2.g:129:6: doLoop
+				// Lang2.g:130:6: doLoop
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(129, 6);
-				PushFollow(Follow._doLoop_in_bodyFExpr669);
+				DebugLocation(130, 6);
+				PushFollow(Follow._doLoop_in_bodyFExpr677);
 				doLoop27=doLoop();
 				PopFollow();
 
@@ -727,51 +728,51 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 11:
 				DebugEnterAlt(11);
-				// Lang2.g:130:6: arrCall ASS mathExpr OP_END
+				// Lang2.g:131:6: arrCall ASS mathExpr OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(130, 6);
-				PushFollow(Follow._arrCall_in_bodyFExpr676);
+				DebugLocation(131, 6);
+				PushFollow(Follow._arrCall_in_bodyFExpr684);
 				arrCall28=arrCall();
 				PopFollow();
 
 				adaptor.AddChild(root_0, arrCall28.Tree);
-				DebugLocation(130, 17);
-				ASS29=(IToken)Match(input,ASS,Follow._ASS_in_bodyFExpr678); 
+				DebugLocation(131, 17);
+				ASS29=(IToken)Match(input,ASS,Follow._ASS_in_bodyFExpr686); 
 				ASS29_tree = (object)adaptor.Create(ASS29);
 				root_0 = (object)adaptor.BecomeRoot(ASS29_tree, root_0);
 
-				DebugLocation(130, 19);
-				PushFollow(Follow._mathExpr_in_bodyFExpr681);
+				DebugLocation(131, 19);
+				PushFollow(Follow._mathExpr_in_bodyFExpr689);
 				mathExpr30=mathExpr();
 				PopFollow();
 
 				adaptor.AddChild(root_0, mathExpr30.Tree);
-				DebugLocation(130, 34);
-				OP_END31=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr683); 
+				DebugLocation(131, 34);
+				OP_END31=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr691); 
 
 				}
 				break;
 			case 12:
 				DebugEnterAlt(12);
-				// Lang2.g:131:6: RETURN ( mathExpr )? OP_END
+				// Lang2.g:132:6: RETURN ( mathExpr )? OP_END
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(131, 12);
-				RETURN32=(IToken)Match(input,RETURN,Follow._RETURN_in_bodyFExpr691); 
+				DebugLocation(132, 12);
+				RETURN32=(IToken)Match(input,RETURN,Follow._RETURN_in_bodyFExpr699); 
 				RETURN32_tree = (object)adaptor.Create(RETURN32);
 				root_0 = (object)adaptor.BecomeRoot(RETURN32_tree, root_0);
 
-				DebugLocation(131, 14);
-				// Lang2.g:131:14: ( mathExpr )?
+				DebugLocation(132, 14);
+				// Lang2.g:132:14: ( mathExpr )?
 				int alt1=2;
 				try { DebugEnterSubRule(1);
 				try { DebugEnterDecision(1, decisionCanBacktrack[1]);
 				int LA1_0 = input.LA(1);
 
-				if (((LA1_0>=INT && LA1_0<=STRING)||LA1_0==INVERT||LA1_0==ID||LA1_0==50))
+				if (((LA1_0>=INT && LA1_0<=STRING)||LA1_0==INVERT||LA1_0==ID||LA1_0==53))
 				{
 					alt1=1;
 				}
@@ -780,10 +781,10 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:131:14: mathExpr
+					// Lang2.g:132:14: mathExpr
 					{
-					DebugLocation(131, 14);
-					PushFollow(Follow._mathExpr_in_bodyFExpr694);
+					DebugLocation(132, 14);
+					PushFollow(Follow._mathExpr_in_bodyFExpr702);
 					mathExpr33=mathExpr();
 					PopFollow();
 
@@ -795,8 +796,8 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				}
 				} finally { DebugExitSubRule(1); }
 
-				DebugLocation(131, 30);
-				OP_END34=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr697); 
+				DebugLocation(132, 30);
+				OP_END34=(IToken)Match(input,OP_END,Follow._OP_END_in_bodyFExpr705); 
 
 				}
 				break;
@@ -821,100 +822,78 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			LeaveRule("bodyFExpr", 4);
 			Leave_bodyFExpr();
 		}
-		DebugLocation(132, 4);
+		DebugLocation(133, 4);
 		} finally { DebugExitRule(GrammarFileName, "bodyFExpr"); }
 		return retval;
 
 	}
 	// $ANTLR end "bodyFExpr"
 
-	public class ifExpr_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	public class elseExpr_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
 	{
 		private object _tree;
 		public object Tree { get { return _tree; } set { _tree = value; } }
 	}
 
-	partial void Enter_ifExpr();
-	partial void Leave_ifExpr();
+	partial void Enter_elseExpr();
+	partial void Leave_elseExpr();
 
-	// $ANTLR start "ifExpr"
-	// Lang2.g:134:1: ifExpr : IF '(' mathExpr ')' '{' bodyExpr '}' -> ^( IF mathExpr bodyExpr ) ;
-	[GrammarRule("ifExpr")]
-	private Lang2Parser.ifExpr_return ifExpr()
+	// $ANTLR start "elseExpr"
+	// Lang2.g:135:1: elseExpr : ELSE '{' bodyExpr '}' -> ^( ELSE bodyExpr ) ;
+	[GrammarRule("elseExpr")]
+	private Lang2Parser.elseExpr_return elseExpr()
 	{
-		Enter_ifExpr();
-		EnterRule("ifExpr", 5);
-		TraceIn("ifExpr", 5);
-		Lang2Parser.ifExpr_return retval = new Lang2Parser.ifExpr_return();
+		Enter_elseExpr();
+		EnterRule("elseExpr", 5);
+		TraceIn("elseExpr", 5);
+		Lang2Parser.elseExpr_return retval = new Lang2Parser.elseExpr_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken IF35=null;
+		IToken ELSE35=null;
 		IToken char_literal36=null;
 		IToken char_literal38=null;
-		IToken char_literal39=null;
-		IToken char_literal41=null;
-		Lang2Parser.mathExpr_return mathExpr37 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.bodyExpr_return bodyExpr40 = default(Lang2Parser.bodyExpr_return);
+		Lang2Parser.bodyExpr_return bodyExpr37 = default(Lang2Parser.bodyExpr_return);
 
-		object IF35_tree=null;
+		object ELSE35_tree=null;
 		object char_literal36_tree=null;
 		object char_literal38_tree=null;
-		object char_literal39_tree=null;
-		object char_literal41_tree=null;
 		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
 		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
-		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
-		RewriteRuleITokenStream stream_IF=new RewriteRuleITokenStream(adaptor,"token IF");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
-		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
+		RewriteRuleITokenStream stream_ELSE=new RewriteRuleITokenStream(adaptor,"token ELSE");
 		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
-		try { DebugEnterRule(GrammarFileName, "ifExpr");
-		DebugLocation(134, 2);
+		try { DebugEnterRule(GrammarFileName, "elseExpr");
+		DebugLocation(135, 2);
 		try
 		{
-			// Lang2.g:134:8: ( IF '(' mathExpr ')' '{' bodyExpr '}' -> ^( IF mathExpr bodyExpr ) )
+			// Lang2.g:135:9: ( ELSE '{' bodyExpr '}' -> ^( ELSE bodyExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:134:10: IF '(' mathExpr ')' '{' bodyExpr '}'
+			// Lang2.g:135:11: ELSE '{' bodyExpr '}'
 			{
-			DebugLocation(134, 10);
-			IF35=(IToken)Match(input,IF,Follow._IF_in_ifExpr711);  
-			stream_IF.Add(IF35);
+			DebugLocation(135, 11);
+			ELSE35=(IToken)Match(input,ELSE,Follow._ELSE_in_elseExpr718);  
+			stream_ELSE.Add(ELSE35);
 
-			DebugLocation(134, 12);
-			char_literal36=(IToken)Match(input,50,Follow._50_in_ifExpr712);  
-			stream_50.Add(char_literal36);
+			DebugLocation(135, 16);
+			char_literal36=(IToken)Match(input,51,Follow._51_in_elseExpr720);  
+			stream_51.Add(char_literal36);
 
-			DebugLocation(134, 16);
-			PushFollow(Follow._mathExpr_in_ifExpr714);
-			mathExpr37=mathExpr();
+			DebugLocation(135, 19);
+			PushFollow(Follow._bodyExpr_in_elseExpr721);
+			bodyExpr37=bodyExpr();
 			PopFollow();
 
-			stream_mathExpr.Add(mathExpr37.Tree);
-			DebugLocation(134, 24);
-			char_literal38=(IToken)Match(input,51,Follow._51_in_ifExpr715);  
-			stream_51.Add(char_literal38);
-
-			DebugLocation(134, 28);
-			char_literal39=(IToken)Match(input,52,Follow._52_in_ifExpr717);  
-			stream_52.Add(char_literal39);
-
-			DebugLocation(134, 31);
-			PushFollow(Follow._bodyExpr_in_ifExpr718);
-			bodyExpr40=bodyExpr();
-			PopFollow();
-
-			stream_bodyExpr.Add(bodyExpr40.Tree);
-			DebugLocation(134, 39);
-			char_literal41=(IToken)Match(input,53,Follow._53_in_ifExpr719);  
-			stream_53.Add(char_literal41);
+			stream_bodyExpr.Add(bodyExpr37.Tree);
+			DebugLocation(135, 27);
+			char_literal38=(IToken)Match(input,52,Follow._52_in_elseExpr722);  
+			stream_52.Add(char_literal38);
 
 
 
 			{
 			// AST REWRITE
-			// elements: mathExpr, bodyExpr, IF
+			// elements: ELSE, bodyExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -924,18 +903,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 134:43: -> ^( IF mathExpr bodyExpr )
+			// 135:31: -> ^( ELSE bodyExpr )
 			{
-				DebugLocation(134, 46);
-				// Lang2.g:134:46: ^( IF mathExpr bodyExpr )
+				DebugLocation(135, 34);
+				// Lang2.g:135:34: ^( ELSE bodyExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(134, 48);
-				root_1 = (object)adaptor.BecomeRoot(stream_IF.NextNode(), root_1);
+				DebugLocation(135, 36);
+				root_1 = (object)adaptor.BecomeRoot(stream_ELSE.NextNode(), root_1);
 
-				DebugLocation(134, 51);
-				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
-				DebugLocation(134, 60);
+				DebugLocation(135, 41);
 				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -963,11 +940,199 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("ifExpr", 5);
-			LeaveRule("ifExpr", 5);
+			TraceOut("elseExpr", 5);
+			LeaveRule("elseExpr", 5);
+			Leave_elseExpr();
+		}
+		DebugLocation(136, 2);
+		} finally { DebugExitRule(GrammarFileName, "elseExpr"); }
+		return retval;
+
+	}
+	// $ANTLR end "elseExpr"
+
+	public class ifExpr_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	{
+		private object _tree;
+		public object Tree { get { return _tree; } set { _tree = value; } }
+	}
+
+	partial void Enter_ifExpr();
+	partial void Leave_ifExpr();
+
+	// $ANTLR start "ifExpr"
+	// Lang2.g:138:1: ifExpr : IF '(' mathExpr ')' '{' bodyExpr '}' ( elseExpr )? -> ^( IF mathExpr bodyExpr ( elseExpr )? ) ;
+	[GrammarRule("ifExpr")]
+	private Lang2Parser.ifExpr_return ifExpr()
+	{
+		Enter_ifExpr();
+		EnterRule("ifExpr", 6);
+		TraceIn("ifExpr", 6);
+		Lang2Parser.ifExpr_return retval = new Lang2Parser.ifExpr_return();
+		retval.Start = (IToken)input.LT(1);
+
+		object root_0 = null;
+
+		IToken IF39=null;
+		IToken char_literal40=null;
+		IToken char_literal42=null;
+		IToken char_literal43=null;
+		IToken char_literal45=null;
+		Lang2Parser.mathExpr_return mathExpr41 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.bodyExpr_return bodyExpr44 = default(Lang2Parser.bodyExpr_return);
+		Lang2Parser.elseExpr_return elseExpr46 = default(Lang2Parser.elseExpr_return);
+
+		object IF39_tree=null;
+		object char_literal40_tree=null;
+		object char_literal42_tree=null;
+		object char_literal43_tree=null;
+		object char_literal45_tree=null;
+		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
+		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
+		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
+		RewriteRuleITokenStream stream_IF=new RewriteRuleITokenStream(adaptor,"token IF");
+		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
+		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
+		RewriteRuleSubtreeStream stream_elseExpr=new RewriteRuleSubtreeStream(adaptor,"rule elseExpr");
+		try { DebugEnterRule(GrammarFileName, "ifExpr");
+		DebugLocation(138, 2);
+		try
+		{
+			// Lang2.g:138:8: ( IF '(' mathExpr ')' '{' bodyExpr '}' ( elseExpr )? -> ^( IF mathExpr bodyExpr ( elseExpr )? ) )
+			DebugEnterAlt(1);
+			// Lang2.g:138:10: IF '(' mathExpr ')' '{' bodyExpr '}' ( elseExpr )?
+			{
+			DebugLocation(138, 10);
+			IF39=(IToken)Match(input,IF,Follow._IF_in_ifExpr741);  
+			stream_IF.Add(IF39);
+
+			DebugLocation(138, 12);
+			char_literal40=(IToken)Match(input,53,Follow._53_in_ifExpr742);  
+			stream_53.Add(char_literal40);
+
+			DebugLocation(138, 16);
+			PushFollow(Follow._mathExpr_in_ifExpr744);
+			mathExpr41=mathExpr();
+			PopFollow();
+
+			stream_mathExpr.Add(mathExpr41.Tree);
+			DebugLocation(138, 24);
+			char_literal42=(IToken)Match(input,54,Follow._54_in_ifExpr745);  
+			stream_54.Add(char_literal42);
+
+			DebugLocation(138, 28);
+			char_literal43=(IToken)Match(input,51,Follow._51_in_ifExpr747);  
+			stream_51.Add(char_literal43);
+
+			DebugLocation(138, 31);
+			PushFollow(Follow._bodyExpr_in_ifExpr748);
+			bodyExpr44=bodyExpr();
+			PopFollow();
+
+			stream_bodyExpr.Add(bodyExpr44.Tree);
+			DebugLocation(138, 39);
+			char_literal45=(IToken)Match(input,52,Follow._52_in_ifExpr749);  
+			stream_52.Add(char_literal45);
+
+			DebugLocation(138, 43);
+			// Lang2.g:138:43: ( elseExpr )?
+			int alt3=2;
+			try { DebugEnterSubRule(3);
+			try { DebugEnterDecision(3, decisionCanBacktrack[3]);
+			int LA3_0 = input.LA(1);
+
+			if ((LA3_0==ELSE))
+			{
+				alt3=1;
+			}
+			} finally { DebugExitDecision(3); }
+			switch (alt3)
+			{
+			case 1:
+				DebugEnterAlt(1);
+				// Lang2.g:138:43: elseExpr
+				{
+				DebugLocation(138, 43);
+				PushFollow(Follow._elseExpr_in_ifExpr751);
+				elseExpr46=elseExpr();
+				PopFollow();
+
+				stream_elseExpr.Add(elseExpr46.Tree);
+
+				}
+				break;
+
+			}
+			} finally { DebugExitSubRule(3); }
+
+
+
+			{
+			// AST REWRITE
+			// elements: IF, bodyExpr, mathExpr, elseExpr
+			// token labels: 
+			// rule labels: retval
+			// token list labels: 
+			// rule list labels: 
+			// wildcard labels: 
+			retval.Tree = root_0;
+			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
+
+			root_0 = (object)adaptor.Nil();
+			// 138:53: -> ^( IF mathExpr bodyExpr ( elseExpr )? )
+			{
+				DebugLocation(138, 56);
+				// Lang2.g:138:56: ^( IF mathExpr bodyExpr ( elseExpr )? )
+				{
+				object root_1 = (object)adaptor.Nil();
+				DebugLocation(138, 58);
+				root_1 = (object)adaptor.BecomeRoot(stream_IF.NextNode(), root_1);
+
+				DebugLocation(138, 61);
+				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
+				DebugLocation(138, 70);
+				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
+				DebugLocation(138, 79);
+				// Lang2.g:138:79: ( elseExpr )?
+				if ( stream_elseExpr.HasNext )
+				{
+					DebugLocation(138, 79);
+					adaptor.AddChild(root_1, stream_elseExpr.NextTree());
+
+				}
+				stream_elseExpr.Reset();
+
+				adaptor.AddChild(root_0, root_1);
+				}
+
+			}
+
+			retval.Tree = root_0;
+			}
+
+			}
+
+			retval.Stop = (IToken)input.LT(-1);
+
+			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
+			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+		}
+		finally
+		{
+			TraceOut("ifExpr", 6);
+			LeaveRule("ifExpr", 6);
 			Leave_ifExpr();
 		}
-		DebugLocation(135, 2);
+		DebugLocation(139, 2);
 		} finally { DebugExitRule(GrammarFileName, "ifExpr"); }
 		return retval;
 
@@ -984,76 +1149,76 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_varFor();
 
 	// $ANTLR start "varFor"
-	// Lang2.g:136:1: varFor : ( ID | varDecl );
+	// Lang2.g:140:1: varFor : ( ID | varDecl );
 	[GrammarRule("varFor")]
 	private Lang2Parser.varFor_return varFor()
 	{
 		Enter_varFor();
-		EnterRule("varFor", 6);
-		TraceIn("varFor", 6);
+		EnterRule("varFor", 7);
+		TraceIn("varFor", 7);
 		Lang2Parser.varFor_return retval = new Lang2Parser.varFor_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID42=null;
-		Lang2Parser.varDecl_return varDecl43 = default(Lang2Parser.varDecl_return);
+		IToken ID47=null;
+		Lang2Parser.varDecl_return varDecl48 = default(Lang2Parser.varDecl_return);
 
-		object ID42_tree=null;
+		object ID47_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "varFor");
-		DebugLocation(136, 2);
+		DebugLocation(140, 2);
 		try
 		{
-			// Lang2.g:136:8: ( ID | varDecl )
-			int alt3=2;
-			try { DebugEnterDecision(3, decisionCanBacktrack[3]);
-			int LA3_0 = input.LA(1);
+			// Lang2.g:140:8: ( ID | varDecl )
+			int alt4=2;
+			try { DebugEnterDecision(4, decisionCanBacktrack[4]);
+			int LA4_0 = input.LA(1);
 
-			if ((LA3_0==ID))
+			if ((LA4_0==ID))
 			{
-				alt3=1;
+				alt4=1;
 			}
-			else if (((LA3_0>=TINT && LA3_0<=TVOID)))
+			else if (((LA4_0>=TINT && LA4_0<=TVOID)))
 			{
-				alt3=2;
+				alt4=2;
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 3, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 4, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(3); }
-			switch (alt3)
+			} finally { DebugExitDecision(4); }
+			switch (alt4)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:136:10: ID
+				// Lang2.g:140:10: ID
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(136, 10);
-				ID42=(IToken)Match(input,ID,Follow._ID_in_varFor740); 
-				ID42_tree = (object)adaptor.Create(ID42);
-				adaptor.AddChild(root_0, ID42_tree);
+				DebugLocation(140, 10);
+				ID47=(IToken)Match(input,ID,Follow._ID_in_varFor775); 
+				ID47_tree = (object)adaptor.Create(ID47);
+				adaptor.AddChild(root_0, ID47_tree);
 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:137:5: varDecl
+				// Lang2.g:141:5: varDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(137, 5);
-				PushFollow(Follow._varDecl_in_varFor746);
-				varDecl43=varDecl();
+				DebugLocation(141, 5);
+				PushFollow(Follow._varDecl_in_varFor781);
+				varDecl48=varDecl();
 				PopFollow();
 
-				adaptor.AddChild(root_0, varDecl43.Tree);
+				adaptor.AddChild(root_0, varDecl48.Tree);
 
 				}
 				break;
@@ -1074,11 +1239,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("varFor", 6);
-			LeaveRule("varFor", 6);
+			TraceOut("varFor", 7);
+			LeaveRule("varFor", 7);
 			Leave_varFor();
 		}
-		DebugLocation(138, 2);
+		DebugLocation(142, 2);
 		} finally { DebugExitRule(GrammarFileName, "varFor"); }
 		return retval;
 
@@ -1095,106 +1260,106 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_iterFor();
 
 	// $ANTLR start "iterFor"
-	// Lang2.g:139:1: iterFor : ( ID ASS mathExpr | mathExpr );
+	// Lang2.g:143:1: iterFor : ( ID ASS mathExpr | mathExpr );
 	[GrammarRule("iterFor")]
 	private Lang2Parser.iterFor_return iterFor()
 	{
 		Enter_iterFor();
-		EnterRule("iterFor", 7);
-		TraceIn("iterFor", 7);
+		EnterRule("iterFor", 8);
+		TraceIn("iterFor", 8);
 		Lang2Parser.iterFor_return retval = new Lang2Parser.iterFor_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID44=null;
-		IToken ASS45=null;
-		Lang2Parser.mathExpr_return mathExpr46 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.mathExpr_return mathExpr47 = default(Lang2Parser.mathExpr_return);
+		IToken ID49=null;
+		IToken ASS50=null;
+		Lang2Parser.mathExpr_return mathExpr51 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.mathExpr_return mathExpr52 = default(Lang2Parser.mathExpr_return);
 
-		object ID44_tree=null;
-		object ASS45_tree=null;
+		object ID49_tree=null;
+		object ASS50_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "iterFor");
-		DebugLocation(139, 2);
+		DebugLocation(143, 2);
 		try
 		{
-			// Lang2.g:139:9: ( ID ASS mathExpr | mathExpr )
-			int alt4=2;
-			try { DebugEnterDecision(4, decisionCanBacktrack[4]);
-			int LA4_0 = input.LA(1);
+			// Lang2.g:143:9: ( ID ASS mathExpr | mathExpr )
+			int alt5=2;
+			try { DebugEnterDecision(5, decisionCanBacktrack[5]);
+			int LA5_0 = input.LA(1);
 
-			if ((LA4_0==ID))
+			if ((LA5_0==ID))
 			{
-				int LA4_1 = input.LA(2);
+				int LA5_1 = input.LA(2);
 
-				if ((LA4_1==ASS))
+				if ((LA5_1==ASS))
 				{
-					alt4=1;
+					alt5=1;
 				}
-				else if (((LA4_1>=ADD && LA4_1<=DIV)||(LA4_1>=DISJ && LA4_1<=IS_EQUALLY)||(LA4_1>=IS_LESS_OR_EQUAL && LA4_1<=IS_MORE_OR_EQUAL)||LA4_1==48||(LA4_1>=50 && LA4_1<=51)))
+				else if (((LA5_1>=ADD && LA5_1<=DIV)||(LA5_1>=DISJ && LA5_1<=IS_EQUALLY)||(LA5_1>=IS_LESS_OR_EQUAL && LA5_1<=IS_MORE_OR_EQUAL)||LA5_1==49||(LA5_1>=53 && LA5_1<=54)))
 				{
-					alt4=2;
+					alt5=2;
 				}
 				else
 				{
-					NoViableAltException nvae = new NoViableAltException("", 4, 1, input);
+					NoViableAltException nvae = new NoViableAltException("", 5, 1, input);
 
 					DebugRecognitionException(nvae);
 					throw nvae;
 				}
 			}
-			else if (((LA4_0>=INT && LA4_0<=STRING)||LA4_0==INVERT||LA4_0==50))
+			else if (((LA5_0>=INT && LA5_0<=STRING)||LA5_0==INVERT||LA5_0==53))
 			{
-				alt4=2;
+				alt5=2;
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 4, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 5, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(4); }
-			switch (alt4)
+			} finally { DebugExitDecision(5); }
+			switch (alt5)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:139:11: ID ASS mathExpr
+				// Lang2.g:143:11: ID ASS mathExpr
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(139, 11);
-				ID44=(IToken)Match(input,ID,Follow._ID_in_iterFor756); 
-				ID44_tree = (object)adaptor.Create(ID44);
-				adaptor.AddChild(root_0, ID44_tree);
+				DebugLocation(143, 11);
+				ID49=(IToken)Match(input,ID,Follow._ID_in_iterFor791); 
+				ID49_tree = (object)adaptor.Create(ID49);
+				adaptor.AddChild(root_0, ID49_tree);
 
-				DebugLocation(139, 17);
-				ASS45=(IToken)Match(input,ASS,Follow._ASS_in_iterFor758); 
-				ASS45_tree = (object)adaptor.Create(ASS45);
-				root_0 = (object)adaptor.BecomeRoot(ASS45_tree, root_0);
+				DebugLocation(143, 17);
+				ASS50=(IToken)Match(input,ASS,Follow._ASS_in_iterFor793); 
+				ASS50_tree = (object)adaptor.Create(ASS50);
+				root_0 = (object)adaptor.BecomeRoot(ASS50_tree, root_0);
 
-				DebugLocation(139, 19);
-				PushFollow(Follow._mathExpr_in_iterFor761);
-				mathExpr46=mathExpr();
+				DebugLocation(143, 19);
+				PushFollow(Follow._mathExpr_in_iterFor796);
+				mathExpr51=mathExpr();
 				PopFollow();
 
-				adaptor.AddChild(root_0, mathExpr46.Tree);
+				adaptor.AddChild(root_0, mathExpr51.Tree);
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:140:5: mathExpr
+				// Lang2.g:144:5: mathExpr
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(140, 5);
-				PushFollow(Follow._mathExpr_in_iterFor767);
-				mathExpr47=mathExpr();
+				DebugLocation(144, 5);
+				PushFollow(Follow._mathExpr_in_iterFor802);
+				mathExpr52=mathExpr();
 				PopFollow();
 
-				adaptor.AddChild(root_0, mathExpr47.Tree);
+				adaptor.AddChild(root_0, mathExpr52.Tree);
 
 				}
 				break;
@@ -1215,11 +1380,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("iterFor", 7);
-			LeaveRule("iterFor", 7);
+			TraceOut("iterFor", 8);
+			LeaveRule("iterFor", 8);
 			Leave_iterFor();
 		}
-		DebugLocation(141, 2);
+		DebugLocation(145, 2);
 		} finally { DebugExitRule(GrammarFileName, "iterFor"); }
 		return retval;
 
@@ -1236,112 +1401,112 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_forLoop();
 
 	// $ANTLR start "forLoop"
-	// Lang2.g:142:1: forLoop : FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}' -> ^( FOR varFor mathExpr iterFor bodyExpr ) ;
+	// Lang2.g:146:1: forLoop : FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}' -> ^( FOR varFor mathExpr iterFor bodyExpr ) ;
 	[GrammarRule("forLoop")]
 	private Lang2Parser.forLoop_return forLoop()
 	{
 		Enter_forLoop();
-		EnterRule("forLoop", 8);
-		TraceIn("forLoop", 8);
+		EnterRule("forLoop", 9);
+		TraceIn("forLoop", 9);
 		Lang2Parser.forLoop_return retval = new Lang2Parser.forLoop_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken FOR48=null;
-		IToken char_literal49=null;
-		IToken char_literal51=null;
-		IToken char_literal53=null;
-		IToken char_literal55=null;
+		IToken FOR53=null;
+		IToken char_literal54=null;
 		IToken char_literal56=null;
 		IToken char_literal58=null;
-		Lang2Parser.varFor_return varFor50 = default(Lang2Parser.varFor_return);
-		Lang2Parser.mathExpr_return mathExpr52 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.iterFor_return iterFor54 = default(Lang2Parser.iterFor_return);
-		Lang2Parser.bodyExpr_return bodyExpr57 = default(Lang2Parser.bodyExpr_return);
+		IToken char_literal60=null;
+		IToken char_literal61=null;
+		IToken char_literal63=null;
+		Lang2Parser.varFor_return varFor55 = default(Lang2Parser.varFor_return);
+		Lang2Parser.mathExpr_return mathExpr57 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.iterFor_return iterFor59 = default(Lang2Parser.iterFor_return);
+		Lang2Parser.bodyExpr_return bodyExpr62 = default(Lang2Parser.bodyExpr_return);
 
-		object FOR48_tree=null;
-		object char_literal49_tree=null;
-		object char_literal51_tree=null;
-		object char_literal53_tree=null;
-		object char_literal55_tree=null;
+		object FOR53_tree=null;
+		object char_literal54_tree=null;
 		object char_literal56_tree=null;
 		object char_literal58_tree=null;
+		object char_literal60_tree=null;
+		object char_literal61_tree=null;
+		object char_literal63_tree=null;
 		RewriteRuleITokenStream stream_FOR=new RewriteRuleITokenStream(adaptor,"token FOR");
 		RewriteRuleITokenStream stream_OP_END=new RewriteRuleITokenStream(adaptor,"token OP_END");
 		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
 		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
 		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		RewriteRuleSubtreeStream stream_iterFor=new RewriteRuleSubtreeStream(adaptor,"rule iterFor");
 		RewriteRuleSubtreeStream stream_varFor=new RewriteRuleSubtreeStream(adaptor,"rule varFor");
 		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
 		try { DebugEnterRule(GrammarFileName, "forLoop");
-		DebugLocation(142, 2);
+		DebugLocation(146, 2);
 		try
 		{
-			// Lang2.g:142:9: ( FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}' -> ^( FOR varFor mathExpr iterFor bodyExpr ) )
+			// Lang2.g:146:9: ( FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}' -> ^( FOR varFor mathExpr iterFor bodyExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:142:11: FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}'
+			// Lang2.g:146:11: FOR '(' varFor ';' mathExpr ';' iterFor ')' '{' bodyExpr '}'
 			{
-			DebugLocation(142, 11);
-			FOR48=(IToken)Match(input,FOR,Follow._FOR_in_forLoop777);  
-			stream_FOR.Add(FOR48);
+			DebugLocation(146, 11);
+			FOR53=(IToken)Match(input,FOR,Follow._FOR_in_forLoop812);  
+			stream_FOR.Add(FOR53);
 
-			DebugLocation(142, 15);
-			char_literal49=(IToken)Match(input,50,Follow._50_in_forLoop779);  
-			stream_50.Add(char_literal49);
+			DebugLocation(146, 15);
+			char_literal54=(IToken)Match(input,53,Follow._53_in_forLoop814);  
+			stream_53.Add(char_literal54);
 
-			DebugLocation(142, 19);
-			PushFollow(Follow._varFor_in_forLoop781);
-			varFor50=varFor();
+			DebugLocation(146, 19);
+			PushFollow(Follow._varFor_in_forLoop816);
+			varFor55=varFor();
 			PopFollow();
 
-			stream_varFor.Add(varFor50.Tree);
-			DebugLocation(142, 26);
-			char_literal51=(IToken)Match(input,OP_END,Follow._OP_END_in_forLoop783);  
-			stream_OP_END.Add(char_literal51);
+			stream_varFor.Add(varFor55.Tree);
+			DebugLocation(146, 26);
+			char_literal56=(IToken)Match(input,OP_END,Follow._OP_END_in_forLoop818);  
+			stream_OP_END.Add(char_literal56);
 
-			DebugLocation(142, 30);
-			PushFollow(Follow._mathExpr_in_forLoop785);
-			mathExpr52=mathExpr();
+			DebugLocation(146, 30);
+			PushFollow(Follow._mathExpr_in_forLoop820);
+			mathExpr57=mathExpr();
 			PopFollow();
 
-			stream_mathExpr.Add(mathExpr52.Tree);
-			DebugLocation(142, 39);
-			char_literal53=(IToken)Match(input,OP_END,Follow._OP_END_in_forLoop787);  
-			stream_OP_END.Add(char_literal53);
+			stream_mathExpr.Add(mathExpr57.Tree);
+			DebugLocation(146, 39);
+			char_literal58=(IToken)Match(input,OP_END,Follow._OP_END_in_forLoop822);  
+			stream_OP_END.Add(char_literal58);
 
-			DebugLocation(142, 43);
-			PushFollow(Follow._iterFor_in_forLoop789);
-			iterFor54=iterFor();
+			DebugLocation(146, 43);
+			PushFollow(Follow._iterFor_in_forLoop824);
+			iterFor59=iterFor();
 			PopFollow();
 
-			stream_iterFor.Add(iterFor54.Tree);
-			DebugLocation(142, 51);
-			char_literal55=(IToken)Match(input,51,Follow._51_in_forLoop791);  
-			stream_51.Add(char_literal55);
+			stream_iterFor.Add(iterFor59.Tree);
+			DebugLocation(146, 51);
+			char_literal60=(IToken)Match(input,54,Follow._54_in_forLoop826);  
+			stream_54.Add(char_literal60);
 
-			DebugLocation(142, 55);
-			char_literal56=(IToken)Match(input,52,Follow._52_in_forLoop793);  
-			stream_52.Add(char_literal56);
+			DebugLocation(146, 55);
+			char_literal61=(IToken)Match(input,51,Follow._51_in_forLoop828);  
+			stream_51.Add(char_literal61);
 
-			DebugLocation(142, 58);
-			PushFollow(Follow._bodyExpr_in_forLoop794);
-			bodyExpr57=bodyExpr();
+			DebugLocation(146, 58);
+			PushFollow(Follow._bodyExpr_in_forLoop829);
+			bodyExpr62=bodyExpr();
 			PopFollow();
 
-			stream_bodyExpr.Add(bodyExpr57.Tree);
-			DebugLocation(142, 66);
-			char_literal58=(IToken)Match(input,53,Follow._53_in_forLoop795);  
-			stream_53.Add(char_literal58);
+			stream_bodyExpr.Add(bodyExpr62.Tree);
+			DebugLocation(146, 66);
+			char_literal63=(IToken)Match(input,52,Follow._52_in_forLoop830);  
+			stream_52.Add(char_literal63);
 
 
 
 			{
 			// AST REWRITE
-			// elements: FOR, bodyExpr, iterFor, mathExpr, varFor
+			// elements: iterFor, varFor, FOR, mathExpr, bodyExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1351,22 +1516,22 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 142:70: -> ^( FOR varFor mathExpr iterFor bodyExpr )
+			// 146:70: -> ^( FOR varFor mathExpr iterFor bodyExpr )
 			{
-				DebugLocation(142, 73);
-				// Lang2.g:142:73: ^( FOR varFor mathExpr iterFor bodyExpr )
+				DebugLocation(146, 73);
+				// Lang2.g:146:73: ^( FOR varFor mathExpr iterFor bodyExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(142, 75);
+				DebugLocation(146, 75);
 				root_1 = (object)adaptor.BecomeRoot(stream_FOR.NextNode(), root_1);
 
-				DebugLocation(142, 79);
+				DebugLocation(146, 79);
 				adaptor.AddChild(root_1, stream_varFor.NextTree());
-				DebugLocation(142, 86);
+				DebugLocation(146, 86);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
-				DebugLocation(142, 95);
+				DebugLocation(146, 95);
 				adaptor.AddChild(root_1, stream_iterFor.NextTree());
-				DebugLocation(142, 103);
+				DebugLocation(146, 103);
 				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -1394,11 +1559,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("forLoop", 8);
-			LeaveRule("forLoop", 8);
+			TraceOut("forLoop", 9);
+			LeaveRule("forLoop", 9);
 			Leave_forLoop();
 		}
-		DebugLocation(143, 2);
+		DebugLocation(147, 2);
 		} finally { DebugExitRule(GrammarFileName, "forLoop"); }
 		return retval;
 
@@ -1415,83 +1580,83 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_whileLoop();
 
 	// $ANTLR start "whileLoop"
-	// Lang2.g:144:1: whileLoop : WHILE '(' mathExpr ')' '{' bodyExpr '}' -> ^( WHILE mathExpr bodyExpr ) ;
+	// Lang2.g:148:1: whileLoop : WHILE '(' mathExpr ')' '{' bodyExpr '}' -> ^( WHILE mathExpr bodyExpr ) ;
 	[GrammarRule("whileLoop")]
 	private Lang2Parser.whileLoop_return whileLoop()
 	{
 		Enter_whileLoop();
-		EnterRule("whileLoop", 9);
-		TraceIn("whileLoop", 9);
+		EnterRule("whileLoop", 10);
+		TraceIn("whileLoop", 10);
 		Lang2Parser.whileLoop_return retval = new Lang2Parser.whileLoop_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken WHILE59=null;
-		IToken char_literal60=null;
-		IToken char_literal62=null;
-		IToken char_literal63=null;
+		IToken WHILE64=null;
 		IToken char_literal65=null;
-		Lang2Parser.mathExpr_return mathExpr61 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.bodyExpr_return bodyExpr64 = default(Lang2Parser.bodyExpr_return);
+		IToken char_literal67=null;
+		IToken char_literal68=null;
+		IToken char_literal70=null;
+		Lang2Parser.mathExpr_return mathExpr66 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.bodyExpr_return bodyExpr69 = default(Lang2Parser.bodyExpr_return);
 
-		object WHILE59_tree=null;
-		object char_literal60_tree=null;
-		object char_literal62_tree=null;
-		object char_literal63_tree=null;
+		object WHILE64_tree=null;
 		object char_literal65_tree=null;
+		object char_literal67_tree=null;
+		object char_literal68_tree=null;
+		object char_literal70_tree=null;
 		RewriteRuleITokenStream stream_WHILE=new RewriteRuleITokenStream(adaptor,"token WHILE");
 		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
 		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
 		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
 		try { DebugEnterRule(GrammarFileName, "whileLoop");
-		DebugLocation(144, 3);
+		DebugLocation(148, 3);
 		try
 		{
-			// Lang2.g:144:11: ( WHILE '(' mathExpr ')' '{' bodyExpr '}' -> ^( WHILE mathExpr bodyExpr ) )
+			// Lang2.g:148:11: ( WHILE '(' mathExpr ')' '{' bodyExpr '}' -> ^( WHILE mathExpr bodyExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:144:13: WHILE '(' mathExpr ')' '{' bodyExpr '}'
+			// Lang2.g:148:13: WHILE '(' mathExpr ')' '{' bodyExpr '}'
 			{
-			DebugLocation(144, 13);
-			WHILE59=(IToken)Match(input,WHILE,Follow._WHILE_in_whileLoop819);  
-			stream_WHILE.Add(WHILE59);
+			DebugLocation(148, 13);
+			WHILE64=(IToken)Match(input,WHILE,Follow._WHILE_in_whileLoop854);  
+			stream_WHILE.Add(WHILE64);
 
-			DebugLocation(144, 19);
-			char_literal60=(IToken)Match(input,50,Follow._50_in_whileLoop821);  
-			stream_50.Add(char_literal60);
-
-			DebugLocation(144, 22);
-			PushFollow(Follow._mathExpr_in_whileLoop822);
-			mathExpr61=mathExpr();
-			PopFollow();
-
-			stream_mathExpr.Add(mathExpr61.Tree);
-			DebugLocation(144, 30);
-			char_literal62=(IToken)Match(input,51,Follow._51_in_whileLoop823);  
-			stream_51.Add(char_literal62);
-
-			DebugLocation(144, 34);
-			char_literal63=(IToken)Match(input,52,Follow._52_in_whileLoop825);  
-			stream_52.Add(char_literal63);
-
-			DebugLocation(144, 37);
-			PushFollow(Follow._bodyExpr_in_whileLoop826);
-			bodyExpr64=bodyExpr();
-			PopFollow();
-
-			stream_bodyExpr.Add(bodyExpr64.Tree);
-			DebugLocation(144, 45);
-			char_literal65=(IToken)Match(input,53,Follow._53_in_whileLoop827);  
+			DebugLocation(148, 19);
+			char_literal65=(IToken)Match(input,53,Follow._53_in_whileLoop856);  
 			stream_53.Add(char_literal65);
+
+			DebugLocation(148, 22);
+			PushFollow(Follow._mathExpr_in_whileLoop857);
+			mathExpr66=mathExpr();
+			PopFollow();
+
+			stream_mathExpr.Add(mathExpr66.Tree);
+			DebugLocation(148, 30);
+			char_literal67=(IToken)Match(input,54,Follow._54_in_whileLoop858);  
+			stream_54.Add(char_literal67);
+
+			DebugLocation(148, 34);
+			char_literal68=(IToken)Match(input,51,Follow._51_in_whileLoop860);  
+			stream_51.Add(char_literal68);
+
+			DebugLocation(148, 37);
+			PushFollow(Follow._bodyExpr_in_whileLoop861);
+			bodyExpr69=bodyExpr();
+			PopFollow();
+
+			stream_bodyExpr.Add(bodyExpr69.Tree);
+			DebugLocation(148, 45);
+			char_literal70=(IToken)Match(input,52,Follow._52_in_whileLoop862);  
+			stream_52.Add(char_literal70);
 
 
 
 			{
 			// AST REWRITE
-			// elements: mathExpr, WHILE, bodyExpr
+			// elements: bodyExpr, mathExpr, WHILE
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1501,18 +1666,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 144:49: -> ^( WHILE mathExpr bodyExpr )
+			// 148:49: -> ^( WHILE mathExpr bodyExpr )
 			{
-				DebugLocation(144, 52);
-				// Lang2.g:144:52: ^( WHILE mathExpr bodyExpr )
+				DebugLocation(148, 52);
+				// Lang2.g:148:52: ^( WHILE mathExpr bodyExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(144, 54);
+				DebugLocation(148, 54);
 				root_1 = (object)adaptor.BecomeRoot(stream_WHILE.NextNode(), root_1);
 
-				DebugLocation(144, 60);
+				DebugLocation(148, 60);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
-				DebugLocation(144, 69);
+				DebugLocation(148, 69);
 				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -1540,11 +1705,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("whileLoop", 9);
-			LeaveRule("whileLoop", 9);
+			TraceOut("whileLoop", 10);
+			LeaveRule("whileLoop", 10);
 			Leave_whileLoop();
 		}
-		DebugLocation(145, 3);
+		DebugLocation(149, 3);
 		} finally { DebugExitRule(GrammarFileName, "whileLoop"); }
 		return retval;
 
@@ -1561,97 +1726,97 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_doLoop();
 
 	// $ANTLR start "doLoop"
-	// Lang2.g:146:1: doLoop : DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END -> ^( DO bodyExpr mathExpr ) ;
+	// Lang2.g:150:1: doLoop : DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END -> ^( DO bodyExpr mathExpr ) ;
 	[GrammarRule("doLoop")]
 	private Lang2Parser.doLoop_return doLoop()
 	{
 		Enter_doLoop();
-		EnterRule("doLoop", 10);
-		TraceIn("doLoop", 10);
+		EnterRule("doLoop", 11);
+		TraceIn("doLoop", 11);
 		Lang2Parser.doLoop_return retval = new Lang2Parser.doLoop_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken DO66=null;
-		IToken char_literal67=null;
-		IToken char_literal69=null;
-		IToken WHILE70=null;
-		IToken char_literal71=null;
-		IToken char_literal73=null;
-		IToken OP_END74=null;
-		Lang2Parser.bodyExpr_return bodyExpr68 = default(Lang2Parser.bodyExpr_return);
-		Lang2Parser.mathExpr_return mathExpr72 = default(Lang2Parser.mathExpr_return);
+		IToken DO71=null;
+		IToken char_literal72=null;
+		IToken char_literal74=null;
+		IToken WHILE75=null;
+		IToken char_literal76=null;
+		IToken char_literal78=null;
+		IToken OP_END79=null;
+		Lang2Parser.bodyExpr_return bodyExpr73 = default(Lang2Parser.bodyExpr_return);
+		Lang2Parser.mathExpr_return mathExpr77 = default(Lang2Parser.mathExpr_return);
 
-		object DO66_tree=null;
-		object char_literal67_tree=null;
-		object char_literal69_tree=null;
-		object WHILE70_tree=null;
-		object char_literal71_tree=null;
-		object char_literal73_tree=null;
-		object OP_END74_tree=null;
+		object DO71_tree=null;
+		object char_literal72_tree=null;
+		object char_literal74_tree=null;
+		object WHILE75_tree=null;
+		object char_literal76_tree=null;
+		object char_literal78_tree=null;
+		object OP_END79_tree=null;
 		RewriteRuleITokenStream stream_DO=new RewriteRuleITokenStream(adaptor,"token DO");
 		RewriteRuleITokenStream stream_OP_END=new RewriteRuleITokenStream(adaptor,"token OP_END");
 		RewriteRuleITokenStream stream_WHILE=new RewriteRuleITokenStream(adaptor,"token WHILE");
 		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
 		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
 		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
 		try { DebugEnterRule(GrammarFileName, "doLoop");
-		DebugLocation(146, 3);
+		DebugLocation(150, 3);
 		try
 		{
-			// Lang2.g:146:9: ( DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END -> ^( DO bodyExpr mathExpr ) )
+			// Lang2.g:150:9: ( DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END -> ^( DO bodyExpr mathExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:146:11: DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END
+			// Lang2.g:150:11: DO '{' bodyExpr '}' WHILE '(' mathExpr ')' OP_END
 			{
-			DebugLocation(146, 11);
-			DO66=(IToken)Match(input,DO,Follow._DO_in_doLoop849);  
-			stream_DO.Add(DO66);
+			DebugLocation(150, 11);
+			DO71=(IToken)Match(input,DO,Follow._DO_in_doLoop884);  
+			stream_DO.Add(DO71);
 
-			DebugLocation(146, 14);
-			char_literal67=(IToken)Match(input,52,Follow._52_in_doLoop851);  
-			stream_52.Add(char_literal67);
+			DebugLocation(150, 14);
+			char_literal72=(IToken)Match(input,51,Follow._51_in_doLoop886);  
+			stream_51.Add(char_literal72);
 
-			DebugLocation(146, 17);
-			PushFollow(Follow._bodyExpr_in_doLoop852);
-			bodyExpr68=bodyExpr();
+			DebugLocation(150, 17);
+			PushFollow(Follow._bodyExpr_in_doLoop887);
+			bodyExpr73=bodyExpr();
 			PopFollow();
 
-			stream_bodyExpr.Add(bodyExpr68.Tree);
-			DebugLocation(146, 25);
-			char_literal69=(IToken)Match(input,53,Follow._53_in_doLoop853);  
-			stream_53.Add(char_literal69);
+			stream_bodyExpr.Add(bodyExpr73.Tree);
+			DebugLocation(150, 25);
+			char_literal74=(IToken)Match(input,52,Follow._52_in_doLoop888);  
+			stream_52.Add(char_literal74);
 
-			DebugLocation(146, 29);
-			WHILE70=(IToken)Match(input,WHILE,Follow._WHILE_in_doLoop855);  
-			stream_WHILE.Add(WHILE70);
+			DebugLocation(150, 29);
+			WHILE75=(IToken)Match(input,WHILE,Follow._WHILE_in_doLoop890);  
+			stream_WHILE.Add(WHILE75);
 
-			DebugLocation(146, 35);
-			char_literal71=(IToken)Match(input,50,Follow._50_in_doLoop857);  
-			stream_50.Add(char_literal71);
+			DebugLocation(150, 35);
+			char_literal76=(IToken)Match(input,53,Follow._53_in_doLoop892);  
+			stream_53.Add(char_literal76);
 
-			DebugLocation(146, 38);
-			PushFollow(Follow._mathExpr_in_doLoop858);
-			mathExpr72=mathExpr();
+			DebugLocation(150, 38);
+			PushFollow(Follow._mathExpr_in_doLoop893);
+			mathExpr77=mathExpr();
 			PopFollow();
 
-			stream_mathExpr.Add(mathExpr72.Tree);
-			DebugLocation(146, 46);
-			char_literal73=(IToken)Match(input,51,Follow._51_in_doLoop859);  
-			stream_51.Add(char_literal73);
+			stream_mathExpr.Add(mathExpr77.Tree);
+			DebugLocation(150, 46);
+			char_literal78=(IToken)Match(input,54,Follow._54_in_doLoop894);  
+			stream_54.Add(char_literal78);
 
-			DebugLocation(146, 50);
-			OP_END74=(IToken)Match(input,OP_END,Follow._OP_END_in_doLoop861);  
-			stream_OP_END.Add(OP_END74);
+			DebugLocation(150, 50);
+			OP_END79=(IToken)Match(input,OP_END,Follow._OP_END_in_doLoop896);  
+			stream_OP_END.Add(OP_END79);
 
 
 
 			{
 			// AST REWRITE
-			// elements: bodyExpr, DO, mathExpr
+			// elements: mathExpr, DO, bodyExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1661,18 +1826,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 146:57: -> ^( DO bodyExpr mathExpr )
+			// 150:57: -> ^( DO bodyExpr mathExpr )
 			{
-				DebugLocation(146, 60);
-				// Lang2.g:146:60: ^( DO bodyExpr mathExpr )
+				DebugLocation(150, 60);
+				// Lang2.g:150:60: ^( DO bodyExpr mathExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(146, 62);
+				DebugLocation(150, 62);
 				root_1 = (object)adaptor.BecomeRoot(stream_DO.NextNode(), root_1);
 
-				DebugLocation(146, 65);
+				DebugLocation(150, 65);
 				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
-				DebugLocation(146, 74);
+				DebugLocation(150, 74);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -1700,11 +1865,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("doLoop", 10);
-			LeaveRule("doLoop", 10);
+			TraceOut("doLoop", 11);
+			LeaveRule("doLoop", 11);
 			Leave_doLoop();
 		}
-		DebugLocation(147, 3);
+		DebugLocation(151, 3);
 		} finally { DebugExitRule(GrammarFileName, "doLoop"); }
 		return retval;
 
@@ -1721,38 +1886,38 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_literals();
 
 	// $ANTLR start "literals"
-	// Lang2.g:149:1: literals : ( INT | STRING | CHAR | DOUBLE );
+	// Lang2.g:153:1: literals : ( INT | STRING | CHAR | DOUBLE );
 	[GrammarRule("literals")]
 	private Lang2Parser.literals_return literals()
 	{
 		Enter_literals();
-		EnterRule("literals", 11);
-		TraceIn("literals", 11);
+		EnterRule("literals", 12);
+		TraceIn("literals", 12);
 		Lang2Parser.literals_return retval = new Lang2Parser.literals_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken set75=null;
+		IToken set80=null;
 
-		object set75_tree=null;
+		object set80_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "literals");
-		DebugLocation(149, 3);
+		DebugLocation(153, 3);
 		try
 		{
-			// Lang2.g:149:10: ( INT | STRING | CHAR | DOUBLE )
+			// Lang2.g:153:10: ( INT | STRING | CHAR | DOUBLE )
 			DebugEnterAlt(1);
 			// Lang2.g:
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(149, 10);
-			set75=(IToken)input.LT(1);
+			DebugLocation(153, 10);
+			set80=(IToken)input.LT(1);
 			if ((input.LA(1)>=INT && input.LA(1)<=STRING))
 			{
 				input.Consume();
-				adaptor.AddChild(root_0, (object)adaptor.Create(set75));
+				adaptor.AddChild(root_0, (object)adaptor.Create(set80));
 				state.errorRecovery=false;
 			}
 			else
@@ -1780,11 +1945,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("literals", 11);
-			LeaveRule("literals", 11);
+			TraceOut("literals", 12);
+			LeaveRule("literals", 12);
 			Leave_literals();
 		}
-		DebugLocation(150, 3);
+		DebugLocation(154, 3);
 		} finally { DebugExitRule(GrammarFileName, "literals"); }
 		return retval;
 
@@ -1801,47 +1966,47 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_incSug();
 
 	// $ANTLR start "incSug"
-	// Lang2.g:151:1: incSug : ID ADD ADD -> ^( INC ID ) ;
+	// Lang2.g:155:1: incSug : ID ADD ADD -> ^( INC ID ) ;
 	[GrammarRule("incSug")]
 	private Lang2Parser.incSug_return incSug()
 	{
 		Enter_incSug();
-		EnterRule("incSug", 12);
-		TraceIn("incSug", 12);
+		EnterRule("incSug", 13);
+		TraceIn("incSug", 13);
 		Lang2Parser.incSug_return retval = new Lang2Parser.incSug_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID76=null;
-		IToken ADD77=null;
-		IToken ADD78=null;
+		IToken ID81=null;
+		IToken ADD82=null;
+		IToken ADD83=null;
 
-		object ID76_tree=null;
-		object ADD77_tree=null;
-		object ADD78_tree=null;
+		object ID81_tree=null;
+		object ADD82_tree=null;
+		object ADD83_tree=null;
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
 		RewriteRuleITokenStream stream_ADD=new RewriteRuleITokenStream(adaptor,"token ADD");
 
 		try { DebugEnterRule(GrammarFileName, "incSug");
-		DebugLocation(151, 2);
+		DebugLocation(155, 2);
 		try
 		{
-			// Lang2.g:151:8: ( ID ADD ADD -> ^( INC ID ) )
+			// Lang2.g:155:8: ( ID ADD ADD -> ^( INC ID ) )
 			DebugEnterAlt(1);
-			// Lang2.g:151:10: ID ADD ADD
+			// Lang2.g:155:10: ID ADD ADD
 			{
-			DebugLocation(151, 10);
-			ID76=(IToken)Match(input,ID,Follow._ID_in_incSug900);  
-			stream_ID.Add(ID76);
+			DebugLocation(155, 10);
+			ID81=(IToken)Match(input,ID,Follow._ID_in_incSug935);  
+			stream_ID.Add(ID81);
 
-			DebugLocation(151, 13);
-			ADD77=(IToken)Match(input,ADD,Follow._ADD_in_incSug902);  
-			stream_ADD.Add(ADD77);
+			DebugLocation(155, 13);
+			ADD82=(IToken)Match(input,ADD,Follow._ADD_in_incSug937);  
+			stream_ADD.Add(ADD82);
 
-			DebugLocation(151, 17);
-			ADD78=(IToken)Match(input,ADD,Follow._ADD_in_incSug904);  
-			stream_ADD.Add(ADD78);
+			DebugLocation(155, 17);
+			ADD83=(IToken)Match(input,ADD,Follow._ADD_in_incSug939);  
+			stream_ADD.Add(ADD83);
 
 
 
@@ -1857,16 +2022,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 151:21: -> ^( INC ID )
+			// 155:21: -> ^( INC ID )
 			{
-				DebugLocation(151, 24);
-				// Lang2.g:151:24: ^( INC ID )
+				DebugLocation(155, 24);
+				// Lang2.g:155:24: ^( INC ID )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(151, 26);
+				DebugLocation(155, 26);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(INC, "INC"), root_1);
 
-				DebugLocation(151, 30);
+				DebugLocation(155, 30);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
 
 				adaptor.AddChild(root_0, root_1);
@@ -1894,11 +2059,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("incSug", 12);
-			LeaveRule("incSug", 12);
+			TraceOut("incSug", 13);
+			LeaveRule("incSug", 13);
 			Leave_incSug();
 		}
-		DebugLocation(152, 2);
+		DebugLocation(156, 2);
 		} finally { DebugExitRule(GrammarFileName, "incSug"); }
 		return retval;
 
@@ -1915,47 +2080,47 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_decSug();
 
 	// $ANTLR start "decSug"
-	// Lang2.g:153:1: decSug : ID SUB SUB -> ^( DEC ID ) ;
+	// Lang2.g:157:1: decSug : ID SUB SUB -> ^( DEC ID ) ;
 	[GrammarRule("decSug")]
 	private Lang2Parser.decSug_return decSug()
 	{
 		Enter_decSug();
-		EnterRule("decSug", 13);
-		TraceIn("decSug", 13);
+		EnterRule("decSug", 14);
+		TraceIn("decSug", 14);
 		Lang2Parser.decSug_return retval = new Lang2Parser.decSug_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID79=null;
-		IToken SUB80=null;
-		IToken SUB81=null;
+		IToken ID84=null;
+		IToken SUB85=null;
+		IToken SUB86=null;
 
-		object ID79_tree=null;
-		object SUB80_tree=null;
-		object SUB81_tree=null;
+		object ID84_tree=null;
+		object SUB85_tree=null;
+		object SUB86_tree=null;
 		RewriteRuleITokenStream stream_SUB=new RewriteRuleITokenStream(adaptor,"token SUB");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
 
 		try { DebugEnterRule(GrammarFileName, "decSug");
-		DebugLocation(153, 2);
+		DebugLocation(157, 2);
 		try
 		{
-			// Lang2.g:153:8: ( ID SUB SUB -> ^( DEC ID ) )
+			// Lang2.g:157:8: ( ID SUB SUB -> ^( DEC ID ) )
 			DebugEnterAlt(1);
-			// Lang2.g:153:10: ID SUB SUB
+			// Lang2.g:157:10: ID SUB SUB
 			{
-			DebugLocation(153, 10);
-			ID79=(IToken)Match(input,ID,Follow._ID_in_decSug922);  
-			stream_ID.Add(ID79);
+			DebugLocation(157, 10);
+			ID84=(IToken)Match(input,ID,Follow._ID_in_decSug957);  
+			stream_ID.Add(ID84);
 
-			DebugLocation(153, 13);
-			SUB80=(IToken)Match(input,SUB,Follow._SUB_in_decSug924);  
-			stream_SUB.Add(SUB80);
+			DebugLocation(157, 13);
+			SUB85=(IToken)Match(input,SUB,Follow._SUB_in_decSug959);  
+			stream_SUB.Add(SUB85);
 
-			DebugLocation(153, 17);
-			SUB81=(IToken)Match(input,SUB,Follow._SUB_in_decSug926);  
-			stream_SUB.Add(SUB81);
+			DebugLocation(157, 17);
+			SUB86=(IToken)Match(input,SUB,Follow._SUB_in_decSug961);  
+			stream_SUB.Add(SUB86);
 
 
 
@@ -1971,16 +2136,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 153:21: -> ^( DEC ID )
+			// 157:21: -> ^( DEC ID )
 			{
-				DebugLocation(153, 24);
-				// Lang2.g:153:24: ^( DEC ID )
+				DebugLocation(157, 24);
+				// Lang2.g:157:24: ^( DEC ID )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(153, 26);
+				DebugLocation(157, 26);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(DEC, "DEC"), root_1);
 
-				DebugLocation(153, 30);
+				DebugLocation(157, 30);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
 
 				adaptor.AddChild(root_0, root_1);
@@ -2008,11 +2173,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("decSug", 13);
-			LeaveRule("decSug", 13);
+			TraceOut("decSug", 14);
+			LeaveRule("decSug", 14);
 			Leave_decSug();
 		}
-		DebugLocation(154, 2);
+		DebugLocation(158, 2);
 		} finally { DebugExitRule(GrammarFileName, "decSug"); }
 		return retval;
 
@@ -2029,156 +2194,156 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_mathGroup();
 
 	// $ANTLR start "mathGroup"
-	// Lang2.g:155:1: mathGroup : ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall );
+	// Lang2.g:159:1: mathGroup : ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall );
 	[GrammarRule("mathGroup")]
 	private Lang2Parser.mathGroup_return mathGroup()
 	{
 		Enter_mathGroup();
-		EnterRule("mathGroup", 14);
-		TraceIn("mathGroup", 14);
+		EnterRule("mathGroup", 15);
+		TraceIn("mathGroup", 15);
 		Lang2Parser.mathGroup_return retval = new Lang2Parser.mathGroup_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken char_literal82=null;
-		IToken char_literal84=null;
-		IToken ID85=null;
-		Lang2Parser.mathExpr_return mathExpr83 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.methCall_return methCall86 = default(Lang2Parser.methCall_return);
-		Lang2Parser.literals_return literals87 = default(Lang2Parser.literals_return);
-		Lang2Parser.incSug_return incSug88 = default(Lang2Parser.incSug_return);
-		Lang2Parser.decSug_return decSug89 = default(Lang2Parser.decSug_return);
-		Lang2Parser.arrCall_return arrCall90 = default(Lang2Parser.arrCall_return);
+		IToken char_literal87=null;
+		IToken char_literal89=null;
+		IToken ID90=null;
+		Lang2Parser.mathExpr_return mathExpr88 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.methCall_return methCall91 = default(Lang2Parser.methCall_return);
+		Lang2Parser.literals_return literals92 = default(Lang2Parser.literals_return);
+		Lang2Parser.incSug_return incSug93 = default(Lang2Parser.incSug_return);
+		Lang2Parser.decSug_return decSug94 = default(Lang2Parser.decSug_return);
+		Lang2Parser.arrCall_return arrCall95 = default(Lang2Parser.arrCall_return);
 
-		object char_literal82_tree=null;
-		object char_literal84_tree=null;
-		object ID85_tree=null;
+		object char_literal87_tree=null;
+		object char_literal89_tree=null;
+		object ID90_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "mathGroup");
-		DebugLocation(155, 3);
+		DebugLocation(159, 3);
 		try
 		{
-			// Lang2.g:155:11: ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall )
-			int alt5=7;
-			try { DebugEnterDecision(5, decisionCanBacktrack[5]);
+			// Lang2.g:159:11: ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall )
+			int alt6=7;
+			try { DebugEnterDecision(6, decisionCanBacktrack[6]);
 			try
 			{
-				alt5 = dfa5.Predict(input);
+				alt6 = dfa6.Predict(input);
 			}
 			catch (NoViableAltException nvae)
 			{
 				DebugRecognitionException(nvae);
 				throw;
 			}
-			} finally { DebugExitDecision(5); }
-			switch (alt5)
+			} finally { DebugExitDecision(6); }
+			switch (alt6)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:155:13: '(' mathExpr ')'
+				// Lang2.g:159:13: '(' mathExpr ')'
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(155, 16);
-				char_literal82=(IToken)Match(input,50,Follow._50_in_mathGroup944); 
-				DebugLocation(155, 18);
-				PushFollow(Follow._mathExpr_in_mathGroup947);
-				mathExpr83=mathExpr();
+				DebugLocation(159, 16);
+				char_literal87=(IToken)Match(input,53,Follow._53_in_mathGroup979); 
+				DebugLocation(159, 18);
+				PushFollow(Follow._mathExpr_in_mathGroup982);
+				mathExpr88=mathExpr();
 				PopFollow();
 
-				adaptor.AddChild(root_0, mathExpr83.Tree);
-				DebugLocation(155, 30);
-				char_literal84=(IToken)Match(input,51,Follow._51_in_mathGroup949); 
+				adaptor.AddChild(root_0, mathExpr88.Tree);
+				DebugLocation(159, 30);
+				char_literal89=(IToken)Match(input,54,Follow._54_in_mathGroup984); 
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:156:6: ID
+				// Lang2.g:160:6: ID
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(156, 6);
-				ID85=(IToken)Match(input,ID,Follow._ID_in_mathGroup957); 
-				ID85_tree = (object)adaptor.Create(ID85);
-				adaptor.AddChild(root_0, ID85_tree);
+				DebugLocation(160, 6);
+				ID90=(IToken)Match(input,ID,Follow._ID_in_mathGroup992); 
+				ID90_tree = (object)adaptor.Create(ID90);
+				adaptor.AddChild(root_0, ID90_tree);
 
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Lang2.g:157:6: methCall
+				// Lang2.g:161:6: methCall
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(157, 6);
-				PushFollow(Follow._methCall_in_mathGroup964);
-				methCall86=methCall();
+				DebugLocation(161, 6);
+				PushFollow(Follow._methCall_in_mathGroup999);
+				methCall91=methCall();
 				PopFollow();
 
-				adaptor.AddChild(root_0, methCall86.Tree);
+				adaptor.AddChild(root_0, methCall91.Tree);
 
 				}
 				break;
 			case 4:
 				DebugEnterAlt(4);
-				// Lang2.g:158:6: literals
+				// Lang2.g:162:6: literals
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(158, 6);
-				PushFollow(Follow._literals_in_mathGroup971);
-				literals87=literals();
+				DebugLocation(162, 6);
+				PushFollow(Follow._literals_in_mathGroup1006);
+				literals92=literals();
 				PopFollow();
 
-				adaptor.AddChild(root_0, literals87.Tree);
+				adaptor.AddChild(root_0, literals92.Tree);
 
 				}
 				break;
 			case 5:
 				DebugEnterAlt(5);
-				// Lang2.g:159:6: incSug
+				// Lang2.g:163:6: incSug
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(159, 6);
-				PushFollow(Follow._incSug_in_mathGroup978);
-				incSug88=incSug();
+				DebugLocation(163, 6);
+				PushFollow(Follow._incSug_in_mathGroup1013);
+				incSug93=incSug();
 				PopFollow();
 
-				adaptor.AddChild(root_0, incSug88.Tree);
+				adaptor.AddChild(root_0, incSug93.Tree);
 
 				}
 				break;
 			case 6:
 				DebugEnterAlt(6);
-				// Lang2.g:160:6: decSug
+				// Lang2.g:164:6: decSug
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(160, 6);
-				PushFollow(Follow._decSug_in_mathGroup985);
-				decSug89=decSug();
+				DebugLocation(164, 6);
+				PushFollow(Follow._decSug_in_mathGroup1020);
+				decSug94=decSug();
 				PopFollow();
 
-				adaptor.AddChild(root_0, decSug89.Tree);
+				adaptor.AddChild(root_0, decSug94.Tree);
 
 				}
 				break;
 			case 7:
 				DebugEnterAlt(7);
-				// Lang2.g:161:6: arrCall
+				// Lang2.g:165:6: arrCall
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(161, 6);
-				PushFollow(Follow._arrCall_in_mathGroup992);
-				arrCall90=arrCall();
+				DebugLocation(165, 6);
+				PushFollow(Follow._arrCall_in_mathGroup1027);
+				arrCall95=arrCall();
 				PopFollow();
 
-				adaptor.AddChild(root_0, arrCall90.Tree);
+				adaptor.AddChild(root_0, arrCall95.Tree);
 
 				}
 				break;
@@ -2199,11 +2364,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathGroup", 14);
-			LeaveRule("mathGroup", 14);
+			TraceOut("mathGroup", 15);
+			LeaveRule("mathGroup", 15);
 			Leave_mathGroup();
 		}
-		DebugLocation(162, 3);
+		DebugLocation(166, 3);
 		} finally { DebugExitRule(GrammarFileName, "mathGroup"); }
 		return retval;
 
@@ -2220,173 +2385,42 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_mathMult();
 
 	// $ANTLR start "mathMult"
-	// Lang2.g:164:1: mathMult : mathGroup ( ( MULT | DIV ) mathGroup )* ;
+	// Lang2.g:168:1: mathMult : mathGroup ( ( MULT | DIV ) mathGroup )* ;
 	[GrammarRule("mathMult")]
 	private Lang2Parser.mathMult_return mathMult()
 	{
 		Enter_mathMult();
-		EnterRule("mathMult", 15);
-		TraceIn("mathMult", 15);
+		EnterRule("mathMult", 16);
+		TraceIn("mathMult", 16);
 		Lang2Parser.mathMult_return retval = new Lang2Parser.mathMult_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken set92=null;
-		Lang2Parser.mathGroup_return mathGroup91 = default(Lang2Parser.mathGroup_return);
-		Lang2Parser.mathGroup_return mathGroup93 = default(Lang2Parser.mathGroup_return);
+		IToken set97=null;
+		Lang2Parser.mathGroup_return mathGroup96 = default(Lang2Parser.mathGroup_return);
+		Lang2Parser.mathGroup_return mathGroup98 = default(Lang2Parser.mathGroup_return);
 
-		object set92_tree=null;
+		object set97_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "mathMult");
-		DebugLocation(164, 3);
+		DebugLocation(168, 3);
 		try
 		{
-			// Lang2.g:164:10: ( mathGroup ( ( MULT | DIV ) mathGroup )* )
+			// Lang2.g:168:10: ( mathGroup ( ( MULT | DIV ) mathGroup )* )
 			DebugEnterAlt(1);
-			// Lang2.g:164:12: mathGroup ( ( MULT | DIV ) mathGroup )*
+			// Lang2.g:168:12: mathGroup ( ( MULT | DIV ) mathGroup )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(164, 12);
-			PushFollow(Follow._mathGroup_in_mathMult1007);
-			mathGroup91=mathGroup();
+			DebugLocation(168, 12);
+			PushFollow(Follow._mathGroup_in_mathMult1042);
+			mathGroup96=mathGroup();
 			PopFollow();
 
-			adaptor.AddChild(root_0, mathGroup91.Tree);
-			DebugLocation(164, 21);
-			// Lang2.g:164:21: ( ( MULT | DIV ) mathGroup )*
-			try { DebugEnterSubRule(6);
-			while (true)
-			{
-				int alt6=2;
-				try { DebugEnterDecision(6, decisionCanBacktrack[6]);
-				int LA6_0 = input.LA(1);
-
-				if (((LA6_0>=MULT && LA6_0<=DIV)))
-				{
-					alt6=1;
-				}
-
-
-				} finally { DebugExitDecision(6); }
-				switch ( alt6 )
-				{
-				case 1:
-					DebugEnterAlt(1);
-					// Lang2.g:164:22: ( MULT | DIV ) mathGroup
-					{
-					DebugLocation(164, 22);
-					set92=(IToken)input.LT(1);
-					set92=(IToken)input.LT(1);
-					if ((input.LA(1)>=MULT && input.LA(1)<=DIV))
-					{
-						input.Consume();
-						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set92), root_0);
-						state.errorRecovery=false;
-					}
-					else
-					{
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						DebugRecognitionException(mse);
-						throw mse;
-					}
-
-					DebugLocation(164, 33);
-					PushFollow(Follow._mathGroup_in_mathMult1015);
-					mathGroup93=mathGroup();
-					PopFollow();
-
-					adaptor.AddChild(root_0, mathGroup93.Tree);
-
-					}
-					break;
-
-				default:
-					goto loop6;
-				}
-			}
-
-			loop6:
-				;
-
-			} finally { DebugExitSubRule(6); }
-
-
-			}
-
-			retval.Stop = (IToken)input.LT(-1);
-
-			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
-			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
-
-		}
-		catch (RecognitionException re)
-		{
-			ReportError(re);
-			Recover(input,re);
-		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
-
-		}
-		finally
-		{
-			TraceOut("mathMult", 15);
-			LeaveRule("mathMult", 15);
-			Leave_mathMult();
-		}
-		DebugLocation(165, 3);
-		} finally { DebugExitRule(GrammarFileName, "mathMult"); }
-		return retval;
-
-	}
-	// $ANTLR end "mathMult"
-
-	public class mathAdd_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
-	{
-		private object _tree;
-		public object Tree { get { return _tree; } set { _tree = value; } }
-	}
-
-	partial void Enter_mathAdd();
-	partial void Leave_mathAdd();
-
-	// $ANTLR start "mathAdd"
-	// Lang2.g:166:1: mathAdd : mathMult ( ( ADD | SUB ) mathMult )* ;
-	[GrammarRule("mathAdd")]
-	private Lang2Parser.mathAdd_return mathAdd()
-	{
-		Enter_mathAdd();
-		EnterRule("mathAdd", 16);
-		TraceIn("mathAdd", 16);
-		Lang2Parser.mathAdd_return retval = new Lang2Parser.mathAdd_return();
-		retval.Start = (IToken)input.LT(1);
-
-		object root_0 = null;
-
-		IToken set95=null;
-		Lang2Parser.mathMult_return mathMult94 = default(Lang2Parser.mathMult_return);
-		Lang2Parser.mathMult_return mathMult96 = default(Lang2Parser.mathMult_return);
-
-		object set95_tree=null;
-
-		try { DebugEnterRule(GrammarFileName, "mathAdd");
-		DebugLocation(166, 3);
-		try
-		{
-			// Lang2.g:166:10: ( mathMult ( ( ADD | SUB ) mathMult )* )
-			DebugEnterAlt(1);
-			// Lang2.g:166:12: mathMult ( ( ADD | SUB ) mathMult )*
-			{
-			root_0 = (object)adaptor.Nil();
-
-			DebugLocation(166, 12);
-			PushFollow(Follow._mathMult_in_mathAdd1029);
-			mathMult94=mathMult();
-			PopFollow();
-
-			adaptor.AddChild(root_0, mathMult94.Tree);
-			DebugLocation(166, 20);
-			// Lang2.g:166:20: ( ( ADD | SUB ) mathMult )*
+			adaptor.AddChild(root_0, mathGroup96.Tree);
+			DebugLocation(168, 21);
+			// Lang2.g:168:21: ( ( MULT | DIV ) mathGroup )*
 			try { DebugEnterSubRule(7);
 			while (true)
 			{
@@ -2394,7 +2428,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				try { DebugEnterDecision(7, decisionCanBacktrack[7]);
 				int LA7_0 = input.LA(1);
 
-				if (((LA7_0>=ADD && LA7_0<=SUB)))
+				if (((LA7_0>=MULT && LA7_0<=DIV)))
 				{
 					alt7=1;
 				}
@@ -2405,15 +2439,15 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:166:21: ( ADD | SUB ) mathMult
+					// Lang2.g:168:22: ( MULT | DIV ) mathGroup
 					{
-					DebugLocation(166, 21);
-					set95=(IToken)input.LT(1);
-					set95=(IToken)input.LT(1);
-					if ((input.LA(1)>=ADD && input.LA(1)<=SUB))
+					DebugLocation(168, 22);
+					set97=(IToken)input.LT(1);
+					set97=(IToken)input.LT(1);
+					if ((input.LA(1)>=MULT && input.LA(1)<=DIV))
 					{
 						input.Consume();
-						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set95), root_0);
+						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set97), root_0);
 						state.errorRecovery=false;
 					}
 					else
@@ -2423,12 +2457,12 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 						throw mse;
 					}
 
-					DebugLocation(166, 32);
-					PushFollow(Follow._mathMult_in_mathAdd1038);
-					mathMult96=mathMult();
+					DebugLocation(168, 33);
+					PushFollow(Follow._mathGroup_in_mathMult1050);
+					mathGroup98=mathGroup();
 					PopFollow();
 
-					adaptor.AddChild(root_0, mathMult96.Tree);
+					adaptor.AddChild(root_0, mathGroup98.Tree);
 
 					}
 					break;
@@ -2461,63 +2495,63 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathAdd", 16);
-			LeaveRule("mathAdd", 16);
-			Leave_mathAdd();
+			TraceOut("mathMult", 16);
+			LeaveRule("mathMult", 16);
+			Leave_mathMult();
 		}
-		DebugLocation(167, 3);
-		} finally { DebugExitRule(GrammarFileName, "mathAdd"); }
+		DebugLocation(169, 3);
+		} finally { DebugExitRule(GrammarFileName, "mathMult"); }
 		return retval;
 
 	}
-	// $ANTLR end "mathAdd"
+	// $ANTLR end "mathMult"
 
-	public class mathConj_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	public class mathAdd_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
 	{
 		private object _tree;
 		public object Tree { get { return _tree; } set { _tree = value; } }
 	}
 
-	partial void Enter_mathConj();
-	partial void Leave_mathConj();
+	partial void Enter_mathAdd();
+	partial void Leave_mathAdd();
 
-	// $ANTLR start "mathConj"
-	// Lang2.g:169:1: mathConj : mathAdd ( CONJ mathAdd )* ;
-	[GrammarRule("mathConj")]
-	private Lang2Parser.mathConj_return mathConj()
+	// $ANTLR start "mathAdd"
+	// Lang2.g:170:1: mathAdd : mathMult ( ( ADD | SUB ) mathMult )* ;
+	[GrammarRule("mathAdd")]
+	private Lang2Parser.mathAdd_return mathAdd()
 	{
-		Enter_mathConj();
-		EnterRule("mathConj", 17);
-		TraceIn("mathConj", 17);
-		Lang2Parser.mathConj_return retval = new Lang2Parser.mathConj_return();
+		Enter_mathAdd();
+		EnterRule("mathAdd", 17);
+		TraceIn("mathAdd", 17);
+		Lang2Parser.mathAdd_return retval = new Lang2Parser.mathAdd_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken CONJ98=null;
-		Lang2Parser.mathAdd_return mathAdd97 = default(Lang2Parser.mathAdd_return);
-		Lang2Parser.mathAdd_return mathAdd99 = default(Lang2Parser.mathAdd_return);
+		IToken set100=null;
+		Lang2Parser.mathMult_return mathMult99 = default(Lang2Parser.mathMult_return);
+		Lang2Parser.mathMult_return mathMult101 = default(Lang2Parser.mathMult_return);
 
-		object CONJ98_tree=null;
+		object set100_tree=null;
 
-		try { DebugEnterRule(GrammarFileName, "mathConj");
-		DebugLocation(169, 3);
+		try { DebugEnterRule(GrammarFileName, "mathAdd");
+		DebugLocation(170, 3);
 		try
 		{
-			// Lang2.g:169:10: ( mathAdd ( CONJ mathAdd )* )
+			// Lang2.g:170:10: ( mathMult ( ( ADD | SUB ) mathMult )* )
 			DebugEnterAlt(1);
-			// Lang2.g:169:12: mathAdd ( CONJ mathAdd )*
+			// Lang2.g:170:12: mathMult ( ( ADD | SUB ) mathMult )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(169, 12);
-			PushFollow(Follow._mathAdd_in_mathConj1052);
-			mathAdd97=mathAdd();
+			DebugLocation(170, 12);
+			PushFollow(Follow._mathMult_in_mathAdd1064);
+			mathMult99=mathMult();
 			PopFollow();
 
-			adaptor.AddChild(root_0, mathAdd97.Tree);
-			DebugLocation(169, 19);
-			// Lang2.g:169:19: ( CONJ mathAdd )*
+			adaptor.AddChild(root_0, mathMult99.Tree);
+			DebugLocation(170, 20);
+			// Lang2.g:170:20: ( ( ADD | SUB ) mathMult )*
 			try { DebugEnterSubRule(8);
 			while (true)
 			{
@@ -2525,7 +2559,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				try { DebugEnterDecision(8, decisionCanBacktrack[8]);
 				int LA8_0 = input.LA(1);
 
-				if ((LA8_0==CONJ))
+				if (((LA8_0>=ADD && LA8_0<=SUB)))
 				{
 					alt8=1;
 				}
@@ -2536,19 +2570,30 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:169:20: CONJ mathAdd
+					// Lang2.g:170:21: ( ADD | SUB ) mathMult
 					{
-					DebugLocation(169, 24);
-					CONJ98=(IToken)Match(input,CONJ,Follow._CONJ_in_mathConj1054); 
-					CONJ98_tree = (object)adaptor.Create(CONJ98);
-					root_0 = (object)adaptor.BecomeRoot(CONJ98_tree, root_0);
+					DebugLocation(170, 21);
+					set100=(IToken)input.LT(1);
+					set100=(IToken)input.LT(1);
+					if ((input.LA(1)>=ADD && input.LA(1)<=SUB))
+					{
+						input.Consume();
+						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set100), root_0);
+						state.errorRecovery=false;
+					}
+					else
+					{
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						DebugRecognitionException(mse);
+						throw mse;
+					}
 
-					DebugLocation(169, 26);
-					PushFollow(Follow._mathAdd_in_mathConj1057);
-					mathAdd99=mathAdd();
+					DebugLocation(170, 32);
+					PushFollow(Follow._mathMult_in_mathAdd1073);
+					mathMult101=mathMult();
 					PopFollow();
 
-					adaptor.AddChild(root_0, mathAdd99.Tree);
+					adaptor.AddChild(root_0, mathMult101.Tree);
 
 					}
 					break;
@@ -2581,63 +2626,63 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathConj", 17);
-			LeaveRule("mathConj", 17);
-			Leave_mathConj();
+			TraceOut("mathAdd", 17);
+			LeaveRule("mathAdd", 17);
+			Leave_mathAdd();
 		}
-		DebugLocation(170, 3);
-		} finally { DebugExitRule(GrammarFileName, "mathConj"); }
+		DebugLocation(171, 3);
+		} finally { DebugExitRule(GrammarFileName, "mathAdd"); }
 		return retval;
 
 	}
-	// $ANTLR end "mathConj"
+	// $ANTLR end "mathAdd"
 
-	public class mathDisj_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	public class mathConj_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
 	{
 		private object _tree;
 		public object Tree { get { return _tree; } set { _tree = value; } }
 	}
 
-	partial void Enter_mathDisj();
-	partial void Leave_mathDisj();
+	partial void Enter_mathConj();
+	partial void Leave_mathConj();
 
-	// $ANTLR start "mathDisj"
-	// Lang2.g:172:1: mathDisj : mathConj ( DISJ mathConj )* ;
-	[GrammarRule("mathDisj")]
-	private Lang2Parser.mathDisj_return mathDisj()
+	// $ANTLR start "mathConj"
+	// Lang2.g:173:1: mathConj : mathAdd ( CONJ mathAdd )* ;
+	[GrammarRule("mathConj")]
+	private Lang2Parser.mathConj_return mathConj()
 	{
-		Enter_mathDisj();
-		EnterRule("mathDisj", 18);
-		TraceIn("mathDisj", 18);
-		Lang2Parser.mathDisj_return retval = new Lang2Parser.mathDisj_return();
+		Enter_mathConj();
+		EnterRule("mathConj", 18);
+		TraceIn("mathConj", 18);
+		Lang2Parser.mathConj_return retval = new Lang2Parser.mathConj_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken DISJ101=null;
-		Lang2Parser.mathConj_return mathConj100 = default(Lang2Parser.mathConj_return);
-		Lang2Parser.mathConj_return mathConj102 = default(Lang2Parser.mathConj_return);
+		IToken CONJ103=null;
+		Lang2Parser.mathAdd_return mathAdd102 = default(Lang2Parser.mathAdd_return);
+		Lang2Parser.mathAdd_return mathAdd104 = default(Lang2Parser.mathAdd_return);
 
-		object DISJ101_tree=null;
+		object CONJ103_tree=null;
 
-		try { DebugEnterRule(GrammarFileName, "mathDisj");
-		DebugLocation(172, 3);
+		try { DebugEnterRule(GrammarFileName, "mathConj");
+		DebugLocation(173, 3);
 		try
 		{
-			// Lang2.g:172:10: ( mathConj ( DISJ mathConj )* )
+			// Lang2.g:173:10: ( mathAdd ( CONJ mathAdd )* )
 			DebugEnterAlt(1);
-			// Lang2.g:172:12: mathConj ( DISJ mathConj )*
+			// Lang2.g:173:12: mathAdd ( CONJ mathAdd )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(172, 12);
-			PushFollow(Follow._mathConj_in_mathDisj1071);
-			mathConj100=mathConj();
+			DebugLocation(173, 12);
+			PushFollow(Follow._mathAdd_in_mathConj1087);
+			mathAdd102=mathAdd();
 			PopFollow();
 
-			adaptor.AddChild(root_0, mathConj100.Tree);
-			DebugLocation(172, 20);
-			// Lang2.g:172:20: ( DISJ mathConj )*
+			adaptor.AddChild(root_0, mathAdd102.Tree);
+			DebugLocation(173, 19);
+			// Lang2.g:173:19: ( CONJ mathAdd )*
 			try { DebugEnterSubRule(9);
 			while (true)
 			{
@@ -2645,7 +2690,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				try { DebugEnterDecision(9, decisionCanBacktrack[9]);
 				int LA9_0 = input.LA(1);
 
-				if ((LA9_0==DISJ))
+				if ((LA9_0==CONJ))
 				{
 					alt9=1;
 				}
@@ -2656,19 +2701,19 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:172:21: DISJ mathConj
+					// Lang2.g:173:20: CONJ mathAdd
 					{
-					DebugLocation(172, 25);
-					DISJ101=(IToken)Match(input,DISJ,Follow._DISJ_in_mathDisj1073); 
-					DISJ101_tree = (object)adaptor.Create(DISJ101);
-					root_0 = (object)adaptor.BecomeRoot(DISJ101_tree, root_0);
+					DebugLocation(173, 24);
+					CONJ103=(IToken)Match(input,CONJ,Follow._CONJ_in_mathConj1089); 
+					CONJ103_tree = (object)adaptor.Create(CONJ103);
+					root_0 = (object)adaptor.BecomeRoot(CONJ103_tree, root_0);
 
-					DebugLocation(172, 27);
-					PushFollow(Follow._mathConj_in_mathDisj1076);
-					mathConj102=mathConj();
+					DebugLocation(173, 26);
+					PushFollow(Follow._mathAdd_in_mathConj1092);
+					mathAdd104=mathAdd();
 					PopFollow();
 
-					adaptor.AddChild(root_0, mathConj102.Tree);
+					adaptor.AddChild(root_0, mathAdd104.Tree);
 
 					}
 					break;
@@ -2701,63 +2746,63 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathDisj", 18);
-			LeaveRule("mathDisj", 18);
-			Leave_mathDisj();
+			TraceOut("mathConj", 18);
+			LeaveRule("mathConj", 18);
+			Leave_mathConj();
 		}
-		DebugLocation(173, 3);
-		} finally { DebugExitRule(GrammarFileName, "mathDisj"); }
+		DebugLocation(174, 3);
+		} finally { DebugExitRule(GrammarFileName, "mathConj"); }
 		return retval;
 
 	}
-	// $ANTLR end "mathDisj"
+	// $ANTLR end "mathConj"
 
-	public class mathEq_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	public class mathDisj_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
 	{
 		private object _tree;
 		public object Tree { get { return _tree; } set { _tree = value; } }
 	}
 
-	partial void Enter_mathEq();
-	partial void Leave_mathEq();
+	partial void Enter_mathDisj();
+	partial void Leave_mathDisj();
 
-	// $ANTLR start "mathEq"
-	// Lang2.g:175:1: mathEq : mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )* ;
-	[GrammarRule("mathEq")]
-	private Lang2Parser.mathEq_return mathEq()
+	// $ANTLR start "mathDisj"
+	// Lang2.g:176:1: mathDisj : mathConj ( DISJ mathConj )* ;
+	[GrammarRule("mathDisj")]
+	private Lang2Parser.mathDisj_return mathDisj()
 	{
-		Enter_mathEq();
-		EnterRule("mathEq", 19);
-		TraceIn("mathEq", 19);
-		Lang2Parser.mathEq_return retval = new Lang2Parser.mathEq_return();
+		Enter_mathDisj();
+		EnterRule("mathDisj", 19);
+		TraceIn("mathDisj", 19);
+		Lang2Parser.mathDisj_return retval = new Lang2Parser.mathDisj_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken set104=null;
-		Lang2Parser.mathDisj_return mathDisj103 = default(Lang2Parser.mathDisj_return);
-		Lang2Parser.mathDisj_return mathDisj105 = default(Lang2Parser.mathDisj_return);
+		IToken DISJ106=null;
+		Lang2Parser.mathConj_return mathConj105 = default(Lang2Parser.mathConj_return);
+		Lang2Parser.mathConj_return mathConj107 = default(Lang2Parser.mathConj_return);
 
-		object set104_tree=null;
+		object DISJ106_tree=null;
 
-		try { DebugEnterRule(GrammarFileName, "mathEq");
-		DebugLocation(175, 3);
+		try { DebugEnterRule(GrammarFileName, "mathDisj");
+		DebugLocation(176, 3);
 		try
 		{
-			// Lang2.g:175:9: ( mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )* )
+			// Lang2.g:176:10: ( mathConj ( DISJ mathConj )* )
 			DebugEnterAlt(1);
-			// Lang2.g:175:11: mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )*
+			// Lang2.g:176:12: mathConj ( DISJ mathConj )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(175, 11);
-			PushFollow(Follow._mathDisj_in_mathEq1091);
-			mathDisj103=mathDisj();
+			DebugLocation(176, 12);
+			PushFollow(Follow._mathConj_in_mathDisj1106);
+			mathConj105=mathConj();
 			PopFollow();
 
-			adaptor.AddChild(root_0, mathDisj103.Tree);
-			DebugLocation(175, 19);
-			// Lang2.g:175:19: ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )*
+			adaptor.AddChild(root_0, mathConj105.Tree);
+			DebugLocation(176, 20);
+			// Lang2.g:176:20: ( DISJ mathConj )*
 			try { DebugEnterSubRule(10);
 			while (true)
 			{
@@ -2765,7 +2810,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				try { DebugEnterDecision(10, decisionCanBacktrack[10]);
 				int LA10_0 = input.LA(1);
 
-				if (((LA10_0>=IS_MORE && LA10_0<=IS_EQUALLY)||(LA10_0>=IS_LESS_OR_EQUAL && LA10_0<=IS_MORE_OR_EQUAL)))
+				if ((LA10_0==DISJ))
 				{
 					alt10=1;
 				}
@@ -2776,30 +2821,19 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:175:20: ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj
+					// Lang2.g:176:21: DISJ mathConj
 					{
-					DebugLocation(175, 20);
-					set104=(IToken)input.LT(1);
-					set104=(IToken)input.LT(1);
-					if ((input.LA(1)>=IS_MORE && input.LA(1)<=IS_EQUALLY)||(input.LA(1)>=IS_LESS_OR_EQUAL && input.LA(1)<=IS_MORE_OR_EQUAL))
-					{
-						input.Consume();
-						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set104), root_0);
-						state.errorRecovery=false;
-					}
-					else
-					{
-						MismatchedSetException mse = new MismatchedSetException(null,input);
-						DebugRecognitionException(mse);
-						throw mse;
-					}
+					DebugLocation(176, 25);
+					DISJ106=(IToken)Match(input,DISJ,Follow._DISJ_in_mathDisj1108); 
+					DISJ106_tree = (object)adaptor.Create(DISJ106);
+					root_0 = (object)adaptor.BecomeRoot(DISJ106_tree, root_0);
 
-					DebugLocation(175, 84);
-					PushFollow(Follow._mathDisj_in_mathEq1106);
-					mathDisj105=mathDisj();
+					DebugLocation(176, 27);
+					PushFollow(Follow._mathConj_in_mathDisj1111);
+					mathConj107=mathConj();
 					PopFollow();
 
-					adaptor.AddChild(root_0, mathDisj105.Tree);
+					adaptor.AddChild(root_0, mathConj107.Tree);
 
 					}
 					break;
@@ -2832,11 +2866,142 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathEq", 19);
-			LeaveRule("mathEq", 19);
+			TraceOut("mathDisj", 19);
+			LeaveRule("mathDisj", 19);
+			Leave_mathDisj();
+		}
+		DebugLocation(177, 3);
+		} finally { DebugExitRule(GrammarFileName, "mathDisj"); }
+		return retval;
+
+	}
+	// $ANTLR end "mathDisj"
+
+	public class mathEq_return : ParserRuleReturnScope<IToken>, IAstRuleReturnScope<object>
+	{
+		private object _tree;
+		public object Tree { get { return _tree; } set { _tree = value; } }
+	}
+
+	partial void Enter_mathEq();
+	partial void Leave_mathEq();
+
+	// $ANTLR start "mathEq"
+	// Lang2.g:179:1: mathEq : mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )* ;
+	[GrammarRule("mathEq")]
+	private Lang2Parser.mathEq_return mathEq()
+	{
+		Enter_mathEq();
+		EnterRule("mathEq", 20);
+		TraceIn("mathEq", 20);
+		Lang2Parser.mathEq_return retval = new Lang2Parser.mathEq_return();
+		retval.Start = (IToken)input.LT(1);
+
+		object root_0 = null;
+
+		IToken set109=null;
+		Lang2Parser.mathDisj_return mathDisj108 = default(Lang2Parser.mathDisj_return);
+		Lang2Parser.mathDisj_return mathDisj110 = default(Lang2Parser.mathDisj_return);
+
+		object set109_tree=null;
+
+		try { DebugEnterRule(GrammarFileName, "mathEq");
+		DebugLocation(179, 3);
+		try
+		{
+			// Lang2.g:179:9: ( mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )* )
+			DebugEnterAlt(1);
+			// Lang2.g:179:11: mathDisj ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )*
+			{
+			root_0 = (object)adaptor.Nil();
+
+			DebugLocation(179, 11);
+			PushFollow(Follow._mathDisj_in_mathEq1126);
+			mathDisj108=mathDisj();
+			PopFollow();
+
+			adaptor.AddChild(root_0, mathDisj108.Tree);
+			DebugLocation(179, 19);
+			// Lang2.g:179:19: ( ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj )*
+			try { DebugEnterSubRule(11);
+			while (true)
+			{
+				int alt11=2;
+				try { DebugEnterDecision(11, decisionCanBacktrack[11]);
+				int LA11_0 = input.LA(1);
+
+				if (((LA11_0>=IS_MORE && LA11_0<=IS_EQUALLY)||(LA11_0>=IS_LESS_OR_EQUAL && LA11_0<=IS_MORE_OR_EQUAL)))
+				{
+					alt11=1;
+				}
+
+
+				} finally { DebugExitDecision(11); }
+				switch ( alt11 )
+				{
+				case 1:
+					DebugEnterAlt(1);
+					// Lang2.g:179:20: ( IS_MORE | IS_LESS | IS_EQUALLY | IS_MORE_OR_EQUAL | IS_LESS_OR_EQUAL ) mathDisj
+					{
+					DebugLocation(179, 20);
+					set109=(IToken)input.LT(1);
+					set109=(IToken)input.LT(1);
+					if ((input.LA(1)>=IS_MORE && input.LA(1)<=IS_EQUALLY)||(input.LA(1)>=IS_LESS_OR_EQUAL && input.LA(1)<=IS_MORE_OR_EQUAL))
+					{
+						input.Consume();
+						root_0 = (object)adaptor.BecomeRoot((object)adaptor.Create(set109), root_0);
+						state.errorRecovery=false;
+					}
+					else
+					{
+						MismatchedSetException mse = new MismatchedSetException(null,input);
+						DebugRecognitionException(mse);
+						throw mse;
+					}
+
+					DebugLocation(179, 84);
+					PushFollow(Follow._mathDisj_in_mathEq1141);
+					mathDisj110=mathDisj();
+					PopFollow();
+
+					adaptor.AddChild(root_0, mathDisj110.Tree);
+
+					}
+					break;
+
+				default:
+					goto loop11;
+				}
+			}
+
+			loop11:
+				;
+
+			} finally { DebugExitSubRule(11); }
+
+
+			}
+
+			retval.Stop = (IToken)input.LT(-1);
+
+			retval.Tree = (object)adaptor.RulePostProcessing(root_0);
+			adaptor.SetTokenBoundaries(retval.Tree, retval.Start, retval.Stop);
+
+		}
+		catch (RecognitionException re)
+		{
+			ReportError(re);
+			Recover(input,re);
+		retval.Tree = (object)adaptor.ErrorNode(input, retval.Start, input.LT(-1), re);
+
+		}
+		finally
+		{
+			TraceOut("mathEq", 20);
+			LeaveRule("mathEq", 20);
 			Leave_mathEq();
 		}
-		DebugLocation(176, 3);
+		DebugLocation(180, 3);
 		} finally { DebugExitRule(GrammarFileName, "mathEq"); }
 		return retval;
 
@@ -2853,73 +3018,73 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_mathNeg();
 
 	// $ANTLR start "mathNeg"
-	// Lang2.g:178:1: mathNeg : ( ( INVERT mathEq ) | ( mathEq ) );
+	// Lang2.g:182:1: mathNeg : ( ( INVERT mathEq ) | ( mathEq ) );
 	[GrammarRule("mathNeg")]
 	private Lang2Parser.mathNeg_return mathNeg()
 	{
 		Enter_mathNeg();
-		EnterRule("mathNeg", 20);
-		TraceIn("mathNeg", 20);
+		EnterRule("mathNeg", 21);
+		TraceIn("mathNeg", 21);
 		Lang2Parser.mathNeg_return retval = new Lang2Parser.mathNeg_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken INVERT106=null;
-		Lang2Parser.mathEq_return mathEq107 = default(Lang2Parser.mathEq_return);
-		Lang2Parser.mathEq_return mathEq108 = default(Lang2Parser.mathEq_return);
+		IToken INVERT111=null;
+		Lang2Parser.mathEq_return mathEq112 = default(Lang2Parser.mathEq_return);
+		Lang2Parser.mathEq_return mathEq113 = default(Lang2Parser.mathEq_return);
 
-		object INVERT106_tree=null;
+		object INVERT111_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "mathNeg");
-		DebugLocation(178, 3);
+		DebugLocation(182, 3);
 		try
 		{
-			// Lang2.g:178:10: ( ( INVERT mathEq ) | ( mathEq ) )
-			int alt11=2;
-			try { DebugEnterDecision(11, decisionCanBacktrack[11]);
-			int LA11_0 = input.LA(1);
+			// Lang2.g:182:10: ( ( INVERT mathEq ) | ( mathEq ) )
+			int alt12=2;
+			try { DebugEnterDecision(12, decisionCanBacktrack[12]);
+			int LA12_0 = input.LA(1);
 
-			if ((LA11_0==INVERT))
+			if ((LA12_0==INVERT))
 			{
-				alt11=1;
+				alt12=1;
 			}
-			else if (((LA11_0>=INT && LA11_0<=STRING)||LA11_0==ID||LA11_0==50))
+			else if (((LA12_0>=INT && LA12_0<=STRING)||LA12_0==ID||LA12_0==53))
 			{
-				alt11=2;
+				alt12=2;
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 11, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 12, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(11); }
-			switch (alt11)
+			} finally { DebugExitDecision(12); }
+			switch (alt12)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:178:12: ( INVERT mathEq )
+				// Lang2.g:182:12: ( INVERT mathEq )
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(178, 12);
-				// Lang2.g:178:12: ( INVERT mathEq )
+				DebugLocation(182, 12);
+				// Lang2.g:182:12: ( INVERT mathEq )
 				DebugEnterAlt(1);
-				// Lang2.g:178:13: INVERT mathEq
+				// Lang2.g:182:13: INVERT mathEq
 				{
-				DebugLocation(178, 19);
-				INVERT106=(IToken)Match(input,INVERT,Follow._INVERT_in_mathNeg1122); 
-				INVERT106_tree = (object)adaptor.Create(INVERT106);
-				root_0 = (object)adaptor.BecomeRoot(INVERT106_tree, root_0);
+				DebugLocation(182, 19);
+				INVERT111=(IToken)Match(input,INVERT,Follow._INVERT_in_mathNeg1157); 
+				INVERT111_tree = (object)adaptor.Create(INVERT111);
+				root_0 = (object)adaptor.BecomeRoot(INVERT111_tree, root_0);
 
-				DebugLocation(178, 21);
-				PushFollow(Follow._mathEq_in_mathNeg1125);
-				mathEq107=mathEq();
+				DebugLocation(182, 21);
+				PushFollow(Follow._mathEq_in_mathNeg1160);
+				mathEq112=mathEq();
 				PopFollow();
 
-				adaptor.AddChild(root_0, mathEq107.Tree);
+				adaptor.AddChild(root_0, mathEq112.Tree);
 
 				}
 
@@ -2928,21 +3093,21 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:179:6: ( mathEq )
+				// Lang2.g:183:6: ( mathEq )
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(179, 6);
-				// Lang2.g:179:6: ( mathEq )
+				DebugLocation(183, 6);
+				// Lang2.g:183:6: ( mathEq )
 				DebugEnterAlt(1);
-				// Lang2.g:179:7: mathEq
+				// Lang2.g:183:7: mathEq
 				{
-				DebugLocation(179, 7);
-				PushFollow(Follow._mathEq_in_mathNeg1134);
-				mathEq108=mathEq();
+				DebugLocation(183, 7);
+				PushFollow(Follow._mathEq_in_mathNeg1169);
+				mathEq113=mathEq();
 				PopFollow();
 
-				adaptor.AddChild(root_0, mathEq108.Tree);
+				adaptor.AddChild(root_0, mathEq113.Tree);
 
 				}
 
@@ -2966,11 +3131,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathNeg", 20);
-			LeaveRule("mathNeg", 20);
+			TraceOut("mathNeg", 21);
+			LeaveRule("mathNeg", 21);
 			Leave_mathNeg();
 		}
-		DebugLocation(180, 3);
+		DebugLocation(184, 3);
 		} finally { DebugExitRule(GrammarFileName, "mathNeg"); }
 		return retval;
 
@@ -2987,37 +3152,37 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_mathExpr();
 
 	// $ANTLR start "mathExpr"
-	// Lang2.g:182:1: mathExpr : mathNeg ;
+	// Lang2.g:186:1: mathExpr : mathNeg ;
 	[GrammarRule("mathExpr")]
 	private Lang2Parser.mathExpr_return mathExpr()
 	{
 		Enter_mathExpr();
-		EnterRule("mathExpr", 21);
-		TraceIn("mathExpr", 21);
+		EnterRule("mathExpr", 22);
+		TraceIn("mathExpr", 22);
 		Lang2Parser.mathExpr_return retval = new Lang2Parser.mathExpr_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.mathNeg_return mathNeg109 = default(Lang2Parser.mathNeg_return);
+		Lang2Parser.mathNeg_return mathNeg114 = default(Lang2Parser.mathNeg_return);
 
 
 		try { DebugEnterRule(GrammarFileName, "mathExpr");
-		DebugLocation(182, 3);
+		DebugLocation(186, 3);
 		try
 		{
-			// Lang2.g:182:10: ( mathNeg )
+			// Lang2.g:186:10: ( mathNeg )
 			DebugEnterAlt(1);
-			// Lang2.g:182:12: mathNeg
+			// Lang2.g:186:12: mathNeg
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(182, 12);
-			PushFollow(Follow._mathNeg_in_mathExpr1147);
-			mathNeg109=mathNeg();
+			DebugLocation(186, 12);
+			PushFollow(Follow._mathNeg_in_mathExpr1182);
+			mathNeg114=mathNeg();
 			PopFollow();
 
-			adaptor.AddChild(root_0, mathNeg109.Tree);
+			adaptor.AddChild(root_0, mathNeg114.Tree);
 
 			}
 
@@ -3036,11 +3201,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mathExpr", 21);
-			LeaveRule("mathExpr", 21);
+			TraceOut("mathExpr", 22);
+			LeaveRule("mathExpr", 22);
 			Leave_mathExpr();
 		}
-		DebugLocation(183, 3);
+		DebugLocation(187, 3);
 		} finally { DebugExitRule(GrammarFileName, "mathExpr"); }
 		return retval;
 
@@ -3057,84 +3222,84 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methArgs();
 
 	// $ANTLR start "methArgs"
-	// Lang2.g:188:1: methArgs : mathExpr ( ',' mathExpr )* -> ^( CALL_ARGS mathExpr ( mathExpr )* ) ;
+	// Lang2.g:192:1: methArgs : mathExpr ( ',' mathExpr )* -> ^( CALL_ARGS mathExpr ( mathExpr )* ) ;
 	[GrammarRule("methArgs")]
 	private Lang2Parser.methArgs_return methArgs()
 	{
 		Enter_methArgs();
-		EnterRule("methArgs", 22);
-		TraceIn("methArgs", 22);
+		EnterRule("methArgs", 23);
+		TraceIn("methArgs", 23);
 		Lang2Parser.methArgs_return retval = new Lang2Parser.methArgs_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken char_literal111=null;
-		Lang2Parser.mathExpr_return mathExpr110 = default(Lang2Parser.mathExpr_return);
-		Lang2Parser.mathExpr_return mathExpr112 = default(Lang2Parser.mathExpr_return);
+		IToken char_literal116=null;
+		Lang2Parser.mathExpr_return mathExpr115 = default(Lang2Parser.mathExpr_return);
+		Lang2Parser.mathExpr_return mathExpr117 = default(Lang2Parser.mathExpr_return);
 
-		object char_literal111_tree=null;
-		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
+		object char_literal116_tree=null;
+		RewriteRuleITokenStream stream_55=new RewriteRuleITokenStream(adaptor,"token 55");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		try { DebugEnterRule(GrammarFileName, "methArgs");
-		DebugLocation(188, 3);
+		DebugLocation(192, 3);
 		try
 		{
-			// Lang2.g:188:10: ( mathExpr ( ',' mathExpr )* -> ^( CALL_ARGS mathExpr ( mathExpr )* ) )
+			// Lang2.g:192:10: ( mathExpr ( ',' mathExpr )* -> ^( CALL_ARGS mathExpr ( mathExpr )* ) )
 			DebugEnterAlt(1);
-			// Lang2.g:188:12: mathExpr ( ',' mathExpr )*
+			// Lang2.g:192:12: mathExpr ( ',' mathExpr )*
 			{
-			DebugLocation(188, 12);
-			PushFollow(Follow._mathExpr_in_methArgs1162);
-			mathExpr110=mathExpr();
+			DebugLocation(192, 12);
+			PushFollow(Follow._mathExpr_in_methArgs1197);
+			mathExpr115=mathExpr();
 			PopFollow();
 
-			stream_mathExpr.Add(mathExpr110.Tree);
-			DebugLocation(188, 21);
-			// Lang2.g:188:21: ( ',' mathExpr )*
-			try { DebugEnterSubRule(12);
+			stream_mathExpr.Add(mathExpr115.Tree);
+			DebugLocation(192, 21);
+			// Lang2.g:192:21: ( ',' mathExpr )*
+			try { DebugEnterSubRule(13);
 			while (true)
 			{
-				int alt12=2;
-				try { DebugEnterDecision(12, decisionCanBacktrack[12]);
-				int LA12_0 = input.LA(1);
+				int alt13=2;
+				try { DebugEnterDecision(13, decisionCanBacktrack[13]);
+				int LA13_0 = input.LA(1);
 
-				if ((LA12_0==54))
+				if ((LA13_0==55))
 				{
-					alt12=1;
+					alt13=1;
 				}
 
 
-				} finally { DebugExitDecision(12); }
-				switch ( alt12 )
+				} finally { DebugExitDecision(13); }
+				switch ( alt13 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:188:22: ',' mathExpr
+					// Lang2.g:192:22: ',' mathExpr
 					{
-					DebugLocation(188, 22);
-					char_literal111=(IToken)Match(input,54,Follow._54_in_methArgs1165);  
-					stream_54.Add(char_literal111);
+					DebugLocation(192, 22);
+					char_literal116=(IToken)Match(input,55,Follow._55_in_methArgs1200);  
+					stream_55.Add(char_literal116);
 
-					DebugLocation(188, 26);
-					PushFollow(Follow._mathExpr_in_methArgs1167);
-					mathExpr112=mathExpr();
+					DebugLocation(192, 26);
+					PushFollow(Follow._mathExpr_in_methArgs1202);
+					mathExpr117=mathExpr();
 					PopFollow();
 
-					stream_mathExpr.Add(mathExpr112.Tree);
+					stream_mathExpr.Add(mathExpr117.Tree);
 
 					}
 					break;
 
 				default:
-					goto loop12;
+					goto loop13;
 				}
 			}
 
-			loop12:
+			loop13:
 				;
 
-			} finally { DebugExitSubRule(12); }
+			} finally { DebugExitSubRule(13); }
 
 
 
@@ -3150,22 +3315,22 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 188:37: -> ^( CALL_ARGS mathExpr ( mathExpr )* )
+			// 192:37: -> ^( CALL_ARGS mathExpr ( mathExpr )* )
 			{
-				DebugLocation(188, 40);
-				// Lang2.g:188:40: ^( CALL_ARGS mathExpr ( mathExpr )* )
+				DebugLocation(192, 40);
+				// Lang2.g:192:40: ^( CALL_ARGS mathExpr ( mathExpr )* )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(188, 42);
+				DebugLocation(192, 42);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(CALL_ARGS, "CALL_ARGS"), root_1);
 
-				DebugLocation(188, 52);
+				DebugLocation(192, 52);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
-				DebugLocation(188, 61);
-				// Lang2.g:188:61: ( mathExpr )*
+				DebugLocation(192, 61);
+				// Lang2.g:192:61: ( mathExpr )*
 				while ( stream_mathExpr.HasNext )
 				{
-					DebugLocation(188, 61);
+					DebugLocation(192, 61);
 					adaptor.AddChild(root_1, stream_mathExpr.NextTree());
 
 				}
@@ -3196,11 +3361,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methArgs", 22);
-			LeaveRule("methArgs", 22);
+			TraceOut("methArgs", 23);
+			LeaveRule("methArgs", 23);
 			Leave_methArgs();
 		}
-		DebugLocation(189, 3);
+		DebugLocation(193, 3);
 		} finally { DebugExitRule(GrammarFileName, "methArgs"); }
 		return retval;
 
@@ -3217,86 +3382,86 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methCall();
 
 	// $ANTLR start "methCall"
-	// Lang2.g:190:1: methCall : ID '(' ( methArgs )? ')' -> ^( METH_CALL ID ( methArgs )? ) ;
+	// Lang2.g:194:1: methCall : ID '(' ( methArgs )? ')' -> ^( METH_CALL ID ( methArgs )? ) ;
 	[GrammarRule("methCall")]
 	private Lang2Parser.methCall_return methCall()
 	{
 		Enter_methCall();
-		EnterRule("methCall", 23);
-		TraceIn("methCall", 23);
+		EnterRule("methCall", 24);
+		TraceIn("methCall", 24);
 		Lang2Parser.methCall_return retval = new Lang2Parser.methCall_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID113=null;
-		IToken char_literal114=null;
-		IToken char_literal116=null;
-		Lang2Parser.methArgs_return methArgs115 = default(Lang2Parser.methArgs_return);
+		IToken ID118=null;
+		IToken char_literal119=null;
+		IToken char_literal121=null;
+		Lang2Parser.methArgs_return methArgs120 = default(Lang2Parser.methArgs_return);
 
-		object ID113_tree=null;
-		object char_literal114_tree=null;
-		object char_literal116_tree=null;
-		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
+		object ID118_tree=null;
+		object char_literal119_tree=null;
+		object char_literal121_tree=null;
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
+		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
 		RewriteRuleSubtreeStream stream_methArgs=new RewriteRuleSubtreeStream(adaptor,"rule methArgs");
 		try { DebugEnterRule(GrammarFileName, "methCall");
-		DebugLocation(190, 3);
+		DebugLocation(194, 3);
 		try
 		{
-			// Lang2.g:190:10: ( ID '(' ( methArgs )? ')' -> ^( METH_CALL ID ( methArgs )? ) )
+			// Lang2.g:194:10: ( ID '(' ( methArgs )? ')' -> ^( METH_CALL ID ( methArgs )? ) )
 			DebugEnterAlt(1);
-			// Lang2.g:190:12: ID '(' ( methArgs )? ')'
+			// Lang2.g:194:12: ID '(' ( methArgs )? ')'
 			{
-			DebugLocation(190, 12);
-			ID113=(IToken)Match(input,ID,Follow._ID_in_methCall1192);  
-			stream_ID.Add(ID113);
+			DebugLocation(194, 12);
+			ID118=(IToken)Match(input,ID,Follow._ID_in_methCall1227);  
+			stream_ID.Add(ID118);
 
-			DebugLocation(190, 14);
-			char_literal114=(IToken)Match(input,50,Follow._50_in_methCall1193);  
-			stream_50.Add(char_literal114);
+			DebugLocation(194, 14);
+			char_literal119=(IToken)Match(input,53,Follow._53_in_methCall1228);  
+			stream_53.Add(char_literal119);
 
-			DebugLocation(190, 17);
-			// Lang2.g:190:17: ( methArgs )?
-			int alt13=2;
-			try { DebugEnterSubRule(13);
-			try { DebugEnterDecision(13, decisionCanBacktrack[13]);
-			int LA13_0 = input.LA(1);
+			DebugLocation(194, 17);
+			// Lang2.g:194:17: ( methArgs )?
+			int alt14=2;
+			try { DebugEnterSubRule(14);
+			try { DebugEnterDecision(14, decisionCanBacktrack[14]);
+			int LA14_0 = input.LA(1);
 
-			if (((LA13_0>=INT && LA13_0<=STRING)||LA13_0==INVERT||LA13_0==ID||LA13_0==50))
+			if (((LA14_0>=INT && LA14_0<=STRING)||LA14_0==INVERT||LA14_0==ID||LA14_0==53))
 			{
-				alt13=1;
+				alt14=1;
 			}
-			} finally { DebugExitDecision(13); }
-			switch (alt13)
+			} finally { DebugExitDecision(14); }
+			switch (alt14)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:190:17: methArgs
+				// Lang2.g:194:17: methArgs
 				{
-				DebugLocation(190, 17);
-				PushFollow(Follow._methArgs_in_methCall1194);
-				methArgs115=methArgs();
+				DebugLocation(194, 17);
+				PushFollow(Follow._methArgs_in_methCall1229);
+				methArgs120=methArgs();
 				PopFollow();
 
-				stream_methArgs.Add(methArgs115.Tree);
+				stream_methArgs.Add(methArgs120.Tree);
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(13); }
+			} finally { DebugExitSubRule(14); }
 
-			DebugLocation(190, 26);
-			char_literal116=(IToken)Match(input,51,Follow._51_in_methCall1196);  
-			stream_51.Add(char_literal116);
+			DebugLocation(194, 26);
+			char_literal121=(IToken)Match(input,54,Follow._54_in_methCall1231);  
+			stream_54.Add(char_literal121);
 
 
 
 			{
 			// AST REWRITE
-			// elements: methArgs, ID
+			// elements: ID, methArgs
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3306,22 +3471,22 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 190:30: -> ^( METH_CALL ID ( methArgs )? )
+			// 194:30: -> ^( METH_CALL ID ( methArgs )? )
 			{
-				DebugLocation(190, 33);
-				// Lang2.g:190:33: ^( METH_CALL ID ( methArgs )? )
+				DebugLocation(194, 33);
+				// Lang2.g:194:33: ^( METH_CALL ID ( methArgs )? )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(190, 35);
+				DebugLocation(194, 35);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(METH_CALL, "METH_CALL"), root_1);
 
-				DebugLocation(190, 45);
+				DebugLocation(194, 45);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
-				DebugLocation(190, 48);
-				// Lang2.g:190:48: ( methArgs )?
+				DebugLocation(194, 48);
+				// Lang2.g:194:48: ( methArgs )?
 				if ( stream_methArgs.HasNext )
 				{
-					DebugLocation(190, 48);
+					DebugLocation(194, 48);
 					adaptor.AddChild(root_1, stream_methArgs.NextTree());
 
 				}
@@ -3352,11 +3517,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methCall", 23);
-			LeaveRule("methCall", 23);
+			TraceOut("methCall", 24);
+			LeaveRule("methCall", 24);
 			Leave_methCall();
 		}
-		DebugLocation(191, 3);
+		DebugLocation(195, 3);
 		} finally { DebugExitRule(GrammarFileName, "methCall"); }
 		return retval;
 
@@ -3373,57 +3538,57 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methArgODecl();
 
 	// $ANTLR start "methArgODecl"
-	// Lang2.g:192:1: methArgODecl : ( type ID -> ^( VAR_DECL type ID ) | type '[' ']' ID -> ^( ARR_DECL type ID ) );
+	// Lang2.g:196:1: methArgODecl : ( type ID -> ^( VAR_DECL type ID ) | type '[' ']' ID -> ^( ARR_DECL type ID ) );
 	[GrammarRule("methArgODecl")]
 	private Lang2Parser.methArgODecl_return methArgODecl()
 	{
 		Enter_methArgODecl();
-		EnterRule("methArgODecl", 24);
-		TraceIn("methArgODecl", 24);
+		EnterRule("methArgODecl", 25);
+		TraceIn("methArgODecl", 25);
 		Lang2Parser.methArgODecl_return retval = new Lang2Parser.methArgODecl_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID118=null;
-		IToken char_literal120=null;
-		IToken char_literal121=null;
-		IToken ID122=null;
-		Lang2Parser.type_return type117 = default(Lang2Parser.type_return);
-		Lang2Parser.type_return type119 = default(Lang2Parser.type_return);
+		IToken ID123=null;
+		IToken char_literal125=null;
+		IToken char_literal126=null;
+		IToken ID127=null;
+		Lang2Parser.type_return type122 = default(Lang2Parser.type_return);
+		Lang2Parser.type_return type124 = default(Lang2Parser.type_return);
 
-		object ID118_tree=null;
-		object char_literal120_tree=null;
-		object char_literal121_tree=null;
-		object ID122_tree=null;
+		object ID123_tree=null;
+		object char_literal125_tree=null;
+		object char_literal126_tree=null;
+		object ID127_tree=null;
 		RewriteRuleITokenStream stream_49=new RewriteRuleITokenStream(adaptor,"token 49");
-		RewriteRuleITokenStream stream_48=new RewriteRuleITokenStream(adaptor,"token 48");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
+		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
 		RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
 		try { DebugEnterRule(GrammarFileName, "methArgODecl");
-		DebugLocation(192, 4);
+		DebugLocation(196, 4);
 		try
 		{
-			// Lang2.g:192:14: ( type ID -> ^( VAR_DECL type ID ) | type '[' ']' ID -> ^( ARR_DECL type ID ) )
-			int alt14=2;
-			try { DebugEnterDecision(14, decisionCanBacktrack[14]);
-			int LA14_0 = input.LA(1);
+			// Lang2.g:196:14: ( type ID -> ^( VAR_DECL type ID ) | type '[' ']' ID -> ^( ARR_DECL type ID ) )
+			int alt15=2;
+			try { DebugEnterDecision(15, decisionCanBacktrack[15]);
+			int LA15_0 = input.LA(1);
 
-			if (((LA14_0>=TINT && LA14_0<=TVOID)))
+			if (((LA15_0>=TINT && LA15_0<=TVOID)))
 			{
-				int LA14_1 = input.LA(2);
+				int LA15_1 = input.LA(2);
 
-				if ((LA14_1==ID))
+				if ((LA15_1==ID))
 				{
-					alt14=1;
+					alt15=1;
 				}
-				else if ((LA14_1==48))
+				else if ((LA15_1==49))
 				{
-					alt14=2;
+					alt15=2;
 				}
 				else
 				{
-					NoViableAltException nvae = new NoViableAltException("", 14, 1, input);
+					NoViableAltException nvae = new NoViableAltException("", 15, 1, input);
 
 					DebugRecognitionException(nvae);
 					throw nvae;
@@ -3431,27 +3596,27 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 14, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 15, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(14); }
-			switch (alt14)
+			} finally { DebugExitDecision(15); }
+			switch (alt15)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:192:16: type ID
+				// Lang2.g:196:16: type ID
 				{
-				DebugLocation(192, 16);
-				PushFollow(Follow._type_in_methArgODecl1218);
-				type117=type();
+				DebugLocation(196, 16);
+				PushFollow(Follow._type_in_methArgODecl1253);
+				type122=type();
 				PopFollow();
 
-				stream_type.Add(type117.Tree);
-				DebugLocation(192, 21);
-				ID118=(IToken)Match(input,ID,Follow._ID_in_methArgODecl1220);  
-				stream_ID.Add(ID118);
+				stream_type.Add(type122.Tree);
+				DebugLocation(196, 21);
+				ID123=(IToken)Match(input,ID,Follow._ID_in_methArgODecl1255);  
+				stream_ID.Add(ID123);
 
 
 
@@ -3467,18 +3632,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 192:24: -> ^( VAR_DECL type ID )
+				// 196:24: -> ^( VAR_DECL type ID )
 				{
-					DebugLocation(192, 27);
-					// Lang2.g:192:27: ^( VAR_DECL type ID )
+					DebugLocation(196, 27);
+					// Lang2.g:196:27: ^( VAR_DECL type ID )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(192, 29);
+					DebugLocation(196, 29);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(VAR_DECL, "VAR_DECL"), root_1);
 
-					DebugLocation(192, 38);
+					DebugLocation(196, 38);
 					adaptor.AddChild(root_1, stream_type.NextTree());
-					DebugLocation(192, 43);
+					DebugLocation(196, 43);
 					adaptor.AddChild(root_1, stream_ID.NextNode());
 
 					adaptor.AddChild(root_0, root_1);
@@ -3493,31 +3658,31 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:193:7: type '[' ']' ID
+				// Lang2.g:197:7: type '[' ']' ID
 				{
-				DebugLocation(193, 7);
-				PushFollow(Follow._type_in_methArgODecl1238);
-				type119=type();
+				DebugLocation(197, 7);
+				PushFollow(Follow._type_in_methArgODecl1273);
+				type124=type();
 				PopFollow();
 
-				stream_type.Add(type119.Tree);
-				DebugLocation(193, 11);
-				char_literal120=(IToken)Match(input,48,Follow._48_in_methArgODecl1239);  
-				stream_48.Add(char_literal120);
+				stream_type.Add(type124.Tree);
+				DebugLocation(197, 11);
+				char_literal125=(IToken)Match(input,49,Follow._49_in_methArgODecl1274);  
+				stream_49.Add(char_literal125);
 
-				DebugLocation(193, 14);
-				char_literal121=(IToken)Match(input,49,Follow._49_in_methArgODecl1240);  
-				stream_49.Add(char_literal121);
+				DebugLocation(197, 14);
+				char_literal126=(IToken)Match(input,50,Follow._50_in_methArgODecl1275);  
+				stream_50.Add(char_literal126);
 
-				DebugLocation(193, 18);
-				ID122=(IToken)Match(input,ID,Follow._ID_in_methArgODecl1242);  
-				stream_ID.Add(ID122);
+				DebugLocation(197, 18);
+				ID127=(IToken)Match(input,ID,Follow._ID_in_methArgODecl1277);  
+				stream_ID.Add(ID127);
 
 
 
 				{
 				// AST REWRITE
-				// elements: ID, type
+				// elements: type, ID
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -3527,18 +3692,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 193:21: -> ^( ARR_DECL type ID )
+				// 197:21: -> ^( ARR_DECL type ID )
 				{
-					DebugLocation(193, 24);
-					// Lang2.g:193:24: ^( ARR_DECL type ID )
+					DebugLocation(197, 24);
+					// Lang2.g:197:24: ^( ARR_DECL type ID )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(193, 26);
+					DebugLocation(197, 26);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(ARR_DECL, "ARR_DECL"), root_1);
 
-					DebugLocation(193, 35);
+					DebugLocation(197, 35);
 					adaptor.AddChild(root_1, stream_type.NextTree());
-					DebugLocation(193, 40);
+					DebugLocation(197, 40);
 					adaptor.AddChild(root_1, stream_ID.NextNode());
 
 					adaptor.AddChild(root_0, root_1);
@@ -3568,11 +3733,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methArgODecl", 24);
-			LeaveRule("methArgODecl", 24);
+			TraceOut("methArgODecl", 25);
+			LeaveRule("methArgODecl", 25);
 			Leave_methArgODecl();
 		}
-		DebugLocation(194, 4);
+		DebugLocation(198, 4);
 		} finally { DebugExitRule(GrammarFileName, "methArgODecl"); }
 		return retval;
 
@@ -3589,83 +3754,83 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methDeclArgs();
 
 	// $ANTLR start "methDeclArgs"
-	// Lang2.g:196:1: methDeclArgs : methArgODecl ( ',' methArgODecl )* ;
+	// Lang2.g:200:1: methDeclArgs : methArgODecl ( ',' methArgODecl )* ;
 	[GrammarRule("methDeclArgs")]
 	private Lang2Parser.methDeclArgs_return methDeclArgs()
 	{
 		Enter_methDeclArgs();
-		EnterRule("methDeclArgs", 25);
-		TraceIn("methDeclArgs", 25);
+		EnterRule("methDeclArgs", 26);
+		TraceIn("methDeclArgs", 26);
 		Lang2Parser.methDeclArgs_return retval = new Lang2Parser.methDeclArgs_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken char_literal124=null;
-		Lang2Parser.methArgODecl_return methArgODecl123 = default(Lang2Parser.methArgODecl_return);
-		Lang2Parser.methArgODecl_return methArgODecl125 = default(Lang2Parser.methArgODecl_return);
+		IToken char_literal129=null;
+		Lang2Parser.methArgODecl_return methArgODecl128 = default(Lang2Parser.methArgODecl_return);
+		Lang2Parser.methArgODecl_return methArgODecl130 = default(Lang2Parser.methArgODecl_return);
 
-		object char_literal124_tree=null;
+		object char_literal129_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "methDeclArgs");
-		DebugLocation(196, 4);
+		DebugLocation(200, 4);
 		try
 		{
-			// Lang2.g:196:14: ( methArgODecl ( ',' methArgODecl )* )
+			// Lang2.g:200:14: ( methArgODecl ( ',' methArgODecl )* )
 			DebugEnterAlt(1);
-			// Lang2.g:196:16: methArgODecl ( ',' methArgODecl )*
+			// Lang2.g:200:16: methArgODecl ( ',' methArgODecl )*
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(196, 16);
-			PushFollow(Follow._methArgODecl_in_methDeclArgs1265);
-			methArgODecl123=methArgODecl();
+			DebugLocation(200, 16);
+			PushFollow(Follow._methArgODecl_in_methDeclArgs1300);
+			methArgODecl128=methArgODecl();
 			PopFollow();
 
-			adaptor.AddChild(root_0, methArgODecl123.Tree);
-			DebugLocation(196, 28);
-			// Lang2.g:196:28: ( ',' methArgODecl )*
-			try { DebugEnterSubRule(15);
+			adaptor.AddChild(root_0, methArgODecl128.Tree);
+			DebugLocation(200, 28);
+			// Lang2.g:200:28: ( ',' methArgODecl )*
+			try { DebugEnterSubRule(16);
 			while (true)
 			{
-				int alt15=2;
-				try { DebugEnterDecision(15, decisionCanBacktrack[15]);
-				int LA15_0 = input.LA(1);
+				int alt16=2;
+				try { DebugEnterDecision(16, decisionCanBacktrack[16]);
+				int LA16_0 = input.LA(1);
 
-				if ((LA15_0==54))
+				if ((LA16_0==55))
 				{
-					alt15=1;
+					alt16=1;
 				}
 
 
-				} finally { DebugExitDecision(15); }
-				switch ( alt15 )
+				} finally { DebugExitDecision(16); }
+				switch ( alt16 )
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:196:29: ',' methArgODecl
+					// Lang2.g:200:29: ',' methArgODecl
 					{
-					DebugLocation(196, 32);
-					char_literal124=(IToken)Match(input,54,Follow._54_in_methDeclArgs1267); 
-					DebugLocation(196, 33);
-					PushFollow(Follow._methArgODecl_in_methDeclArgs1269);
-					methArgODecl125=methArgODecl();
+					DebugLocation(200, 32);
+					char_literal129=(IToken)Match(input,55,Follow._55_in_methDeclArgs1302); 
+					DebugLocation(200, 33);
+					PushFollow(Follow._methArgODecl_in_methDeclArgs1304);
+					methArgODecl130=methArgODecl();
 					PopFollow();
 
-					adaptor.AddChild(root_0, methArgODecl125.Tree);
+					adaptor.AddChild(root_0, methArgODecl130.Tree);
 
 					}
 					break;
 
 				default:
-					goto loop15;
+					goto loop16;
 				}
 			}
 
-			loop15:
+			loop16:
 				;
 
-			} finally { DebugExitSubRule(15); }
+			} finally { DebugExitSubRule(16); }
 
 
 			}
@@ -3685,11 +3850,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methDeclArgs", 25);
-			LeaveRule("methDeclArgs", 25);
+			TraceOut("methDeclArgs", 26);
+			LeaveRule("methDeclArgs", 26);
 			Leave_methDeclArgs();
 		}
-		DebugLocation(197, 4);
+		DebugLocation(201, 4);
 		} finally { DebugExitRule(GrammarFileName, "methDeclArgs"); }
 		return retval;
 
@@ -3706,59 +3871,59 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methDeclArgsW();
 
 	// $ANTLR start "methDeclArgsW"
-	// Lang2.g:198:1: methDeclArgsW : ( methDeclArgs )? -> ^( DECL_ARGS ( methDeclArgs )? ) ;
+	// Lang2.g:202:1: methDeclArgsW : ( methDeclArgs )? -> ^( DECL_ARGS ( methDeclArgs )? ) ;
 	[GrammarRule("methDeclArgsW")]
 	private Lang2Parser.methDeclArgsW_return methDeclArgsW()
 	{
 		Enter_methDeclArgsW();
-		EnterRule("methDeclArgsW", 26);
-		TraceIn("methDeclArgsW", 26);
+		EnterRule("methDeclArgsW", 27);
+		TraceIn("methDeclArgsW", 27);
 		Lang2Parser.methDeclArgsW_return retval = new Lang2Parser.methDeclArgsW_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.methDeclArgs_return methDeclArgs126 = default(Lang2Parser.methDeclArgs_return);
+		Lang2Parser.methDeclArgs_return methDeclArgs131 = default(Lang2Parser.methDeclArgs_return);
 
 		RewriteRuleSubtreeStream stream_methDeclArgs=new RewriteRuleSubtreeStream(adaptor,"rule methDeclArgs");
 		try { DebugEnterRule(GrammarFileName, "methDeclArgsW");
-		DebugLocation(198, 4);
+		DebugLocation(202, 4);
 		try
 		{
-			// Lang2.g:198:15: ( ( methDeclArgs )? -> ^( DECL_ARGS ( methDeclArgs )? ) )
+			// Lang2.g:202:15: ( ( methDeclArgs )? -> ^( DECL_ARGS ( methDeclArgs )? ) )
 			DebugEnterAlt(1);
-			// Lang2.g:198:17: ( methDeclArgs )?
+			// Lang2.g:202:17: ( methDeclArgs )?
 			{
-			DebugLocation(198, 17);
-			// Lang2.g:198:17: ( methDeclArgs )?
-			int alt16=2;
-			try { DebugEnterSubRule(16);
-			try { DebugEnterDecision(16, decisionCanBacktrack[16]);
-			int LA16_0 = input.LA(1);
+			DebugLocation(202, 17);
+			// Lang2.g:202:17: ( methDeclArgs )?
+			int alt17=2;
+			try { DebugEnterSubRule(17);
+			try { DebugEnterDecision(17, decisionCanBacktrack[17]);
+			int LA17_0 = input.LA(1);
 
-			if (((LA16_0>=TINT && LA16_0<=TVOID)))
+			if (((LA17_0>=TINT && LA17_0<=TVOID)))
 			{
-				alt16=1;
+				alt17=1;
 			}
-			} finally { DebugExitDecision(16); }
-			switch (alt16)
+			} finally { DebugExitDecision(17); }
+			switch (alt17)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:198:17: methDeclArgs
+				// Lang2.g:202:17: methDeclArgs
 				{
-				DebugLocation(198, 17);
-				PushFollow(Follow._methDeclArgs_in_methDeclArgsW1283);
-				methDeclArgs126=methDeclArgs();
+				DebugLocation(202, 17);
+				PushFollow(Follow._methDeclArgs_in_methDeclArgsW1318);
+				methDeclArgs131=methDeclArgs();
 				PopFollow();
 
-				stream_methDeclArgs.Add(methDeclArgs126.Tree);
+				stream_methDeclArgs.Add(methDeclArgs131.Tree);
 
 				}
 				break;
 
 			}
-			} finally { DebugExitSubRule(16); }
+			} finally { DebugExitSubRule(17); }
 
 
 
@@ -3774,20 +3939,20 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 198:31: -> ^( DECL_ARGS ( methDeclArgs )? )
+			// 202:31: -> ^( DECL_ARGS ( methDeclArgs )? )
 			{
-				DebugLocation(198, 34);
-				// Lang2.g:198:34: ^( DECL_ARGS ( methDeclArgs )? )
+				DebugLocation(202, 34);
+				// Lang2.g:202:34: ^( DECL_ARGS ( methDeclArgs )? )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(198, 36);
+				DebugLocation(202, 36);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(DECL_ARGS, "DECL_ARGS"), root_1);
 
-				DebugLocation(198, 46);
-				// Lang2.g:198:46: ( methDeclArgs )?
+				DebugLocation(202, 46);
+				// Lang2.g:202:46: ( methDeclArgs )?
 				if ( stream_methDeclArgs.HasNext )
 				{
-					DebugLocation(198, 46);
+					DebugLocation(202, 46);
 					adaptor.AddChild(root_1, stream_methDeclArgs.NextTree());
 
 				}
@@ -3818,11 +3983,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methDeclArgsW", 26);
-			LeaveRule("methDeclArgsW", 26);
+			TraceOut("methDeclArgsW", 27);
+			LeaveRule("methDeclArgsW", 27);
 			Leave_methDeclArgsW();
 		}
-		DebugLocation(199, 4);
+		DebugLocation(203, 4);
 		} finally { DebugExitRule(GrammarFileName, "methDeclArgsW"); }
 		return retval;
 
@@ -3839,52 +4004,52 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methRetType();
 
 	// $ANTLR start "methRetType"
-	// Lang2.g:201:1: methRetType : ( type -> ^( RET_TYPE_SINGLE type ) | type '[' ']' -> ^( RET_TYPE_ARR type ) );
+	// Lang2.g:205:1: methRetType : ( type -> ^( RET_TYPE_SINGLE type ) | type '[' ']' -> ^( RET_TYPE_ARR type ) );
 	[GrammarRule("methRetType")]
 	private Lang2Parser.methRetType_return methRetType()
 	{
 		Enter_methRetType();
-		EnterRule("methRetType", 27);
-		TraceIn("methRetType", 27);
+		EnterRule("methRetType", 28);
+		TraceIn("methRetType", 28);
 		Lang2Parser.methRetType_return retval = new Lang2Parser.methRetType_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken char_literal129=null;
-		IToken char_literal130=null;
-		Lang2Parser.type_return type127 = default(Lang2Parser.type_return);
-		Lang2Parser.type_return type128 = default(Lang2Parser.type_return);
+		IToken char_literal134=null;
+		IToken char_literal135=null;
+		Lang2Parser.type_return type132 = default(Lang2Parser.type_return);
+		Lang2Parser.type_return type133 = default(Lang2Parser.type_return);
 
-		object char_literal129_tree=null;
-		object char_literal130_tree=null;
+		object char_literal134_tree=null;
+		object char_literal135_tree=null;
 		RewriteRuleITokenStream stream_49=new RewriteRuleITokenStream(adaptor,"token 49");
-		RewriteRuleITokenStream stream_48=new RewriteRuleITokenStream(adaptor,"token 48");
+		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
 		RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
 		try { DebugEnterRule(GrammarFileName, "methRetType");
-		DebugLocation(201, 3);
+		DebugLocation(205, 3);
 		try
 		{
-			// Lang2.g:201:13: ( type -> ^( RET_TYPE_SINGLE type ) | type '[' ']' -> ^( RET_TYPE_ARR type ) )
-			int alt17=2;
-			try { DebugEnterDecision(17, decisionCanBacktrack[17]);
-			int LA17_0 = input.LA(1);
+			// Lang2.g:205:13: ( type -> ^( RET_TYPE_SINGLE type ) | type '[' ']' -> ^( RET_TYPE_ARR type ) )
+			int alt18=2;
+			try { DebugEnterDecision(18, decisionCanBacktrack[18]);
+			int LA18_0 = input.LA(1);
 
-			if (((LA17_0>=TINT && LA17_0<=TVOID)))
+			if (((LA18_0>=TINT && LA18_0<=TVOID)))
 			{
-				int LA17_1 = input.LA(2);
+				int LA18_1 = input.LA(2);
 
-				if ((LA17_1==ID))
+				if ((LA18_1==ID))
 				{
-					alt17=1;
+					alt18=1;
 				}
-				else if ((LA17_1==48))
+				else if ((LA18_1==49))
 				{
-					alt17=2;
+					alt18=2;
 				}
 				else
 				{
-					NoViableAltException nvae = new NoViableAltException("", 17, 1, input);
+					NoViableAltException nvae = new NoViableAltException("", 18, 1, input);
 
 					DebugRecognitionException(nvae);
 					throw nvae;
@@ -3892,24 +4057,24 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 17, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 18, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(17); }
-			switch (alt17)
+			} finally { DebugExitDecision(18); }
+			switch (alt18)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:201:15: type
+				// Lang2.g:205:15: type
 				{
-				DebugLocation(201, 15);
-				PushFollow(Follow._type_in_methRetType1306);
-				type127=type();
+				DebugLocation(205, 15);
+				PushFollow(Follow._type_in_methRetType1341);
+				type132=type();
 				PopFollow();
 
-				stream_type.Add(type127.Tree);
+				stream_type.Add(type132.Tree);
 
 
 				{
@@ -3924,16 +4089,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 201:20: -> ^( RET_TYPE_SINGLE type )
+				// 205:20: -> ^( RET_TYPE_SINGLE type )
 				{
-					DebugLocation(201, 22);
-					// Lang2.g:201:22: ^( RET_TYPE_SINGLE type )
+					DebugLocation(205, 22);
+					// Lang2.g:205:22: ^( RET_TYPE_SINGLE type )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(201, 24);
+					DebugLocation(205, 24);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(RET_TYPE_SINGLE, "RET_TYPE_SINGLE"), root_1);
 
-					DebugLocation(201, 40);
+					DebugLocation(205, 40);
 					adaptor.AddChild(root_1, stream_type.NextTree());
 
 					adaptor.AddChild(root_0, root_1);
@@ -3948,21 +4113,21 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:202:6: type '[' ']'
+				// Lang2.g:206:6: type '[' ']'
 				{
-				DebugLocation(202, 6);
-				PushFollow(Follow._type_in_methRetType1320);
-				type128=type();
+				DebugLocation(206, 6);
+				PushFollow(Follow._type_in_methRetType1355);
+				type133=type();
 				PopFollow();
 
-				stream_type.Add(type128.Tree);
-				DebugLocation(202, 10);
-				char_literal129=(IToken)Match(input,48,Follow._48_in_methRetType1321);  
-				stream_48.Add(char_literal129);
+				stream_type.Add(type133.Tree);
+				DebugLocation(206, 10);
+				char_literal134=(IToken)Match(input,49,Follow._49_in_methRetType1356);  
+				stream_49.Add(char_literal134);
 
-				DebugLocation(202, 13);
-				char_literal130=(IToken)Match(input,49,Follow._49_in_methRetType1322);  
-				stream_49.Add(char_literal130);
+				DebugLocation(206, 13);
+				char_literal135=(IToken)Match(input,50,Follow._50_in_methRetType1357);  
+				stream_50.Add(char_literal135);
 
 
 
@@ -3978,16 +4143,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 202:17: -> ^( RET_TYPE_ARR type )
+				// 206:17: -> ^( RET_TYPE_ARR type )
 				{
-					DebugLocation(202, 20);
-					// Lang2.g:202:20: ^( RET_TYPE_ARR type )
+					DebugLocation(206, 20);
+					// Lang2.g:206:20: ^( RET_TYPE_ARR type )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(202, 22);
+					DebugLocation(206, 22);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(RET_TYPE_ARR, "RET_TYPE_ARR"), root_1);
 
-					DebugLocation(202, 35);
+					DebugLocation(206, 35);
 					adaptor.AddChild(root_1, stream_type.NextTree());
 
 					adaptor.AddChild(root_0, root_1);
@@ -4017,11 +4182,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methRetType", 27);
-			LeaveRule("methRetType", 27);
+			TraceOut("methRetType", 28);
+			LeaveRule("methRetType", 28);
 			Leave_methRetType();
 		}
-		DebugLocation(203, 3);
+		DebugLocation(207, 3);
 		} finally { DebugExitRule(GrammarFileName, "methRetType"); }
 		return retval;
 
@@ -4038,91 +4203,91 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_methDecl();
 
 	// $ANTLR start "methDecl"
-	// Lang2.g:204:1: methDecl : methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}' -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr ) ;
+	// Lang2.g:208:1: methDecl : methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}' -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr ) ;
 	[GrammarRule("methDecl")]
 	private Lang2Parser.methDecl_return methDecl()
 	{
 		Enter_methDecl();
-		EnterRule("methDecl", 28);
-		TraceIn("methDecl", 28);
+		EnterRule("methDecl", 29);
+		TraceIn("methDecl", 29);
 		Lang2Parser.methDecl_return retval = new Lang2Parser.methDecl_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID132=null;
-		IToken char_literal133=null;
-		IToken char_literal135=null;
-		IToken char_literal136=null;
+		IToken ID137=null;
 		IToken char_literal138=null;
-		Lang2Parser.methRetType_return methRetType131 = default(Lang2Parser.methRetType_return);
-		Lang2Parser.methDeclArgsW_return methDeclArgsW134 = default(Lang2Parser.methDeclArgsW_return);
-		Lang2Parser.bodyExpr_return bodyExpr137 = default(Lang2Parser.bodyExpr_return);
+		IToken char_literal140=null;
+		IToken char_literal141=null;
+		IToken char_literal143=null;
+		Lang2Parser.methRetType_return methRetType136 = default(Lang2Parser.methRetType_return);
+		Lang2Parser.methDeclArgsW_return methDeclArgsW139 = default(Lang2Parser.methDeclArgsW_return);
+		Lang2Parser.bodyExpr_return bodyExpr142 = default(Lang2Parser.bodyExpr_return);
 
-		object ID132_tree=null;
-		object char_literal133_tree=null;
-		object char_literal135_tree=null;
-		object char_literal136_tree=null;
+		object ID137_tree=null;
 		object char_literal138_tree=null;
+		object char_literal140_tree=null;
+		object char_literal141_tree=null;
+		object char_literal143_tree=null;
 		RewriteRuleITokenStream stream_51=new RewriteRuleITokenStream(adaptor,"token 51");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
 		RewriteRuleITokenStream stream_52=new RewriteRuleITokenStream(adaptor,"token 52");
 		RewriteRuleITokenStream stream_53=new RewriteRuleITokenStream(adaptor,"token 53");
-		RewriteRuleITokenStream stream_50=new RewriteRuleITokenStream(adaptor,"token 50");
+		RewriteRuleITokenStream stream_54=new RewriteRuleITokenStream(adaptor,"token 54");
 		RewriteRuleSubtreeStream stream_bodyExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyExpr");
 		RewriteRuleSubtreeStream stream_methDeclArgsW=new RewriteRuleSubtreeStream(adaptor,"rule methDeclArgsW");
 		RewriteRuleSubtreeStream stream_methRetType=new RewriteRuleSubtreeStream(adaptor,"rule methRetType");
 		try { DebugEnterRule(GrammarFileName, "methDecl");
-		DebugLocation(204, 3);
+		DebugLocation(208, 3);
 		try
 		{
-			// Lang2.g:204:10: ( methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}' -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr ) )
+			// Lang2.g:208:10: ( methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}' -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:204:12: methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}'
+			// Lang2.g:208:12: methRetType ID '(' methDeclArgsW ')' '{' bodyExpr '}'
 			{
-			DebugLocation(204, 12);
-			PushFollow(Follow._methRetType_in_methDecl1341);
-			methRetType131=methRetType();
+			DebugLocation(208, 12);
+			PushFollow(Follow._methRetType_in_methDecl1376);
+			methRetType136=methRetType();
 			PopFollow();
 
-			stream_methRetType.Add(methRetType131.Tree);
-			DebugLocation(204, 24);
-			ID132=(IToken)Match(input,ID,Follow._ID_in_methDecl1343);  
-			stream_ID.Add(ID132);
+			stream_methRetType.Add(methRetType136.Tree);
+			DebugLocation(208, 24);
+			ID137=(IToken)Match(input,ID,Follow._ID_in_methDecl1378);  
+			stream_ID.Add(ID137);
 
-			DebugLocation(204, 27);
-			char_literal133=(IToken)Match(input,50,Follow._50_in_methDecl1345);  
-			stream_50.Add(char_literal133);
-
-			DebugLocation(204, 30);
-			PushFollow(Follow._methDeclArgsW_in_methDecl1346);
-			methDeclArgsW134=methDeclArgsW();
-			PopFollow();
-
-			stream_methDeclArgsW.Add(methDeclArgsW134.Tree);
-			DebugLocation(204, 43);
-			char_literal135=(IToken)Match(input,51,Follow._51_in_methDecl1347);  
-			stream_51.Add(char_literal135);
-
-			DebugLocation(204, 47);
-			char_literal136=(IToken)Match(input,52,Follow._52_in_methDecl1349);  
-			stream_52.Add(char_literal136);
-
-			DebugLocation(204, 50);
-			PushFollow(Follow._bodyExpr_in_methDecl1350);
-			bodyExpr137=bodyExpr();
-			PopFollow();
-
-			stream_bodyExpr.Add(bodyExpr137.Tree);
-			DebugLocation(204, 58);
-			char_literal138=(IToken)Match(input,53,Follow._53_in_methDecl1351);  
+			DebugLocation(208, 27);
+			char_literal138=(IToken)Match(input,53,Follow._53_in_methDecl1380);  
 			stream_53.Add(char_literal138);
+
+			DebugLocation(208, 30);
+			PushFollow(Follow._methDeclArgsW_in_methDecl1381);
+			methDeclArgsW139=methDeclArgsW();
+			PopFollow();
+
+			stream_methDeclArgsW.Add(methDeclArgsW139.Tree);
+			DebugLocation(208, 43);
+			char_literal140=(IToken)Match(input,54,Follow._54_in_methDecl1382);  
+			stream_54.Add(char_literal140);
+
+			DebugLocation(208, 47);
+			char_literal141=(IToken)Match(input,51,Follow._51_in_methDecl1384);  
+			stream_51.Add(char_literal141);
+
+			DebugLocation(208, 50);
+			PushFollow(Follow._bodyExpr_in_methDecl1385);
+			bodyExpr142=bodyExpr();
+			PopFollow();
+
+			stream_bodyExpr.Add(bodyExpr142.Tree);
+			DebugLocation(208, 58);
+			char_literal143=(IToken)Match(input,52,Follow._52_in_methDecl1386);  
+			stream_52.Add(char_literal143);
 
 
 
 			{
 			// AST REWRITE
-			// elements: methRetType, bodyExpr, ID, methDeclArgsW
+			// elements: methDeclArgsW, methRetType, bodyExpr, ID
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4132,22 +4297,22 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 204:63: -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr )
+			// 208:63: -> ^( METH_DECL methRetType ID methDeclArgsW bodyExpr )
 			{
-				DebugLocation(204, 66);
-				// Lang2.g:204:66: ^( METH_DECL methRetType ID methDeclArgsW bodyExpr )
+				DebugLocation(208, 66);
+				// Lang2.g:208:66: ^( METH_DECL methRetType ID methDeclArgsW bodyExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(204, 68);
+				DebugLocation(208, 68);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(METH_DECL, "METH_DECL"), root_1);
 
-				DebugLocation(204, 78);
+				DebugLocation(208, 78);
 				adaptor.AddChild(root_1, stream_methRetType.NextTree());
-				DebugLocation(204, 90);
+				DebugLocation(208, 90);
 				adaptor.AddChild(root_1, stream_ID.NextNode());
-				DebugLocation(204, 93);
+				DebugLocation(208, 93);
 				adaptor.AddChild(root_1, stream_methDeclArgsW.NextTree());
-				DebugLocation(204, 107);
+				DebugLocation(208, 107);
 				adaptor.AddChild(root_1, stream_bodyExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -4175,11 +4340,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("methDecl", 28);
-			LeaveRule("methDecl", 28);
+			TraceOut("methDecl", 29);
+			LeaveRule("methDecl", 29);
 			Leave_methDecl();
 		}
-		DebugLocation(205, 3);
+		DebugLocation(209, 3);
 		} finally { DebugExitRule(GrammarFileName, "methDecl"); }
 		return retval;
 
@@ -4196,89 +4361,89 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_moreVarDecl();
 
 	// $ANTLR start "moreVarDecl"
-	// Lang2.g:207:1: moreVarDecl : ID ( ',' ID )+ ;
+	// Lang2.g:211:1: moreVarDecl : ID ( ',' ID )+ ;
 	[GrammarRule("moreVarDecl")]
 	private Lang2Parser.moreVarDecl_return moreVarDecl()
 	{
 		Enter_moreVarDecl();
-		EnterRule("moreVarDecl", 29);
-		TraceIn("moreVarDecl", 29);
+		EnterRule("moreVarDecl", 30);
+		TraceIn("moreVarDecl", 30);
 		Lang2Parser.moreVarDecl_return retval = new Lang2Parser.moreVarDecl_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID139=null;
-		IToken char_literal140=null;
-		IToken ID141=null;
+		IToken ID144=null;
+		IToken char_literal145=null;
+		IToken ID146=null;
 
-		object ID139_tree=null;
-		object char_literal140_tree=null;
-		object ID141_tree=null;
+		object ID144_tree=null;
+		object char_literal145_tree=null;
+		object ID146_tree=null;
 
 		try { DebugEnterRule(GrammarFileName, "moreVarDecl");
-		DebugLocation(207, 3);
+		DebugLocation(211, 3);
 		try
 		{
-			// Lang2.g:207:13: ( ID ( ',' ID )+ )
+			// Lang2.g:211:13: ( ID ( ',' ID )+ )
 			DebugEnterAlt(1);
-			// Lang2.g:207:15: ID ( ',' ID )+
+			// Lang2.g:211:15: ID ( ',' ID )+
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(207, 15);
-			ID139=(IToken)Match(input,ID,Follow._ID_in_moreVarDecl1378); 
-			ID139_tree = (object)adaptor.Create(ID139);
-			adaptor.AddChild(root_0, ID139_tree);
+			DebugLocation(211, 15);
+			ID144=(IToken)Match(input,ID,Follow._ID_in_moreVarDecl1413); 
+			ID144_tree = (object)adaptor.Create(ID144);
+			adaptor.AddChild(root_0, ID144_tree);
 
-			DebugLocation(207, 17);
-			// Lang2.g:207:17: ( ',' ID )+
-			int cnt18=0;
-			try { DebugEnterSubRule(18);
+			DebugLocation(211, 17);
+			// Lang2.g:211:17: ( ',' ID )+
+			int cnt19=0;
+			try { DebugEnterSubRule(19);
 			while (true)
 			{
-				int alt18=2;
-				try { DebugEnterDecision(18, decisionCanBacktrack[18]);
-				int LA18_0 = input.LA(1);
+				int alt19=2;
+				try { DebugEnterDecision(19, decisionCanBacktrack[19]);
+				int LA19_0 = input.LA(1);
 
-				if ((LA18_0==54))
+				if ((LA19_0==55))
 				{
-					alt18=1;
+					alt19=1;
 				}
 
 
-				} finally { DebugExitDecision(18); }
-				switch (alt18)
+				} finally { DebugExitDecision(19); }
+				switch (alt19)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:207:18: ',' ID
+					// Lang2.g:211:18: ',' ID
 					{
-					DebugLocation(207, 21);
-					char_literal140=(IToken)Match(input,54,Follow._54_in_moreVarDecl1380); 
-					DebugLocation(207, 23);
-					ID141=(IToken)Match(input,ID,Follow._ID_in_moreVarDecl1383); 
-					ID141_tree = (object)adaptor.Create(ID141);
-					adaptor.AddChild(root_0, ID141_tree);
+					DebugLocation(211, 21);
+					char_literal145=(IToken)Match(input,55,Follow._55_in_moreVarDecl1415); 
+					DebugLocation(211, 23);
+					ID146=(IToken)Match(input,ID,Follow._ID_in_moreVarDecl1418); 
+					ID146_tree = (object)adaptor.Create(ID146);
+					adaptor.AddChild(root_0, ID146_tree);
 
 
 					}
 					break;
 
 				default:
-					if (cnt18 >= 1)
-						goto loop18;
+					if (cnt19 >= 1)
+						goto loop19;
 
-					EarlyExitException eee18 = new EarlyExitException( 18, input );
-					DebugRecognitionException(eee18);
-					throw eee18;
+					EarlyExitException eee19 = new EarlyExitException( 19, input );
+					DebugRecognitionException(eee19);
+					throw eee19;
 				}
-				cnt18++;
+				cnt19++;
 			}
-			loop18:
+			loop19:
 				;
 
-			} finally { DebugExitSubRule(18); }
+			} finally { DebugExitSubRule(19); }
 
 
 			}
@@ -4298,11 +4463,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("moreVarDecl", 29);
-			LeaveRule("moreVarDecl", 29);
+			TraceOut("moreVarDecl", 30);
+			LeaveRule("moreVarDecl", 30);
 			Leave_moreVarDecl();
 		}
-		DebugLocation(208, 3);
+		DebugLocation(212, 3);
 		} finally { DebugExitRule(GrammarFileName, "moreVarDecl"); }
 		return retval;
 
@@ -4319,47 +4484,47 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_assW();
 
 	// $ANTLR start "assW"
-	// Lang2.g:209:1: assW : ASS mathExpr -> ^( ASS mathExpr ) ;
+	// Lang2.g:213:1: assW : ASS mathExpr -> ^( ASS mathExpr ) ;
 	[GrammarRule("assW")]
 	private Lang2Parser.assW_return assW()
 	{
 		Enter_assW();
-		EnterRule("assW", 30);
-		TraceIn("assW", 30);
+		EnterRule("assW", 31);
+		TraceIn("assW", 31);
 		Lang2Parser.assW_return retval = new Lang2Parser.assW_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ASS142=null;
-		Lang2Parser.mathExpr_return mathExpr143 = default(Lang2Parser.mathExpr_return);
+		IToken ASS147=null;
+		Lang2Parser.mathExpr_return mathExpr148 = default(Lang2Parser.mathExpr_return);
 
-		object ASS142_tree=null;
+		object ASS147_tree=null;
 		RewriteRuleITokenStream stream_ASS=new RewriteRuleITokenStream(adaptor,"token ASS");
 		RewriteRuleSubtreeStream stream_mathExpr=new RewriteRuleSubtreeStream(adaptor,"rule mathExpr");
 		try { DebugEnterRule(GrammarFileName, "assW");
-		DebugLocation(209, 2);
+		DebugLocation(213, 2);
 		try
 		{
-			// Lang2.g:209:6: ( ASS mathExpr -> ^( ASS mathExpr ) )
+			// Lang2.g:213:6: ( ASS mathExpr -> ^( ASS mathExpr ) )
 			DebugEnterAlt(1);
-			// Lang2.g:209:8: ASS mathExpr
+			// Lang2.g:213:8: ASS mathExpr
 			{
-			DebugLocation(209, 11);
-			ASS142=(IToken)Match(input,ASS,Follow._ASS_in_assW1396);  
-			stream_ASS.Add(ASS142);
+			DebugLocation(213, 11);
+			ASS147=(IToken)Match(input,ASS,Follow._ASS_in_assW1431);  
+			stream_ASS.Add(ASS147);
 
-			DebugLocation(209, 13);
-			PushFollow(Follow._mathExpr_in_assW1399);
-			mathExpr143=mathExpr();
+			DebugLocation(213, 13);
+			PushFollow(Follow._mathExpr_in_assW1434);
+			mathExpr148=mathExpr();
 			PopFollow();
 
-			stream_mathExpr.Add(mathExpr143.Tree);
+			stream_mathExpr.Add(mathExpr148.Tree);
 
 
 			{
 			// AST REWRITE
-			// elements: ASS, mathExpr
+			// elements: mathExpr, ASS
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4369,16 +4534,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 209:22: -> ^( ASS mathExpr )
+			// 213:22: -> ^( ASS mathExpr )
 			{
-				DebugLocation(209, 24);
-				// Lang2.g:209:24: ^( ASS mathExpr )
+				DebugLocation(213, 24);
+				// Lang2.g:213:24: ^( ASS mathExpr )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(209, 26);
+				DebugLocation(213, 26);
 				root_1 = (object)adaptor.BecomeRoot(stream_ASS.NextNode(), root_1);
 
-				DebugLocation(209, 30);
+				DebugLocation(213, 30);
 				adaptor.AddChild(root_1, stream_mathExpr.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -4406,11 +4571,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("assW", 30);
-			LeaveRule("assW", 30);
+			TraceOut("assW", 31);
+			LeaveRule("assW", 31);
 			Leave_assW();
 		}
-		DebugLocation(210, 2);
+		DebugLocation(214, 2);
 		} finally { DebugExitRule(GrammarFileName, "assW"); }
 		return retval;
 
@@ -4427,62 +4592,62 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_varDecl();
 
 	// $ANTLR start "varDecl"
-	// Lang2.g:211:1: varDecl : ( type ID ( assW )? OP_END -> ^( VAR_DECL type ID ( assW )? ) | type moreVarDecl OP_END -> ^( VAR_DECL type moreVarDecl ) );
+	// Lang2.g:215:1: varDecl : ( type ID ( assW )? OP_END -> ^( VAR_DECL type ID ( assW )? ) | type moreVarDecl OP_END -> ^( VAR_DECL type moreVarDecl ) );
 	[GrammarRule("varDecl")]
 	private Lang2Parser.varDecl_return varDecl()
 	{
 		Enter_varDecl();
-		EnterRule("varDecl", 31);
-		TraceIn("varDecl", 31);
+		EnterRule("varDecl", 32);
+		TraceIn("varDecl", 32);
 		Lang2Parser.varDecl_return retval = new Lang2Parser.varDecl_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken ID145=null;
-		IToken OP_END147=null;
-		IToken OP_END150=null;
-		Lang2Parser.type_return type144 = default(Lang2Parser.type_return);
-		Lang2Parser.assW_return assW146 = default(Lang2Parser.assW_return);
-		Lang2Parser.type_return type148 = default(Lang2Parser.type_return);
-		Lang2Parser.moreVarDecl_return moreVarDecl149 = default(Lang2Parser.moreVarDecl_return);
+		IToken ID150=null;
+		IToken OP_END152=null;
+		IToken OP_END155=null;
+		Lang2Parser.type_return type149 = default(Lang2Parser.type_return);
+		Lang2Parser.assW_return assW151 = default(Lang2Parser.assW_return);
+		Lang2Parser.type_return type153 = default(Lang2Parser.type_return);
+		Lang2Parser.moreVarDecl_return moreVarDecl154 = default(Lang2Parser.moreVarDecl_return);
 
-		object ID145_tree=null;
-		object OP_END147_tree=null;
-		object OP_END150_tree=null;
+		object ID150_tree=null;
+		object OP_END152_tree=null;
+		object OP_END155_tree=null;
 		RewriteRuleITokenStream stream_OP_END=new RewriteRuleITokenStream(adaptor,"token OP_END");
 		RewriteRuleITokenStream stream_ID=new RewriteRuleITokenStream(adaptor,"token ID");
 		RewriteRuleSubtreeStream stream_moreVarDecl=new RewriteRuleSubtreeStream(adaptor,"rule moreVarDecl");
 		RewriteRuleSubtreeStream stream_assW=new RewriteRuleSubtreeStream(adaptor,"rule assW");
 		RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
 		try { DebugEnterRule(GrammarFileName, "varDecl");
-		DebugLocation(211, 2);
+		DebugLocation(215, 2);
 		try
 		{
-			// Lang2.g:211:9: ( type ID ( assW )? OP_END -> ^( VAR_DECL type ID ( assW )? ) | type moreVarDecl OP_END -> ^( VAR_DECL type moreVarDecl ) )
-			int alt20=2;
-			try { DebugEnterDecision(20, decisionCanBacktrack[20]);
-			int LA20_0 = input.LA(1);
+			// Lang2.g:215:9: ( type ID ( assW )? OP_END -> ^( VAR_DECL type ID ( assW )? ) | type moreVarDecl OP_END -> ^( VAR_DECL type moreVarDecl ) )
+			int alt21=2;
+			try { DebugEnterDecision(21, decisionCanBacktrack[21]);
+			int LA21_0 = input.LA(1);
 
-			if (((LA20_0>=TINT && LA20_0<=TVOID)))
+			if (((LA21_0>=TINT && LA21_0<=TVOID)))
 			{
-				int LA20_1 = input.LA(2);
+				int LA21_1 = input.LA(2);
 
-				if ((LA20_1==ID))
+				if ((LA21_1==ID))
 				{
-					int LA20_2 = input.LA(3);
+					int LA21_2 = input.LA(3);
 
-					if ((LA20_2==OP_END||LA20_2==ASS))
+					if ((LA21_2==OP_END||LA21_2==ASS))
 					{
-						alt20=1;
+						alt21=1;
 					}
-					else if ((LA20_2==54))
+					else if ((LA21_2==55))
 					{
-						alt20=2;
+						alt21=2;
 					}
 					else
 					{
-						NoViableAltException nvae = new NoViableAltException("", 20, 2, input);
+						NoViableAltException nvae = new NoViableAltException("", 21, 2, input);
 
 						DebugRecognitionException(nvae);
 						throw nvae;
@@ -4490,7 +4655,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				}
 				else
 				{
-					NoViableAltException nvae = new NoViableAltException("", 20, 1, input);
+					NoViableAltException nvae = new NoViableAltException("", 21, 1, input);
 
 					DebugRecognitionException(nvae);
 					throw nvae;
@@ -4498,68 +4663,68 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 20, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 21, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(20); }
-			switch (alt20)
+			} finally { DebugExitDecision(21); }
+			switch (alt21)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:211:11: type ID ( assW )? OP_END
+				// Lang2.g:215:11: type ID ( assW )? OP_END
 				{
-				DebugLocation(211, 11);
-				PushFollow(Follow._type_in_varDecl1416);
-				type144=type();
+				DebugLocation(215, 11);
+				PushFollow(Follow._type_in_varDecl1451);
+				type149=type();
 				PopFollow();
 
-				stream_type.Add(type144.Tree);
-				DebugLocation(211, 16);
-				ID145=(IToken)Match(input,ID,Follow._ID_in_varDecl1418);  
-				stream_ID.Add(ID145);
+				stream_type.Add(type149.Tree);
+				DebugLocation(215, 16);
+				ID150=(IToken)Match(input,ID,Follow._ID_in_varDecl1453);  
+				stream_ID.Add(ID150);
 
-				DebugLocation(211, 19);
-				// Lang2.g:211:19: ( assW )?
-				int alt19=2;
-				try { DebugEnterSubRule(19);
-				try { DebugEnterDecision(19, decisionCanBacktrack[19]);
-				int LA19_0 = input.LA(1);
+				DebugLocation(215, 19);
+				// Lang2.g:215:19: ( assW )?
+				int alt20=2;
+				try { DebugEnterSubRule(20);
+				try { DebugEnterDecision(20, decisionCanBacktrack[20]);
+				int LA20_0 = input.LA(1);
 
-				if ((LA19_0==ASS))
+				if ((LA20_0==ASS))
 				{
-					alt19=1;
+					alt20=1;
 				}
-				} finally { DebugExitDecision(19); }
-				switch (alt19)
+				} finally { DebugExitDecision(20); }
+				switch (alt20)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:211:19: assW
+					// Lang2.g:215:19: assW
 					{
-					DebugLocation(211, 19);
-					PushFollow(Follow._assW_in_varDecl1420);
-					assW146=assW();
+					DebugLocation(215, 19);
+					PushFollow(Follow._assW_in_varDecl1455);
+					assW151=assW();
 					PopFollow();
 
-					stream_assW.Add(assW146.Tree);
+					stream_assW.Add(assW151.Tree);
 
 					}
 					break;
 
 				}
-				} finally { DebugExitSubRule(19); }
+				} finally { DebugExitSubRule(20); }
 
-				DebugLocation(211, 25);
-				OP_END147=(IToken)Match(input,OP_END,Follow._OP_END_in_varDecl1423);  
-				stream_OP_END.Add(OP_END147);
+				DebugLocation(215, 25);
+				OP_END152=(IToken)Match(input,OP_END,Follow._OP_END_in_varDecl1458);  
+				stream_OP_END.Add(OP_END152);
 
 
 
 				{
 				// AST REWRITE
-				// elements: assW, ID, type
+				// elements: ID, assW, type
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -4569,24 +4734,24 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 211:32: -> ^( VAR_DECL type ID ( assW )? )
+				// 215:32: -> ^( VAR_DECL type ID ( assW )? )
 				{
-					DebugLocation(211, 35);
-					// Lang2.g:211:35: ^( VAR_DECL type ID ( assW )? )
+					DebugLocation(215, 35);
+					// Lang2.g:215:35: ^( VAR_DECL type ID ( assW )? )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(211, 37);
+					DebugLocation(215, 37);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(VAR_DECL, "VAR_DECL"), root_1);
 
-					DebugLocation(211, 46);
+					DebugLocation(215, 46);
 					adaptor.AddChild(root_1, stream_type.NextTree());
-					DebugLocation(211, 51);
+					DebugLocation(215, 51);
 					adaptor.AddChild(root_1, stream_ID.NextNode());
-					DebugLocation(211, 54);
-					// Lang2.g:211:54: ( assW )?
+					DebugLocation(215, 54);
+					// Lang2.g:215:54: ( assW )?
 					if ( stream_assW.HasNext )
 					{
-						DebugLocation(211, 54);
+						DebugLocation(215, 54);
 						adaptor.AddChild(root_1, stream_assW.NextTree());
 
 					}
@@ -4604,23 +4769,23 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:212:6: type moreVarDecl OP_END
+				// Lang2.g:216:6: type moreVarDecl OP_END
 				{
-				DebugLocation(212, 6);
-				PushFollow(Follow._type_in_varDecl1443);
-				type148=type();
+				DebugLocation(216, 6);
+				PushFollow(Follow._type_in_varDecl1478);
+				type153=type();
 				PopFollow();
 
-				stream_type.Add(type148.Tree);
-				DebugLocation(212, 11);
-				PushFollow(Follow._moreVarDecl_in_varDecl1445);
-				moreVarDecl149=moreVarDecl();
+				stream_type.Add(type153.Tree);
+				DebugLocation(216, 11);
+				PushFollow(Follow._moreVarDecl_in_varDecl1480);
+				moreVarDecl154=moreVarDecl();
 				PopFollow();
 
-				stream_moreVarDecl.Add(moreVarDecl149.Tree);
-				DebugLocation(212, 23);
-				OP_END150=(IToken)Match(input,OP_END,Follow._OP_END_in_varDecl1447);  
-				stream_OP_END.Add(OP_END150);
+				stream_moreVarDecl.Add(moreVarDecl154.Tree);
+				DebugLocation(216, 23);
+				OP_END155=(IToken)Match(input,OP_END,Follow._OP_END_in_varDecl1482);  
+				stream_OP_END.Add(OP_END155);
 
 
 
@@ -4636,18 +4801,18 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 				RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 				root_0 = (object)adaptor.Nil();
-				// 212:30: -> ^( VAR_DECL type moreVarDecl )
+				// 216:30: -> ^( VAR_DECL type moreVarDecl )
 				{
-					DebugLocation(212, 33);
-					// Lang2.g:212:33: ^( VAR_DECL type moreVarDecl )
+					DebugLocation(216, 33);
+					// Lang2.g:216:33: ^( VAR_DECL type moreVarDecl )
 					{
 					object root_1 = (object)adaptor.Nil();
-					DebugLocation(212, 35);
+					DebugLocation(216, 35);
 					root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(VAR_DECL, "VAR_DECL"), root_1);
 
-					DebugLocation(212, 44);
+					DebugLocation(216, 44);
 					adaptor.AddChild(root_1, stream_type.NextTree());
-					DebugLocation(212, 49);
+					DebugLocation(216, 49);
 					adaptor.AddChild(root_1, stream_moreVarDecl.NextTree());
 
 					adaptor.AddChild(root_0, root_1);
@@ -4677,11 +4842,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("varDecl", 31);
-			LeaveRule("varDecl", 31);
+			TraceOut("varDecl", 32);
+			LeaveRule("varDecl", 32);
 			Leave_varDecl();
 		}
-		DebugLocation(213, 2);
+		DebugLocation(217, 2);
 		} finally { DebugExitRule(GrammarFileName, "varDecl"); }
 		return retval;
 
@@ -4698,76 +4863,76 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_bodyExpr();
 
 	// $ANTLR start "bodyExpr"
-	// Lang2.g:215:1: bodyExpr : ( bodyFExpr )+ -> ^( BODY ( bodyFExpr )+ ) ;
+	// Lang2.g:219:1: bodyExpr : ( bodyFExpr )+ -> ^( BODY ( bodyFExpr )+ ) ;
 	[GrammarRule("bodyExpr")]
 	private Lang2Parser.bodyExpr_return bodyExpr()
 	{
 		Enter_bodyExpr();
-		EnterRule("bodyExpr", 32);
-		TraceIn("bodyExpr", 32);
+		EnterRule("bodyExpr", 33);
+		TraceIn("bodyExpr", 33);
 		Lang2Parser.bodyExpr_return retval = new Lang2Parser.bodyExpr_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.bodyFExpr_return bodyFExpr151 = default(Lang2Parser.bodyFExpr_return);
+		Lang2Parser.bodyFExpr_return bodyFExpr156 = default(Lang2Parser.bodyFExpr_return);
 
 		RewriteRuleSubtreeStream stream_bodyFExpr=new RewriteRuleSubtreeStream(adaptor,"rule bodyFExpr");
 		try { DebugEnterRule(GrammarFileName, "bodyExpr");
-		DebugLocation(215, 3);
+		DebugLocation(219, 3);
 		try
 		{
-			// Lang2.g:215:10: ( ( bodyFExpr )+ -> ^( BODY ( bodyFExpr )+ ) )
+			// Lang2.g:219:10: ( ( bodyFExpr )+ -> ^( BODY ( bodyFExpr )+ ) )
 			DebugEnterAlt(1);
-			// Lang2.g:215:12: ( bodyFExpr )+
+			// Lang2.g:219:12: ( bodyFExpr )+
 			{
-			DebugLocation(215, 12);
-			// Lang2.g:215:12: ( bodyFExpr )+
-			int cnt21=0;
-			try { DebugEnterSubRule(21);
+			DebugLocation(219, 12);
+			// Lang2.g:219:12: ( bodyFExpr )+
+			int cnt22=0;
+			try { DebugEnterSubRule(22);
 			while (true)
 			{
-				int alt21=2;
-				try { DebugEnterDecision(21, decisionCanBacktrack[21]);
-				int LA21_0 = input.LA(1);
+				int alt22=2;
+				try { DebugEnterDecision(22, decisionCanBacktrack[22]);
+				int LA22_0 = input.LA(1);
 
-				if ((LA21_0==IF||(LA21_0>=FOR && LA21_0<=DO)||(LA21_0>=RETURN && LA21_0<=TVOID)||LA21_0==ID))
+				if ((LA22_0==IF||(LA22_0>=FOR && LA22_0<=DO)||(LA22_0>=RETURN && LA22_0<=TVOID)||LA22_0==ID))
 				{
-					alt21=1;
+					alt22=1;
 				}
 
 
-				} finally { DebugExitDecision(21); }
-				switch (alt21)
+				} finally { DebugExitDecision(22); }
+				switch (alt22)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:215:12: bodyFExpr
+					// Lang2.g:219:12: bodyFExpr
 					{
-					DebugLocation(215, 12);
-					PushFollow(Follow._bodyFExpr_in_bodyExpr1468);
-					bodyFExpr151=bodyFExpr();
+					DebugLocation(219, 12);
+					PushFollow(Follow._bodyFExpr_in_bodyExpr1503);
+					bodyFExpr156=bodyFExpr();
 					PopFollow();
 
-					stream_bodyFExpr.Add(bodyFExpr151.Tree);
+					stream_bodyFExpr.Add(bodyFExpr156.Tree);
 
 					}
 					break;
 
 				default:
-					if (cnt21 >= 1)
-						goto loop21;
+					if (cnt22 >= 1)
+						goto loop22;
 
-					EarlyExitException eee21 = new EarlyExitException( 21, input );
-					DebugRecognitionException(eee21);
-					throw eee21;
+					EarlyExitException eee22 = new EarlyExitException( 22, input );
+					DebugRecognitionException(eee22);
+					throw eee22;
 				}
-				cnt21++;
+				cnt22++;
 			}
-			loop21:
+			loop22:
 				;
 
-			} finally { DebugExitSubRule(21); }
+			} finally { DebugExitSubRule(22); }
 
 
 
@@ -4783,23 +4948,23 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 215:23: -> ^( BODY ( bodyFExpr )+ )
+			// 219:23: -> ^( BODY ( bodyFExpr )+ )
 			{
-				DebugLocation(215, 26);
-				// Lang2.g:215:26: ^( BODY ( bodyFExpr )+ )
+				DebugLocation(219, 26);
+				// Lang2.g:219:26: ^( BODY ( bodyFExpr )+ )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(215, 28);
+				DebugLocation(219, 28);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(BODY, "BODY"), root_1);
 
-				DebugLocation(215, 33);
+				DebugLocation(219, 33);
 				if ( !(stream_bodyFExpr.HasNext) )
 				{
 					throw new RewriteEarlyExitException();
 				}
 				while ( stream_bodyFExpr.HasNext )
 				{
-					DebugLocation(215, 33);
+					DebugLocation(219, 33);
 					adaptor.AddChild(root_1, stream_bodyFExpr.NextTree());
 
 				}
@@ -4830,11 +4995,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("bodyExpr", 32);
-			LeaveRule("bodyExpr", 32);
+			TraceOut("bodyExpr", 33);
+			LeaveRule("bodyExpr", 33);
 			Leave_bodyExpr();
 		}
-		DebugLocation(216, 3);
+		DebugLocation(220, 3);
 		} finally { DebugExitRule(GrammarFileName, "bodyExpr"); }
 		return retval;
 
@@ -4851,60 +5016,60 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_mainBody();
 
 	// $ANTLR start "mainBody"
-	// Lang2.g:218:1: mainBody : ( methDecl | arrDecl | varDecl );
+	// Lang2.g:222:1: mainBody : ( methDecl | arrDecl | varDecl );
 	[GrammarRule("mainBody")]
 	private Lang2Parser.mainBody_return mainBody()
 	{
 		Enter_mainBody();
-		EnterRule("mainBody", 33);
-		TraceIn("mainBody", 33);
+		EnterRule("mainBody", 34);
+		TraceIn("mainBody", 34);
 		Lang2Parser.mainBody_return retval = new Lang2Parser.mainBody_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.methDecl_return methDecl152 = default(Lang2Parser.methDecl_return);
-		Lang2Parser.arrDecl_return arrDecl153 = default(Lang2Parser.arrDecl_return);
-		Lang2Parser.varDecl_return varDecl154 = default(Lang2Parser.varDecl_return);
+		Lang2Parser.methDecl_return methDecl157 = default(Lang2Parser.methDecl_return);
+		Lang2Parser.arrDecl_return arrDecl158 = default(Lang2Parser.arrDecl_return);
+		Lang2Parser.varDecl_return varDecl159 = default(Lang2Parser.varDecl_return);
 
 
 		try { DebugEnterRule(GrammarFileName, "mainBody");
-		DebugLocation(218, 3);
+		DebugLocation(222, 3);
 		try
 		{
-			// Lang2.g:218:10: ( methDecl | arrDecl | varDecl )
-			int alt22=3;
-			try { DebugEnterDecision(22, decisionCanBacktrack[22]);
-			int LA22_0 = input.LA(1);
+			// Lang2.g:222:10: ( methDecl | arrDecl | varDecl )
+			int alt23=3;
+			try { DebugEnterDecision(23, decisionCanBacktrack[23]);
+			int LA23_0 = input.LA(1);
 
-			if (((LA22_0>=TINT && LA22_0<=TVOID)))
+			if (((LA23_0>=TINT && LA23_0<=TVOID)))
 			{
-				int LA22_1 = input.LA(2);
+				int LA23_1 = input.LA(2);
 
-				if ((LA22_1==ID))
+				if ((LA23_1==ID))
 				{
 					switch (input.LA(3))
 					{
-					case 50:
+					case 53:
 						{
-						alt22=1;
+						alt23=1;
 						}
 						break;
-					case 48:
+					case 49:
 						{
-						alt22=2;
+						alt23=2;
 						}
 						break;
 					case OP_END:
 					case ASS:
-					case 54:
+					case 55:
 						{
-						alt22=3;
+						alt23=3;
 						}
 						break;
 					default:
 						{
-							NoViableAltException nvae = new NoViableAltException("", 22, 2, input);
+							NoViableAltException nvae = new NoViableAltException("", 23, 2, input);
 
 							DebugRecognitionException(nvae);
 							throw nvae;
@@ -4912,13 +5077,13 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 					}
 
 				}
-				else if ((LA22_1==48))
+				else if ((LA23_1==49))
 				{
-					alt22=1;
+					alt23=1;
 				}
 				else
 				{
-					NoViableAltException nvae = new NoViableAltException("", 22, 1, input);
+					NoViableAltException nvae = new NoViableAltException("", 23, 1, input);
 
 					DebugRecognitionException(nvae);
 					throw nvae;
@@ -4926,56 +5091,56 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			}
 			else
 			{
-				NoViableAltException nvae = new NoViableAltException("", 22, 0, input);
+				NoViableAltException nvae = new NoViableAltException("", 23, 0, input);
 
 				DebugRecognitionException(nvae);
 				throw nvae;
 			}
-			} finally { DebugExitDecision(22); }
-			switch (alt22)
+			} finally { DebugExitDecision(23); }
+			switch (alt23)
 			{
 			case 1:
 				DebugEnterAlt(1);
-				// Lang2.g:218:12: methDecl
+				// Lang2.g:222:12: methDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(218, 12);
-				PushFollow(Follow._methDecl_in_mainBody1490);
-				methDecl152=methDecl();
+				DebugLocation(222, 12);
+				PushFollow(Follow._methDecl_in_mainBody1525);
+				methDecl157=methDecl();
 				PopFollow();
 
-				adaptor.AddChild(root_0, methDecl152.Tree);
+				adaptor.AddChild(root_0, methDecl157.Tree);
 
 				}
 				break;
 			case 2:
 				DebugEnterAlt(2);
-				// Lang2.g:218:21: arrDecl
+				// Lang2.g:222:21: arrDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(218, 21);
-				PushFollow(Follow._arrDecl_in_mainBody1492);
-				arrDecl153=arrDecl();
+				DebugLocation(222, 21);
+				PushFollow(Follow._arrDecl_in_mainBody1527);
+				arrDecl158=arrDecl();
 				PopFollow();
 
-				adaptor.AddChild(root_0, arrDecl153.Tree);
+				adaptor.AddChild(root_0, arrDecl158.Tree);
 
 				}
 				break;
 			case 3:
 				DebugEnterAlt(3);
-				// Lang2.g:218:29: varDecl
+				// Lang2.g:222:29: varDecl
 				{
 				root_0 = (object)adaptor.Nil();
 
-				DebugLocation(218, 29);
-				PushFollow(Follow._varDecl_in_mainBody1494);
-				varDecl154=varDecl();
+				DebugLocation(222, 29);
+				PushFollow(Follow._varDecl_in_mainBody1529);
+				varDecl159=varDecl();
 				PopFollow();
 
-				adaptor.AddChild(root_0, varDecl154.Tree);
+				adaptor.AddChild(root_0, varDecl159.Tree);
 
 				}
 				break;
@@ -4996,11 +5161,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("mainBody", 33);
-			LeaveRule("mainBody", 33);
+			TraceOut("mainBody", 34);
+			LeaveRule("mainBody", 34);
 			Leave_mainBody();
 		}
-		DebugLocation(219, 3);
+		DebugLocation(223, 3);
 		} finally { DebugExitRule(GrammarFileName, "mainBody"); }
 		return retval;
 
@@ -5017,76 +5182,76 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_program();
 
 	// $ANTLR start "program"
-	// Lang2.g:221:1: program : ( mainBody )+ -> ^( BODY ( mainBody )+ ) ;
+	// Lang2.g:225:1: program : ( mainBody )+ -> ^( BODY ( mainBody )+ ) ;
 	[GrammarRule("program")]
 	private Lang2Parser.program_return program()
 	{
 		Enter_program();
-		EnterRule("program", 34);
-		TraceIn("program", 34);
+		EnterRule("program", 35);
+		TraceIn("program", 35);
 		Lang2Parser.program_return retval = new Lang2Parser.program_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.mainBody_return mainBody155 = default(Lang2Parser.mainBody_return);
+		Lang2Parser.mainBody_return mainBody160 = default(Lang2Parser.mainBody_return);
 
 		RewriteRuleSubtreeStream stream_mainBody=new RewriteRuleSubtreeStream(adaptor,"rule mainBody");
 		try { DebugEnterRule(GrammarFileName, "program");
-		DebugLocation(221, 3);
+		DebugLocation(225, 3);
 		try
 		{
-			// Lang2.g:221:10: ( ( mainBody )+ -> ^( BODY ( mainBody )+ ) )
+			// Lang2.g:225:10: ( ( mainBody )+ -> ^( BODY ( mainBody )+ ) )
 			DebugEnterAlt(1);
-			// Lang2.g:221:12: ( mainBody )+
+			// Lang2.g:225:12: ( mainBody )+
 			{
-			DebugLocation(221, 12);
-			// Lang2.g:221:12: ( mainBody )+
-			int cnt23=0;
-			try { DebugEnterSubRule(23);
+			DebugLocation(225, 12);
+			// Lang2.g:225:12: ( mainBody )+
+			int cnt24=0;
+			try { DebugEnterSubRule(24);
 			while (true)
 			{
-				int alt23=2;
-				try { DebugEnterDecision(23, decisionCanBacktrack[23]);
-				int LA23_0 = input.LA(1);
+				int alt24=2;
+				try { DebugEnterDecision(24, decisionCanBacktrack[24]);
+				int LA24_0 = input.LA(1);
 
-				if (((LA23_0>=TINT && LA23_0<=TVOID)))
+				if (((LA24_0>=TINT && LA24_0<=TVOID)))
 				{
-					alt23=1;
+					alt24=1;
 				}
 
 
-				} finally { DebugExitDecision(23); }
-				switch (alt23)
+				} finally { DebugExitDecision(24); }
+				switch (alt24)
 				{
 				case 1:
 					DebugEnterAlt(1);
-					// Lang2.g:221:12: mainBody
+					// Lang2.g:225:12: mainBody
 					{
-					DebugLocation(221, 12);
-					PushFollow(Follow._mainBody_in_program1507);
-					mainBody155=mainBody();
+					DebugLocation(225, 12);
+					PushFollow(Follow._mainBody_in_program1542);
+					mainBody160=mainBody();
 					PopFollow();
 
-					stream_mainBody.Add(mainBody155.Tree);
+					stream_mainBody.Add(mainBody160.Tree);
 
 					}
 					break;
 
 				default:
-					if (cnt23 >= 1)
-						goto loop23;
+					if (cnt24 >= 1)
+						goto loop24;
 
-					EarlyExitException eee23 = new EarlyExitException( 23, input );
-					DebugRecognitionException(eee23);
-					throw eee23;
+					EarlyExitException eee24 = new EarlyExitException( 24, input );
+					DebugRecognitionException(eee24);
+					throw eee24;
 				}
-				cnt23++;
+				cnt24++;
 			}
-			loop23:
+			loop24:
 				;
 
-			} finally { DebugExitSubRule(23); }
+			} finally { DebugExitSubRule(24); }
 
 
 
@@ -5102,23 +5267,23 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 221:22: -> ^( BODY ( mainBody )+ )
+			// 225:22: -> ^( BODY ( mainBody )+ )
 			{
-				DebugLocation(221, 24);
-				// Lang2.g:221:24: ^( BODY ( mainBody )+ )
+				DebugLocation(225, 24);
+				// Lang2.g:225:24: ^( BODY ( mainBody )+ )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(221, 26);
+				DebugLocation(225, 26);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(BODY, "BODY"), root_1);
 
-				DebugLocation(221, 31);
+				DebugLocation(225, 31);
 				if ( !(stream_mainBody.HasNext) )
 				{
 					throw new RewriteEarlyExitException();
 				}
 				while ( stream_mainBody.HasNext )
 				{
-					DebugLocation(221, 31);
+					DebugLocation(225, 31);
 					adaptor.AddChild(root_1, stream_mainBody.NextTree());
 
 				}
@@ -5149,11 +5314,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("program", 34);
-			LeaveRule("program", 34);
+			TraceOut("program", 35);
+			LeaveRule("program", 35);
 			Leave_program();
 		}
-		DebugLocation(222, 3);
+		DebugLocation(226, 3);
 		} finally { DebugExitRule(GrammarFileName, "program"); }
 		return retval;
 
@@ -5170,41 +5335,41 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_result();
 
 	// $ANTLR start "result"
-	// Lang2.g:223:1: result : program EOF -> ^( PROGRAM program ) ;
+	// Lang2.g:227:1: result : program EOF -> ^( PROGRAM program ) ;
 	[GrammarRule("result")]
 	private Lang2Parser.result_return result()
 	{
 		Enter_result();
-		EnterRule("result", 35);
-		TraceIn("result", 35);
+		EnterRule("result", 36);
+		TraceIn("result", 36);
 		Lang2Parser.result_return retval = new Lang2Parser.result_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		IToken EOF157=null;
-		Lang2Parser.program_return program156 = default(Lang2Parser.program_return);
+		IToken EOF162=null;
+		Lang2Parser.program_return program161 = default(Lang2Parser.program_return);
 
-		object EOF157_tree=null;
+		object EOF162_tree=null;
 		RewriteRuleITokenStream stream_EOF=new RewriteRuleITokenStream(adaptor,"token EOF");
 		RewriteRuleSubtreeStream stream_program=new RewriteRuleSubtreeStream(adaptor,"rule program");
 		try { DebugEnterRule(GrammarFileName, "result");
-		DebugLocation(223, 41);
+		DebugLocation(227, 41);
 		try
 		{
-			// Lang2.g:223:7: ( program EOF -> ^( PROGRAM program ) )
+			// Lang2.g:227:7: ( program EOF -> ^( PROGRAM program ) )
 			DebugEnterAlt(1);
-			// Lang2.g:223:9: program EOF
+			// Lang2.g:227:9: program EOF
 			{
-			DebugLocation(223, 9);
-			PushFollow(Follow._program_in_result1526);
-			program156=program();
+			DebugLocation(227, 9);
+			PushFollow(Follow._program_in_result1561);
+			program161=program();
 			PopFollow();
 
-			stream_program.Add(program156.Tree);
-			DebugLocation(223, 17);
-			EOF157=(IToken)Match(input,EOF,Follow._EOF_in_result1528);  
-			stream_EOF.Add(EOF157);
+			stream_program.Add(program161.Tree);
+			DebugLocation(227, 17);
+			EOF162=(IToken)Match(input,EOF,Follow._EOF_in_result1563);  
+			stream_EOF.Add(EOF162);
 
 
 
@@ -5220,16 +5385,16 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.Tree:null);
 
 			root_0 = (object)adaptor.Nil();
-			// 223:21: -> ^( PROGRAM program )
+			// 227:21: -> ^( PROGRAM program )
 			{
-				DebugLocation(223, 24);
-				// Lang2.g:223:24: ^( PROGRAM program )
+				DebugLocation(227, 24);
+				// Lang2.g:227:24: ^( PROGRAM program )
 				{
 				object root_1 = (object)adaptor.Nil();
-				DebugLocation(223, 26);
+				DebugLocation(227, 26);
 				root_1 = (object)adaptor.BecomeRoot((object)adaptor.Create(PROGRAM, "PROGRAM"), root_1);
 
-				DebugLocation(223, 34);
+				DebugLocation(227, 34);
 				adaptor.AddChild(root_1, stream_program.NextTree());
 
 				adaptor.AddChild(root_0, root_1);
@@ -5257,11 +5422,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("result", 35);
-			LeaveRule("result", 35);
+			TraceOut("result", 36);
+			LeaveRule("result", 36);
 			Leave_result();
 		}
-		DebugLocation(223, 41);
+		DebugLocation(227, 41);
 		} finally { DebugExitRule(GrammarFileName, "result"); }
 		return retval;
 
@@ -5278,37 +5443,37 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	partial void Leave_execute();
 
 	// $ANTLR start "execute"
-	// Lang2.g:224:8: public execute : result ;
+	// Lang2.g:228:8: public execute : result ;
 	[GrammarRule("execute")]
 	public Lang2Parser.execute_return execute()
 	{
 		Enter_execute();
-		EnterRule("execute", 36);
-		TraceIn("execute", 36);
+		EnterRule("execute", 37);
+		TraceIn("execute", 37);
 		Lang2Parser.execute_return retval = new Lang2Parser.execute_return();
 		retval.Start = (IToken)input.LT(1);
 
 		object root_0 = null;
 
-		Lang2Parser.result_return result158 = default(Lang2Parser.result_return);
+		Lang2Parser.result_return result163 = default(Lang2Parser.result_return);
 
 
 		try { DebugEnterRule(GrammarFileName, "execute");
-		DebugLocation(224, 23);
+		DebugLocation(228, 23);
 		try
 		{
-			// Lang2.g:224:15: ( result )
+			// Lang2.g:228:15: ( result )
 			DebugEnterAlt(1);
-			// Lang2.g:224:18: result
+			// Lang2.g:228:18: result
 			{
 			root_0 = (object)adaptor.Nil();
 
-			DebugLocation(224, 18);
-			PushFollow(Follow._result_in_execute1545);
-			result158=result();
+			DebugLocation(228, 18);
+			PushFollow(Follow._result_in_execute1580);
+			result163=result();
 			PopFollow();
 
-			adaptor.AddChild(root_0, result158.Tree);
+			adaptor.AddChild(root_0, result163.Tree);
 
 			}
 
@@ -5327,11 +5492,11 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 		finally
 		{
-			TraceOut("execute", 36);
-			LeaveRule("execute", 36);
+			TraceOut("execute", 37);
+			LeaveRule("execute", 37);
 			Leave_execute();
 		}
-		DebugLocation(224, 23);
+		DebugLocation(228, 23);
 		} finally { DebugExitRule(GrammarFileName, "execute"); }
 		return retval;
 
@@ -5342,13 +5507,13 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 	#region DFA
 	DFA2 dfa2;
-	DFA5 dfa5;
+	DFA6 dfa6;
 
 	protected override void InitDFAs()
 	{
 		base.InitDFAs();
 		dfa2 = new DFA2( this );
-		dfa5 = new DFA5( this );
+		dfa6 = new DFA6( this );
 	}
 
 	private class DFA2 : DFA
@@ -5358,9 +5523,9 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		private const string DFA2_eofS =
 			"\x10\xFFFF";
 		private const string DFA2_minS =
-			"\x1\xA\x1\x2F\x1\x22\x5\xFFFF\x1\x1C\x7\xFFFF";
+			"\x1\xA\x1\x30\x1\x23\x5\xFFFF\x1\x1D\x7\xFFFF";
 		private const string DFA2_maxS =
-			"\x2\x2F\x1\x32\x5\xFFFF\x1\x36\x7\xFFFF";
+			"\x2\x30\x1\x35\x5\xFFFF\x1\x37\x7\xFFFF";
 		private const string DFA2_acceptS =
 			"\x3\xFFFF\x1\x5\x1\x6\x1\x9\x1\xA\x1\xC\x1\xFFFF\x1\x2\x1\x3\x1\x7\x1"+
 			"\x8\x1\xB\x1\x4\x1\x1";
@@ -5368,10 +5533,10 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			"\x10\xFFFF}>";
 		private static readonly string[] DFA2_transitionS =
 			{
-				"\x1\x3\x1\xFFFF\x1\x4\x1\x5\x1\x6\x6\xFFFF\x1\x7\x6\x1\x13\xFFFF\x1"+
+				"\x1\x3\x1\xFFFF\x1\x4\x1\x5\x1\x6\x6\xFFFF\x1\x7\x6\x1\x14\xFFFF\x1"+
 				"\x2",
 				"\x1\x8",
-				"\x1\xB\x1\xC\x2\xFFFF\x1\x9\x9\xFFFF\x1\xD\x1\xFFFF\x1\xA",
+				"\x1\xB\x1\xC\x2\xFFFF\x1\x9\x9\xFFFF\x1\xD\x3\xFFFF\x1\xA",
 				"",
 				"",
 				"",
@@ -5418,7 +5583,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 			this.transition = DFA2_transition;
 		}
 
-		public override string Description { get { return "120:1: bodyFExpr : ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END );"; } }
+		public override string Description { get { return "121:1: bodyFExpr : ( varDecl | ID ASS mathExpr OP_END | methCall OP_END | arrDecl | ifExpr | forLoop | incSug OP_END | decSug OP_END | whileLoop | doLoop | arrCall ASS mathExpr OP_END | RETURN ( mathExpr )? OP_END );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
@@ -5426,68 +5591,68 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 		}
 	}
 
-	private class DFA5 : DFA
+	private class DFA6 : DFA
 	{
-		private const string DFA5_eotS =
+		private const string DFA6_eotS =
 			"\xB\xFFFF";
-		private const string DFA5_eofS =
+		private const string DFA6_eofS =
 			"\xB\xFFFF";
-		private const string DFA5_minS =
-			"\x1\x1D\x1\xFFFF\x1\x1C\x2\xFFFF\x2\x1D\x4\xFFFF";
-		private const string DFA5_maxS =
-			"\x1\x32\x1\xFFFF\x1\x36\x2\xFFFF\x2\x32\x4\xFFFF";
-		private const string DFA5_acceptS =
+		private const string DFA6_minS =
+			"\x1\x1E\x1\xFFFF\x1\x1D\x2\xFFFF\x2\x1E\x4\xFFFF";
+		private const string DFA6_maxS =
+			"\x1\x35\x1\xFFFF\x1\x37\x2\xFFFF\x2\x35\x4\xFFFF";
+		private const string DFA6_acceptS =
 			"\x1\xFFFF\x1\x1\x1\xFFFF\x1\x4\x1\x3\x2\xFFFF\x1\x7\x1\x2\x1\x5\x1\x6";
-		private const string DFA5_specialS =
+		private const string DFA6_specialS =
 			"\xB\xFFFF}>";
-		private static readonly string[] DFA5_transitionS =
+		private static readonly string[] DFA6_transitionS =
 			{
-				"\x4\x3\xE\xFFFF\x1\x2\x2\xFFFF\x1\x1",
+				"\x4\x3\xE\xFFFF\x1\x2\x4\xFFFF\x1\x1",
 				"",
 				"\x1\x8\x5\xFFFF\x1\x5\x1\x6\x2\x8\x1\xFFFF\x5\x8\x1\xFFFF\x2\x8\x1"+
-				"\xFFFF\x1\x7\x1\x8\x1\x4\x1\x8\x2\xFFFF\x1\x8",
+				"\xFFFF\x1\x7\x1\x8\x2\xFFFF\x1\x4\x2\x8",
 				"",
 				"",
-				"\x4\x8\x1\xFFFF\x1\x9\xC\xFFFF\x1\x8\x2\xFFFF\x1\x8",
-				"\x4\x8\x2\xFFFF\x1\xA\xB\xFFFF\x1\x8\x2\xFFFF\x1\x8",
+				"\x4\x8\x1\xFFFF\x1\x9\xC\xFFFF\x1\x8\x4\xFFFF\x1\x8",
+				"\x4\x8\x2\xFFFF\x1\xA\xB\xFFFF\x1\x8\x4\xFFFF\x1\x8",
 				"",
 				"",
 				"",
 				""
 			};
 
-		private static readonly short[] DFA5_eot = DFA.UnpackEncodedString(DFA5_eotS);
-		private static readonly short[] DFA5_eof = DFA.UnpackEncodedString(DFA5_eofS);
-		private static readonly char[] DFA5_min = DFA.UnpackEncodedStringToUnsignedChars(DFA5_minS);
-		private static readonly char[] DFA5_max = DFA.UnpackEncodedStringToUnsignedChars(DFA5_maxS);
-		private static readonly short[] DFA5_accept = DFA.UnpackEncodedString(DFA5_acceptS);
-		private static readonly short[] DFA5_special = DFA.UnpackEncodedString(DFA5_specialS);
-		private static readonly short[][] DFA5_transition;
+		private static readonly short[] DFA6_eot = DFA.UnpackEncodedString(DFA6_eotS);
+		private static readonly short[] DFA6_eof = DFA.UnpackEncodedString(DFA6_eofS);
+		private static readonly char[] DFA6_min = DFA.UnpackEncodedStringToUnsignedChars(DFA6_minS);
+		private static readonly char[] DFA6_max = DFA.UnpackEncodedStringToUnsignedChars(DFA6_maxS);
+		private static readonly short[] DFA6_accept = DFA.UnpackEncodedString(DFA6_acceptS);
+		private static readonly short[] DFA6_special = DFA.UnpackEncodedString(DFA6_specialS);
+		private static readonly short[][] DFA6_transition;
 
-		static DFA5()
+		static DFA6()
 		{
-			int numStates = DFA5_transitionS.Length;
-			DFA5_transition = new short[numStates][];
+			int numStates = DFA6_transitionS.Length;
+			DFA6_transition = new short[numStates][];
 			for ( int i=0; i < numStates; i++ )
 			{
-				DFA5_transition[i] = DFA.UnpackEncodedString(DFA5_transitionS[i]);
+				DFA6_transition[i] = DFA.UnpackEncodedString(DFA6_transitionS[i]);
 			}
 		}
 
-		public DFA5( BaseRecognizer recognizer )
+		public DFA6( BaseRecognizer recognizer )
 		{
 			this.recognizer = recognizer;
-			this.decisionNumber = 5;
-			this.eot = DFA5_eot;
-			this.eof = DFA5_eof;
-			this.min = DFA5_min;
-			this.max = DFA5_max;
-			this.accept = DFA5_accept;
-			this.special = DFA5_special;
-			this.transition = DFA5_transition;
+			this.decisionNumber = 6;
+			this.eot = DFA6_eot;
+			this.eof = DFA6_eof;
+			this.min = DFA6_min;
+			this.max = DFA6_max;
+			this.accept = DFA6_accept;
+			this.special = DFA6_special;
+			this.transition = DFA6_transition;
 		}
 
-		public override string Description { get { return "155:1: mathGroup : ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall );"; } }
+		public override string Description { get { return "159:1: mathGroup : ( '(' mathExpr ')' | ID | methCall | literals | incSug | decSug | arrCall );"; } }
 
 		public override void Error(NoViableAltException nvae)
 		{
@@ -5502,163 +5667,168 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 	private static class Follow
 	{
 		public static readonly BitSet _set_in_type0 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_arrDecl531 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_arrDecl533 = new BitSet(new ulong[]{0x1000000000000UL});
-		public static readonly BitSet _48_in_arrDecl534 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_arrDecl535 = new BitSet(new ulong[]{0x2000000000000UL});
-		public static readonly BitSet _49_in_arrDecl536 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_arrDecl538 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_arrCall563 = new BitSet(new ulong[]{0x1000000000000UL});
-		public static readonly BitSet _48_in_arrCall564 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_arrCall565 = new BitSet(new ulong[]{0x2000000000000UL});
-		public static readonly BitSet _49_in_arrCall566 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _varDecl_in_bodyFExpr589 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_bodyFExpr596 = new BitSet(new ulong[]{0x4000000000UL});
-		public static readonly BitSet _ASS_in_bodyFExpr598 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_bodyFExpr601 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr603 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _methCall_in_bodyFExpr611 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr613 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrDecl_in_bodyFExpr621 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ifExpr_in_bodyFExpr628 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _forLoop_in_bodyFExpr635 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _incSug_in_bodyFExpr642 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr644 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _decSug_in_bodyFExpr652 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr654 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _whileLoop_in_bodyFExpr662 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _doLoop_in_bodyFExpr669 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrCall_in_bodyFExpr676 = new BitSet(new ulong[]{0x4000000000UL});
-		public static readonly BitSet _ASS_in_bodyFExpr678 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_bodyFExpr681 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr683 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _RETURN_in_bodyFExpr691 = new BitSet(new ulong[]{0x49001F0000000UL});
-		public static readonly BitSet _mathExpr_in_bodyFExpr694 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_bodyFExpr697 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _IF_in_ifExpr711 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_ifExpr712 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_ifExpr714 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_ifExpr715 = new BitSet(new ulong[]{0x10000000000000UL});
-		public static readonly BitSet _52_in_ifExpr717 = new BitSet(new ulong[]{0x49001EFE07400UL});
-		public static readonly BitSet _bodyExpr_in_ifExpr718 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _53_in_ifExpr719 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_varFor740 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _varDecl_in_varFor746 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_iterFor756 = new BitSet(new ulong[]{0x4000000000UL});
-		public static readonly BitSet _ASS_in_iterFor758 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_iterFor761 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mathExpr_in_iterFor767 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _FOR_in_forLoop777 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_forLoop779 = new BitSet(new ulong[]{0x80000FC00000UL});
-		public static readonly BitSet _varFor_in_forLoop781 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_forLoop783 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_forLoop785 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_forLoop787 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _iterFor_in_forLoop789 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_forLoop791 = new BitSet(new ulong[]{0x10000000000000UL});
-		public static readonly BitSet _52_in_forLoop793 = new BitSet(new ulong[]{0x49001EFE07400UL});
-		public static readonly BitSet _bodyExpr_in_forLoop794 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _53_in_forLoop795 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _WHILE_in_whileLoop819 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_whileLoop821 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_whileLoop822 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_whileLoop823 = new BitSet(new ulong[]{0x10000000000000UL});
-		public static readonly BitSet _52_in_whileLoop825 = new BitSet(new ulong[]{0x49001EFE07400UL});
-		public static readonly BitSet _bodyExpr_in_whileLoop826 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _53_in_whileLoop827 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _DO_in_doLoop849 = new BitSet(new ulong[]{0x10000000000000UL});
-		public static readonly BitSet _52_in_doLoop851 = new BitSet(new ulong[]{0x49001EFE07400UL});
-		public static readonly BitSet _bodyExpr_in_doLoop852 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _53_in_doLoop853 = new BitSet(new ulong[]{0x2000UL});
-		public static readonly BitSet _WHILE_in_doLoop855 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_doLoop857 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_doLoop858 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_doLoop859 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_doLoop861 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_arrDecl539 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_arrDecl541 = new BitSet(new ulong[]{0x2000000000000UL});
+		public static readonly BitSet _49_in_arrDecl542 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_arrDecl543 = new BitSet(new ulong[]{0x4000000000000UL});
+		public static readonly BitSet _50_in_arrDecl544 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_arrDecl546 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_arrCall571 = new BitSet(new ulong[]{0x2000000000000UL});
+		public static readonly BitSet _49_in_arrCall572 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_arrCall573 = new BitSet(new ulong[]{0x4000000000000UL});
+		public static readonly BitSet _50_in_arrCall574 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _varDecl_in_bodyFExpr597 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_bodyFExpr604 = new BitSet(new ulong[]{0x8000000000UL});
+		public static readonly BitSet _ASS_in_bodyFExpr606 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_bodyFExpr609 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr611 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _methCall_in_bodyFExpr619 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr621 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrDecl_in_bodyFExpr629 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ifExpr_in_bodyFExpr636 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _forLoop_in_bodyFExpr643 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _incSug_in_bodyFExpr650 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr652 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _decSug_in_bodyFExpr660 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr662 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _whileLoop_in_bodyFExpr670 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _doLoop_in_bodyFExpr677 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrCall_in_bodyFExpr684 = new BitSet(new ulong[]{0x8000000000UL});
+		public static readonly BitSet _ASS_in_bodyFExpr686 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_bodyFExpr689 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr691 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _RETURN_in_bodyFExpr699 = new BitSet(new ulong[]{0x212003E0000000UL});
+		public static readonly BitSet _mathExpr_in_bodyFExpr702 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_bodyFExpr705 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ELSE_in_elseExpr718 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_elseExpr720 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_elseExpr721 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_elseExpr722 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _IF_in_ifExpr741 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_ifExpr742 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_ifExpr744 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_ifExpr745 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_ifExpr747 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_ifExpr748 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_ifExpr749 = new BitSet(new ulong[]{0x10000002UL});
+		public static readonly BitSet _elseExpr_in_ifExpr751 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_varFor775 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _varDecl_in_varFor781 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_iterFor791 = new BitSet(new ulong[]{0x8000000000UL});
+		public static readonly BitSet _ASS_in_iterFor793 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_iterFor796 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mathExpr_in_iterFor802 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _FOR_in_forLoop812 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_forLoop814 = new BitSet(new ulong[]{0x100000FC00000UL});
+		public static readonly BitSet _varFor_in_forLoop816 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_forLoop818 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_forLoop820 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_forLoop822 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _iterFor_in_forLoop824 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_forLoop826 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_forLoop828 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_forLoop829 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_forLoop830 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _WHILE_in_whileLoop854 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_whileLoop856 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_whileLoop857 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_whileLoop858 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_whileLoop860 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_whileLoop861 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_whileLoop862 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _DO_in_doLoop884 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_doLoop886 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_doLoop887 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_doLoop888 = new BitSet(new ulong[]{0x2000UL});
+		public static readonly BitSet _WHILE_in_doLoop890 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_doLoop892 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_doLoop893 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_doLoop894 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_doLoop896 = new BitSet(new ulong[]{0x2UL});
 		public static readonly BitSet _set_in_literals0 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_incSug900 = new BitSet(new ulong[]{0x400000000UL});
-		public static readonly BitSet _ADD_in_incSug902 = new BitSet(new ulong[]{0x400000000UL});
-		public static readonly BitSet _ADD_in_incSug904 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_decSug922 = new BitSet(new ulong[]{0x800000000UL});
-		public static readonly BitSet _SUB_in_decSug924 = new BitSet(new ulong[]{0x800000000UL});
-		public static readonly BitSet _SUB_in_decSug926 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _50_in_mathGroup944 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_mathGroup947 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_mathGroup949 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_mathGroup957 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _methCall_in_mathGroup964 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _literals_in_mathGroup971 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _incSug_in_mathGroup978 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _decSug_in_mathGroup985 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrCall_in_mathGroup992 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mathGroup_in_mathMult1007 = new BitSet(new ulong[]{0x3000000002UL});
-		public static readonly BitSet _set_in_mathMult1009 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathGroup_in_mathMult1015 = new BitSet(new ulong[]{0x3000000002UL});
-		public static readonly BitSet _mathMult_in_mathAdd1029 = new BitSet(new ulong[]{0xC00000002UL});
-		public static readonly BitSet _set_in_mathAdd1031 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathMult_in_mathAdd1038 = new BitSet(new ulong[]{0xC00000002UL});
-		public static readonly BitSet _mathAdd_in_mathConj1052 = new BitSet(new ulong[]{0x10000000002UL});
-		public static readonly BitSet _CONJ_in_mathConj1054 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathAdd_in_mathConj1057 = new BitSet(new ulong[]{0x10000000002UL});
-		public static readonly BitSet _mathConj_in_mathDisj1071 = new BitSet(new ulong[]{0x8000000002UL});
-		public static readonly BitSet _DISJ_in_mathDisj1073 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathConj_in_mathDisj1076 = new BitSet(new ulong[]{0x8000000002UL});
-		public static readonly BitSet _mathDisj_in_mathEq1091 = new BitSet(new ulong[]{0x6E0000000002UL});
-		public static readonly BitSet _set_in_mathEq1093 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathDisj_in_mathEq1106 = new BitSet(new ulong[]{0x6E0000000002UL});
-		public static readonly BitSet _INVERT_in_mathNeg1122 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathEq_in_mathNeg1125 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mathEq_in_mathNeg1134 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mathNeg_in_mathExpr1147 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mathExpr_in_methArgs1162 = new BitSet(new ulong[]{0x40000000000002UL});
-		public static readonly BitSet _54_in_methArgs1165 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_methArgs1167 = new BitSet(new ulong[]{0x40000000000002UL});
-		public static readonly BitSet _ID_in_methCall1192 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_methCall1193 = new BitSet(new ulong[]{0xC9001E0000000UL});
-		public static readonly BitSet _methArgs_in_methCall1194 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_methCall1196 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_methArgODecl1218 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_methArgODecl1220 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_methArgODecl1238 = new BitSet(new ulong[]{0x1000000000000UL});
-		public static readonly BitSet _48_in_methArgODecl1239 = new BitSet(new ulong[]{0x2000000000000UL});
-		public static readonly BitSet _49_in_methArgODecl1240 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_methArgODecl1242 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _methArgODecl_in_methDeclArgs1265 = new BitSet(new ulong[]{0x40000000000002UL});
-		public static readonly BitSet _54_in_methDeclArgs1267 = new BitSet(new ulong[]{0xFC00000UL});
-		public static readonly BitSet _methArgODecl_in_methDeclArgs1269 = new BitSet(new ulong[]{0x40000000000002UL});
-		public static readonly BitSet _methDeclArgs_in_methDeclArgsW1283 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_methRetType1306 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_methRetType1320 = new BitSet(new ulong[]{0x1000000000000UL});
-		public static readonly BitSet _48_in_methRetType1321 = new BitSet(new ulong[]{0x2000000000000UL});
-		public static readonly BitSet _49_in_methRetType1322 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _methRetType_in_methDecl1341 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_methDecl1343 = new BitSet(new ulong[]{0x4000000000000UL});
-		public static readonly BitSet _50_in_methDecl1345 = new BitSet(new ulong[]{0x800000FC00000UL});
-		public static readonly BitSet _methDeclArgsW_in_methDecl1346 = new BitSet(new ulong[]{0x8000000000000UL});
-		public static readonly BitSet _51_in_methDecl1347 = new BitSet(new ulong[]{0x10000000000000UL});
-		public static readonly BitSet _52_in_methDecl1349 = new BitSet(new ulong[]{0x49001EFE07400UL});
-		public static readonly BitSet _bodyExpr_in_methDecl1350 = new BitSet(new ulong[]{0x20000000000000UL});
-		public static readonly BitSet _53_in_methDecl1351 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _ID_in_moreVarDecl1378 = new BitSet(new ulong[]{0x40000000000000UL});
-		public static readonly BitSet _54_in_moreVarDecl1380 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_moreVarDecl1383 = new BitSet(new ulong[]{0x40000000000002UL});
-		public static readonly BitSet _ASS_in_assW1396 = new BitSet(new ulong[]{0x49001E0000000UL});
-		public static readonly BitSet _mathExpr_in_assW1399 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_varDecl1416 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _ID_in_varDecl1418 = new BitSet(new ulong[]{0x4010000000UL});
-		public static readonly BitSet _assW_in_varDecl1420 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_varDecl1423 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _type_in_varDecl1443 = new BitSet(new ulong[]{0x800000000000UL});
-		public static readonly BitSet _moreVarDecl_in_varDecl1445 = new BitSet(new ulong[]{0x10000000UL});
-		public static readonly BitSet _OP_END_in_varDecl1447 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _bodyFExpr_in_bodyExpr1468 = new BitSet(new ulong[]{0x49001EFE07402UL});
-		public static readonly BitSet _methDecl_in_mainBody1490 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _arrDecl_in_mainBody1492 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _varDecl_in_mainBody1494 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _mainBody_in_program1507 = new BitSet(new ulong[]{0xFC00002UL});
-		public static readonly BitSet _program_in_result1526 = new BitSet(new ulong[]{0x0UL});
-		public static readonly BitSet _EOF_in_result1528 = new BitSet(new ulong[]{0x2UL});
-		public static readonly BitSet _result_in_execute1545 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_incSug935 = new BitSet(new ulong[]{0x800000000UL});
+		public static readonly BitSet _ADD_in_incSug937 = new BitSet(new ulong[]{0x800000000UL});
+		public static readonly BitSet _ADD_in_incSug939 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_decSug957 = new BitSet(new ulong[]{0x1000000000UL});
+		public static readonly BitSet _SUB_in_decSug959 = new BitSet(new ulong[]{0x1000000000UL});
+		public static readonly BitSet _SUB_in_decSug961 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _53_in_mathGroup979 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_mathGroup982 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_mathGroup984 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_mathGroup992 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _methCall_in_mathGroup999 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _literals_in_mathGroup1006 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _incSug_in_mathGroup1013 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _decSug_in_mathGroup1020 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrCall_in_mathGroup1027 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mathGroup_in_mathMult1042 = new BitSet(new ulong[]{0x6000000002UL});
+		public static readonly BitSet _set_in_mathMult1044 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathGroup_in_mathMult1050 = new BitSet(new ulong[]{0x6000000002UL});
+		public static readonly BitSet _mathMult_in_mathAdd1064 = new BitSet(new ulong[]{0x1800000002UL});
+		public static readonly BitSet _set_in_mathAdd1066 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathMult_in_mathAdd1073 = new BitSet(new ulong[]{0x1800000002UL});
+		public static readonly BitSet _mathAdd_in_mathConj1087 = new BitSet(new ulong[]{0x20000000002UL});
+		public static readonly BitSet _CONJ_in_mathConj1089 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathAdd_in_mathConj1092 = new BitSet(new ulong[]{0x20000000002UL});
+		public static readonly BitSet _mathConj_in_mathDisj1106 = new BitSet(new ulong[]{0x10000000002UL});
+		public static readonly BitSet _DISJ_in_mathDisj1108 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathConj_in_mathDisj1111 = new BitSet(new ulong[]{0x10000000002UL});
+		public static readonly BitSet _mathDisj_in_mathEq1126 = new BitSet(new ulong[]{0xDC0000000002UL});
+		public static readonly BitSet _set_in_mathEq1128 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathDisj_in_mathEq1141 = new BitSet(new ulong[]{0xDC0000000002UL});
+		public static readonly BitSet _INVERT_in_mathNeg1157 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathEq_in_mathNeg1160 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mathEq_in_mathNeg1169 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mathNeg_in_mathExpr1182 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mathExpr_in_methArgs1197 = new BitSet(new ulong[]{0x80000000000002UL});
+		public static readonly BitSet _55_in_methArgs1200 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_methArgs1202 = new BitSet(new ulong[]{0x80000000000002UL});
+		public static readonly BitSet _ID_in_methCall1227 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_methCall1228 = new BitSet(new ulong[]{0x612003C0000000UL});
+		public static readonly BitSet _methArgs_in_methCall1229 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_methCall1231 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_methArgODecl1253 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_methArgODecl1255 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_methArgODecl1273 = new BitSet(new ulong[]{0x2000000000000UL});
+		public static readonly BitSet _49_in_methArgODecl1274 = new BitSet(new ulong[]{0x4000000000000UL});
+		public static readonly BitSet _50_in_methArgODecl1275 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_methArgODecl1277 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _methArgODecl_in_methDeclArgs1300 = new BitSet(new ulong[]{0x80000000000002UL});
+		public static readonly BitSet _55_in_methDeclArgs1302 = new BitSet(new ulong[]{0xFC00000UL});
+		public static readonly BitSet _methArgODecl_in_methDeclArgs1304 = new BitSet(new ulong[]{0x80000000000002UL});
+		public static readonly BitSet _methDeclArgs_in_methDeclArgsW1318 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_methRetType1341 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_methRetType1355 = new BitSet(new ulong[]{0x2000000000000UL});
+		public static readonly BitSet _49_in_methRetType1356 = new BitSet(new ulong[]{0x4000000000000UL});
+		public static readonly BitSet _50_in_methRetType1357 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _methRetType_in_methDecl1376 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_methDecl1378 = new BitSet(new ulong[]{0x20000000000000UL});
+		public static readonly BitSet _53_in_methDecl1380 = new BitSet(new ulong[]{0x4000000FC00000UL});
+		public static readonly BitSet _methDeclArgsW_in_methDecl1381 = new BitSet(new ulong[]{0x40000000000000UL});
+		public static readonly BitSet _54_in_methDecl1382 = new BitSet(new ulong[]{0x8000000000000UL});
+		public static readonly BitSet _51_in_methDecl1384 = new BitSet(new ulong[]{0x212003CFE07400UL});
+		public static readonly BitSet _bodyExpr_in_methDecl1385 = new BitSet(new ulong[]{0x10000000000000UL});
+		public static readonly BitSet _52_in_methDecl1386 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _ID_in_moreVarDecl1413 = new BitSet(new ulong[]{0x80000000000000UL});
+		public static readonly BitSet _55_in_moreVarDecl1415 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_moreVarDecl1418 = new BitSet(new ulong[]{0x80000000000002UL});
+		public static readonly BitSet _ASS_in_assW1431 = new BitSet(new ulong[]{0x212003C0000000UL});
+		public static readonly BitSet _mathExpr_in_assW1434 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_varDecl1451 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _ID_in_varDecl1453 = new BitSet(new ulong[]{0x8020000000UL});
+		public static readonly BitSet _assW_in_varDecl1455 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_varDecl1458 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _type_in_varDecl1478 = new BitSet(new ulong[]{0x1000000000000UL});
+		public static readonly BitSet _moreVarDecl_in_varDecl1480 = new BitSet(new ulong[]{0x20000000UL});
+		public static readonly BitSet _OP_END_in_varDecl1482 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _bodyFExpr_in_bodyExpr1503 = new BitSet(new ulong[]{0x212003CFE07402UL});
+		public static readonly BitSet _methDecl_in_mainBody1525 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _arrDecl_in_mainBody1527 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _varDecl_in_mainBody1529 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _mainBody_in_program1542 = new BitSet(new ulong[]{0xFC00002UL});
+		public static readonly BitSet _program_in_result1561 = new BitSet(new ulong[]{0x0UL});
+		public static readonly BitSet _EOF_in_result1563 = new BitSet(new ulong[]{0x2UL});
+		public static readonly BitSet _result_in_execute1580 = new BitSet(new ulong[]{0x2UL});
 
 	}
 	#endregion Follow sets

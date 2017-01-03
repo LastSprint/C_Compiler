@@ -91,7 +91,8 @@ namespace CompilerConsole.Parser {
             }
             var methodNode = new MethodNode(methodName, returnType, bodyTable, args);
 
-            foreach (var variable in methodNode.ArgList) {
+            foreach (var variable in methodNode.ArgList)
+            {
                 methodNode.Body.Nodes.Add(variable);
             }
 
@@ -198,7 +199,11 @@ namespace CompilerConsole.Parser {
                 ITree leftNode = tree.GetChild(0);
                 ITree rightNode = tree.GetChild(1);
                 Node left = this.ParsExpr(leftNode, body);
-                Node right = this.ParsExpr(rightNode, body);
+                Node right = null;
+                if (rightNode != null) {
+                    right = this.ParsExpr(rightNode, body);
+                }
+          
 
                 if (left is ArrCall) {
                     (left as ArrCall).Assign = right;
@@ -361,7 +366,7 @@ namespace CompilerConsole.Parser {
         private IfNode ParseIf(ITree tree, Body body) {
             ITree cond = tree.GetChild(0);
             ITree ifBody = tree.GetChild(1);
-
+            ITree elseBody = tree.GetChild(2);
             Node expr = this.ParsExpr(cond, body);
             if (expr.DataType != Type.VarBool) {
                 throw new UndefinedTypeException($"Выражение внутри if должно иметь тип bool, а не {expr.DataType}");
@@ -372,8 +377,13 @@ namespace CompilerConsole.Parser {
             this.RecPars(ifBody, tempBody);
             var ifNode = new IfNode(tempBody);
             ifNode.Condition = expr;
+            if (elseBody != null) {
+                Body elseb = new Body();
+                elseb.WrapBody = body;
+                this.RecPars(elseBody.GetChild(0), elseb);
+                ifNode.ElseBody = elseb;
+            }
             return ifNode;
-
         }
 
         private ForLoop ParseForLoop(ITree tree, Body body) {
@@ -383,16 +393,19 @@ namespace CompilerConsole.Parser {
             ITree bodyL = tree.GetChild(3);
 
             Node varNode;
-
+            Node tempVarNode;
             if (varE.Text == "VAR_DECL") {
-                varNode = this.ParseVarDecl(varE, body)[0];
+                tempVarNode = this.ParseVarDecl(varE, body)[0];
+                varNode = body.Nodes[body.Nodes.Count - 1];
+                body.Nodes.Remove(varNode);
             }
             else {
                 varNode = this.ParsExpr(tree, body);
+                tempVarNode = varNode;
             }
 
             Body loopBody = new Body();
-            loopBody.Nodes.Add(varNode);
+            loopBody.Nodes.Add(tempVarNode);
             loopBody.WrapBody = body;
             Node cond = this.ParsExpr(condT, loopBody);
 
@@ -407,6 +420,8 @@ namespace CompilerConsole.Parser {
             fl.CondNode = cond;
             fl.Incremental = loop;
             this.RecPars(bodyL, loopBody);
+
+            loopBody.Nodes.Remove(varNode);
             return fl;
         }
 

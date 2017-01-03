@@ -32,6 +32,7 @@ tokens{
 	TCHAR = 'char';
 	TBOOL = 'bool';
 	TVOID = 'void';
+	ELSE = 'else';
 }
 
 @header{
@@ -131,7 +132,10 @@ bodyFExpr	:	varDecl
 				|RETURN^ mathExpr? OP_END!
 				;
 //-------------------IF AND LOOPS---------------------------//
-ifExpr	:	IF'(' mathExpr')' '{'bodyExpr'}' -> ^(IF mathExpr bodyExpr )
+elseExpr:	ELSE '{'bodyExpr'}' -> ^(ELSE bodyExpr)
+		;
+
+ifExpr	:	IF'(' mathExpr')' '{'bodyExpr'}' elseExpr? -> ^(IF mathExpr bodyExpr elseExpr?)
 		;
 varFor	:	ID
 			|varDecl

@@ -5,6 +5,7 @@ namespace CompilerConsole.Parser.Nodes.BodyNodes
     public class IfNode:BodyNode
     {
         public Node Condition { get; set; }
+        public Body ElseBody { get; set; }
 
         public IfNode(Body body) : base("IfNode", Type.NotAType, body) {
         }

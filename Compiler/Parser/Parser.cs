@@ -270,6 +270,11 @@ namespace CompilerConsole.Parser {
                     if (meth.DataType == Type.Void && !(meth.Body.Nodes[meth.Body.Nodes.Count - 1] is ReturnNode)) {
                         meth.Body.Nodes.Add(new ReturnNode(Type.Void, null));
                     }
+                    foreach (var variableNode in meth.ArgList) {
+                        meth.Body.Nodes.Remove(variableNode);
+                        variableNode.IsMethodArg = true;
+                    }
+
                     break;
                 }
                 case Token.RETURN: {
@@ -293,6 +298,23 @@ namespace CompilerConsole.Parser {
 
         public void NumerateVariable() {
             this.Numerate(this.MainBody);
+
+            foreach (var node in this.MainBody.Nodes) {
+                if (node is MethodNode) {
+                    this.NumerateLocal((node as MethodNode).Body, 0);
+                }
+            }
+        }
+
+        private void NumerateLocal(Body body, int startNum) {
+            foreach (var node in body.Nodes) {
+                if (node is VariableNode) {
+                    ((VariableNode) node).Number = startNum++;
+                }
+                if (node is BodyNode) {
+                    this.NumerateLocal((node as BodyNode).Body, startNum);
+                }
+            }
         }
 
         private void Numerate(Body body) {

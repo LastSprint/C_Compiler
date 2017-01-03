@@ -4,19 +4,12 @@ int[] test(int a, int[] a) {
 }
 
 void main() {
-	int a = 0;
-	int a[10];
-
-	int a = a[1];
-	
-	if (a == 0) {
-		a++;
+	int a = 1;
+	if (a == 1) {
+		printi(a);
 	}
-
-	for (int i = 0; i < 10; i++) {
-		int a = 0;
-	}
-	t = test(a, b);
+	read();
+	return;
 }
 
 int[] sort(int[] a, int n) {
@@ -44,15 +37,13 @@ int b;
 int c;
 
 
-int a() {
-	int a;
-	return 1;
+int main() {
+	c = 10;
+	printi(c);
 }
 
 void main() {
-	int h;
-	h = a();
-	printi(h);
+	a(10)
 	read();
 }
 
@@ -78,8 +69,75 @@ void main() {
 	read();
 }
 
+void main() {
+	bool t = 10 == 5;
+	printb(t);
+	t = 10 > 5;
+	printb(t);
+	t = 10 < 5;
+	printb(t);
+	t = 10 >= 5;
+	printb(t);
+	t = 10 <= 5;
+	printb(t);
+	read();
+}
+
+void rec(int i) {
+	printi(i);
+	if (i > 10) {
+		return;
+	}
+	rec(i + 1);
+}
+
+void ptArr(int[] a, int arrLength) {
+	for (int i = 0; i < arrLength; i++) {
+		printi(a[i]);
+	}
+}
+
+void sort(int[] mas, int size){
+	int temp;
+	for (int i = 0; i < size; i++)
+	{
+		for (int j = i + 1; j < size; j++)
+		{
+			if (mas[i] > mas[j])
+			{
+				temp = mas[i];
+				mas[i] = mas[j];
+				mas[j] = temp;
+			}
+		}
+	}
+}
+
+void main() {
+	int length = 5;
+	int a[length];
+	for (int i = 0; i <length; i++) {
+		a[i] = length-i;
+	}
+	prints("Input:");
+	ptArr(a, length);
+	prints("");
+	sort(a, length);
+	prints("Output:");
+	ptArr(a, length);
+	read();
+}
+
 int a;
 
+int main() {
+	bool a = true;
+	bool b = false;
+	bool c = true;
+	bool t = (c || a&&b) && b;
+	printb(t);
+	read();
+}
 
 
 void testt() {
@@ -107,5 +165,15 @@ void t() {
 
 string testtt(string f) {
 	a(a,b,c,d,f);
+}
+
+void test(int[] a) {
+	a[0] = a[2];
+}
+
+void main() {
+	int a[5];
+
+	test(a);
 }
 

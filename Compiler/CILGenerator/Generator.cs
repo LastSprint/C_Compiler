@@ -9,6 +9,16 @@ using Type = CompilerConsole.Parser.Nodes.Type;
 
 namespace CompilerConsole.CILGenerator
 {
+
+    /*
+     bge: <
+     ble: >
+     bne.un: ==
+     beq: !=
+     bgt: <=
+     blt: >=
+         */
+
     #region Enums
     enum Template {
         ClassDecl,
@@ -44,7 +54,9 @@ namespace CompilerConsole.CILGenerator
         /// Создание массива:
         /// {type} - тип массива
         /// </summary>
-        ArrDecl
+        ArrDecl,
+        Conj,
+        Dij
     }
 
     public enum CILToken
@@ -106,8 +118,12 @@ namespace CompilerConsole.CILGenerator
         Div,
         Mul,
         Call,
-        Ret
-
+        Ret,
+        Dij,
+        Conj,
+        Neg,
+        Less,
+        More
     }
 #endregion
 
@@ -145,51 +161,56 @@ namespace CompilerConsole.CILGenerator
             return body;
         }
 
-
-
         #region Addition
         private void InitializeTemplates() {
             this.templatesDictionary = new Dictionary<Template, string>() {
-                { Template.ClassDecl , "ClassDeclTemplate.txt"},
-                { Template.DeclFuncFinich, "DeclFuncFinish.txt"},
-                { Template.DeclMainFunc, "DeclMainFuncStart.txt"},
-                { Template.StartFuncDecl, "StartFucDecl.txt"},
+                { Template.ClassDecl , "ClassDeclTemplate.txt" },
+                { Template.DeclFuncFinich, "DeclFuncFinish.txt" },
+                { Template.DeclMainFunc, "DeclMainFuncStart.txt" },
+                { Template.StartFuncDecl, "StartFucDecl.txt" },
                 { Template.StartProgram, "StartProgramTempate.txt" },
                 { Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt" },
                 { Template.ConsoleWriteLine, "WriteLineTemplate.txt" },
-                { Template.ConsoleReadLine, "ReadLineTemplate.txt"},
-                { Template.CallMethod, "CallMethod.txt"},
-                { Template.FieldDecl, "FieldDeclTemplate.txt"},
-                { Template.CallField, "CallField.txt"},
-                { Template.ArrDecl, "ArrDecl.txt" }
+                { Template.ConsoleReadLine, "ReadLineTemplate.txt" },
+                { Template.CallMethod, "CallMethod.txt" },
+                { Template.FieldDecl, "FieldDeclTemplate.txt" },
+                { Template.CallField, "CallField.txt" },
+                { Template.ArrDecl, "ArrDecl.txt" },
+                { Template.Conj, "ConjTemplate.txt" },
+                { Template.Dij, "DijTemplate.txt" }
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {
-                {CILReplacedToken.MethodName, "{name}"},
-                {CILReplacedToken.MethodArgs, "{args}"},
-                { CILReplacedToken.Variables, "{variables}"},
-                { CILReplacedToken.ClassBody, "{classBody}"},
+                { CILReplacedToken.MethodName, "{name}" },
+                { CILReplacedToken.MethodArgs, "{args}" },
+                { CILReplacedToken.Variables, "{variables}" },
+                { CILReplacedToken.ClassBody, "{classBody}" },
             };
 
             this._operationDictionary = new Dictionary<ILOperation, string>() {
-                {ILOperation.IntConstLoad, "ldc.i4"},
-                {ILOperation.ReadLocalVariable, "ldloc"},
-                {ILOperation.WriteLocalVariable, "stloc"},
-                {ILOperation.WriteMethodArg, "starg" },
-                {ILOperation.ReadMethodArg, "ldarg" },
-                {ILOperation.WriteField, "stsfld" },
-                {ILOperation.ReadField, "ldsfld" },
-                {ILOperation.StringConstLoad, "ldstr"},
-                {ILOperation.Add, "add"},
-                {ILOperation.Sub, "sub"},
-                {ILOperation.Div, "div"},
-                { ILOperation.Mul, "mul"},
-                { ILOperation.Call, "call"},
+                { ILOperation.IntConstLoad, "ldc.i4" },
+                { ILOperation.ReadLocalVariable, "ldloc" },
+                { ILOperation.WriteLocalVariable, "stloc" },
+                { ILOperation.WriteMethodArg, "starg" },
+                { ILOperation.ReadMethodArg, "ldarg" },
+                { ILOperation.WriteField, "stsfld" },
+                { ILOperation.ReadField, "ldsfld" },
+                { ILOperation.StringConstLoad, "ldstr" },
+                { ILOperation.Add, "add" },
+                { ILOperation.Sub, "sub" },
+                { ILOperation.Div, "div" },
+                { ILOperation.Mul, "mul" },
+                { ILOperation.Call, "call" },
                 { ILOperation.ReadArrStructElement, "ldelem.i4" },
                 { ILOperation.WriteArrStructElement, "stelem.i4" },
                 { ILOperation.ReadArrRefElement, "ldelem.ref" },
                 { ILOperation.WriteArrRefElement, "stelem.ref" },
-                { ILOperation.Ret, "ret"}
+                { ILOperation.Ret, "ret" },
+                { ILOperation.Conj, "{opline} brfalse {const line}" },
+                { ILOperation.Dij, "{opline} brtrue {const line}" },
+                { ILOperation.Neg, "ceq"},
+                { ILOperation.Less, "clt"},
+                { ILOperation.More, "cgt"}
             };
         }
 

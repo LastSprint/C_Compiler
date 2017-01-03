@@ -43,6 +43,18 @@ namespace CompilerConsole.Parser.Nodes {
         }
 
         public void ChecValidExpr() {
+            if (this.ExprToken == ExprToken.Neg) {
+                if (LeftNode.DataType != Type.VarBool) {
+                    this.DataType = Type.Error;
+                    return;
+                }
+                else {
+                    this.DataType = Type.VarBool;
+                    return;
+                    
+                }
+            }
+
             if (this.LeftNode.DataType != this.RightNode.DataType) {
                 this.DataType = Type.Error;
                 return;
@@ -173,7 +185,7 @@ namespace CompilerConsole.Parser.Nodes {
             writer.WriteEndElement();
 
             writer.WriteStartElement("RightNode");
-            this.RightNode.WriteXml(writer);
+            this.RightNode?.WriteXml(writer);
             writer.WriteEndElement();
 
            // writer.WriteAttributeString("ExprToken", this.ExprToken.ToString());

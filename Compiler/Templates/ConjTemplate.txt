@@ -1,0 +1,3 @@
+{br line} br {end line}
+{const line} ldc.i4 0
+{end}
