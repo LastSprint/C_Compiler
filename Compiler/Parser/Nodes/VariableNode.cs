@@ -16,9 +16,12 @@ namespace CompilerConsole.Parser.Nodes
 
         public int Number { get; set; }
 
+        public bool IsDeclaration { get; set; }
+
         public VariableNode(string name, Type type, bool isMethodArg) : base(name, type) {
             this.IsMethodArg = isMethodArg;
             this.IsGlobal = false;
+            this.IsDeclaration = false;
         }
 
         public VariableNode():base() {

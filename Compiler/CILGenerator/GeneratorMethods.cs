@@ -101,6 +101,7 @@ namespace CompilerConsole.CILGenerator
                 if (bodyNode is VariableNode && !(bodyNode as VariableNode).IsMethodArg)
                 {
                     variables.Add(bodyNode as VariableNode);
+                    (bodyNode as VariableNode).IsDeclaration = true;
                 }
             }
             //теперь заносим их в IL
@@ -112,6 +113,10 @@ namespace CompilerConsole.CILGenerator
                     localVariables.Append(",");
                 }
                 localVariables.AppendLine();
+            }
+
+            foreach (var variableNode in variables) {
+                method.Body.Nodes.Remove(variableNode);
             }
 
             string localVardeclTemplate = this.Reader(Template.LocalvariableDeclaration);
@@ -282,7 +287,7 @@ namespace CompilerConsole.CILGenerator
 #region Utils
         public string ExpressionToIL(Node node)
         {
-            if (node is StructVariableNode)
+            if (node is VariableNode)
             {
                 var varNode = (VariableNode) node;
                 if (varNode.IsGlobal) {

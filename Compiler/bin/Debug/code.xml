@@ -3,30 +3,32 @@
   <Body>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
-        <ArrayNode Name="a" DataType="ArrString">
-          <Length>
-            <Literal Name="lit" DataType="VarInt" Value="10" />
-          </Length>
-        </ArrayNode>
         <Expression Expr="Ass" Name="expr" DataType="VarString">
           <LeftNode>
-            <ArrCallNode DataType="VarString" Arr="a">
-              <Index>
-                <Literal Name="lit" DataType="VarInt" Value="1" />
-              </Index>
-            </ArrCallNode>
+            <VariableNode IsMethodArg="False" Name="a" DataType="VarString" />
           </LeftNode>
           <RightNode>
-            <Literal Name="lit" DataType="VarString" Value="&quot;hello world form arr&quot;" />
+            <Literal Name="lit" DataType="VarString" Value="&quot;hello world&quot;" />
           </RightNode>
         </Expression>
+        <VariableNode IsMethodArg="False" Name="a" DataType="VarString" />
+        <Expression Expr="Ass" Name="expr" DataType="VarChar">
+          <LeftNode>
+            <VariableNode IsMethodArg="False" Name="b" DataType="VarChar" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarChar" Value="b" />
+          </RightNode>
+        </Expression>
+        <VariableNode IsMethodArg="False" Name="b" DataType="VarChar" />
         <MethCallNode DataType="Void" Method="prints">
           <SendArgs>
-            <ArrCallNode DataType="VarString" Arr="a">
-              <Index>
-                <Literal Name="lit" DataType="VarInt" Value="1" />
-              </Index>
-            </ArrCallNode>
+            <VariableNode IsMethodArg="False" Name="a" DataType="VarString" />
+          </SendArgs>
+        </MethCallNode>
+        <MethCallNode DataType="Void" Method="printc">
+          <SendArgs>
+            <VariableNode IsMethodArg="False" Name="b" DataType="VarChar" />
           </SendArgs>
         </MethCallNode>
         <MethCallNode DataType="VarString" Method="read">
