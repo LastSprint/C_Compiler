@@ -45,6 +45,7 @@ namespace CompilerConsole.CILGenerator
             }
             else {
                 startMethodCIL = this.Reader(Template.StartFuncDecl);
+                startMethodCIL = startMethodCIL.Replace("{type}", this.ToCILVariableType(method.DataType));
             }
           
             startMethodCIL = startMethodCIL.Replace(this.cilReplacedToken[CILReplacedToken.MethodName], method.Name);
@@ -149,38 +150,6 @@ namespace CompilerConsole.CILGenerator
         }
 #endregion
 
-       /* private string GenerateExpresseionFromNode(Node node) {
-            if (node is Expression)
-            {
-                return this.ActionExprToIL(node as Expression);
-            }
-            else if (node is MethCall) {
-                var methCallNode = node as MethCall;
-                StringBuilder methodCall = new StringBuilder();
-                foreach (var sendArg in methCallNode.SendArgs) {
-                    methodCall.AppendLine(this.ExpressionToIL(sendArg));
-                }
-
-                if (methCallNode.Method.Name == Parser.Parser.WriteMethodName) {
-                    methodCall.AppendLine(this._operationDictionary[ILOperation.Call] + Generator.Offset +  this.Reader(Template.ConsoleWriteLine)
-                        .Replace("{type}", this.ToCILVariableType(methCallNode.SendArgs[0].DataType)));
-
-                }
-                else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName) {
-                    //Если вызываем ввод из консоли
-                    throw new NotImplementedException(@"Сори, но ввода в консоль пока нету (:");
-                }
-                else {
-                    throw new NotImplementedException(@"Сорян, но вызывать свой метод не получтся пока (:");
-                    //Костомный метод
-                }
-                return methodCall.ToString();
-            }
-
-            return null;
-        }
-        */
-
         /// <summary>
         /// Генерирует IL код для объявления глобальных переменных
         /// </summary>
@@ -267,7 +236,7 @@ namespace CompilerConsole.CILGenerator
             else if (methCallNode.Method.Name == Parser.Parser.ReadMethodName)
             {
                 //Если вызываем ввод из консоли
-                methodCall.AppendLine(LineNumber + this._operationDictionary[ILOperation.Call] + Generator.Offset +
+                methodCall.Append(LineNumber + this._operationDictionary[ILOperation.Call] + Generator.Offset +
                                       this.Reader(Template.ConsoleReadLine));
             }
             else {
@@ -285,7 +254,7 @@ namespace CompilerConsole.CILGenerator
                     }
                 }
                 method = method.Replace("{args}", args);
-                methodCall.AppendLine(LineNumber + this._operationDictionary[ILOperation.Call] + Generator.Offset + method);
+                methodCall.Append(LineNumber + this._operationDictionary[ILOperation.Call] + Generator.Offset + method);
             }
             return methodCall.ToString();
         }
@@ -363,6 +332,16 @@ namespace CompilerConsole.CILGenerator
                     writeArr = this._operationDictionary[ILOperation.WriteLocalVariable] + Generator.Offset + arr.Number;
                 }
                 return  arrSize + arrDecl + LineNumber + writeArr;
+            }
+            if (node is ReturnNode) {
+                string returnVal = "";
+                var ret = (ReturnNode) node;
+
+                if (ret.DataType != Type.Void) {
+                    returnVal = this.ExpressionToIL(ret.ReturnedValue) + Environment.NewLine;
+                }
+
+                return returnVal + LineNumber + this._operationDictionary[ILOperation.Ret];
             }
             return null;
         }

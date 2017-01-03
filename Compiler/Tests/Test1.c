@@ -43,6 +43,19 @@ int a;
 int b;
 int c;
 
+
+int a() {
+	int a;
+	return 1;
+}
+
+void main() {
+	int h;
+	h = a();
+	printi(h);
+	read();
+}
+
 void main() {
 	c = 125;
 	c = c + 40 - 10;

@@ -1,2 +1,2 @@
-  .method public hidebysig static void  {name}({args}) cil managed
+  .method public hidebysig static {type}  {name}({args}) cil managed
   {

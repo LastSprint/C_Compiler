@@ -1,47 +1,41 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+    <MethodNode MethodType="Cust" Name="a" DataType="VarInt">
+      <Body>
+        <VariableNode IsMethodArg="False" Name="a" DataType="VarInt" />
+        <ReturnNode Name="return" DataType="VarInt">
+          <ReturnedValue>
+            <Literal Name="lit" DataType="VarInt" Value="1" />
+          </ReturnedValue>
+        </ReturnNode>
+      </Body>
+      <Args />
+    </MethodNode>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
+        <VariableNode IsMethodArg="False" Name="h" DataType="VarInt" />
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="h" DataType="VarInt" />
           </LeftNode>
           <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="125" />
-          </RightNode>
-        </Expression>
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <Expression Expr="Sub" Name="expr" DataType="VarInt">
-              <LeftNode>
-                <Expression Expr="Add" Name="expr" DataType="VarInt">
-                  <LeftNode>
-                    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-                  </LeftNode>
-                  <RightNode>
-                    <Literal Name="lit" DataType="VarInt" Value="40" />
-                  </RightNode>
-                </Expression>
-              </LeftNode>
-              <RightNode>
-                <Literal Name="lit" DataType="VarInt" Value="10" />
-              </RightNode>
-            </Expression>
+            <MethCallNode DataType="VarInt" Method="a">
+              <SendArgs />
+            </MethCallNode>
           </RightNode>
         </Expression>
         <MethCallNode DataType="Void" Method="printi">
           <SendArgs>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+            <VariableNode IsMethodArg="False" Name="h" DataType="VarInt" />
           </SendArgs>
         </MethCallNode>
         <MethCallNode DataType="VarString" Method="read">
           <SendArgs />
         </MethCallNode>
+        <ReturnNode Name="return" DataType="Void">
+          <ReturnedValue />
+        </ReturnNode>
       </Body>
       <Args />
     </MethodNode>

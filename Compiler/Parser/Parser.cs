@@ -267,6 +267,9 @@ namespace CompilerConsole.Parser {
                     _currentMethod = meth;
                     this.RecPars(treeNode.GetChild(3), meth.Body);
                     _currentMethod = null;
+                    if (meth.DataType == Type.Void && !(meth.Body.Nodes[meth.Body.Nodes.Count - 1] is ReturnNode)) {
+                        meth.Body.Nodes.Add(new ReturnNode(Type.Void, null));
+                    }
                     break;
                 }
                 case Token.RETURN: {

@@ -105,7 +105,8 @@ namespace CompilerConsole.CILGenerator
         Sub,
         Div,
         Mul,
-        Call
+        Call,
+        Ret
 
     }
 #endregion
@@ -187,7 +188,8 @@ namespace CompilerConsole.CILGenerator
                 { ILOperation.ReadArrStructElement, "ldelem.i4" },
                 { ILOperation.WriteArrStructElement, "stelem.i4" },
                 { ILOperation.ReadArrRefElement, "ldelem.ref" },
-                { ILOperation.WriteArrRefElement, "stelem.ref" }
+                { ILOperation.WriteArrRefElement, "stelem.ref" },
+                { ILOperation.Ret, "ret"}
             };
         }
 

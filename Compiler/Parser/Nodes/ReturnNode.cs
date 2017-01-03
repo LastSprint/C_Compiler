@@ -7,7 +7,7 @@ namespace CompilerConsole.Parser.Nodes
         /// <summary>
         /// Значение, которое должно вернуться из функции
         /// </summary>
-        private Node ReturnedValue { get; set; }
+        public Node ReturnedValue { get; set; }
 
         public ReturnNode(Type type,Node returndValue, string name = "return") : base(name, type) {
             this.ReturnedValue = returndValue;
@@ -20,7 +20,7 @@ namespace CompilerConsole.Parser.Nodes
             writer.WriteStartElement("ReturnNode");
             base.WriteXml(writer);
             writer.WriteStartElement("ReturnedValue");
-            this.ReturnedValue.WriteXml(writer);
+            this.ReturnedValue?.WriteXml(writer);
             writer.WriteEndElement();
             writer.WriteEndElement();
         }
