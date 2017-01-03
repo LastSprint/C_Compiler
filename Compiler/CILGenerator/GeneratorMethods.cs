@@ -250,6 +250,9 @@ namespace CompilerConsole.CILGenerator
                 //Если вызываем ввод из консоли
                 methodCall.Append(LineNumber + this._operationDictionary[ILOperation.Call] + this.Offset +
                                       this.Reader(Template.ConsoleReadLine));
+            }else if (methCallNode.Method.Name == Parser.Parser.ReadFile) {
+                methodCall.Append(LineNumber + this._operationDictionary[ILOperation.Call] + this.Offset +
+                                      this.Reader(Template.ReadFile));
             }
             else {
                 string method = this.Reader(Template.CallMethod);
@@ -592,6 +595,7 @@ namespace CompilerConsole.CILGenerator
                               arr.Arr.Number + Environment.NewLine;
                     }
                 }
+
                 string index = this.ExpressionToIL(arr.Index) + Environment.NewLine;
                 string righte = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
                 string write;
@@ -605,6 +609,47 @@ namespace CompilerConsole.CILGenerator
                 return arrCall + index + righte + LineNumber + write;
 
             }
+
+            if (node.LeftNode is ArrNode) {
+                var arrl = (ArrNode) node.LeftNode;
+                var arrr = (ArrNode) node.RightNode;
+                string loadRight;
+                if (arrr.IsGlobal) {
+                    string field = this.Reader(Template.CallField);
+                    field = field.Replace("{type}", this.ToCILVariableType((node.LeftNode as ArrNode).DataType));
+                    field = field.Replace("{name}", (node.LeftNode as ArrNode).Name);
+                    loadRight= this.LineNumber+ this._operationDictionary[ILOperation.ReadField] + this.Offset + field;
+                }
+                else {
+                    if (arrr.IsMethodArg) {
+                        loadRight = LineNumber + this._operationDictionary[ILOperation.ReadMethodArg] + this.Offset +
+                              arrr.Number + Environment.NewLine;
+                    }
+                    else {
+                        loadRight = LineNumber + this._operationDictionary[ILOperation.ReadLocalVariable] + this.Offset +
+                              arrr.Number + Environment.NewLine;
+                    }
+                }
+                string loadLeft;
+                if (arrl.IsGlobal) {
+                    string field = this.Reader(Template.CallField);
+                    field = field.Replace("{type}", this.ToCILVariableType((node.LeftNode as ArrNode).DataType));
+                    field = field.Replace("{name}", (node.LeftNode as ArrNode).Name);
+                    loadLeft = this.LineNumber + this._operationDictionary[ILOperation.WriteField] + this.Offset + field;
+                }
+                else {
+                    if (arrl.IsMethodArg) {
+                        loadLeft = LineNumber + this._operationDictionary[ILOperation.WriteMethodArg] + this.Offset +
+                              arrr.Number + Environment.NewLine;
+                    }
+                    else {
+                        loadLeft = LineNumber + this._operationDictionary[ILOperation.WriteLocalVariable] + this.Offset +
+                              arrr.Number + Environment.NewLine;
+                    }
+                }
+                return loadRight + loadLeft;
+            }
+
             string writeLineNumber = "";
             if ((node.LeftNode as VariableNode).IsGlobal) {
                 string field = this.Reader(Template.CallField);

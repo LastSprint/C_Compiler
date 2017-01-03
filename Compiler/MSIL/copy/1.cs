@@ -2,9 +2,8 @@ using System;
 namespace Program {
   public class Program{
       public static void Main() {
-          int[] a = new int[10];
-          a[0] = 100;
-          Test(a);
+          string t = System.IO.File.ReadAllText("t");
+          Console.WriteLine(t);
       }
 
       public static void Test(int[] a){

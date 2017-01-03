@@ -1,0 +1,1 @@
+string [mscorlib]System.IO.File::ReadAllText(string)

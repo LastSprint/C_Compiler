@@ -177,3 +177,17 @@ void main() {
 	test(a);
 }
 
+void main() {
+	string t = fileRead("test.txt");
+	prints(t);
+	read();
+}
+
+void main() {
+	int a[5];
+	int b[5];
+	a[1] = 5;
+	b = a;
+	printi(b[1]);
+}
+

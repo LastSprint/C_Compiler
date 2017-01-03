@@ -56,7 +56,8 @@ namespace CompilerConsole.CILGenerator
         /// </summary>
         ArrDecl,
         Conj,
-        Dij
+        Dij,
+        ReadFile
     }
 
     public enum CILToken
@@ -177,7 +178,8 @@ namespace CompilerConsole.CILGenerator
                 { Template.CallField, "CallField.txt" },
                 { Template.ArrDecl, "ArrDecl.txt" },
                 { Template.Conj, "ConjTemplate.txt" },
-                { Template.Dij, "DijTemplate.txt" }
+                { Template.Dij, "DijTemplate.txt" },
+                { Template.ReadFile, "ReadFileTemplate.txt"}
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {

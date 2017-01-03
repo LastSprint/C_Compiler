@@ -31,6 +31,7 @@ namespace CompilerConsole.Parser {
         #region Consts
         public const string WriteMethodName = "print";
         public const string ReadMethodName = "read";
+        public const string ReadFile = "fileRead";
         #endregion
 
 
@@ -93,6 +94,7 @@ namespace CompilerConsole.Parser {
             this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "b", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "f",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "s", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(ReadFile, Type.VarString, new Body(), new List<VariableNode>() { new StructVariableNode("var", Type.VarString) }, MethodType.Libr));
             this.MainBody.Nodes.Add(new MethodNode(ReadMethodName, Type.VarString, new Body(),new List<VariableNode>(), MethodType.Libr));
         }
 
@@ -290,6 +292,7 @@ namespace CompilerConsole.Parser {
 
         #region After parsing methods
         public void Serialize() {
+            
             using (FileStream fs = new FileStream("code.xml", FileMode.Create)) {
                 XmlSerializer serializer = new XmlSerializer(typeof(Body));
                 serializer.Serialize(fs, this.MainBody);

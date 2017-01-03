@@ -32,13 +32,13 @@
   <B><FONT COLOR=NAVY>.ver</FONT></B> 0:0:0:0
 }
 <B><FONT COLOR=NAVY>.module</FONT></B> '1.exe'
-<I><FONT COLOR=GREEN>// MVID: {420B1D70-4EAA-4CBC-A606-AA25F59B00A4}</FONT></I>
+<I><FONT COLOR=GREEN>// MVID: {818E47F1-159D-4CEB-BCFA-EFA469F81031}</FONT></I>
 <B><FONT COLOR=NAVY>.imagebase</FONT></B> 0x00400000
 <B><FONT COLOR=NAVY>.file alignment</FONT></B> 0x00000200
 <B><FONT COLOR=NAVY>.stackreserve</FONT></B> 0x00100000
 <B><FONT COLOR=NAVY>.subsystem</FONT></B> 0x0003       <I><FONT COLOR=GREEN>// WINDOWS_CUI</FONT></I>
 <B><FONT COLOR=NAVY>.corflags</FONT></B> 0x00000001<I><FONT COLOR=GREEN>    //  ILONLY</FONT></I>
-<I><FONT COLOR=GREEN>// Image base: 0x014A0000</FONT></I>
+<I><FONT COLOR=GREEN>// Image base: 0x01540000</FONT></I>
 
 
 <I><FONT COLOR=GREEN>// =============== CLASS MEMBERS DECLARATION ===================</FONT></I>
@@ -49,44 +49,39 @@
   <A NAME=A06000001><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig static </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B>  Main()<B><FONT COLOR=NAVY> cil managed</FONT></B>
   {
     <B><FONT COLOR=NAVY>.entrypoint</FONT></B>
-    // Размер кода:       20 (0x14)
-    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  3
-    <B><FONT COLOR=NAVY>.locals </FONT></B><B><FONT COLOR=NAVY>init </FONT></B>([0] <B><FONT COLOR=NAVY>int32</FONT></B>[] a)
+    // Размер кода:       18 (0x12)
+    <B><FONT COLOR=NAVY>.maxstack</FONT></B>  1
+    <B><FONT COLOR=NAVY>.locals </FONT></B><B><FONT COLOR=NAVY>init </FONT></B>([0] <B><FONT COLOR=NAVY>string</FONT></B> t)
     <B><FONT COLOR=NAVY>.language</FONT></B> '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
 <I><FONT COLOR=GREEN>// Source File 'c:\Users\ianoo\Source\Repos\C_Compiler\Compiler\MSIL\copy\1.cs' </FONT></I>
-<I><FONT COLOR=GREEN>//000005:           int[] a = new int[10];</FONT></I>
-    IL_0000:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 10
-    IL_0002:  <B><FONT COLOR=NAVY>newarr</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Int32
-    IL_0007:  <B><FONT COLOR=NAVY>stloc.0</FONT></B>
-<I><FONT COLOR=GREEN>//000006:           a[0] = 100;</FONT></I>
-    IL_0008:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
-    IL_0009:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
-    IL_000a:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 100
-    IL_000c:  <B><FONT COLOR=NAVY>stelem.i4</FONT></B>
-<I><FONT COLOR=GREEN>//000007:           Test(a);</FONT></I>
-    IL_000d:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
-    IL_000e:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> <A HREF=#A02000002>Program.Program</A>::<A HREF=#A06000002>Test</A>(<B><FONT COLOR=NAVY>int32</FONT></B>[])
-<I><FONT COLOR=GREEN>//000008:       }</FONT></I>
-    IL_0013:  <B><FONT COLOR=NAVY>ret</FONT></B>
+<I><FONT COLOR=GREEN>//000005:           string t = System.IO.File.ReadAllText("t");</FONT></I>
+    IL_0000:  <B><FONT COLOR=NAVY>ldstr</FONT></B> "t"
+    IL_0005:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>string</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.IO.File::ReadAllText(<B><FONT COLOR=NAVY>string</FONT></B>)
+    IL_000a:  <B><FONT COLOR=NAVY>stloc.0</FONT></B>
+<I><FONT COLOR=GREEN>//000006:           Console.WriteLine(t);</FONT></I>
+    IL_000b:  <B><FONT COLOR=NAVY>ldloc.0</FONT></B>
+    IL_000c:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Console::WriteLine(<B><FONT COLOR=NAVY>string</FONT></B>)
+<I><FONT COLOR=GREEN>//000007:       }</FONT></I>
+    IL_0011:  <B><FONT COLOR=NAVY>ret</FONT></B>
   } <I><FONT COLOR=GREEN>// end of method Program::</FONT></I><I><FONT COLOR=GREEN>Main</FONT></I>
 
   <A NAME=A06000002><B><FONT COLOR=NAVY>.method</FONT></B></A> <B><FONT COLOR=NAVY>public hidebysig static </FONT></B><B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B>  Test(<B><FONT COLOR=NAVY>int32</FONT></B>[] a)<B><FONT COLOR=NAVY> cil managed</FONT></B>
   {
     // Размер кода:       14 (0xe)
     <B><FONT COLOR=NAVY>.maxstack</FONT></B>  8
-<I><FONT COLOR=GREEN>//000009: </FONT></I>
-<I><FONT COLOR=GREEN>//000010:       public static void Test(int[] a){</FONT></I>
-<I><FONT COLOR=GREEN>//000011:           a[0] = 100;</FONT></I>
+<I><FONT COLOR=GREEN>//000008: </FONT></I>
+<I><FONT COLOR=GREEN>//000009:       public static void Test(int[] a){</FONT></I>
+<I><FONT COLOR=GREEN>//000010:           a[0] = 100;</FONT></I>
     IL_0000:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
     IL_0001:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
     IL_0002:  <B><FONT COLOR=NAVY>ldc.i4.s</FONT></B> 100
     IL_0004:  <B><FONT COLOR=NAVY>stelem.i4</FONT></B>
-<I><FONT COLOR=GREEN>//000012:           Console.WriteLine(a[0]);</FONT></I>
+<I><FONT COLOR=GREEN>//000011:           Console.WriteLine(a[0]);</FONT></I>
     IL_0005:  <B><FONT COLOR=NAVY>ldarg.0</FONT></B>
     IL_0006:  <B><FONT COLOR=NAVY>ldc.i4.0</FONT></B>
     IL_0007:  <B><FONT COLOR=NAVY>ldelem.i4</FONT></B>
     IL_0008:  <B><FONT COLOR=NAVY>call</FONT></B> <B><FONT COLOR=NAVY></FONT></B><B><FONT COLOR=NAVY>void</FONT></B> [<A HREF=#A23000001>mscorlib</A>]System.Console::WriteLine(<B><FONT COLOR=NAVY>int32</FONT></B>)
-<I><FONT COLOR=GREEN>//000013:       }</FONT></I>
+<I><FONT COLOR=GREEN>//000012:       }</FONT></I>
     IL_000d:  <B><FONT COLOR=NAVY>ret</FONT></B>
   } <I><FONT COLOR=GREEN>// end of method Program::</FONT></I><I><FONT COLOR=GREEN>Test</FONT></I>
 

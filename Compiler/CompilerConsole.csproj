@@ -90,6 +90,7 @@
     <Content Include="Templates\DijTemplate.txt" />
     <Content Include="Templates\FieldDeclTemplate.txt" />
     <Content Include="Templates\LocalvariableDeclaration.txt" />
+    <Content Include="Templates\ReadFileTemplate.txt" />
     <Content Include="Templates\ReadLineTemplate.txt" />
     <Content Include="Templates\StartFucDecl.txt" />
     <Content Include="Templates\StartProgramTempate.txt" />

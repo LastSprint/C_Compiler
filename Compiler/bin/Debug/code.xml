@@ -1,22 +1,58 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
-    <MethodNode MethodType="Cust" Name="main" DataType="VarInt">
+    <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length>
+            <Literal Name="lit" DataType="VarInt" Value="5" />
+          </Length>
+        </ArrayNode>
+        <ArrayNode Name="b" DataType="ArrInt">
+          <Length>
+            <Literal Name="lit" DataType="VarInt" Value="5" />
+          </Length>
+        </ArrayNode>
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+            <ArrCallNode DataType="VarInt" Arr="a">
+              <Index>
+                <Literal Name="lit" DataType="VarInt" Value="1" />
+              </Index>
+            </ArrCallNode>
           </LeftNode>
           <RightNode>
-            <Literal Name="lit" DataType="VarInt" Value="10" />
+            <Literal Name="lit" DataType="VarInt" Value="5" />
+          </RightNode>
+        </Expression>
+        <Expression Expr="Ass" Name="expr" DataType="ArrInt">
+          <LeftNode>
+            <ArrayNode Name="b" DataType="ArrInt">
+              <Length>
+                <Literal Name="lit" DataType="VarInt" Value="5" />
+              </Length>
+            </ArrayNode>
+          </LeftNode>
+          <RightNode>
+            <ArrayNode Name="a" DataType="ArrInt">
+              <Length>
+                <Literal Name="lit" DataType="VarInt" Value="5" />
+              </Length>
+            </ArrayNode>
           </RightNode>
         </Expression>
         <MethCallNode DataType="Void" Method="printi">
           <SendArgs>
-            <VariableNode IsMethodArg="False" Name="c" DataType="VarInt" />
+            <ArrCallNode DataType="VarInt" Arr="b">
+              <Index>
+                <Literal Name="lit" DataType="VarInt" Value="1" />
+              </Index>
+            </ArrCallNode>
           </SendArgs>
         </MethCallNode>
+        <ReturnNode Name="return" DataType="Void">
+          <ReturnedValue />
+        </ReturnNode>
       </Body>
       <Args />
     </MethodNode>
