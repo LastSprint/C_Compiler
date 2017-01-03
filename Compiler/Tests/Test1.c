@@ -43,10 +43,11 @@ int a;
 int b;
 int c;
 
-void mait() {
+void main() {
 	c = 125;
 	c = c + 40 - 10;
 	printi(c);
+	read();
 }
 
 void main() {

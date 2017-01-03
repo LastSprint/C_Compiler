@@ -27,25 +27,26 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
+.field private static int32 c
   .method public hidebysig static void  Main() cil managed
   {
     .entrypoint
     .language '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
-.locals init (	 [0] string a,
-	 [1] char b
-)
-ldstr	"hello world"
-stloc	0
-ldc.i4	98
-stloc	1
-ldloc	0
-call	void [mscorlib]System.Console::WriteLine(string)
-ldloc	1
-call	void [mscorlib]System.Console::WriteLine(char)
-call	string [mscorlib]System.Console::ReadLine()
+.locals init ()
+IL_0:	ldc.i4	125
+IL_1:	stsfld	int32 Program.Program::c
+ldsfld	int32 Program.Program::c
+IL_2:	ldc.i4	40
+IL_3:	add
+IL_4:	ldc.i4	10
+IL_5:	sub
+IL_6:	stsfld	int32 Program.Program::c
+ldsfld	int32 Program.Program::c
+IL_7:	call	void [mscorlib]System.Console::WriteLine(int32)
+IL_8:	call	string [mscorlib]System.Console::ReadLine()
 
 
-    IL_0000:  ret
+    IL_50:  ret
   }
 
 .method public hidebysig specialname rtspecialname instance void 
