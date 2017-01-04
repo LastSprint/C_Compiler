@@ -1,37 +1,3 @@
-
-int[] test(int a, int[] a) {
-	return 0;
-}
-
-void main() {
-	int a = 1;
-	if (a == 1) {
-		printi(a);
-	}
-	read();
-	return;
-}
-
-int[] sort(int[] a, int n) {
-	int c = 0;
-	for (int i = 0; i < n - 1; i++) {
-		int b;
-	}
-}
-
-
-
-int[] sort(int[] a, int n) {
-	int c = 0;
-	for (int i = 0; i < n - 1; i++) {
-		for (int j = n - 2; j >= i; j--) {
-			if (a[j] > a[j + 1]) {
-				c = a[j]; 
-			}
-		}
-	}
-}
-
 int a;
 int b;
 int c;
@@ -40,18 +6,6 @@ int c;
 int main() {
 	c = 10;
 	printi(c);
-}
-
-void main() {
-	a(10)
-	read();
-}
-
-void main() {
-	c = 125;
-	c = c + 40 - 10;
-	printi(c);
-	read();
 }
 
 void main() {
@@ -83,13 +37,6 @@ void main() {
 	read();
 }
 
-void rec(int i) {
-	printi(i);
-	if (i > 10) {
-		return;
-	}
-	rec(i + 1);
-}
 
 void ptArr(int[] a, int arrLength) {
 	for (int i = 0; i < arrLength; i++) {
@@ -126,55 +73,6 @@ void main() {
 	prints("Output:");
 	ptArr(a, length);
 	read();
-}
-
-int a;
-
-int main() {
-	bool a = true;
-	bool b = false;
-	bool c = true;
-	bool t = (c || a&&b) && b;
-	printb(t);
-	read();
-}
-
-
-void testt() {
-	int j;
-	while (j == 0) {
-		int a;
-	}
-
-	do {
-		int a;
-	} while (j == 0);
-
-	for (int i = 0; i < 10; i++) {
-		int a;
-	}
-
-	if (j == 0) {
-		int a;
-	}
-}
-
-void t() {
-	return 5;
-}
-
-string testtt(string f) {
-	a(a,b,c,d,f);
-}
-
-void test(int[] a) {
-	a[0] = a[2];
-}
-
-void main() {
-	int a[5];
-
-	test(a);
 }
 
 void main() {
