@@ -59,10 +59,6 @@ namespace CompilerConsole.Parser {
         public MethodNode ParseMethodDeclare(ITree tree, Body body) {
             string methodName = tree.GetChild(1).Text;
 
-            if (Body.FindNodeByName<MethodNode>(methodName, body) != null) {
-                throw new NodeAlreadyExistException($"Метод с именем {methodName} уже объявлен");
-            }
-
             Type returnType;
             if (tree.GetChild(0).Text == "RET_TYPE_SINGLE") {
                 if (tree.GetChild(0).GetChild(0).Text == "void") {
@@ -89,10 +85,19 @@ namespace CompilerConsole.Parser {
                 varNode = this.ParseVarDecl(argsNode.GetChild(i), bodyTable)[0];
                 args.Add(varNode);
             }
+
+            List<Node> converted = new List<Node>();
+
+            args.ForEach(node => converted.Add(node));
+
+            if (FindMethodByNameAndArgs(methodName,converted,null, this.MainBody) != null) {
+                throw new NodeAlreadyExistException($"Метод с именем {methodName} уже объявлен");
+            }
+
+
             var methodNode = new MethodNode(methodName, returnType, bodyTable, args);
 
-            foreach (var variable in methodNode.ArgList)
-            {
+            foreach (var variable in methodNode.ArgList) {
                 methodNode.Body.Nodes.Add(variable);
             }
 
@@ -106,7 +111,7 @@ namespace CompilerConsole.Parser {
 
             Type typeToken = this.GetArrType(type.Text);
 
-            if (Body.FindNodeByName<StructVariableNode>(name.Text,body) != null) {
+            if (Body.FindNodeByName<StructVariableNode>(name.Text, body) != null) {
                 throw new NodeAlreadyExistException($"Переменная с именем {name.Text} объявлена ранее");
             }
             if (length == null) {
@@ -114,44 +119,10 @@ namespace CompilerConsole.Parser {
             }
             Node arrLength = this.ParsExpr(length, body);
             if (arrLength.DataType != Type.VarInt) {
-                throw new BadExpressionException($"При создании массива ошибка с типом разерности. Нужен VarInt а был {arrLength.DataType} при создании массива {name.Text} ");
+                throw new BadExpressionException(
+                    $"При создании массива ошибка с типом разерности. Нужен VarInt а был {arrLength.DataType} при создании массива {name.Text} ");
             }
             return new ArrNode(name.Text, typeToken, arrLength);
-        }
-
-
-        public Node ParseExpression(ITree tree, Body body, ExprToken exprToken) {
-            switch (exprToken) {
-                case ExprToken.IsEqual:
-                    break;
-                case ExprToken.IsLess:
-                    break;
-                case ExprToken.IsMore:
-                    break;
-                case ExprToken.IsLessOrEqual:
-                    break;
-                case ExprToken.IsMoreOrEqual:
-                    break;
-                case ExprToken.Add:
-                    break;
-                case ExprToken.Sub:
-                    break;
-                case ExprToken.Mult:
-                    break;
-                case ExprToken.Div:
-                    break;
-                case ExprToken.Conj:
-                    break;
-                case ExprToken.Dij:
-                    break;
-                case ExprToken.Neg:
-                    break;
-                case ExprToken.Ass:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(exprToken), exprToken, null);
-            }
-            return null;
         }
 
         /// <summary>
@@ -182,6 +153,7 @@ namespace CompilerConsole.Parser {
             }
 
             #region Variable
+
             if (this.IsVariable(tree)) {
                 VariableNode variable = Body.FindNodeByName<VariableNode>(tree.Text, body);
 
@@ -191,6 +163,7 @@ namespace CompilerConsole.Parser {
                 }
                 return variable;
             }
+
             #endregion
 
             #region Expression
@@ -203,7 +176,7 @@ namespace CompilerConsole.Parser {
                 if (rightNode != null) {
                     right = this.ParsExpr(rightNode, body);
                 }
-          
+
 
                 if (left is ArrCall) {
                     (left as ArrCall).Assign = right;
@@ -219,6 +192,7 @@ namespace CompilerConsole.Parser {
                 return expr;
             }
             return null;
+
             #endregion
         }
 
@@ -226,7 +200,7 @@ namespace CompilerConsole.Parser {
             ITree arrName = tree.GetChild(0);
             ITree callindex = tree.GetChild(1);
 
-           var arrNode =  Body.FindNodeByName<ArrNode>(arrName.Text, body);
+            var arrNode = Body.FindNodeByName<ArrNode>(arrName.Text, body);
 
             if (arrNode == null) {
                 throw new NodeNotfoundException($"Массив с именем {arrName.Text} не найден в текущем контексте");
@@ -241,31 +215,28 @@ namespace CompilerConsole.Parser {
             ITree methName = tree.GetChild(0);
             ITree args = tree.GetChild(1);
 
-            MethodNode method = Body.FindNodeByName<MethodNode>(methName.Text, body);
-
-            if (method == null)
-            {
-                throw new NodeNotfoundException($"Метод с именем {methName.Text} не найден в текущем контексте");
-            }
             List<Node> argList = new List<Node>();
-
             if (args != null) {
-                for (int i = 0; i < args.ChildCount; i++)
-                {
+                for (int i = 0; i < args.ChildCount; i++) {
                     argList.Add(this.ParsExpr(args.GetChild(i), body));
                 }
+            }
 
-                if (argList.Count != method.ArgList.Count)
-                {
-                    throw new NodeNotfoundException($"Метод с именем {method.Name} содержит другое кол-во вргументов ");
-                }
 
-                for (int i = 0; i < argList.Count; i++)
-                {
-                    if (argList[i].DataType != method.ArgList[i].DataType)
-                    {
-                        throw new NodeNotfoundException($"Метод с именем {method.Name} не содержит аргументы с такими типами ");
-                    }
+            MethodNode method = FindMethodByNameAndArgs(methName.Text, argList, null, this.MainBody);
+
+            if (method == null) {
+                throw new NodeNotfoundException($"Метод с именем {methName.Text} не найден в текущем контексте");
+            }
+
+            if (argList.Count != method.ArgList.Count) {
+                throw new NodeNotfoundException($"Метод с именем {method.Name} содержит другое кол-во вргументов ");
+            }
+
+            for (int i = 0; i < argList.Count; i++) {
+                if (argList[i].DataType != method.ArgList[i].DataType) {
+                    throw new NodeNotfoundException(
+                        $"Метод с именем {method.Name} не содержит аргументы с такими типами ");
                 }
             }
 
@@ -283,10 +254,10 @@ namespace CompilerConsole.Parser {
         private Node ActionParse(Token token, ITree treeNode, Body body) {
             switch (token) {
                 case Token.ARR_CALL:
-                    var t1 =  this.ParseArrCall(treeNode, body);
+                    var t1 = this.ParseArrCall(treeNode, body);
                     return t1;
                 case Token.METH_CALL:
-                    var t2 =  this.ParseMethCall(treeNode, body);
+                    var t2 = this.ParseMethCall(treeNode, body);
                     return t2;
                 case Token.INC:
                     var t3 = this.ParseIncDec(treeNode, body, ExprToken.Add);
@@ -303,49 +274,31 @@ namespace CompilerConsole.Parser {
             return text[1];
         }
 
-        private string ExecuteString(string text) {
-            string result = "";
-
-            foreach (var ch in text) {
-                if (ch != '\"') {
-                    result += ch;
-                }
-            }
-
-            return result;
-        }
-
-        private Literals GetLiterals(string text)
-        {
-            if (String.CompareOrdinal(text, "false") == 0 || String.CompareOrdinal(text, "true") == 0)
-            {
+        private Literals GetLiterals(string text) {
+            if (String.CompareOrdinal(text, "false") == 0 || String.CompareOrdinal(text, "true") == 0) {
                 return new Literals(Type.VarBool, bool.Parse(text));
             }
 
             Regex regEx = new Regex("^\".*\"$");
-            if (regEx.IsMatch(text))
-            {
+            if (regEx.IsMatch(text)) {
                 //Строка
                 return new Literals(Type.VarString, text);
             }
 
             regEx = new Regex("^\'[aA-zZ]\'$");
-            if (regEx.IsMatch(text))
-            {
+            if (regEx.IsMatch(text)) {
                 //Символ
                 return new Literals(Type.VarChar, this.ExecuteChar(text));
             }
 
             regEx = new Regex("^[0-9]+$");
-            if (regEx.IsMatch(text))
-            {
+            if (regEx.IsMatch(text)) {
                 //Целое
                 return new Literals(Type.VarInt, int.Parse(text));
             }
 
             regEx = new Regex("^[0-9]+\\.[0-9]+$");
-            if (regEx.IsMatch(text))
-            {
+            if (regEx.IsMatch(text)) {
                 //Дробное
                 return new Literals(Type.VarFloat, float.Parse(text));
             }
@@ -358,7 +311,7 @@ namespace CompilerConsole.Parser {
             if (variable == null) {
                 throw new NodeNotfoundException($"переменной с именем {tree.GetChild(0).Text} не существует");
             }
-            Expression fe = new Expression(variable, new Literals(variable.DataType, 1),token);
+            Expression fe = new Expression(variable, new Literals(variable.DataType, 1), token);
             Expression re = new Expression(variable, fe, ExprToken.Ass);
             return re;
         }
@@ -410,7 +363,8 @@ namespace CompilerConsole.Parser {
             Node cond = this.ParsExpr(condT, loopBody);
 
             if (cond.DataType != Type.VarBool) {
-                throw new UndefinedTypeException($"логическое условие для for должно иметь тип bool а не {cond.DataType}");
+                throw new UndefinedTypeException(
+                    $"логическое условие для for должно иметь тип bool а не {cond.DataType}");
             }
 
             Node loop = this.ParsExpr(imp, loopBody);
@@ -425,8 +379,7 @@ namespace CompilerConsole.Parser {
             return fl;
         }
 
-        private WhileLoop ParseWhileLoop(ITree tree, Body body)
-        {
+        private WhileLoop ParseWhileLoop(ITree tree, Body body) {
             ITree condT = tree.GetChild(0);
             ITree bodyL = tree.GetChild(1);
 
@@ -434,9 +387,9 @@ namespace CompilerConsole.Parser {
             loopBody.WrapBody = body;
             Node cond = this.ParsExpr(condT, loopBody);
 
-            if (cond.DataType != Type.VarBool)
-            {
-                throw new UndefinedTypeException($"логическое условие для While должно иметь тип bool а не {cond.DataType}");
+            if (cond.DataType != Type.VarBool) {
+                throw new UndefinedTypeException(
+                    $"логическое условие для While должно иметь тип bool а не {cond.DataType}");
             }
 
             var fl = new WhileLoop(loopBody);
@@ -447,8 +400,7 @@ namespace CompilerConsole.Parser {
             return fl;
         }
 
-        private DoLoop ParseDoLoop(ITree tree, Body body)
-        {
+        private DoLoop ParseDoLoop(ITree tree, Body body) {
             ITree condT = tree.GetChild(1);
             ITree bodyL = tree.GetChild(0);
 
@@ -456,9 +408,9 @@ namespace CompilerConsole.Parser {
             loopBody.WrapBody = body;
             Node cond = this.ParsExpr(condT, loopBody);
 
-            if (cond.DataType != Type.VarBool)
-            {
-                throw new UndefinedTypeException($"логическое условие для Do_While должно иметь тип bool а не {cond.DataType}");
+            if (cond.DataType != Type.VarBool) {
+                throw new UndefinedTypeException(
+                    $"логическое условие для Do_While должно иметь тип bool а не {cond.DataType}");
             }
 
             var fl = new DoLoop(loopBody);
@@ -484,12 +436,61 @@ namespace CompilerConsole.Parser {
                 returnedValueType = returnedValue.DataType;
             }
 
-            if (returnedValueType != _currentMethod.DataType)
-            {
-                throw new InvalidCastException($"Метод возвращает тип {_currentMethod.DataType} а ретерн возвращет {returnedValueType} - неувязочка");
+            if (returnedValueType != _currentMethod.DataType) {
+                throw new InvalidCastException(
+                    $"Метод возвращает тип {_currentMethod.DataType} а ретерн возвращет {returnedValueType} - неувязочка");
             }
 
             return new ReturnNode(returnedValueType, returnedValue);
+        }
+
+        private static MethodNode FindMethodByNameAndArgs(string name, List<Node> variables, BodyNode rootNode,
+            Body elseBody) {
+
+            if (elseBody != null) {
+                foreach (var bodyNode in elseBody.Nodes) {
+                    if (bodyNode is MethodNode) {
+                        var t = FindMethodByNameAndArgs(name, variables, bodyNode as MethodNode, null);
+                        if (t != null) {
+                            return t;
+                        }
+                    }
+                }
+            }
+
+            if (rootNode is MethodNode) {
+                var trn = rootNode as MethodNode;
+                bool flag = false;
+                if (name == rootNode.Name) {
+                    if (variables.Count == trn.ArgList.Count) {
+                        flag = true;
+                        for (int i = 0; i < variables.Count; i++) {
+                            var variableNode = variables[i];
+                            if (variableNode.DataType != trn.ArgList[i].DataType) {
+                                flag = false;
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                if (flag) {
+                    return trn;
+                }
+            }
+            if (rootNode != null) {
+                foreach (var bodyNode in rootNode.Body.Nodes) {
+                    if (bodyNode is MethodNode) {
+                        var t = FindMethodByNameAndArgs(name, variables, bodyNode as MethodNode, null);
+                        if (t != null) {
+                            return t;
+                        }
+                    }
+                }
+            }
+
+
+            return null;
         }
 
     }

@@ -1,0 +1,3 @@
+{body}
+{cond}
+{end line} brtrue.s {body line}

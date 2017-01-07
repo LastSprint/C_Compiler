@@ -1,0 +1,2 @@
+{line}call class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_Unicode()
+{line1}call void [mscorlib]System.IO.File::WriteAllText(string, string, class [mscorlib]System.Text.Encoding)

@@ -57,7 +57,13 @@ namespace CompilerConsole.CILGenerator
         ArrDecl,
         Conj,
         Dij,
-        ReadFile
+        ReadFile,
+        While,
+        DoWhile,
+        WriteFile,
+        Write,
+        Convert,
+        Concate
     }
 
     public enum CILToken
@@ -165,21 +171,27 @@ namespace CompilerConsole.CILGenerator
         #region Addition
         private void InitializeTemplates() {
             this.templatesDictionary = new Dictionary<Template, string>() {
-                { Template.ClassDecl , "ClassDeclTemplate.txt" },
-                { Template.DeclFuncFinich, "DeclFuncFinish.txt" },
-                { Template.DeclMainFunc, "DeclMainFuncStart.txt" },
-                { Template.StartFuncDecl, "StartFucDecl.txt" },
-                { Template.StartProgram, "StartProgramTempate.txt" },
-                { Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt" },
-                { Template.ConsoleWriteLine, "WriteLineTemplate.txt" },
-                { Template.ConsoleReadLine, "ReadLineTemplate.txt" },
-                { Template.CallMethod, "CallMethod.txt" },
-                { Template.FieldDecl, "FieldDeclTemplate.txt" },
-                { Template.CallField, "CallField.txt" },
-                { Template.ArrDecl, "ArrDecl.txt" },
-                { Template.Conj, "ConjTemplate.txt" },
-                { Template.Dij, "DijTemplate.txt" },
-                { Template.ReadFile, "ReadFileTemplate.txt"}
+                {Template.ClassDecl, "ClassDeclTemplate.txt"},
+                {Template.DeclFuncFinich, "DeclFuncFinish.txt"},
+                {Template.DeclMainFunc, "DeclMainFuncStart.txt"},
+                {Template.StartFuncDecl, "StartFucDecl.txt"},
+                {Template.StartProgram, "StartProgramTempate.txt"},
+                {Template.LocalvariableDeclaration, "LocalvariableDeclaration.txt"},
+                {Template.ConsoleWriteLine, "WriteLineTemplate.txt"},
+                {Template.ConsoleReadLine, "ReadLineTemplate.txt"},
+                {Template.CallMethod, "CallMethod.txt"},
+                {Template.FieldDecl, "FieldDeclTemplate.txt"},
+                {Template.CallField, "CallField.txt"},
+                {Template.ArrDecl, "ArrDecl.txt"},
+                {Template.Conj, "ConjTemplate.txt"},
+                {Template.Dij, "DijTemplate.txt"},
+                {Template.ReadFile, "ReadFileTemplate.txt"},
+                {Template.While, "WhileTemplate.txt"},
+                {Template.DoWhile, "DoWhileTemplate.txt"},
+                {Template.Concate, "ConcateTemplate.txt"},
+                {Template.Convert, "ConvertTemplate.txt"},
+                {Template.Write, "WriteTemplate.txt"},
+                {Template.WriteFile, "WriteFileTemplate.txt"}
             };
 
             this.cilReplacedToken = new Dictionary<CILReplacedToken, string>() {

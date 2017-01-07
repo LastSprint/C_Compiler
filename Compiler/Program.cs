@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net.Mime;
 using System.Security.Policy;
 using Antlr.Runtime;
@@ -10,9 +11,17 @@ namespace CompilerConsole {
     class Program {
         static void Main(string[] args) {
             try {
-                string ta = Environment.CurrentDirectory;
-                // В качестве входного потока символов устанавливаем консольный ввод
-                ANTLRReaderStream input = new ANTLRReaderStream(Console.In);
+                ANTLRReaderStream input;
+                FileStream fileStream = null;
+                TextReader reader = null;
+                if (args.Length != 0) {
+                    fileStream = new FileStream(args[0], FileMode.Open);
+                    reader = new StreamReader(fileStream);
+                    input = new ANTLRReaderStream(reader);
+                }
+                else {
+                    input = new ANTLRReaderStream(Console.In);
+                }
                 // Настраиваем лексер на этот поток
                 Lang2Lexer lexer = new Lang2Lexer(input);
                 // Создаем поток токенов на основе лексера
@@ -41,6 +50,10 @@ namespace CompilerConsole {
                 pars.Serialize();
                 Generator generator = new Generator();
                 generator.Generate(pars);
+                Console.WriteLine("Генерация IL кода успешно завершена");
+                fileStream?.Close();
+                reader?.Close();
+
             }
             catch (Exception e) {
                 Console.WriteLine();

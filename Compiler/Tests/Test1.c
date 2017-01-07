@@ -38,9 +38,9 @@ void main() {
 }
 
 
-void ptArr(int[] a, int arrLength) {
+void printArr(int[] a, int arrLength) {
 	for (int i = 0; i < arrLength; i++) {
-		printi(a[i]);
+		print(a[i]);
 	}
 }
 
@@ -66,12 +66,12 @@ void main() {
 	for (int i = 0; i <length; i++) {
 		a[i] = length-i;
 	}
-	prints("Input:");
-	ptArr(a, length);
-	prints("");
+	print("Input:");
+	printArr(a, length);
+	print();
 	sort(a, length);
-	prints("Output:");
-	ptArr(a, length);
+	print("Output:");
+	printArr(a, length);
 	read();
 }
 
@@ -87,5 +87,19 @@ void main() {
 	a[1] = 5;
 	b = a;
 	printi(b[1]);
+}
+
+int i;
+void main() {
+	while (i < 10) {
+		print(i);
+		i++;
+	}
+	i = 0;
+	do {
+		print(i);
+		i++;
+	} while (i < 10);
+	read();
 }
 

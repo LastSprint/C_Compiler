@@ -32,6 +32,10 @@ namespace CompilerConsole.Parser {
         public const string WriteMethodName = "print";
         public const string ReadMethodName = "read";
         public const string ReadFile = "fileRead";
+        public const string WriteFile = "fileWrite";
+        public const string ConvertToString = "toString";
+        public const string Write = "write";
+        public const string Concate = "concate";
         #endregion
 
 
@@ -89,13 +93,50 @@ namespace CompilerConsole.Parser {
         }
 
         private void InitBaseFunction() {
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "i", Type.Void,new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "c", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "b", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "f",Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName + "s", Type.Void, new Body(), new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(ReadFile, Type.VarString, new Body(), new List<VariableNode>() { new StructVariableNode("var", Type.VarString) }, MethodType.Libr));
-            this.MainBody.Nodes.Add(new MethodNode(ReadMethodName, Type.VarString, new Body(),new List<VariableNode>(), MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarFloat)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(ReadFile, Type.VarString, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteMethodName, Type.VarString, new Body(),
+              new List<VariableNode>(), MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(ReadMethodName, Type.VarString, new Body(), new List<VariableNode>(),
+                MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(WriteFile, Type.VarString, new Body(),
+                new List<VariableNode>() {
+                    new StructVariableNode("path", Type.VarString),
+                    new StructVariableNode("content", Type.VarString)
+                },
+                MethodType.Libr));
+
+            this.MainBody.Nodes.Add(new MethodNode(Concate, Type.VarString, new Body(),
+                new List<VariableNode>() {
+                    new StructVariableNode("path", Type.VarString),
+                    new StructVariableNode("content", Type.VarString)
+                },
+                MethodType.Libr));
+
+            this.MainBody.Nodes.Add(new MethodNode(ConvertToString, Type.VarString, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}
+                , MethodType.Libr));
+
+            this.MainBody.Nodes.Add(new MethodNode(Write, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarInt)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(Write, Type.Void, new Body(), new List<VariableNode>(),
+                MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(Write, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarChar)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(Write, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarBool)}, MethodType.Libr));
+            this.MainBody.Nodes.Add(new MethodNode(Write, Type.Void, new Body(),
+                new List<VariableNode>() {new StructVariableNode("var", Type.VarString)}, MethodType.Libr));
         }
 
         private bool IsType(string text) {

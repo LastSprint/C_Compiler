@@ -1,0 +1,1 @@
+void [mscorlib]System.Console::Write({type})
