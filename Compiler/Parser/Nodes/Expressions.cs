@@ -69,6 +69,7 @@ namespace CompilerConsole.Parser.Nodes {
                     type = type || this.DataType == Type.VarChar;
                     type = type || this.DataType == Type.VarFloat;
                     type = type || this.DataType == Type.VarInt;
+                    type = type || this.DataType == Type.VarString;
                     if (!type) {
                         this.DataType = Type.Error;
                     }
@@ -134,8 +135,7 @@ namespace CompilerConsole.Parser.Nodes {
                     break;
                 }
                 case ExprToken.Mult: {
-                    bool type = this.DataType == Type.VarChar;
-                    type = type || this.DataType == Type.VarFloat;
+                    bool type = this.DataType == Type.VarFloat;
                     type = type || this.DataType == Type.VarInt;
                     if (!type) {
                         this.DataType = Type.Error;
@@ -143,8 +143,7 @@ namespace CompilerConsole.Parser.Nodes {
                     break;
                 }
                 case ExprToken.Div: {
-                    bool type = this.DataType == Type.VarChar;
-                    type = type || this.DataType == Type.VarFloat;
+                    bool type = this.DataType == Type.VarFloat;
                     type = type || this.DataType == Type.VarInt;
                     if (!type) {
                         this.DataType = Type.Error;

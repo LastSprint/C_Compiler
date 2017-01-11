@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:50:56 Lang2.g 2017-01-03 20:55:00
+// $ANTLR 3.3 Nov 30, 2010 12:50:56 Lang2.g 2017-01-11 01:58:19
 
 // The variable 'variable' is assigned but its value is never used.
 #pragma warning disable 219
@@ -296,7 +296,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: type, mathExpr, ID
+			// elements: ID, type, mathExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -422,7 +422,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: mathExpr, ID
+			// elements: ID, mathExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -893,7 +893,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: ELSE, bodyExpr
+			// elements: bodyExpr, ELSE
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1070,7 +1070,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: IF, bodyExpr, mathExpr, elseExpr
+			// elements: mathExpr, elseExpr, IF, bodyExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1506,7 +1506,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: iterFor, varFor, FOR, mathExpr, bodyExpr
+			// elements: bodyExpr, FOR, mathExpr, varFor, iterFor
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1656,7 +1656,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: bodyExpr, mathExpr, WHILE
+			// elements: WHILE, bodyExpr, mathExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -1816,7 +1816,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: mathExpr, DO, bodyExpr
+			// elements: bodyExpr, mathExpr, DO
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3461,7 +3461,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: ID, methArgs
+			// elements: methArgs, ID
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -3682,7 +3682,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: type, ID
+				// elements: ID, type
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -4287,7 +4287,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: methDeclArgsW, methRetType, bodyExpr, ID
+			// elements: bodyExpr, ID, methRetType, methDeclArgsW
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4524,7 +4524,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 			{
 			// AST REWRITE
-			// elements: mathExpr, ASS
+			// elements: ASS, mathExpr
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -4724,7 +4724,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: ID, assW, type
+				// elements: type, assW, ID
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 
@@ -4791,7 +4791,7 @@ public partial class Lang2Parser : Antlr.Runtime.Parser
 
 				{
 				// AST REWRITE
-				// elements: moreVarDecl, type
+				// elements: type, moreVarDecl
 				// token labels: 
 				// rule labels: retval
 				// token list labels: 

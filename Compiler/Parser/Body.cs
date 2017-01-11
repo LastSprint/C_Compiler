@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 using System.Xml.Schema;
@@ -6,7 +7,7 @@ using System.Xml.Serialization;
 using CompilerConsole.Parser.Nodes;
 
 namespace CompilerConsole.Parser {
-    public class Body : IXmlSerializable {
+    public class Body : IXmlSerializable, IEnumerable<Nodes.Node> {
         public List<Node> Nodes { get; set; }
 
         public Body WrapBody { get; set; }
@@ -62,6 +63,13 @@ namespace CompilerConsole.Parser {
             return FindNodeByName<T>(name, body.WrapBody);
         }
 
+        public IEnumerator<Node> GetEnumerator() {
+            return this.Nodes.GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator() {
+            return this.GetEnumerator();
+        }
     }
 
 }

@@ -488,12 +488,17 @@ namespace CompilerConsole.CILGenerator {
 
 
                 var elseBody = "";
-                goTo += this.Offset + this.PreLineNumber + this.Counter + Environment.NewLine;
+                goTo += this.Offset + this.PreLineNumber;
                 if (ifNode.ElseBody != null) {
                     body += this.LineNumber + this.Offset + "br" + this.Offset;
+                    goTo += this.Counter + Environment.NewLine;
                     elseBody = this.ParseBody(ifNode.ElseBody);
                     body += this.PreLineNumber + this.Counter;
                 }
+                else {
+                    goTo += this.Counter + Environment.NewLine;
+                }
+                
                 body += Environment.NewLine;
                 return cond + goTo + body + elseBody;
             }
@@ -564,6 +569,11 @@ namespace CompilerConsole.CILGenerator {
                 case ExprToken.IsEqual: {
                     var exprl = this.ExpressionToIL(node.LeftNode) + Environment.NewLine;
                     var exprr = this.ExpressionToIL(node.RightNode) + Environment.NewLine;
+                    var temp = "";
+                    if (node.LeftNode.DataType == Type.VarString) {
+                        temp = this.LineNumber + "call bool [mscorlib]System.String::op_Equality(string,string)" + Environment.NewLine;
+                        return exprl + exprr + temp;
+                    }
                     var op = this.LineNumber + this._operationDictionary[ILOperation.Neg];
                     return exprl + exprr + op;
                 }

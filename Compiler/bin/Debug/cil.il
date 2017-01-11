@@ -27,8 +27,7 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
-.field private static int32 length
-.field private static int32[] a
+.field private static int32 qwe
   .method public hidebysig static void  printArr(	int32[] a,
 	int32 arrLength
 ) cil managed
@@ -118,47 +117,51 @@ IL_50:	ret
   {
     .entrypoint
     .language '{3F5162F8-07C6-11D3-9053-00C04FA302A1}', '{994B45C4-E6E9-11D2-903F-00C04FA302A1}', '{5A869D0B-6611-11D3-BD2A-0000F80849BD}'
-.locals init (	 [0] int32 i
+.locals init (	 [0] int32 length,
+	 [1] int32[] a,
+	 [2] int32 i
 )
-IL_0:	ldc.i4	5
-IL_1:	newarr [mscorlib]System.Int32
-IL_2:	stsfld	int32[] Program.Program::a	
 
-IL_3:	ldc.i4	5
-IL_4:	stsfld	int32 Program.Program::length
-IL_5:	ldc.i4	0
-IL_6:	stloc	0
-IL_7:	br	IL_21
-IL_11:	ldsfld	int32[] Program.Program::a
-IL_12:	ldloc	0
-IL_13:	ldsfld	int32 Program.Program::length
-IL_14:	ldloc	0
-IL_15:	sub
-IL_16:	stelem.i4
-IL_17:	ldloc	0
-IL_18:	ldc.i4	1
-IL_19:	add
-IL_20:	stloc	0
-IL_21:	ldloc	0
-IL_22:	ldsfld	int32 Program.Program::length
-IL_23:	clt
-IL_24:		brtrue	IL_11
-IL_25:	ldstr	"Input:"
-IL_26:	call	void [mscorlib]System.Console::WriteLine(string)
-IL_27:	ldsfld	int32[] Program.Program::a
-IL_28:	ldsfld	int32 Program.Program::length
-IL_29:	call	void Program.Program::printArr(int32[], int32)
-IL_30:	call	void [mscorlib]System.Console::WriteLine()
-IL_31:	ldsfld	int32[] Program.Program::a
-IL_32:	ldsfld	int32 Program.Program::length
-IL_33:	call	void Program.Program::sort(int32[], int32)
-IL_34:	ldstr	"Output:"
-IL_35:	call	void [mscorlib]System.Console::WriteLine(string)
-IL_36:	ldsfld	int32[] Program.Program::a
-IL_37:	ldsfld	int32 Program.Program::length
-IL_38:	call	void Program.Program::printArr(int32[], int32)
-IL_39:	call	string [mscorlib]System.Console::ReadLine()
-IL_40:	ret
+IL_0:	ldsfld	int32 Program.Program::qwe
+IL_1:	stloc	0
+IL_2:	ldc.i4	5
+IL_3:	stloc	0
+IL_4:	ldloc	0
+IL_5:	newarr [mscorlib]System.Int32
+IL_6:	stloc	1
+IL_7:	ldc.i4	0
+IL_8:	stloc	2
+IL_9:	br	IL_23
+IL_13:	ldloc	1
+IL_14:	ldloc	2
+IL_15:	ldloc	0
+IL_16:	ldloc	2
+IL_17:	sub
+IL_18:	stelem.i4
+IL_19:	ldloc	2
+IL_20:	ldc.i4	1
+IL_21:	add
+IL_22:	stloc	2
+IL_23:	ldloc	2
+IL_24:	ldloc	0
+IL_25:	clt
+IL_26:		brtrue	IL_13
+IL_27:	ldstr	"Input:"
+IL_28:	call	void [mscorlib]System.Console::WriteLine(string)
+IL_29:	ldloc	1
+IL_30:	ldloc	0
+IL_31:	call	void Program.Program::printArr(int32[], int32)
+IL_32:	call	void [mscorlib]System.Console::WriteLine()
+IL_33:	ldloc	1
+IL_34:	ldloc	0
+IL_35:	call	void Program.Program::sort(int32[], int32)
+IL_36:	ldstr	"Output:"
+IL_37:	call	void [mscorlib]System.Console::WriteLine(string)
+IL_38:	ldloc	1
+IL_39:	ldloc	0
+IL_40:	call	void Program.Program::printArr(int32[], int32)
+IL_41:	call	string [mscorlib]System.Console::ReadLine()
+IL_42:	ret
 
 }
 

@@ -73,6 +73,7 @@
     <Compile Include="Parser\Nodes\ReturnNode.cs" />
     <Compile Include="Parser\Nodes\Variable.cs" />
     <Compile Include="Parser\Nodes\VariableNode.cs" />
+    <Compile Include="Parser\Optimizator.cs" />
     <Compile Include="Parser\Parser.cs" />
     <Compile Include="Parser\ParserMethods.cs" />
     <Compile Include="Program.cs" />

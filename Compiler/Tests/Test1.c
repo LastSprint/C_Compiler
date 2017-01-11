@@ -37,7 +37,7 @@ void main() {
 	read();
 }
 
-
+int qwe;
 void printArr(int[] a, int arrLength) {
 	for (int i = 0; i < arrLength; i++) {
 		print(a[i]);
@@ -61,6 +61,7 @@ void sort(int[] mas, int size){
 }
 
 void main() {
+	int h = qwe;
 	int length = 5;
 	int a[length];
 	for (int i = 0; i <length; i++) {
@@ -100,6 +101,35 @@ void main() {
 		print(i);
 		i++;
 	} while (i < 10);
+	read();
+}
+
+
+void main() {
+	string t = "asd";
+	string tt = "asd";
+	string ttt = "dsa";
+
+	if (tt == t) {
+		print(t);
+	}
+	
+	if (ttt == tt) {
+		print(tt);
+	}
+	else {
+		print(ttt);
+	}
+	read();
+}
+
+void test(int a, int b) {
+	print(a);
+	print(b);
+}
+
+void main() {
+	test(10 + 10 - 2 * 4, 99 - 24 + 1);
 	read();
 }
 

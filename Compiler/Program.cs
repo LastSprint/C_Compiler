@@ -5,6 +5,7 @@ using System.Security.Policy;
 using Antlr.Runtime;
 using Antlr.Runtime.Tree;
 using CompilerConsole.CILGenerator;
+using CompilerConsole.Parser;
 using Lang2;
 
 namespace CompilerConsole {
@@ -45,6 +46,17 @@ namespace CompilerConsole {
                 DrawingTreeLib.Views.DrawingTreeLib.Initialize(tree);
                 Parser.Parser pars = new Parser.Parser(tree);
                 pars.Pars();
+                pars.NumerateVariable();
+                pars.MakeGlobalFields();
+                try {
+                    new Optimizator(pars.MainBody).Optimize();
+                }
+                catch (Exception) {
+
+                    Console.WriteLine("Произошла ошибка при оптимизации. Изменения отменены");
+                    pars = new Parser.Parser(tree);
+                    pars.Pars();
+                }
                 pars.NumerateVariable();
                 pars.MakeGlobalFields();
                 pars.Serialize();

@@ -1,0 +1,12 @@
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\TestOptimizator.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\TestOptimizator.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\CompilerConsole.exe
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\Antlr3.Runtime.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\DrawingTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\AstTreeLib.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\CompilerConsole.pdb
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\obj\Debug\TestOptimizator.csprojResolveAssemblyReference.cache
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\obj\Debug\TestOptimizator.dll
+C:\Users\ianoo\Source\Repos\C_Compiler\TestOptimizator\obj\Debug\TestOptimizator.pdb

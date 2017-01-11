@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
+    <VariableNode IsMethodArg="False" Name="qwe" DataType="VarInt" />
     <MethodNode MethodType="Cust" Name="printArr" DataType="Void">
       <Body>
         <ForLoop>
@@ -240,14 +241,16 @@
         <VariableNode IsMethodArg="True" Name="size" DataType="VarInt" />
       </Args>
     </MethodNode>
-    <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
-    <ArrayNode Name="a" DataType="ArrInt">
-      <Length>
-        <Literal Name="lit" DataType="VarInt" Value="5" />
-      </Length>
-    </ArrayNode>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode IsMethodArg="False" Name="h" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <VariableNode IsMethodArg="False" Name="qwe" DataType="VarInt" />
+          </RightNode>
+        </Expression>
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
             <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
@@ -256,6 +259,12 @@
             <Literal Name="lit" DataType="VarInt" Value="5" />
           </RightNode>
         </Expression>
+        <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length>
+            <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+          </Length>
+        </ArrayNode>
         <ForLoop>
           <VarNode>
             <Expression Expr="Ass" Name="expr" DataType="VarInt">
@@ -328,7 +337,7 @@
           <SendArgs>
             <ArrayNode Name="a" DataType="ArrInt">
               <Length>
-                <Literal Name="lit" DataType="VarInt" Value="5" />
+                <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
               </Length>
             </ArrayNode>
             <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
@@ -341,7 +350,7 @@
           <SendArgs>
             <ArrayNode Name="a" DataType="ArrInt">
               <Length>
-                <Literal Name="lit" DataType="VarInt" Value="5" />
+                <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
               </Length>
             </ArrayNode>
             <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
@@ -356,7 +365,7 @@
           <SendArgs>
             <ArrayNode Name="a" DataType="ArrInt">
               <Length>
-                <Literal Name="lit" DataType="VarInt" Value="5" />
+                <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
               </Length>
             </ArrayNode>
             <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />

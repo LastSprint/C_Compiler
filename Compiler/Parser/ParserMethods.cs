@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Text.RegularExpressions;
 using Antlr.Runtime.Tree;
 using CompilerConsole.Parser.Exceptions;
@@ -161,6 +162,7 @@ namespace CompilerConsole.Parser {
                     throw new NodeNotfoundException(
                         $"Переменной с именем {tree.Text} не существует в текущем контексте ");
                 }
+                variable.IsUsed = true;
                 return variable;
             }
 
@@ -180,6 +182,7 @@ namespace CompilerConsole.Parser {
 
                 if (left is ArrCall) {
                     (left as ArrCall).Assign = right;
+                    (left as ArrCall).Arr.IsUsed = true;
                 }
 
                 ExprToken t = this.GetExpr(tree.Text);
@@ -208,6 +211,7 @@ namespace CompilerConsole.Parser {
 
             ArrCall res = new ArrCall(arrNode);
             res.Index = this.ParsExpr(callindex, body);
+            res.Arr.IsUsed = true;
             return res;
         }
 
