@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <Body>
   <Body>
-    <VariableNode IsMethodArg="False" Name="qwe" DataType="VarInt" />
     <MethodNode MethodType="Cust" Name="printArr" DataType="Void">
       <Body>
         <ForLoop>
@@ -68,9 +67,18 @@
         <VariableNode IsMethodArg="True" Name="arrLength" DataType="VarInt" />
       </Args>
     </MethodNode>
-    <MethodNode MethodType="Cust" Name="sort" DataType="Void">
+    <MethodNode MethodType="Cust" Name="max" DataType="VarInt">
       <Body>
-        <VariableNode IsMethodArg="False" Name="temp" DataType="VarInt" />
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode IsMethodArg="False" Name="max" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="-100000" />
+          </RightNode>
+        </Expression>
+        <VariableNode IsMethodArg="False" Name="max" DataType="VarInt" />
+        <VariableNode IsMethodArg="False" Name="memMax" DataType="VarInt" />
         <ForLoop>
           <VarNode>
             <Expression Expr="Ass" Name="expr" DataType="VarInt">
@@ -88,7 +96,7 @@
                 <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
               </LeftNode>
               <RightNode>
-                <VariableNode IsMethodArg="True" Name="size" DataType="VarInt" />
+                <VariableNode IsMethodArg="True" Name="arrLength" DataType="VarInt" />
               </RightNode>
             </Expression>
           </CondNode>
@@ -112,145 +120,173 @@
           <Body>
             <Body>
               <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
-              <ForLoop>
-                <VarNode>
-                  <Expression Expr="Ass" Name="expr" DataType="VarInt">
+              <IfNode>
+                <Condition>
+                  <Expression Expr="IsMore" Name="expr" DataType="VarBool">
                     <LeftNode>
-                      <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                    </LeftNode>
-                    <RightNode>
-                      <Expression Expr="Add" Name="expr" DataType="VarInt">
-                        <LeftNode>
+                      <ArrCallNode DataType="VarInt" Arr="a">
+                        <Index>
                           <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
-                        </LeftNode>
-                        <RightNode>
-                          <Literal Name="lit" DataType="VarInt" Value="1" />
-                        </RightNode>
-                      </Expression>
-                    </RightNode>
-                  </Expression>
-                </VarNode>
-                <CondNode>
-                  <Expression Expr="IsLess" Name="expr" DataType="VarBool">
-                    <LeftNode>
-                      <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
+                        </Index>
+                      </ArrCallNode>
                     </LeftNode>
                     <RightNode>
-                      <VariableNode IsMethodArg="True" Name="size" DataType="VarInt" />
+                      <VariableNode IsMethodArg="False" Name="max" DataType="VarInt" />
                     </RightNode>
                   </Expression>
-                </CondNode>
-                <Increment>
-                  <Expression Expr="Ass" Name="expr" DataType="VarInt">
-                    <LeftNode>
-                      <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                    </LeftNode>
-                    <RightNode>
-                      <Expression Expr="Add" Name="expr" DataType="VarInt">
-                        <LeftNode>
-                          <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                        </LeftNode>
-                        <RightNode>
-                          <Literal Name="lit" DataType="VarInt" Value="1" />
-                        </RightNode>
-                      </Expression>
-                    </RightNode>
-                  </Expression>
-                </Increment>
+                </Condition>
                 <Body>
                   <Body>
-                    <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                    <IfNode>
-                      <Condition>
-                        <Expression Expr="IsMore" Name="expr" DataType="VarBool">
-                          <LeftNode>
-                            <ArrCallNode DataType="VarInt" Arr="mas">
-                              <Index>
-                                <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
-                              </Index>
-                            </ArrCallNode>
-                          </LeftNode>
-                          <RightNode>
-                            <ArrCallNode DataType="VarInt" Arr="mas">
-                              <Index>
-                                <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                              </Index>
-                            </ArrCallNode>
-                          </RightNode>
-                        </Expression>
-                      </Condition>
-                      <Body>
-                        <Body>
-                          <Expression Expr="Ass" Name="expr" DataType="VarInt">
-                            <LeftNode>
-                              <VariableNode IsMethodArg="False" Name="temp" DataType="VarInt" />
-                            </LeftNode>
-                            <RightNode>
-                              <ArrCallNode DataType="VarInt" Arr="mas">
-                                <Index>
-                                  <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
-                                </Index>
-                              </ArrCallNode>
-                            </RightNode>
-                          </Expression>
-                          <Expression Expr="Ass" Name="expr" DataType="VarInt">
-                            <LeftNode>
-                              <ArrCallNode DataType="VarInt" Arr="mas">
-                                <Index>
-                                  <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
-                                </Index>
-                              </ArrCallNode>
-                            </LeftNode>
-                            <RightNode>
-                              <ArrCallNode DataType="VarInt" Arr="mas">
-                                <Index>
-                                  <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                                </Index>
-                              </ArrCallNode>
-                            </RightNode>
-                          </Expression>
-                          <Expression Expr="Ass" Name="expr" DataType="VarInt">
-                            <LeftNode>
-                              <ArrCallNode DataType="VarInt" Arr="mas">
-                                <Index>
-                                  <VariableNode IsMethodArg="False" Name="j" DataType="VarInt" />
-                                </Index>
-                              </ArrCallNode>
-                            </LeftNode>
-                            <RightNode>
-                              <VariableNode IsMethodArg="False" Name="temp" DataType="VarInt" />
-                            </RightNode>
-                          </Expression>
-                        </Body>
-                      </Body>
-                    </IfNode>
+                    <Expression Expr="Ass" Name="expr" DataType="VarInt">
+                      <LeftNode>
+                        <VariableNode IsMethodArg="False" Name="memMax" DataType="VarInt" />
+                      </LeftNode>
+                      <RightNode>
+                        <ArrCallNode DataType="VarInt" Arr="a">
+                          <Index>
+                            <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+                          </Index>
+                        </ArrCallNode>
+                      </RightNode>
+                    </Expression>
+                    <Expression Expr="Ass" Name="expr" DataType="VarInt">
+                      <LeftNode>
+                        <VariableNode IsMethodArg="False" Name="max" DataType="VarInt" />
+                      </LeftNode>
+                      <RightNode>
+                        <VariableNode IsMethodArg="False" Name="memMax" DataType="VarInt" />
+                      </RightNode>
+                    </Expression>
                   </Body>
                 </Body>
-              </ForLoop>
+              </IfNode>
             </Body>
           </Body>
         </ForLoop>
-        <ReturnNode Name="return" DataType="Void">
-          <ReturnedValue />
+        <ReturnNode Name="return" DataType="VarInt">
+          <ReturnedValue>
+            <VariableNode IsMethodArg="False" Name="memMax" DataType="VarInt" />
+          </ReturnedValue>
         </ReturnNode>
       </Body>
       <Args>
-        <ArrayNode Name="mas" DataType="ArrInt">
+        <ArrayNode Name="a" DataType="ArrInt">
           <Length />
         </ArrayNode>
-        <VariableNode IsMethodArg="True" Name="size" DataType="VarInt" />
+        <VariableNode IsMethodArg="True" Name="arrLength" DataType="VarInt" />
+      </Args>
+    </MethodNode>
+    <MethodNode MethodType="Cust" Name="min" DataType="VarInt">
+      <Body>
+        <Expression Expr="Ass" Name="expr" DataType="VarInt">
+          <LeftNode>
+            <VariableNode IsMethodArg="False" Name="min" DataType="VarInt" />
+          </LeftNode>
+          <RightNode>
+            <Literal Name="lit" DataType="VarInt" Value="100000" />
+          </RightNode>
+        </Expression>
+        <VariableNode IsMethodArg="False" Name="min" DataType="VarInt" />
+        <VariableNode IsMethodArg="False" Name="memMin" DataType="VarInt" />
+        <ForLoop>
+          <VarNode>
+            <Expression Expr="Ass" Name="expr" DataType="VarInt">
+              <LeftNode>
+                <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+              </LeftNode>
+              <RightNode>
+                <Literal Name="lit" DataType="VarInt" Value="0" />
+              </RightNode>
+            </Expression>
+          </VarNode>
+          <CondNode>
+            <Expression Expr="IsLess" Name="expr" DataType="VarBool">
+              <LeftNode>
+                <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+              </LeftNode>
+              <RightNode>
+                <VariableNode IsMethodArg="True" Name="arrLength" DataType="VarInt" />
+              </RightNode>
+            </Expression>
+          </CondNode>
+          <Increment>
+            <Expression Expr="Ass" Name="expr" DataType="VarInt">
+              <LeftNode>
+                <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+              </LeftNode>
+              <RightNode>
+                <Expression Expr="Add" Name="expr" DataType="VarInt">
+                  <LeftNode>
+                    <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+                  </LeftNode>
+                  <RightNode>
+                    <Literal Name="lit" DataType="VarInt" Value="1" />
+                  </RightNode>
+                </Expression>
+              </RightNode>
+            </Expression>
+          </Increment>
+          <Body>
+            <Body>
+              <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+              <IfNode>
+                <Condition>
+                  <Expression Expr="IsLess" Name="expr" DataType="VarBool">
+                    <LeftNode>
+                      <ArrCallNode DataType="VarInt" Arr="a">
+                        <Index>
+                          <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+                        </Index>
+                      </ArrCallNode>
+                    </LeftNode>
+                    <RightNode>
+                      <VariableNode IsMethodArg="False" Name="min" DataType="VarInt" />
+                    </RightNode>
+                  </Expression>
+                </Condition>
+                <Body>
+                  <Body>
+                    <Expression Expr="Ass" Name="expr" DataType="VarInt">
+                      <LeftNode>
+                        <VariableNode IsMethodArg="False" Name="memMin" DataType="VarInt" />
+                      </LeftNode>
+                      <RightNode>
+                        <ArrCallNode DataType="VarInt" Arr="a">
+                          <Index>
+                            <VariableNode IsMethodArg="False" Name="i" DataType="VarInt" />
+                          </Index>
+                        </ArrCallNode>
+                      </RightNode>
+                    </Expression>
+                    <Expression Expr="Ass" Name="expr" DataType="VarInt">
+                      <LeftNode>
+                        <VariableNode IsMethodArg="False" Name="min" DataType="VarInt" />
+                      </LeftNode>
+                      <RightNode>
+                        <VariableNode IsMethodArg="False" Name="memMin" DataType="VarInt" />
+                      </RightNode>
+                    </Expression>
+                  </Body>
+                </Body>
+              </IfNode>
+            </Body>
+          </Body>
+        </ForLoop>
+        <ReturnNode Name="return" DataType="VarInt">
+          <ReturnedValue>
+            <VariableNode IsMethodArg="False" Name="memMin" DataType="VarInt" />
+          </ReturnedValue>
+        </ReturnNode>
+      </Body>
+      <Args>
+        <ArrayNode Name="a" DataType="ArrInt">
+          <Length />
+        </ArrayNode>
+        <VariableNode IsMethodArg="True" Name="arrLength" DataType="VarInt" />
       </Args>
     </MethodNode>
     <MethodNode MethodType="Cust" Name="main" DataType="Void">
       <Body>
-        <Expression Expr="Ass" Name="expr" DataType="VarInt">
-          <LeftNode>
-            <VariableNode IsMethodArg="False" Name="h" DataType="VarInt" />
-          </LeftNode>
-          <RightNode>
-            <VariableNode IsMethodArg="False" Name="qwe" DataType="VarInt" />
-          </RightNode>
-        </Expression>
         <Expression Expr="Ass" Name="expr" DataType="VarInt">
           <LeftNode>
             <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
@@ -346,29 +382,50 @@
         <MethCallNode DataType="VarString" Method="print">
           <SendArgs />
         </MethCallNode>
-        <MethCallNode DataType="Void" Method="sort">
+        <MethCallNode DataType="Void" Method="print">
           <SendArgs>
-            <ArrayNode Name="a" DataType="ArrInt">
-              <Length>
-                <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
-              </Length>
-            </ArrayNode>
-            <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+            <MethCallNode DataType="VarString" Method="concate">
+              <SendArgs>
+                <Literal Name="lit" DataType="VarString" Value="&quot;Min: &quot;" />
+                <MethCallNode DataType="VarString" Method="toString">
+                  <SendArgs>
+                    <MethCallNode DataType="VarInt" Method="min">
+                      <SendArgs>
+                        <ArrayNode Name="a" DataType="ArrInt">
+                          <Length>
+                            <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+                          </Length>
+                        </ArrayNode>
+                        <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+                      </SendArgs>
+                    </MethCallNode>
+                  </SendArgs>
+                </MethCallNode>
+              </SendArgs>
+            </MethCallNode>
           </SendArgs>
         </MethCallNode>
         <MethCallNode DataType="Void" Method="print">
           <SendArgs>
-            <Literal Name="lit" DataType="VarString" Value="&quot;Output:&quot;" />
-          </SendArgs>
-        </MethCallNode>
-        <MethCallNode DataType="Void" Method="printArr">
-          <SendArgs>
-            <ArrayNode Name="a" DataType="ArrInt">
-              <Length>
-                <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
-              </Length>
-            </ArrayNode>
-            <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+            <MethCallNode DataType="VarString" Method="concate">
+              <SendArgs>
+                <Literal Name="lit" DataType="VarString" Value="&quot;Max: &quot;" />
+                <MethCallNode DataType="VarString" Method="toString">
+                  <SendArgs>
+                    <MethCallNode DataType="VarInt" Method="max">
+                      <SendArgs>
+                        <ArrayNode Name="a" DataType="ArrInt">
+                          <Length>
+                            <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+                          </Length>
+                        </ArrayNode>
+                        <VariableNode IsMethodArg="False" Name="length" DataType="VarInt" />
+                      </SendArgs>
+                    </MethCallNode>
+                  </SendArgs>
+                </MethCallNode>
+              </SendArgs>
+            </MethCallNode>
           </SendArgs>
         </MethCallNode>
         <MethCallNode DataType="VarString" Method="read">

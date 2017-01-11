@@ -27,7 +27,6 @@
 .class public auto ansi beforefieldinit Program.Program
        extends [mscorlib]System.Object
 {
-.field private static int32 qwe
   .method public hidebysig static void  printArr(	int32[] a,
 	int32 arrLength
 ) cil managed
@@ -53,64 +52,84 @@ IL_14:		brtrue	IL_3
 IL_15:	ret
 
 }
-  .method public hidebysig static void  sort(	int32[] mas,
-	int32 size
+  .method public hidebysig static int32  max(	int32[] a,
+	int32 arrLength
 ) cil managed
   {
-.locals init (	 [0] int32 temp,
-	 [1] int32 i,
-	 [2] int32 j
+.locals init (	 [0] int32 max,
+	 [1] int32 memMax,
+	 [2] int32 i
 )
 
-IL_0:	ldc.i4	0
-IL_1:	stloc	1
-IL_2:	br	IL_46
-IL_3:	ldloc	1
-IL_4:	ldc.i4	1
-IL_5:	add
-IL_6:	stloc	2
-IL_7:	br	IL_38
-IL_8:	ldarg	0
-IL_9:	ldloc	1
-IL_10:	ldelem.i4
+IL_0:	ldc.i4	-100000
+IL_1:	stloc	0
+IL_2:	ldc.i4	0
+IL_3:	stloc	2
+IL_4:	br	IL_21
+IL_5:	ldarg	0
+IL_6:	ldloc	2
+IL_7:	ldelem.i4
+IL_8:	ldloc	0
+IL_9:	cgt
+IL_10:		brfalse	IL_17
 IL_11:	ldarg	0
 IL_12:	ldloc	2
 IL_13:	ldelem.i4
-IL_14:	cgt
-IL_15:		brfalse	IL_34
-IL_16:	ldarg	0
-IL_17:	ldloc	1
-IL_18:	ldelem.i4
-IL_19:	stloc	0
-IL_23:	ldarg	0
-IL_24:	ldloc	1
-IL_25:	ldarg	0
-IL_26:	ldloc	2
-IL_27:	ldelem.i4
-IL_28:	stelem.i4
-IL_30:	ldarg	0
-IL_31:	ldloc	2
-IL_32:	ldloc	0
-IL_33:	stelem.i4
+IL_14:	stloc	1
+IL_15:	ldloc	1
+IL_16:	stloc	0
 
 
-IL_34:	ldloc	2
-IL_35:	ldc.i4	1
-IL_36:	add
-IL_37:	stloc	2
-IL_38:	ldloc	2
-IL_39:	ldarg	1
-IL_40:	clt
-IL_41:		brtrue	IL_8
-IL_42:	ldloc	1
-IL_43:	ldc.i4	1
-IL_44:	add
-IL_45:	stloc	1
-IL_46:	ldloc	1
-IL_47:	ldarg	1
-IL_48:	clt
-IL_49:		brtrue	IL_3
-IL_50:	ret
+IL_17:	ldloc	2
+IL_18:	ldc.i4	1
+IL_19:	add
+IL_20:	stloc	2
+IL_21:	ldloc	2
+IL_22:	ldarg	1
+IL_23:	clt
+IL_24:		brtrue	IL_5
+IL_25:	ldloc	1
+IL_26:	ret
+
+}
+  .method public hidebysig static int32  min(	int32[] a,
+	int32 arrLength
+) cil managed
+  {
+.locals init (	 [0] int32 min,
+	 [1] int32 memMin,
+	 [2] int32 i
+)
+
+IL_0:	ldc.i4	100000
+IL_1:	stloc	0
+IL_2:	ldc.i4	0
+IL_3:	stloc	2
+IL_4:	br	IL_21
+IL_5:	ldarg	0
+IL_6:	ldloc	2
+IL_7:	ldelem.i4
+IL_8:	ldloc	0
+IL_9:	clt
+IL_10:		brfalse	IL_17
+IL_11:	ldarg	0
+IL_12:	ldloc	2
+IL_13:	ldelem.i4
+IL_14:	stloc	1
+IL_15:	ldloc	1
+IL_16:	stloc	0
+
+
+IL_17:	ldloc	2
+IL_18:	ldc.i4	1
+IL_19:	add
+IL_20:	stloc	2
+IL_21:	ldloc	2
+IL_22:	ldarg	1
+IL_23:	clt
+IL_24:		brtrue	IL_5
+IL_25:	ldloc	1
+IL_26:	ret
 
 }
   .method public hidebysig static void  Main() cil managed
@@ -122,46 +141,50 @@ IL_50:	ret
 	 [2] int32 i
 )
 
-IL_0:	ldsfld	int32 Program.Program::qwe
+IL_0:	ldc.i4	5
 IL_1:	stloc	0
-IL_2:	ldc.i4	5
-IL_3:	stloc	0
-IL_4:	ldloc	0
-IL_5:	newarr [mscorlib]System.Int32
-IL_6:	stloc	1
-IL_7:	ldc.i4	0
-IL_8:	stloc	2
-IL_9:	br	IL_23
-IL_13:	ldloc	1
+IL_2:	ldloc	0
+IL_3:	newarr [mscorlib]System.Int32
+IL_4:	stloc	1
+IL_5:	ldc.i4	0
+IL_6:	stloc	2
+IL_7:	br	IL_21
+IL_11:	ldloc	1
+IL_12:	ldloc	2
+IL_13:	ldloc	0
 IL_14:	ldloc	2
-IL_15:	ldloc	0
-IL_16:	ldloc	2
-IL_17:	sub
-IL_18:	stelem.i4
-IL_19:	ldloc	2
-IL_20:	ldc.i4	1
-IL_21:	add
-IL_22:	stloc	2
-IL_23:	ldloc	2
-IL_24:	ldloc	0
-IL_25:	clt
-IL_26:		brtrue	IL_13
-IL_27:	ldstr	"Input:"
-IL_28:	call	void [mscorlib]System.Console::WriteLine(string)
-IL_29:	ldloc	1
-IL_30:	ldloc	0
-IL_31:	call	void Program.Program::printArr(int32[], int32)
-IL_32:	call	void [mscorlib]System.Console::WriteLine()
-IL_33:	ldloc	1
-IL_34:	ldloc	0
-IL_35:	call	void Program.Program::sort(int32[], int32)
-IL_36:	ldstr	"Output:"
+IL_15:	sub
+IL_16:	stelem.i4
+IL_17:	ldloc	2
+IL_18:	ldc.i4	1
+IL_19:	add
+IL_20:	stloc	2
+IL_21:	ldloc	2
+IL_22:	ldloc	0
+IL_23:	clt
+IL_24:		brtrue	IL_11
+IL_25:	ldstr	"Input:"
+IL_26:	call	void [mscorlib]System.Console::WriteLine(string)
+IL_27:	ldloc	1
+IL_28:	ldloc	0
+IL_29:	call	void Program.Program::printArr(int32[], int32)
+IL_30:	call	void [mscorlib]System.Console::WriteLine()
+IL_31:	ldstr	"Min: "
+IL_32:	ldloc	1
+IL_33:	ldloc	0
+IL_34:	call	int32 Program.Program::min(int32[], int32)
+IL_35:	call	string [mscorlib]System.Convert::ToString(int32)
+IL_36:	call	string [mscorlib]System.String::Concat(string, string)
 IL_37:	call	void [mscorlib]System.Console::WriteLine(string)
-IL_38:	ldloc	1
-IL_39:	ldloc	0
-IL_40:	call	void Program.Program::printArr(int32[], int32)
-IL_41:	call	string [mscorlib]System.Console::ReadLine()
-IL_42:	ret
+IL_38:	ldstr	"Max: "
+IL_39:	ldloc	1
+IL_40:	ldloc	0
+IL_41:	call	int32 Program.Program::max(int32[], int32)
+IL_42:	call	string [mscorlib]System.Convert::ToString(int32)
+IL_43:	call	string [mscorlib]System.String::Concat(string, string)
+IL_44:	call	void [mscorlib]System.Console::WriteLine(string)
+IL_45:	call	string [mscorlib]System.Console::ReadLine()
+IL_46:	ret
 
 }
 

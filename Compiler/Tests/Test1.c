@@ -133,3 +133,50 @@ void main() {
 	read();
 }
 
+void printArr(int[] a, int arrLength) {
+	for (int i = 0; i < arrLength; i++) {
+		print(a[i]);
+	}
+}
+
+int max(int[]a, int arrLength) {
+	int max = 0-100000;
+	int memMax;
+	for (int i = 0; i < arrLength; i++) {
+
+		if (a[i] > max) {
+			memMax = a[i];
+			max = memMax;
+		}
+	}
+
+	return memMax;
+}
+
+int min(int[]a, int arrLength) {
+	int min = 100000;
+	int memMin;
+	for (int i = 0; i < arrLength; i++) {
+
+		if (a[i] < min) {
+			memMin = a[i];
+			min = memMin;
+		}
+	}
+
+	return memMin;
+}
+
+void main() {
+	int length = 5;
+	int a[length];
+	for (int i = 0; i <length; i++) {
+		a[i] = length - i;
+	}
+	print("Input:");
+	printArr(a, length);
+	print();
+	print(concate("Min: ", toString(min(a, length))));
+	print(concate("Max: ", toString(max(a, length))));
+	read();
+}

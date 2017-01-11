@@ -28,7 +28,6 @@ namespace CompilerConsole.Parser {
 
         public void Optimize() {
             this.RecOptimizator(this._mainBody);
-            this.DeleteUnusedMethods();
             this.DeleteUnusedVariables();
         }
 
@@ -213,53 +212,6 @@ namespace CompilerConsole.Parser {
 
         #endregion
 
-        private void DeleteUnusedMethods() {
-            List<MethodNode> methods = new List<MethodNode>();
-
-            foreach (var node in this._mainBody) {
-                if (node is MethodNode) {
-                    methods.Add(node as MethodNode);
-                }
-            }
-            List<MethodNode> toRemove = new List<MethodNode>();
-            foreach (var method in methods) {
-                var flag = false;
-                foreach (var node in this._mainBody) {
-                    if (!(node is MethodNode) || node.Name == method.Name) continue;
-                    var meth = node as MethodNode;
-                    //Проходим по телу метода и ищем вызовы методов
-                    foreach (var expr in meth) {
-                        if (!(expr is MethCall)) continue;
-
-                        var call = (MethCall) expr;
-
-                        if (call.Method.Name != method.Name) continue;
-                        flag = true;
-                        break;
-                    }
-                    if (flag) {
-                        break;
-                    }
-                }
-
-                if (flag) continue;
-
-                if (method.Name != "main" && method.Name != "Main" && method.MethodType != MethodType.Libr) {
-                    toRemove.Add(method);
-                }
-            }
-
-            StringBuilder deletedMethods = new StringBuilder($"Кол-во удаленных методов: {toRemove.Count}{Environment.NewLine}");
-
-            foreach (var node in toRemove) {
-                deletedMethods.AppendLine($"\t{node.Name}");
-                this._mainBody.Body.Nodes.Remove(node);
-            }
-
-            Console.WriteLine(deletedMethods.ToString());
-
-        }
-
         private void DeleteUnusedVariables() {
             List<RemovedElement> toRemove = new List<RemovedElement>();
 
@@ -300,6 +252,7 @@ namespace CompilerConsole.Parser {
             Console.WriteLine(strb.ToString());
 
         }
+
 
     }
 }
